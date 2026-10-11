@@ -12,6 +12,232 @@
     display:flex; flex-direction:column;
   }
 
+  /* ========== LOADING SCREEN ========== */
+  #loader {
+    position:fixed; inset:0; z-index:9999;
+    background:#07111f;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:24px;
+    transition: opacity .7s ease, visibility .7s ease;
+  }
+  #loader.hide { opacity:0; visibility:hidden; pointer-events:none; }
+
+  #loader::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    animation:gridMove 12s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes gridMove {
+    from { background-position:0 0; }
+    to { background-position:44px 44px; }
+  }
+
+  #loader::after {
+    content:''; position:absolute;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, rgba(14,165,233,0.35), transparent 65%);
+    filter:blur(90px);
+    animation:orbPulse 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes orbPulse {
+    0%,100% { transform:scale(1); opacity:.6; }
+    50% { transform:scale(1.15); opacity:1; }
+  }
+
+  /* ========== LOGO MGE 3D ========== */
+  .mge-logo-wrap {
+    position:relative; z-index:1;
+    width:150px; height:150px;
+    display:flex; align-items:center; justify-content:center;
+    animation:logoFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-8px); }
+  }
+
+  .mge-ring-outer {
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:#38bdf8;
+    border-right-color:#818cf8;
+    border-bottom-color:transparent;
+    border-left-color:#a78bfa;
+    animation:spinRing 1.6s linear infinite;
+    filter:drop-shadow(0 0 8px rgba(56,189,248,0.9));
+  }
+
+  .mge-ring-inner {
+    position:absolute;
+    inset:12px;
+    border-radius:50%;
+    border:1.5px dashed rgba(56,189,248,0.5);
+    animation:spinRingReverse 4s linear infinite;
+  }
+
+  @keyframes spinRing {
+    to { transform:rotate(360deg); }
+  }
+  @keyframes spinRingReverse {
+    to { transform:rotate(-360deg); }
+  }
+
+  .mge-circle {
+    position:absolute;
+    inset:20px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 25%, #1e3a5f 0%, #0b1b30 55%, #050d18 100%);
+    box-shadow:
+      0 0 0 1px rgba(56,189,248,0.35) inset,
+      0 0 24px rgba(14,165,233,0.55),
+      0 0 60px rgba(56,189,248,0.35),
+      inset 0 -8px 20px rgba(0,0,0,0.6);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+
+  .mge-circle::before {
+    content:'';
+    position:absolute;
+    top:-50%; left:-50%;
+    width:200%; height:200%;
+    background:conic-gradient(from 0deg, transparent 0%, rgba(56,189,248,0.25) 20%, transparent 40%);
+    animation:shimmer 3s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer {
+    to { transform:rotate(360deg); }
+  }
+
+  .mge-text {
+    position:relative;
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+    background:linear-gradient(180deg, #e0f2fe 0%, #38bdf8 45%, #6366f1 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+      0 1px 0 rgba(56,189,248,0.4),
+      0 2px 0 rgba(56,189,248,0.3),
+      0 3px 0 rgba(99,102,241,0.3),
+      0 4px 8px rgba(0,0,0,0.6),
+      0 0 22px rgba(56,189,248,0.85);
+    filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+    animation:textPulse 2.4s ease-in-out infinite;
+    z-index:2;
+    transform:perspective(500px) rotateX(6deg);
+  }
+
+  @keyframes textPulse {
+    0%, 100% {
+      filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+      transform:perspective(500px) rotateX(6deg) scale(1);
+    }
+    50% {
+      filter:drop-shadow(0 0 22px rgba(56,189,248,1));
+      transform:perspective(500px) rotateX(6deg) scale(1.05);
+    }
+  }
+
+  .mge-text::after {
+    content:'MGE';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,0.85) 0%, transparent 55%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    pointer-events:none;
+    z-index:3;
+  }
+
+  /* ========== BRAND TEXT "MAEDA GAMES EDU" ========== */
+  .brand-text {
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    gap:10px;
+    margin-top:4px;
+    animation:fadeInUp .9s ease .2s both;
+  }
+
+  .brand-text .brand-line {
+    width:26px; height:1px;
+    background:linear-gradient(90deg, transparent, #38bdf8, transparent);
+  }
+
+  .brand-text .brand-label {
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    background:linear-gradient(90deg, #38bdf8 0%, #a78bfa 50%, #38bdf8 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:brandShine 3.5s linear infinite;
+    white-space:nowrap;
+  }
+
+  @keyframes brandShine {
+    0% { background-position:0% 50%; }
+    100% { background-position:200% 50%; }
+  }
+
+  /* ========== JUDUL BAWAH ========== */
+  .loader-title {
+    position:relative; z-index:1;
+    font-size:15px; font-weight:bold;
+    letter-spacing:4px; text-transform:uppercase;
+    color:#cbd5e1;
+    animation:fadeInUp .8s ease .3s both;
+  }
+  .loader-sub {
+    position:relative; z-index:1;
+    color:#64748b; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase;
+    animation:fadeInUp .8s ease .4s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(10px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .loader-bar {
+    position:relative; z-index:1;
+    width:240px; height:4px;
+    background:#132941; border-radius:4px;
+    overflow:hidden;
+    margin-top:4px;
+    animation:fadeInUp .8s ease .5s both;
+  }
+  .loader-bar-fill {
+    height:100%; width:0%;
+    background:linear-gradient(90deg,#0ea5e9,#38bdf8,#818cf8);
+    border-radius:4px;
+    box-shadow:0 0 12px rgba(56,189,248,0.7);
+    animation:loadFill 1.8s cubic-bezier(.65,.05,.36,1) forwards;
+  }
+  @keyframes loadFill {
+    0% { width:0%; }
+    40% { width:45%; }
+    70% { width:75%; }
+    100% { width:100%; }
+  }
+
   /* ========== HEADER ========== */
   header {
     padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
@@ -277,10 +503,42 @@
     .page-title { font-size:22px; }
     .grid-2 { grid-template-columns:1fr; }
     .logo span.fulllogo { display:none; }
+    .loader-title { font-size:13px; letter-spacing:3px; }
+    .loader-bar { width:200px; }
+    .mge-logo-wrap { width:120px; height:120px; }
+    .mge-text { font-size:34px; }
+    .brand-text .brand-label { font-size:11px; letter-spacing:4px; }
+    .brand-text .brand-line { width:18px; }
   }
 </style>
 </head>
 <body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loader">
+  <div class="mge-logo-wrap">
+    <div class="mge-ring-outer"></div>
+    <div class="mge-ring-inner"></div>
+    <div class="mge-circle">
+      <div class="mge-text">MGE</div>
+    </div>
+  </div>
+
+  <!-- Brand text di bawah lingkaran -->
+  <div class="brand-text">
+    <span class="brand-line"></span>
+    <span class="brand-label">MAEDA GAMES EDU</span>
+    <span class="brand-line"></span>
+  </div>
+
+  <div class="loader-title">Memuat Materi</div>
+
+  <div class="loader-bar">
+    <div class="loader-bar-fill"></div>
+  </div>
+
+  <div class="loader-sub">Bab 3 · Pasar & Terbentuknya Harga</div>
+</div>
 
 <header>
   <div class="logo">
@@ -1304,6 +1562,24 @@ document.addEventListener('keydown', (e) => {
 
 // Init
 goTo(0);
+
+/* ========== LOADING SCREEN ========== */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }, 2200);
+});
+
+// Fallback
+setTimeout(() => {
+  const loader = document.getElementById('loader');
+  if (loader && !loader.classList.contains('hide')) {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }
+}, 4500);
 </script>
 
 </body>
