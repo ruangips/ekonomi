@@ -12,6 +12,232 @@
     display:flex; flex-direction:column;
   }
 
+  /* ========== LOADING SCREEN ========== */
+  #loader {
+    position:fixed; inset:0; z-index:9999;
+    background:#07111f;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:24px;
+    transition: opacity .7s ease, visibility .7s ease;
+  }
+  #loader.hide { opacity:0; visibility:hidden; pointer-events:none; }
+
+  #loader::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    animation:gridMove 12s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes gridMove {
+    from { background-position:0 0; }
+    to { background-position:44px 44px; }
+  }
+
+  #loader::after {
+    content:''; position:absolute;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, rgba(14,165,233,0.35), transparent 65%);
+    filter:blur(90px);
+    animation:orbPulse 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes orbPulse {
+    0%,100% { transform:scale(1); opacity:.6; }
+    50% { transform:scale(1.15); opacity:1; }
+  }
+
+  /* ========== LOGO MGE 3D ========== */
+  .mge-logo-wrap {
+    position:relative; z-index:1;
+    width:150px; height:150px;
+    display:flex; align-items:center; justify-content:center;
+    animation:logoFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-8px); }
+  }
+
+  .mge-ring-outer {
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:#38bdf8;
+    border-right-color:#818cf8;
+    border-bottom-color:transparent;
+    border-left-color:#a78bfa;
+    animation:spinRing 1.6s linear infinite;
+    filter:drop-shadow(0 0 8px rgba(56,189,248,0.9));
+  }
+
+  .mge-ring-inner {
+    position:absolute;
+    inset:12px;
+    border-radius:50%;
+    border:1.5px dashed rgba(56,189,248,0.5);
+    animation:spinRingReverse 4s linear infinite;
+  }
+
+  @keyframes spinRing {
+    to { transform:rotate(360deg); }
+  }
+  @keyframes spinRingReverse {
+    to { transform:rotate(-360deg); }
+  }
+
+  .mge-circle {
+    position:absolute;
+    inset:20px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 25%, #1e3a5f 0%, #0b1b30 55%, #050d18 100%);
+    box-shadow:
+      0 0 0 1px rgba(56,189,248,0.35) inset,
+      0 0 24px rgba(14,165,233,0.55),
+      0 0 60px rgba(56,189,248,0.35),
+      inset 0 -8px 20px rgba(0,0,0,0.6);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+
+  .mge-circle::before {
+    content:'';
+    position:absolute;
+    top:-50%; left:-50%;
+    width:200%; height:200%;
+    background:conic-gradient(from 0deg, transparent 0%, rgba(56,189,248,0.25) 20%, transparent 40%);
+    animation:shimmer 3s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer {
+    to { transform:rotate(360deg); }
+  }
+
+  .mge-text {
+    position:relative;
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+    background:linear-gradient(180deg, #e0f2fe 0%, #38bdf8 45%, #6366f1 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+      0 1px 0 rgba(56,189,248,0.4),
+      0 2px 0 rgba(56,189,248,0.3),
+      0 3px 0 rgba(99,102,241,0.3),
+      0 4px 8px rgba(0,0,0,0.6),
+      0 0 22px rgba(56,189,248,0.85);
+    filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+    animation:textPulse 2.4s ease-in-out infinite;
+    z-index:2;
+    transform:perspective(500px) rotateX(6deg);
+  }
+
+  @keyframes textPulse {
+    0%, 100% {
+      filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+      transform:perspective(500px) rotateX(6deg) scale(1);
+    }
+    50% {
+      filter:drop-shadow(0 0 22px rgba(56,189,248,1));
+      transform:perspective(500px) rotateX(6deg) scale(1.05);
+    }
+  }
+
+  .mge-text::after {
+    content:'MGE';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,0.85) 0%, transparent 55%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    pointer-events:none;
+    z-index:3;
+  }
+
+  /* ========== BRAND TEXT "MAEDA GAMES EDU" ========== */
+  .brand-text {
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    gap:10px;
+    margin-top:4px;
+    animation:fadeInUp .9s ease .2s both;
+  }
+
+  .brand-text .brand-line {
+    width:26px; height:1px;
+    background:linear-gradient(90deg, transparent, #38bdf8, transparent);
+  }
+
+  .brand-text .brand-label {
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    background:linear-gradient(90deg, #38bdf8 0%, #a78bfa 50%, #38bdf8 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:brandShine 3.5s linear infinite;
+    white-space:nowrap;
+  }
+
+  @keyframes brandShine {
+    0% { background-position:0% 50%; }
+    100% { background-position:200% 50%; }
+  }
+
+  /* ========== JUDUL BAWAH ========== */
+  .loader-title {
+    position:relative; z-index:1;
+    font-size:15px; font-weight:bold;
+    letter-spacing:4px; text-transform:uppercase;
+    color:#cbd5e1;
+    animation:fadeInUp .8s ease .3s both;
+  }
+  .loader-sub {
+    position:relative; z-index:1;
+    color:#64748b; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase;
+    animation:fadeInUp .8s ease .4s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(10px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .loader-bar {
+    position:relative; z-index:1;
+    width:240px; height:4px;
+    background:#132941; border-radius:4px;
+    overflow:hidden;
+    margin-top:4px;
+    animation:fadeInUp .8s ease .5s both;
+  }
+  .loader-bar-fill {
+    height:100%; width:0%;
+    background:linear-gradient(90deg,#0ea5e9,#38bdf8,#818cf8);
+    border-radius:4px;
+    box-shadow:0 0 12px rgba(56,189,248,0.7);
+    animation:loadFill 1.8s cubic-bezier(.65,.05,.36,1) forwards;
+  }
+  @keyframes loadFill {
+    0% { width:0%; }
+    40% { width:45%; }
+    70% { width:75%; }
+    100% { width:100%; }
+  }
+
   /* ========== HEADER ========== */
   header {
     padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
@@ -277,10 +503,42 @@
     .page-title { font-size:22px; }
     .grid-2 { grid-template-columns:1fr; }
     .logo span.fulllogo { display:none; }
+    .loader-title { font-size:13px; letter-spacing:3px; }
+    .loader-bar { width:200px; }
+    .mge-logo-wrap { width:120px; height:120px; }
+    .mge-text { font-size:34px; }
+    .brand-text .brand-label { font-size:11px; letter-spacing:4px; }
+    .brand-text .brand-line { width:18px; }
   }
 </style>
 </head>
 <body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loader">
+  <div class="mge-logo-wrap">
+    <div class="mge-ring-outer"></div>
+    <div class="mge-ring-inner"></div>
+    <div class="mge-circle">
+      <div class="mge-text">MGE</div>
+    </div>
+  </div>
+
+  <!-- Brand text di bawah lingkaran -->
+  <div class="brand-text">
+    <span class="brand-line"></span>
+    <span class="brand-label">MAEDA GAMES EDU</span>
+    <span class="brand-line"></span>
+  </div>
+
+  <div class="loader-title">Memuat Materi</div>
+
+  <div class="loader-bar">
+    <div class="loader-bar-fill"></div>
+  </div>
+
+  <div class="loader-sub">Bab 4 · Uang & Lembaga Keuangan</div>
+</div>
 
 <header>
   <div class="logo">
@@ -379,7 +637,7 @@
 
       <div class="highlight">
         💡 <strong>Definisi:</strong><br>
-        <strong>Uang</strong> adalah segala sesuatu yang diterima secara umum oleh masyarakat sebagai alat pembayaran untuk pembelian barang dan jasa, serta untuk melunasi utang. Menurut <strong>Edward Shapiro</strong>, uang adalah benda yang secara umum diterima untuk membayar pembelian barang, jasa, aset berharga, serta melunasi utang.[reference:0]
+        <strong>Uang</strong> adalah segala sesuatu yang diterima secara umum oleh masyarakat sebagai alat pembayaran untuk pembelian barang dan jasa, serta untuk melunasi utang. Menurut <strong>Edward Shapiro</strong>, uang adalah benda yang secara umum diterima untuk membayar pembelian barang, jasa, aset berharga, serta melunasi utang.
       </div>
 
       <div class="contoh">
@@ -399,7 +657,7 @@
       <p class="page-subtitle">Apa saja syarat uang dan fungsi-fungsinya dalam perekonomian</p>
 
       <h3>Syarat-Syarat Uang</h3>
-      <p>Agar suatu benda dapat dijadikan uang dan berfungsi dengan baik, benda tersebut harus memenuhi syarat-syarat berikut[reference:1]:</p>
+      <p>Agar suatu benda dapat dijadikan uang dan berfungsi dengan baik, benda tersebut harus memenuhi syarat-syarat berikut:</p>
 
       <table>
         <tr><th>Syarat</th><th>Penjelasan</th></tr>
@@ -414,7 +672,7 @@
       </table>
 
       <h3>Fungsi Uang</h3>
-      <p>Fungsi uang dibedakan menjadi dua kategori: <strong>fungsi asli</strong> dan <strong>fungsi turunan</strong>[reference:2].</p>
+      <p>Fungsi uang dibedakan menjadi dua kategori: <strong>fungsi asli</strong> dan <strong>fungsi turunan</strong>.</p>
 
       <h4>A. Fungsi Asli (Fungsi Utama)</h4>
       <p>Fungsi asli uang adalah fungsi yang muncul sejak uang pertama kali diciptakan:</p>
@@ -454,7 +712,7 @@
       <h2 class="page-title">Jenis-Jenis <span>Uang</span></h2>
       <p class="page-subtitle">Klasifikasi uang berdasarkan berbagai sudut pandang</p>
 
-      <p>Uang dapat dikelompokkan berdasarkan beberapa sudut pandang[reference:3]:</p>
+      <p>Uang dapat dikelompokkan berdasarkan beberapa sudut pandang:</p>
 
       <h3>A. Berdasarkan Pihak yang Mengeluarkan</h3>
       <table>
@@ -509,7 +767,7 @@
       <h2 class="page-title">Nilai <span>Mata Uang</span></h2>
       <p class="page-subtitle">Berbagai jenis nilai yang melekat pada uang</p>
 
-      <p>Uang memiliki beberapa jenis nilai yang perlu dipahami[reference:4]:</p>
+      <p>Uang memiliki beberapa jenis nilai yang perlu dipahami:</p>
 
       <h3>Jenis-Jenis Nilai Uang</h3>
       <table>
@@ -548,7 +806,7 @@
       <h2 class="page-title">Kurs & <span>Valuta Asing</span></h2>
       <p class="page-subtitle">Nilai tukar mata uang asing terhadap Rupiah</p>
 
-      <p><strong style="color:#38bdf8">Valuta asing</strong> (valas) adalah mata uang asing yang digunakan dalam transaksi internasional. <strong style="color:#38bdf8">Kurs</strong> adalah harga sebuah mata uang suatu negara yang diukur atau dinyatakan dalam mata uang negara lain[reference:5].</p>
+      <p><strong style="color:#38bdf8">Valuta asing</strong> (valas) adalah mata uang asing yang digunakan dalam transaksi internasional. <strong style="color:#38bdf8">Kurs</strong> adalah harga sebuah mata uang suatu negara yang diukur atau dinyatakan dalam mata uang negara lain.</p>
 
       <h3>Jenis-Jenis Kurs</h3>
       <table>
@@ -559,7 +817,7 @@
       </table>
 
       <div class="highlight">
-        💡 <strong>Ingat!</strong> Kurs jual selalu <strong>lebih tinggi</strong> daripada kurs beli. Selisihnya disebut <em>spread</em> — ini adalah keuntungan bank atau money changer.[reference:6]
+        💡 <strong>Ingat!</strong> Kurs jual selalu <strong>lebih tinggi</strong> daripada kurs beli. Selisihnya disebut <em>spread</em> — ini adalah keuntungan bank atau money changer.
       </div>
 
       <h3>Contoh Perhitungan Kurs</h3>
@@ -601,7 +859,7 @@
       <h2 class="page-title">Pengertian & <span>Sejarah Bank</span></h2>
       <p class="page-subtitle">Lembaga keuangan yang paling dikenal masyarakat</p>
 
-      <p><strong style="color:#38bdf8">Bank</strong> adalah lembaga keuangan yang kegiatan utamanya menghimpun dana dari masyarakat dan menyalurkannya kembali kepada masyarakat dalam bentuk kredit atau pembiayaan lainnya[reference:7].</p>
+      <p><strong style="color:#38bdf8">Bank</strong> adalah lembaga keuangan yang kegiatan utamanya menghimpun dana dari masyarakat dan menyalurkannya kembali kepada masyarakat dalam bentuk kredit atau pembiayaan lainnya.</p>
 
       <div class="highlight">
         💡 <strong>Definisi:</strong><br>
@@ -641,7 +899,7 @@
       <h2 class="page-title">Jenis-Jenis <span>Bank</span></h2>
       <p class="page-subtitle">Tiga jenis bank di Indonesia berdasarkan fungsinya</p>
 
-      <p>Di Indonesia, bank dibedakan menjadi tiga jenis berdasarkan fungsinya[reference:8]:</p>
+      <p>Di Indonesia, bank dibedakan menjadi tiga jenis berdasarkan fungsinya:</p>
 
       <h3>A. Bank Sentral (Bank Indonesia)</h3>
       <p><strong>Bank Indonesia (BI)</strong> adalah bank sentral yang bertanggung jawab menjaga stabilitas nilai Rupiah. BI bukan bank komersial — BI tidak melayani masyarakat umum secara langsung.</p>
@@ -669,7 +927,7 @@
       <p><em>Contoh bank umum:</em> Bank Mandiri, BNI, BRI, BCA, Bank Syariah Indonesia.</p>
 
       <h3>C. Bank Perkreditan Rakyat (BPR)</h3>
-      <p><strong>BPR</strong> adalah bank yang melaksanakan kegiatan usaha secara konvensional atau berdasarkan prinsip syariah yang dalam kegiatannya tidak memberikan jasa lalu lintas pembayaran[reference:9].</p>
+      <p><strong>BPR</strong> adalah bank yang melaksanakan kegiatan usaha secara konvensional atau berdasarkan prinsip syariah yang dalam kegiatannya tidak memberikan jasa lalu lintas pembayaran.</p>
 
       <h4>Kegiatan BPR:</h4>
       <ul>
@@ -761,7 +1019,7 @@
       <h2 class="page-title">Lembaga <span>Keuangan Non-Bank</span></h2>
       <p class="page-subtitle">Lembaga keuangan selain bank yang melayani masyarakat</p>
 
-      <p><strong style="color:#38bdf8">Lembaga Keuangan Bukan Bank (LKBB)</strong> adalah semua badan yang melakukan kegiatan di bidang keuangan, secara langsung ataupun tidak langsung menghimpun dana dari masyarakat dan menyalurkannya untuk membiayai perusahaan atau kegiatan tertentu[reference:10].</p>
+      <p><strong style="color:#38bdf8">Lembaga Keuangan Bukan Bank (LKBB)</strong> adalah semua badan yang melakukan kegiatan di bidang keuangan, secara langsung ataupun tidak langsung menghimpun dana dari masyarakat dan menyalurkannya untuk membiayai perusahaan atau kegiatan tertentu.</p>
 
       <h3>Perbedaan Bank vs LKBB</h3>
       <table>
@@ -808,7 +1066,7 @@
       </div>
 
       <h3>Fungsi Koperasi Sekolah</h3>
-      <p>Koperasi sekolah adalah koperasi yang didirikan di lingkungan sekolah. Fungsi koperasi sekolah antara lain[reference:11]:</p>
+      <p>Koperasi sekolah adalah koperasi yang didirikan di lingkungan sekolah. Fungsi koperasi sekolah antara lain:</p>
       <ul>
         <li>Menunjang program pembangunan pemerintah di sektor perkoperasian melalui program pendidikan sekolah.</li>
         <li>Menumbuhkan kesadaran berkoperasi di kalangan peserta didik.</li>
@@ -834,7 +1092,7 @@
       <h2 class="page-title">Alat Pembayaran <span>Non-Tunai</span></h2>
       <p class="page-subtitle">Transformasi sistem pembayaran di era digital</p>
 
-      <p><strong style="color:#38bdf8">Alat pembayaran non-tunai</strong> adalah metode pembayaran atas barang dan jasa yang tidak melibatkan pertukaran uang tunai[reference:12]. Alat pembayaran non-tunai memerlukan penggunaan satu atau lebih bank untuk menyelesaikan transaksi.</p>
+      <p><strong style="color:#38bdf8">Alat pembayaran non-tunai</strong> adalah metode pembayaran atas barang dan jasa yang tidak melibatkan pertukaran uang tunai. Alat pembayaran non-tunai memerlukan penggunaan satu atau lebih bank untuk menyelesaikan transaksi.</p>
 
       <h3>Jenis Alat Pembayaran Non-Tunai</h3>
       <table>
@@ -886,7 +1144,7 @@
       <h2 class="page-title">Manfaat <span>Lembaga Keuangan</span></h2>
       <p class="page-subtitle">Peran penting lembaga keuangan bagi masyarakat dan perekonomian</p>
 
-      <p>Keberadaan lembaga keuangan memberikan banyak manfaat bagi masyarakat dan perekonomian[reference:13]:</p>
+      <p>Keberadaan lembaga keuangan memberikan banyak manfaat bagi masyarakat dan perekonomian:</p>
 
       <h3>Manfaat Lembaga Keuangan</h3>
       <table>
@@ -932,12 +1190,12 @@
       <ul>
         <li><strong>Uang</strong> adalah segala sesuatu yang diterima secara umum sebagai alat pembayaran untuk pembelian barang dan jasa serta melunasi utang.</li>
         <li>Sebelum uang, manusia menggunakan sistem <strong>barter</strong> yang memiliki banyak kelemahan seperti sulitnya menemukan orang yang mau menukar dan sulit menentukan nilai.</li>
-        <li>Syarat uang: mudah dibawa, tahan lama, dapat dibagi, nilai stabil, diterima umum, jumlahnya mencukupi, tidak mudah dipalsukan, dan mudah disimpan.[reference:14]</li>
-        <li><strong>Fungsi asli uang:</strong> alat tukar dan satuan hitung. <strong>Fungsi turunan uang:</strong> alat pembayaran sah, standar pembayaran yang ditunda, penyimpan kekayaan, dan pengalih nilai.[reference:15]</li>
+        <li>Syarat uang: mudah dibawa, tahan lama, dapat dibagi, nilai stabil, diterima umum, jumlahnya mencukupi, tidak mudah dipalsukan, dan mudah disimpan.</li>
+        <li><strong>Fungsi asli uang:</strong> alat tukar dan satuan hitung. <strong>Fungsi turunan uang:</strong> alat pembayaran sah, standar pembayaran yang ditunda, penyimpan kekayaan, dan pengalih nilai.</li>
         <li><strong>Uang kartal</strong> dikeluarkan oleh Bank Indonesia (bank sentral), sedangkan <strong>uang giral</strong> dikeluarkan oleh bank umum.</li>
         <li><strong>Nilai uang</strong> meliputi nilai intrinsik, nilai nominal, nilai internal, dan nilai eksternal.</li>
-        <li><strong>Kurs</strong> adalah harga mata uang suatu negara yang dinyatakan dalam mata uang negara lain. Terdapat kurs beli, kurs jual, dan kurs tengah.[reference:16]</li>
-        <li><strong>Bank</strong> adalah lembaga keuangan yang menghimpun dan menyalurkan dana masyarakat. Terdapat tiga jenis bank: Bank Sentral (BI), Bank Umum, dan BPR.[reference:17]</li>
+        <li><strong>Kurs</strong> adalah harga mata uang suatu negara yang dinyatakan dalam mata uang negara lain. Terdapat kurs beli, kurs jual, dan kurs tengah.</li>
+        <li><strong>Bank</strong> adalah lembaga keuangan yang menghimpun dan menyalurkan dana masyarakat. Terdapat tiga jenis bank: Bank Sentral (BI), Bank Umum, dan BPR.</li>
         <li><strong>Bank Indonesia</strong> bertugas menjaga stabilitas moneter, mengatur sistem pembayaran, dan menerbitkan uang Rupiah.</li>
         <li><strong>Bank Umum</strong> melayani masyarakat umum dengan produk tabungan, deposito, giro, dan kredit.</li>
         <li><strong>BPR</strong> melayani kredit masyarakat kecil dan tidak melayani transfer atau valuta asing.</li>
@@ -1203,6 +1461,24 @@ document.addEventListener('keydown', (e) => {
 
 // Init
 goTo(0);
+
+/* ========== LOADING SCREEN ========== */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }, 2200);
+});
+
+// Fallback
+setTimeout(() => {
+  const loader = document.getElementById('loader');
+  if (loader && !loader.classList.contains('hide')) {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }
+}, 4500);
 </script>
 
 </body>
