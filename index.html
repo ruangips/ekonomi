@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ekonomi SMP - Ruang IPS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar Sederhana -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">📚</span>
+                    <span class="font-bold text-slate-800 text-lg tracking-tight">Ruang IPS</span>
+                </div>
+                <div class="text-sm font-medium text-slate-500">
+                    Ekonomi SMP
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+            Materi <span class="gradient-text">Ekonomi</span>
+        </h1>
+        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+            Pilih bab untuk mulai bermain dan uji pengetahuanmu!
+        </p>
+    </header>
+
+    <!-- Grid Bab -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Bab 1 -->
+            <a href="ekonomi-bab1.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-blue-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl group-hover:bg-blue-100 transition-colors">
+                        🏭
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
+                            Bab 1 — Kegiatan Ekonomi
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Produksi, distribusi, dan konsumsi dalam kehidupan sehari-hari.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bab 2 -->
+            <a href="ekonomi-bab2.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-2xl group-hover:bg-indigo-100 transition-colors">
+                        👥
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors">
+                            Bab 2 — Pelaku Ekonomi
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Rumah tangga, perusahaan, pemerintah, dan masyarakat luar negeri.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bab 3 -->
+            <a href="ekonomi-bab3.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl group-hover:bg-amber-100 transition-colors">
+                        ⚖️
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-amber-600 transition-colors">
+                            Bab 3 — Harga dan Pasar
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Permintaan, penawaran, harga keseimbangan, dan jenis pasar.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bab 4 -->
+            <a href="ekonomi-bab4.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-emerald-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:bg-emerald-100 transition-colors">
+                        🏦
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-emerald-600 transition-colors">
+                            Bab 4 — Lembaga Keuangan
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Bank, koperasi, dan lembaga keuangan non-bank.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bab 5 -->
+            <a href="ekonomi-bab5.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-rose-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center text-2xl group-hover:bg-rose-100 transition-colors">
+                        🌍
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-rose-600 transition-colors">
+                            Bab 5 — Perdagangan Internasional
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Ekspor, impor, dan kerja sama ekonomi antarnegara.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bab 6 -->
+            <a href="ekonomi-bab6.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-cyan-300 group">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center text-2xl group-hover:bg-cyan-100 transition-colors">
+                        💳
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-cyan-600 transition-colors">
+                            Bab 6 — Ekonomi Digital
+                        </h2>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Literasi finansial, uang digital, dan ekonomi berbasis teknologi.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-400">
+            &copy; 2025 Ruang IPS. Materi Ekonomi SMP.
+        </div>
+    </footer>
+
+</body>
+</html>
