@@ -1,177 +1,1004 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Ekonomi SMP - Ruang IPS</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 1 — Kegiatan Ekonomi & Kebutuhan | Pesawat Tempur IPS</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+  html, body { height:100%; }
+  body {
+    background:#07111f; color:white; overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
+    background:#0b1b30; border-bottom:2px solid #0ea5e9;
+    flex-shrink:0; z-index:50;
+  }
+  .logo { font-size:16px; font-weight:bold; color:#38bdf8; display:flex; align-items:center; gap:8px; }
+  .back-btn {
+    color:white; text-decoration:none; background:#0ea5e9; padding:8px 18px;
+    border-radius:8px; font-weight:bold; font-size:13px; transition:.3s;
+  }
+  .back-btn:hover { background:#0284c7; }
+
+  /* ========== PROGRESS BAR ========== */
+  .progress-wrap {
+    height:4px; background:#132941; position:relative; flex-shrink:0;
+  }
+  .progress-fill {
+    height:100%; background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+    width:0%; transition:width .5s ease;
+  }
+
+  /* ========== LAYOUT ========== */
+  .layout {
+    flex:1; display:flex; overflow:hidden;
+  }
+
+  /* ========== SIDEBAR ========== */
+  .sidebar {
+    width:290px; background:#0b1b30; border-right:1px solid #1b3b5d;
+    overflow-y:auto; flex-shrink:0; padding:20px 0;
+  }
+  .sidebar::-webkit-scrollbar { width:6px; }
+  .sidebar::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:3px; }
+
+  .sidebar-title {
+    padding:0 20px 15px; font-size:12px; font-weight:bold;
+    color:#64748b; letter-spacing:1.5px; text-transform:uppercase;
+  }
+
+  .nav-item {
+    display:flex; align-items:center; gap:12px;
+    padding:12px 20px; cursor:pointer;
+    border-left:4px solid transparent;
+    transition:.25s; font-size:14px; color:#cbd5e1;
+  }
+  .nav-item:hover { background:#132941; color:#38bdf8; }
+  .nav-item.active {
+    background:#132941; color:#38bdf8;
+    border-left-color:#38bdf8; font-weight:bold;
+  }
+  .nav-item .num {
+    width:26px; height:26px; border-radius:50%;
+    background:#1b3b5d; color:#94a3b8;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:bold; flex-shrink:0;
+    transition:.25s;
+  }
+  .nav-item.active .num { background:#0ea5e9; color:white; }
+  .nav-item.done .num { background:#065f46; color:#10b981; }
+
+  /* ========== MAIN CONTENT ========== */
+  .main {
+    flex:1; overflow-y:auto; position:relative; scroll-behavior:smooth;
+  }
+  .main::-webkit-scrollbar { width:8px; }
+  .main::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:4px; }
+
+  .page {
+    display:none;
+    padding:40px 6% 120px;
+    max-width:900px; margin:0 auto;
+    animation: slideIn .4s ease;
+  }
+  .page.active { display:block; }
+  @keyframes slideIn {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .page-badge {
+    display:inline-block; padding:5px 14px;
+    background:#132941; color:#38bdf8;
+    border-radius:20px; font-size:12px;
+    font-weight:bold; margin-bottom:12px;
+    border:1px solid #2a4a6a;
+  }
+  .page-title {
+    font-size:30px; margin-bottom:8px; line-height:1.3;
+  }
+  .page-title span { color:#38bdf8; }
+  .page-subtitle {
+    color:#94a3b8; font-size:14px; margin-bottom:30px;
+    padding-bottom:20px; border-bottom:2px solid #1b3b5d;
+  }
+
+  .page h3 {
+    color:#7dd3fc; font-size:17px; margin:22px 0 10px;
+  }
+  .page h4 {
+    color:#a5b4fc; font-size:15px; margin:18px 0 8px;
+  }
+  .page p { color:#cbd5e1; margin-bottom:12px; text-align:justify; line-height:1.75; }
+  .page ul, .page ol { color:#cbd5e1; margin:10px 0 15px 25px; }
+  .page ul li, .page ol li { margin-bottom:8px; line-height:1.7; }
+
+  .highlight {
+    background:linear-gradient(135deg,#132941,#0f2337);
+    border-left:4px solid #38bdf8;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#e0f2fe; font-size:14px; line-height:1.7;
+  }
+  .highlight strong { color:#38bdf8; }
+
+  .contoh {
+    background:linear-gradient(135deg,#0f2a1a,#0a1f12);
+    border-left:4px solid #10b981;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#d1fae5; font-size:14px; line-height:1.7;
+  }
+  .contoh strong { color:#34d399; }
+
+  .warning {
+    background:linear-gradient(135deg,#2a1a0f,#1f1308);
+    border-left:4px solid #f59e0b;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#fef3c7; font-size:14px; line-height:1.7;
+  }
+  .warning strong { color:#fbbf24; }
+
+  table {
+    width:100%; border-collapse:collapse; margin:16px 0;
+    background:#132941; border-radius:10px; overflow:hidden; font-size:13px;
+  }
+  table th {
+    background:#0ea5e9; color:white; padding:12px;
+    text-align:left; font-size:13px;
+  }
+  table td {
+    padding:12px; color:#cbd5e1;
+    border-bottom:1px solid #1b3b5d;
+    vertical-align:top; line-height:1.6;
+  }
+  table tr:last-child td { border-bottom:none; }
+  table tr:nth-child(even) td { background:#0f2337; }
+
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:15px 0; }
+  .mini-card {
+    background:#132941; border-radius:10px; padding:18px;
+    border:1px solid #2a4a6a; transition:.3s;
+  }
+  .mini-card:hover { border-color:#38bdf8; transform:translateY(-3px); }
+  .mini-card .icon { font-size:30px; margin-bottom:8px; }
+  .mini-card h4 { color:#38bdf8; font-size:15px; margin-bottom:6px; }
+  .mini-card p { font-size:13px; color:#94a3b8; margin:0; text-align:left; }
+
+  .peta-konsep {
+    background:#132941; border-radius:15px; padding:25px;
+    text-align:center; border:2px dashed #38bdf8; margin:15px 0;
+  }
+  .peta-konsep .node {
+    display:inline-block; padding:10px 20px; border-radius:10px;
+    font-weight:bold; font-size:13px; margin:5px;
+  }
+  .peta-konsep .node.utama { background:#0ea5e9; color:white; font-size:15px; padding:14px 28px; }
+  .peta-konsep .node.sub { background:#1b3b5d; color:#7dd3fc; }
+  .peta-konsep .node.detail { background:#132941; color:#94a3b8; border:1px solid #2a4a6a; }
+  .peta-konsep .arrow { color:#38bdf8; font-size:22px; display:block; margin:4px 0; }
+
+  .glosarium-item {
+    background:#132941; border-radius:10px; padding:14px 18px;
+    margin-bottom:10px; border-left:4px solid #a855f7;
+    transition:.3s;
+  }
+  .glosarium-item:hover { transform:translateX(5px); }
+  .glosarium-item strong { color:#c084fc; font-size:14px; }
+  .glosarium-item span { color:#cbd5e1; font-size:13px; }
+
+  .soal-item {
+    background:#132941; border-radius:10px; padding:18px 22px;
+    margin-bottom:15px; border-left:4px solid #f59e0b;
+  }
+  .soal-item .nomor { color:#fbbf24; font-weight:bold; font-size:13px; }
+  .soal-item .pertanyaan { color:#e0f2fe; font-size:14px; margin:8px 0; line-height:1.6; }
+  .soal-item .pilihan { color:#94a3b8; font-size:13px; margin-left:15px; line-height:1.8; }
+  .soal-item .jawaban {
+    margin-top:10px; padding:12px 15px; background:#0f2a1a;
+    border-radius:8px; color:#d1fae5; font-size:13px; display:none; line-height:1.6;
+  }
+  .soal-item .jawaban.show { display:block; animation:slideIn .3s ease; }
+  .toggle-btn {
+    margin-top:8px; padding:6px 14px; background:#1b3b5d; border:1px solid #2a4a6a;
+    border-radius:6px; color:#7dd3fc; font-size:12px; cursor:pointer;
+    transition:.2s;
+  }
+  .toggle-btn:hover { background:#2a4a6a; }
+
+  .proyek {
+    background:linear-gradient(135deg,#1a0f2a,#2a1a3a);
+    border-radius:15px; padding:25px; border:2px solid #a855f7;
+  }
+  .proyek ol { color:#e9d5ff; margin-left:20px; }
+  .proyek ol li { margin-bottom:10px; line-height:1.7; }
+
+  /* ========== FOOTER NAV ========== */
+  .footer-nav {
+    position:fixed; bottom:0; left:290px; right:0;
+    background:#0b1b30; border-top:1px solid #1b3b5d;
+    padding:14px 6%; display:flex; justify-content:space-between;
+    align-items:center; z-index:40;
+  }
+  .footer-nav button {
+    padding:12px 24px; border:none; border-radius:10px;
+    font-weight:bold; font-size:14px; cursor:pointer;
+    transition:.3s; display:flex; align-items:center; gap:8px;
+  }
+  .nav-prev {
+    background:#1b3b5d; color:#94a3b8;
+  }
+  .nav-prev:hover:not(:disabled) { background:#2a4a6a; color:white; }
+  .nav-prev:disabled { opacity:.3; cursor:not-allowed; }
+  .nav-next {
+    background:linear-gradient(135deg,#0ea5e9,#0284c7); color:white;
+    box-shadow:0 4px 15px rgba(14,165,233,0.3);
+  }
+  .nav-next:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(14,165,233,0.5); }
+  .nav-next:disabled { opacity:.3; cursor:not-allowed; }
+
+  .page-counter {
+    color:#64748b; font-size:13px; font-weight:bold;
+  }
+
+  /* ========== MOBILE ========== */
+  .menu-toggle {
+    display:none; background:#0ea5e9; border:none; color:white;
+    padding:8px 12px; border-radius:8px; font-size:18px; cursor:pointer;
+  }
+
+  @media (max-width: 800px) {
+    .sidebar {
+      position:fixed; top:0; left:0; bottom:0; z-index:100;
+      transform:translateX(-100%); transition:.3s;
+      box-shadow:4px 0 20px rgba(0,0,0,0.5);
+    }
+    .sidebar.open { transform:translateX(0); }
+    .sidebar-overlay {
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+      z-index:99;
+    }
+    .sidebar-overlay.show { display:block; }
+    .menu-toggle { display:block; }
+    .footer-nav { left:0; padding:12px 4%; }
+    .footer-nav button { padding:10px 16px; font-size:12px; }
+    .page { padding:25px 5% 100px; }
+    .page-title { font-size:22px; }
+    .grid-2 { grid-template-columns:1fr; }
+    .logo span.fulllogo { display:none; }
+  }
+</style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Navbar Sederhana -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">📚</span>
-                    <span class="font-bold text-slate-800 text-lg tracking-tight">Ruang IPS</span>
-                </div>
-                <div class="text-sm font-medium text-slate-500">
-                    Ekonomi SMP
-                </div>
-            </div>
+<header>
+  <div class="logo">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    ✈️ <span class="fulllogo">EKONOMI — BAB 1</span>
+  </div>
+  <a href="ekonomi.html" class="back-btn">← Menu Bab</a>
+</header>
+
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">📑 Daftar Materi</div>
+    <div class="nav-item active" onclick="goTo(0)">
+      <span class="num">1</span> Kelangkaan & Kebutuhan
+    </div>
+    <div class="nav-item" onclick="goTo(1)">
+      <span class="num">2</span> Macam-Macam Kebutuhan
+    </div>
+    <div class="nav-item" onclick="goTo(2)">
+      <span class="num">3</span> Alat Pemuas Kebutuhan
+    </div>
+    <div class="nav-item" onclick="goTo(3)">
+      <span class="num">4</span> Skala Prioritas
+    </div>
+    <div class="nav-item" onclick="goTo(4)">
+      <span class="num">5</span> Motif, Prinsip & Tindakan
+    </div>
+    <div class="nav-item" onclick="goTo(5)">
+      <span class="num">6</span> Biaya Peluang
+    </div>
+    <div class="nav-item" onclick="goTo(6)">
+      <span class="num">7</span> Ekonomi Mikro & Makro
+    </div>
+    <div class="nav-item" onclick="goTo(7)">
+      <span class="num">8</span> Kegiatan Ekonomi
+    </div>
+    <div class="nav-item" onclick="goTo(8)">
+      <span class="num">9</span> Faktor Produksi
+    </div>
+    <div class="nav-item" onclick="goTo(9)">
+      <span class="num">10</span> Pelaku Ekonomi
+    </div>
+    <div class="nav-item" onclick="goTo(10)">
+      <span class="num">11</span> Circular Flow
+    </div>
+    <div class="nav-item" onclick="goTo(11)">
+      <span class="num">12</span> Ekonomi Indonesia
+    </div>
+    <div class="nav-item" onclick="goTo(12)">
+      <span class="num">13</span> Peta Konsep
+    </div>
+    <div class="nav-item" onclick="goTo(13)">
+      <span class="num">14</span> Ringkasan
+    </div>
+    <div class="nav-item" onclick="goTo(14)">
+      <span class="num">15</span> Glosarium
+    </div>
+    <div class="nav-item" onclick="goTo(15)">
+      <span class="num">16</span> Soal Latihan
+    </div>
+    <div class="nav-item" onclick="goTo(16)">
+      <span class="num">17</span> Proyek Siswa
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+
+    <!-- ===== PAGE 1: KELANGKAAN ===== -->
+    <section class="page active">
+      <div class="page-badge">📖 MATERI 1 dari 17</div>
+      <h2 class="page-title">Kelangkaan & <span>Kebutuhan Manusia</span></h2>
+      <p class="page-subtitle">Memahami masalah pokok ekonomi yang dihadapi setiap manusia</p>
+
+      <p><strong style="color:#38bdf8">Kelangkaan (scarcity)</strong> adalah kondisi di mana kebutuhan manusia tidak terbatas, sedangkan alat pemuas kebutuhan jumlahnya terbatas. Inilah <strong>masalah pokok ekonomi</strong> yang dihadapi setiap manusia.</p>
+
+      <div class="highlight">
+        💡 <strong>Inti masalah ekonomi:</strong><br>
+        Kebutuhan manusia <em>tidak terbatas</em><br>
+        ⚡ Alat pemuas kebutuhan <em>terbatas</em><br>
+        → <strong>Kelangkaan</strong>
+      </div>
+
+      <h3>Penyebab Kelangkaan</h3>
+      <ul>
+        <li><strong>Sumber daya alam terbatas</strong> — minyak bumi, tambang, dan air bersih jumlahnya terbatas.</li>
+        <li><strong>Kebutuhan manusia terus bertambah</strong> — seiring pertumbuhan penduduk dan kemajuan zaman.</li>
+        <li><strong>Kemampuan produksi terbatas</strong> — teknologi dan tenaga kerja belum mencukupi.</li>
+        <li><strong>Bencana alam</strong> — merusak sumber daya dan menghambat produksi.</li>
+        <li><strong>Ketidakmerataan distribusi</strong> — barang ada, tetapi tidak tersebar merata.</li>
+      </ul>
+
+      <h3>Hubungan Kelangkaan dengan Kebutuhan</h3>
+      <p>Karena terjadi kelangkaan, manusia harus membuat <strong>pilihan</strong> — memilih kebutuhan mana yang harus dipenuhi lebih dulu. Inilah yang melahirkan konsep <strong>biaya peluang</strong> dan <strong>skala prioritas</strong>.</p>
+
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Di rumah hanya tersedia 1 liter air bersih, tetapi ada 3 kebutuhan: minum, mandi, dan mencuci. Maka harus dipilih — minum adalah prioritas utama. Inilah kelangkaan dan pilihan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 2: KEBUTUHAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 2 dari 17</div>
+      <h2 class="page-title">Macam-Macam <span>Kebutuhan</span></h2>
+      <p class="page-subtitle">Mengenal jenis-jenis kebutuhan manusia dari berbagai sudut pandang</p>
+
+      <p><strong style="color:#38bdf8">Kebutuhan</strong> adalah segala sesuatu yang diperlukan manusia untuk mempertahankan hidup dan mencapai kesejahteraan.</p>
+
+      <h3>A. Menurut Intensitas</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Primer</strong></td><td>Kebutuhan pokok, wajib dipenuhi</td><td>Makanan, minuman, pakaian, rumah</td></tr>
+        <tr><td><strong>Sekunder</strong></td><td>Pelengkap, dipenuhi setelah primer</td><td>Sepeda motor, TV, kulkas, HP</td></tr>
+        <tr><td><strong>Tersier</strong></td><td>Mewah, hanya untuk kalangan tertentu</td><td>Mobil mewah, perhiasan</td></tr>
+      </table>
+
+      <h3>B. Menurut Sifat</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Jasmani</strong></td><td>Berkaitan dengan fisik/tubuh</td><td>Makan, minum, olahraga, istirahat</td></tr>
+        <tr><td><strong>Rohani</strong></td><td>Berkaitan dengan jiwa/batin</td><td>Ibadah, pendidikan, hiburan, rasa aman</td></tr>
+      </table>
+
+      <h3>C. Menurut Waktu</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Sekarang</strong></td><td>Harus dipenuhi saat ini</td><td>Makan saat lapar, minum saat haus</td></tr>
+        <tr><td><strong>Masa Depan</strong></td><td>Dipenuhi untuk masa depan</td><td>Tabungan, asuransi, dana pendidikan</td></tr>
+      </table>
+
+      <h3>D. Menurut Subjek</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th></tr>
+        <tr><td><strong>Individu</strong></td><td>Kebutuhan pribadi masing-masing orang</td></tr>
+        <tr><td><strong>Kolektif</strong></td><td>Kebutuhan bersama dalam masyarakat</td></tr>
+      </table>
+
+      <h3>Faktor yang Mempengaruhi Kebutuhan</h3>
+      <ul>
+        <li><strong>Pendapatan</strong> — semakin tinggi pendapatan, semakin banyak kebutuhan.</li>
+        <li><strong>Selera</strong> — setiap orang punya selera berbeda.</li>
+        <li><strong>Lingkungan</strong> — kebiasaan dan budaya sekitar.</li>
+        <li><strong>Pendidikan</strong> — semakin tinggi pendidikan, kebutuhan semakin beragam.</li>
+        <li><strong>Zaman/Teknologi</strong> — kemajuan zaman memunculkan kebutuhan baru.</li>
+        <li><strong>Agama</strong> — keyakinan memengaruhi jenis kebutuhan.</li>
+      </ul>
+    </section>
+
+    <!-- ===== PAGE 3: ALAT PEMUAS ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 3 dari 17</div>
+      <h2 class="page-title">Alat Pemuas <span>Kebutuhan</span></h2>
+      <p class="page-subtitle">Barang dan jasa sebagai pemenuhan kebutuhan manusia</p>
+
+      <p><strong style="color:#38bdf8">Alat pemuas kebutuhan</strong> adalah segala sesuatu yang dapat memenuhi kebutuhan manusia, berupa <strong>barang</strong> atau <strong>jasa</strong>.</p>
+
+      <h3>Perbedaan Barang dan Jasa</h3>
+      <table>
+        <tr><th>Aspek</th><th>Barang</th><th>Jasa</th></tr>
+        <tr><td>Wujud</td><td>Berwujud (bisa dilihat/dipegang)</td><td>Tidak berwujud</td></tr>
+        <tr><td>Sifat</td><td>Bisa disimpan</td><td>Tidak bisa disimpan</td></tr>
+        <tr><td>Contoh</td><td>Makanan, pakaian, buku</td><td>Guru mengajar, dokter mengobati</td></tr>
+      </table>
+
+      <h3>Jenis-Jenis Barang</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Barang Konsumsi</strong></td><td>Langsung digunakan konsumen</td><td>Nasi, sabun, baju</td></tr>
+        <tr><td><strong>Barang Produksi</strong></td><td>Untuk menghasilkan barang lain</td><td>Mesin, traktor, bahan baku</td></tr>
+        <tr><td><strong>Barang Substitusi</strong></td><td>Pengganti barang lain</td><td>Nasi ↔ mie, sepeda ↔ motor</td></tr>
+        <tr><td><strong>Barang Komplementer</strong></td><td>Saling melengkapi</td><td>Motor ↔ bensin, pena ↔ tinta</td></tr>
+        <tr><td><strong>Barang Bebas</strong></td><td>Tersedia banyak, tanpa pengorbanan</td><td>Udara, sinar matahari</td></tr>
+        <tr><td><strong>Barang Ekonomi</strong></td><td>Terbatas, perlu pengorbanan</td><td>Beras, air bersih, listrik</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Motor dan bensin adalah barang komplementer — motor tidak bisa jalan tanpa bensin. Sedangkan motor dan sepeda adalah barang substitusi — keduanya bisa dipakai untuk transportasi.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 4: SKALA PRIORITAS ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 4 dari 17</div>
+      <h2 class="page-title">Skala <span>Prioritas</span></h2>
+      <p class="page-subtitle">Menyusun urutan kebutuhan berdasarkan tingkat kepentingannya</p>
+
+      <p><strong style="color:#38bdf8">Skala prioritas</strong> adalah daftar urutan kebutuhan berdasarkan tingkat kepentingannya — mana yang harus dipenuhi lebih dahulu.</p>
+
+      <h3>Urutan Skala Prioritas</h3>
+      <table>
+        <tr><th>Urutan</th><th>Kategori</th><th>Contoh</th></tr>
+        <tr><td>1</td><td>Penting & Mendesak</td><td>Makan saat lapar, berobat saat sakit</td></tr>
+        <tr><td>2</td><td>Penting tapi Kurang Mendesak</td><td>Menabung, membeli buku pelajaran</td></tr>
+        <tr><td>3</td><td>Kurang Penting tapi Mendesak</td><td>Membeli pulsa darurat</td></tr>
+        <tr><td>4</td><td>Kurang Penting & Kurang Mendesak</td><td>Membeli mainan, jalan-jalan</td></tr>
+      </table>
+
+      <h3>Faktor Penentu Skala Prioritas</h3>
+      <ul>
+        <li><strong>Tingkat kepentingan</strong> — seberapa penting kebutuhan itu.</li>
+        <li><strong>Kemampuan diri</strong> — apakah mampu memenuhinya.</li>
+        <li><strong>Mempertimbangkan masa depan</strong> — apakah berdampak jangka panjang.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Tips:</strong> Susun skala prioritas dengan bertanya: <em>"Apa yang paling penting dan mendesak untuk saat ini?"</em>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 5: MOTIF PRINSIP ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 5 dari 17</div>
+      <h2 class="page-title">Motif, Prinsip & <span>Tindakan Ekonomi</span></h2>
+      <p class="page-subtitle">Dorongan, pedoman, dan perbuatan dalam kegiatan ekonomi</p>
+
+      <h3>A. Motif Ekonomi</h3>
+      <p><strong style="color:#38bdf8">Motif ekonomi</strong> adalah dorongan atau alasan yang mendorong seseorang melakukan tindakan ekonomi. Motif ekonomi adalah <em>alasan</em>, sedangkan tindakan ekonomi adalah <em>perbuatannya</em>.</p>
+
+      <table>
+        <tr><th>Motif</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Memenuhi Kebutuhan</strong></td><td>Dorongan untuk bertahan hidup</td><td>Bekerja untuk membeli makan</td></tr>
+        <tr><td><strong>Mendapat Keuntungan</strong></td><td>Ingin memperoleh laba</td><td>Pedagang berjualan</td></tr>
+        <tr><td><strong>Berbuat Sosial</strong></td><td>Ingin membantu sesama</td><td>Menyumbang korban bencana</td></tr>
+        <tr><td><strong>Mendapat Penghargaan</strong></td><td>Ingin diakui/dihargai</td><td>Dermawan yang ingin dikenal</td></tr>
+        <tr><td><strong>Mendapat Kekuasaan</strong></td><td>Ingin menguasai bidang tertentu</td><td>Mendirikan perusahaan besar</td></tr>
+      </table>
+
+      <h3>B. Prinsip Ekonomi</h3>
+      <p><strong style="color:#38bdf8">Prinsip ekonomi</strong> adalah pedoman dalam melakukan kegiatan ekonomi — dengan pengorbanan sekecil mungkin untuk memperoleh hasil tertentu, atau dengan pengorbanan tertentu untuk memperoleh hasil maksimal.</p>
+
+      <div class="highlight">
+        💡 <strong>Rumus Prinsip Ekonomi:</strong><br>
+        Pengorbanan <strong>kecil</strong> → Hasil <strong>maksimal</strong><br>
+        atau Pengorbanan <strong>tertentu</strong> → Hasil <strong>tertentu</strong>
+      </div>
+
+      <h3>C. Tindakan Ekonomi</h3>
+      <ul>
+        <li><strong>Tindakan ekonomi rasional</strong> — didasarkan pertimbangan logis & menguntungkan.</li>
+        <li><strong>Tindakan ekonomi irasional</strong> — tidak berdasarkan pertimbangan logis.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Ibu membandingkan harga beras di dua toko sebelum membeli. Ia memilih toko yang lebih murah dengan kualitas sama. Ini adalah <em>tindakan ekonomi rasional</em> yang dilandasi <em>prinsip ekonomi</em>.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 6: BIAYA PELUANG ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 6 dari 17</div>
+      <h2 class="page-title">Biaya Peluang <span>(Opportunity Cost)</span></h2>
+      <p class="page-subtitle">Nilai yang dikorbankan karena memilih suatu alternatif</p>
+
+      <p><strong style="color:#38bdf8">Biaya peluang</strong> adalah nilai barang atau manfaat dari suatu tindakan yang kita abaikan karena memilih tindakan/barang lain.</p>
+      <p>Biaya peluang muncul karena adanya <strong>pilihan</strong>. Ketika kita memilih satu hal, kita mengorbankan hal lain.</p>
+
+      <h3>Ciri-Ciri Biaya Peluang</h3>
+      <ul>
+        <li>Tidak selalu berhubungan dengan uang — bisa waktu, kesenangan, atau keuntungan masa depan.</li>
+        <li>Memiliki banyak kemungkinan penggunaan.</li>
+        <li>Tergantung pada tujuan dan situasi individu.</li>
+        <li>Biasanya menyangkut kebutuhan sekunder atau tersier.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Andi punya uang Rp50.000. Ia bisa membeli buku pelajaran ATAU menonton bioskop. Jika ia memilih buku, maka biaya peluangnya adalah kesenangan menonton bioskop yang ia korbankan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 7: MIKRO MAKRO ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 7 dari 17</div>
+      <h2 class="page-title">Ilmu Ekonomi: <span>Mikro & Makro</span></h2>
+      <p class="page-subtitle">Pembagian ilmu ekonomi berdasarkan ruang lingkupnya</p>
+
+      <p><strong style="color:#38bdf8">Ilmu ekonomi</strong> adalah ilmu yang mempelajari bagaimana manusia mengelola sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak terbatas.</p>
+
+      <h3>Pembagian Ilmu Ekonomi</h3>
+      <table>
+        <tr><th>Aspek</th><th>Ekonomi Mikro</th><th>Ekonomi Makro</th></tr>
+        <tr><td>Ruang Lingkup</td><td>Bagian kecil perekonomian</td><td>Perekonomian secara keseluruhan</td></tr>
+        <tr><td>Pelaku</td><td>Rumah tangga, perusahaan</td><td>Negara, pemerintah, global</td></tr>
+        <tr><td>Contoh Kajian</td><td>Harga pasar, permintaan-penawaran</td><td>Inflasi, pengangguran, PDB</td></tr>
+      </table>
+
+      <h3>Ekonomi Positif vs Normatif</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Positif</strong></td><td>Menggambarkan fakta apa adanya</td><td>"Harga beras naik 10% tahun ini"</td></tr>
+        <tr><td><strong>Normatif</strong></td><td>Memberi penilaian/saran</td><td>"Harga beras seharusnya diturunkan"</td></tr>
+      </table>
+    </section>
+
+    <!-- ===== PAGE 8: KEGIATAN EKONOMI ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 8 dari 17</div>
+      <h2 class="page-title">Kegiatan Ekonomi <span>(Produksi, Distribusi, Konsumsi)</span></h2>
+      <p class="page-subtitle">Tiga kegiatan pokok dalam perekonomian</p>
+
+      <h3>A. Produksi</h3>
+      <p><strong style="color:#38bdf8">Produksi</strong> adalah kegiatan menghasilkan barang atau jasa untuk memenuhi kebutuhan konsumen. Pelakunya disebut <strong>produsen</strong>.</p>
+
+      <table>
+        <tr><th>Jenis Produksi</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Ekstraktif</strong></td><td>Mengambil langsung dari alam</td><td>Pertambangan, penangkapan ikan</td></tr>
+        <tr><td><strong>Agraris</strong></td><td>Mengolah tanah / bercocok tanam</td><td>Pertanian, perkebunan</td></tr>
+        <tr><td><strong>Industri</strong></td><td>Mengubah bahan mentah jadi barang jadi</td><td>Pabrik sepatu, tekstil</td></tr>
+        <tr><td><strong>Jasa</strong></td><td>Memberikan pelayanan</td><td>Guru, dokter, tukang cukur</td></tr>
+      </table>
+
+      <h3>B. Distribusi</h3>
+      <p><strong style="color:#38bdf8">Distribusi</strong> adalah kegiatan menyalurkan barang/jasa dari produsen ke konsumen. Pelakunya disebut <strong>distributor</strong>.</p>
+
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Langsung</strong></td><td>Produsen → Konsumen</td><td>Petani jual langsung ke pembeli</td></tr>
+        <tr><td><strong>Tidak Langsung</strong></td><td>Produsen → Perantara → Konsumen</td><td>Pabrik → grosir → pedagang → konsumen</td></tr>
+      </table>
+
+      <h3>C. Konsumsi</h3>
+      <p><strong style="color:#38bdf8">Konsumsi</strong> adalah kegiatan menghabiskan atau mengurangi nilai guna barang/jasa untuk memenuhi kebutuhan. Pelakunya disebut <strong>konsumen</strong>.</p>
+
+      <h4>Faktor yang Mempengaruhi Konsumsi</h4>
+      <table>
+        <tr><th>Faktor</th><th>Pengaruh</th></tr>
+        <tr><td>Pendapatan</td><td>Semakin tinggi pendapatan, konsumsi meningkat.</td></tr>
+        <tr><td>Selera</td><td>Menentukan jenis barang yang dibeli.</td></tr>
+        <tr><td>Harga Barang</td><td>Harga naik, konsumsi turun.</td></tr>
+        <tr><td>Jumlah Keluarga</td><td>Keluarga besar butuh konsumsi lebih banyak.</td></tr>
+        <tr><td>Lingkungan / Adat</td><td>Kebiasaan memengaruhi pola konsumsi.</td></tr>
+      </table>
+    </section>
+
+    <!-- ===== PAGE 9: FAKTOR PRODUKSI ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 9 dari 17</div>
+      <h2 class="page-title">Faktor Produksi & <span>Balas Jasa</span></h2>
+      <p class="page-subtitle">Empat faktor produksi dan imbalan yang diterima</p>
+
+      <p>Untuk melakukan produksi, diperlukan <strong>4 faktor produksi</strong>. Setiap faktor produksi mendapat balas jasa tersendiri.</p>
+
+      <table>
+        <tr><th>Faktor Produksi</th><th>Penjelasan</th><th>Balas Jasa</th><th>Contoh</th></tr>
+        <tr><td>🌱 <strong>Alam</strong></td><td>Sumber daya dari alam</td><td><strong>Sewa</strong></td><td>Tanah, air, tambang</td></tr>
+        <tr><td>👷 <strong>Tenaga Kerja</strong></td><td>Manusia yang bekerja</td><td><strong>Upah</strong></td><td>Petani, buruh, guru</td></tr>
+        <tr><td>💰 <strong>Modal</strong></td><td>Alat & bahan untuk produksi</td><td><strong>Bunga</strong></td><td>Mesin, uang, gedung</td></tr>
+        <tr><td>🧠 <strong>Kewirausahaan</strong></td><td>Keterampilan mengelola usaha</td><td><strong>Laba</strong></td><td>Pengusaha, manajer</td></tr>
+      </table>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong><br>
+        🌱 Alam → <strong>Sewa</strong><br>
+        👷 Tenaga Kerja → <strong>Upah</strong><br>
+        💰 Modal → <strong>Bunga</strong><br>
+        🧠 Kewirausahaan → <strong>Laba</strong>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 10: PELAKU ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 10 dari 17</div>
+      <h2 class="page-title">Pelaku <span>Ekonomi</span></h2>
+      <p class="page-subtitle">Empat pelaku utama dalam kegiatan ekonomi</p>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <div class="icon">🏠</div>
+          <h4>Rumah Tangga Konsumen</h4>
+          <p>Membeli & menggunakan barang/jasa untuk memenuhi kebutuhan. Juga menyediakan faktor produksi.</p>
         </div>
-    </nav>
-
-    <!-- Header Section -->
-    <header class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            Materi <span class="gradient-text">Ekonomi</span>
-        </h1>
-        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-            Pilih bab untuk mulai bermain dan uji pengetahuanmu!
-        </p>
-    </header>
-
-    <!-- Grid Bab -->
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <!-- Bab 1 -->
-            <a href="ekonomi-bab1.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-blue-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl group-hover:bg-blue-100 transition-colors">
-                        🏭
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
-                            Bab 1 — Kegiatan Ekonomi
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Produksi, distribusi, dan konsumsi dalam kehidupan sehari-hari.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Bab 2 -->
-            <a href="ekonomi-bab2.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-2xl group-hover:bg-indigo-100 transition-colors">
-                        👥
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors">
-                            Bab 2 — Pelaku Ekonomi
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Rumah tangga, perusahaan, pemerintah, dan masyarakat luar negeri.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Bab 3 -->
-            <a href="ekonomi-bab3.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl group-hover:bg-amber-100 transition-colors">
-                        ⚖️
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-amber-600 transition-colors">
-                            Bab 3 — Harga dan Pasar
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Permintaan, penawaran, harga keseimbangan, dan jenis pasar.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Bab 4 -->
-            <a href="ekonomi-bab4.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-emerald-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:bg-emerald-100 transition-colors">
-                        🏦
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-emerald-600 transition-colors">
-                            Bab 4 — Lembaga Keuangan
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Bank, koperasi, dan lembaga keuangan non-bank.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Bab 5 -->
-            <a href="ekonomi-bab5.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-rose-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center text-2xl group-hover:bg-rose-100 transition-colors">
-                        🌍
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-rose-600 transition-colors">
-                            Bab 5 — Perdagangan Internasional
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Ekspor, impor, dan kerja sama ekonomi antarnegara.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Bab 6 -->
-            <a href="ekonomi-bab6.html" class="card-hover block bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-cyan-300 group">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center text-2xl group-hover:bg-cyan-100 transition-colors">
-                        💳
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-cyan-600 transition-colors">
-                            Bab 6 — Ekonomi Digital
-                        </h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            Literasi finansial, uang digital, dan ekonomi berbasis teknologi.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
+        <div class="mini-card">
+          <div class="icon">🏭</div>
+          <h4>Rumah Tangga Produsen</h4>
+          <p>Memproduksi barang/jasa untuk dijual kepada konsumen. Membutuhkan faktor produksi.</p>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-400">
-            &copy; 2025 Ruang IPS. Materi Ekonomi SMP.
+        <div class="mini-card">
+          <div class="icon">🏛️</div>
+          <h4>Pemerintah</h4>
+          <p>Menarik pajak & menyediakan fasilitas publik. Berperan sebagai regulator & konsumen.</p>
         </div>
-    </footer>
+        <div class="mini-card">
+          <div class="icon">🌐</div>
+          <h4>Masyarakat Luar Negeri</h4>
+          <p>Melakukan ekspor & impor. Sumber tenaga ahli & investor asing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 11: CIRCULAR FLOW ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 11 dari 17</div>
+      <h2 class="page-title">Circular Flow <span>Diagram</span></h2>
+      <p class="page-subtitle">Arus uang dan barang antar pelaku ekonomi</p>
+
+      <p><strong style="color:#38bdf8">Circular flow diagram</strong> adalah diagram yang menggambarkan arus uang dan barang antar pelaku ekonomi.</p>
+
+      <h3>A. Perekonomian 2 Sektor (Sederhana)</h3>
+      <p>Melibatkan <strong>Rumah Tangga Konsumen (RTK)</strong> dan <strong>Rumah Tangga Produsen (RTP)</strong>.</p>
+
+      <div class="peta-konsep" style="text-align:left; padding:20px;">
+        <p style="color:#7dd3fc; margin-bottom:10px;"><strong>Arus Barang & Jasa:</strong></p>
+        <p style="color:#cbd5e1; font-size:13px;">RTK menyediakan faktor produksi → RTP memproduksi barang/jasa → RTP menjual ke RTK → RTK mengonsumsi.</p>
+        <p style="color:#7dd3fc; margin:15px 0 10px;"><strong>Arus Uang:</strong></p>
+        <p style="color:#cbd5e1; font-size:13px;">RTP membayar sewa, upah, bunga, laba ke RTK → RTK membeli barang/jasa dari RTP.</p>
+      </div>
+
+      <h3>B. Perekonomian 3 Sektor</h3>
+      <p>Ditambah <strong>Pemerintah</strong>. Pemerintah menarik pajak dari RTK & RTP, lalu menyediakan fasilitas publik.</p>
+
+      <h3>C. Perekonomian 4 Sektor</h3>
+      <p>Ditambah <strong>Masyarakat Luar Negeri</strong>. Terjadi ekspor, impor, investasi asing, dan pertukaran tenaga ahli.</p>
+
+      <div class="highlight">
+        💡 <strong>Intinya:</strong> Semakin banyak sektor, semakin kompleks arus uang & barangnya, tetapi prinsipnya tetap saling menguntungkan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 12: EKONOMI INDONESIA ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 12 dari 17</div>
+      <h2 class="page-title">Karakteristik <span>Ekonomi Indonesia</span></h2>
+      <p class="page-subtitle">Sistem Ekonomi Pancasila berlandaskan UUD 1945</p>
+
+      <p>Sistem ekonomi Indonesia bukan kapitalis murni, bukan sosialis murni, melainkan <strong style="color:#38bdf8">Sistem Ekonomi Pancasila</strong> yang berlandaskan UUD 1945 Pasal 33.</p>
+
+      <h3>Ciri-Ciri Ekonomi Pancasila</h3>
+      <ul>
+        <li><strong>Koperasi</strong> dikembangkan sebagai soko guru perekonomian.</li>
+        <li><strong>Pemerataan</strong> — kemakmuran masyarakat diutamakan, bukan kemakmuran individu.</li>
+        <li><strong>Kebijakan nasionalis</strong> — mengutamakan kepentingan bangsa.</li>
+        <li><strong>Perencanaan terpusat</strong> — tetapi pelaksanaannya desentralisasi.</li>
+        <li><strong>Gotong royong</strong> — semangat kebersamaan dalam ekonomi.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Pasal 33 UUD 1945:</strong><br>
+        (1) Perekonomian disusun sebagai usaha bersama berdasar atas asas kekeluargaan.<br>
+        (2) Cabang-cabang produksi yang penting bagi negara dan menguasai hajat hidup orang banyak dikuasai oleh negara.<br>
+        (3) Bumi, air, dan kekayaan alam yang terkandung di dalamnya dikuasai oleh negara dan dipergunakan untuk sebesar-besarnya kemakmuran rakyat.
+      </div>
+
+      <h3>Peran UMKM & Koperasi</h3>
+      <ul>
+        <li><strong>UMKM</strong> — menyerap banyak tenaga kerja, menjadi tulang punggung ekonomi rakyat.</li>
+        <li><strong>Koperasi</strong> — wadah ekonomi gotong royong, membantu anggota yang lemah modal.</li>
+      </ul>
+    </section>
+
+    <!-- ===== PAGE 13: PETA KONSEP ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 13 dari 17</div>
+      <h2 class="page-title">Peta <span>Konsep</span></h2>
+      <p class="page-subtitle">Ringkasan visual hubungan antar konsep</p>
+
+      <div class="peta-konsep">
+        <div class="node utama">KEGIATAN EKONOMI</div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node sub">Kelangkaan</span>
+          <span class="node sub">Kebutuhan</span>
+          <span class="node sub">Motif & Prinsip</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node sub">Produksi</span>
+          <span class="node sub">Distribusi</span>
+          <span class="node sub">Konsumsi</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node detail">Faktor Produksi</span>
+          <span class="node detail">Pelaku Ekonomi</span>
+          <span class="node detail">Circular Flow</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 14: RINGKASAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 14 dari 17</div>
+      <h2 class="page-title">Ringkasan <span>Bab 1</span></h2>
+      <p class="page-subtitle">Poin-poin penting yang harus diingat</p>
+
+      <ul>
+        <li><strong>Kelangkaan</strong> = kebutuhan tidak terbatas vs alat pemuas terbatas.</li>
+        <li><strong>Kebutuhan</strong> dibagi menurut intensitas (primer, sekunder, tersier), sifat (jasmani, rohani), waktu (sekarang, masa depan), dan subjek (individu, kolektif).</li>
+        <li><strong>Alat pemuas kebutuhan</strong> = barang & jasa. Barang dibagi jadi konsumsi, produksi, substitusi, komplementer, bebas, ekonomi.</li>
+        <li><strong>Skala prioritas</strong> = urutan kebutuhan berdasarkan tingkat kepentingan.</li>
+        <li><strong>Motif ekonomi</strong> = dorongan melakukan tindakan ekonomi. <strong>Prinsip ekonomi</strong> = pengorbanan sekecil mungkin untuk hasil maksimal.</li>
+        <li><strong>Biaya peluang</strong> = nilai yang dikorbankan karena memilih alternatif lain.</li>
+        <li><strong>Ekonomi mikro</strong> = bagian kecil; <strong>makro</strong> = keseluruhan.</li>
+        <li><strong>Kegiatan ekonomi</strong> = produksi, distribusi, konsumsi.</li>
+        <li><strong>Faktor produksi</strong>: alam (sewa), tenaga kerja (upah), modal (bunga), kewirausahaan (laba).</li>
+        <li><strong>Pelaku ekonomi</strong>: RTK, RTP, pemerintah, masyarakat luar negeri.</li>
+        <li><strong>Ekonomi Indonesia</strong> = Ekonomi Pancasila, berlandaskan Pasal 33 UUD 1945, mengutamakan koperasi & gotong royong.</li>
+      </ul>
+    </section>
+
+    <!-- ===== PAGE 15: GLOSARIUM ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 15 dari 17</div>
+      <h2 class="page-title">Glosarium <span>Istilah Penting</span></h2>
+      <p class="page-subtitle">Kumpulan istilah kunci dalam bab ini</p>
+
+      <div class="glosarium-item"><strong>Biaya Peluang</strong><br><span>Nilai barang atau manfaat yang dikorbankan karena memilih tindakan/barang lain.</span></div>
+      <div class="glosarium-item"><strong>Distribusi</strong><br><span>Kegiatan menyalurkan barang/jasa dari produsen ke konsumen.</span></div>
+      <div class="glosarium-item"><strong>Ekonomi Makro</strong><br><span>Kajian ekonomi secara keseluruhan (nasional/global).</span></div>
+      <div class="glosarium-item"><strong>Ekonomi Mikro</strong><br><span>Kajian ekonomi pada bagian kecil (rumah tangga/perusahaan).</span></div>
+      <div class="glosarium-item"><strong>Kelangkaan</strong><br><span>Kondisi kebutuhan tidak terbatas sedangkan alat pemuas terbatas.</span></div>
+      <div class="glosarium-item"><strong>Konsumsi</strong><br><span>Kegiatan menghabiskan atau mengurangi nilai guna barang/jasa.</span></div>
+      <div class="glosarium-item"><strong>Koperasi</strong><br><span>Badan usaha berasaskan kekeluargaan dan gotong royong.</span></div>
+      <div class="glosarium-item"><strong>Motif Ekonomi</strong><br><span>Dorongan/alasan seseorang melakukan tindakan ekonomi.</span></div>
+      <div class="glosarium-item"><strong>Prinsip Ekonomi</strong><br><span>Pedoman berusaha dengan pengorbanan sekecil mungkin untuk hasil maksimal.</span></div>
+      <div class="glosarium-item"><strong>Produksi</strong><br><span>Kegiatan menghasilkan barang/jasa untuk memenuhi kebutuhan.</span></div>
+      <div class="glosarium-item"><strong>Skala Prioritas</strong><br><span>Daftar urutan kebutuhan berdasarkan tingkat kepentingan.</span></div>
+      <div class="glosarium-item"><strong>Tindakan Ekonomi</strong><br><span>Kegiatan nyata manusia untuk memenuhi kebutuhan, dilandasi motif & prinsip.</span></div>
+    </section>
+
+    <!-- ===== PAGE 16: SOAL ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 16 dari 17</div>
+      <h2 class="page-title">Soal Latihan + <span>Pembahasan</span></h2>
+      <p class="page-subtitle">Klik tombol untuk memeriksa jawabanmu</p>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 1</div>
+        <div class="pertanyaan">Kelangkaan terjadi karena...</div>
+        <div class="pilihan">A. Kebutuhan manusia terbatas<br>B. Alat pemuas kebutuhan tidak terbatas<br>C. Kebutuhan manusia tidak terbatas, alat pemuas terbatas<br>D. Semua kebutuhan dapat dipenuhi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Kelangkaan terjadi karena kebutuhan manusia tidak terbatas, sedangkan alat pemuas kebutuhan jumlahnya terbatas.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 2</div>
+        <div class="pertanyaan">Kebutuhan yang harus dipenuhi untuk kelangsungan hidup disebut kebutuhan...</div>
+        <div class="pilihan">A. Sekunder<br>B. Primer<br>C. Tersier<br>D. Rohani</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Kebutuhan primer adalah kebutuhan pokok yang wajib dipenuhi.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 3</div>
+        <div class="pertanyaan">Alat pemuas kebutuhan berupa barang pengganti disebut...</div>
+        <div class="pilihan">A. Barang komplementer<br>B. Barang substitusi<br>C. Barang produksi<br>D. Barang bebas</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Barang substitusi adalah barang pengganti, contoh: nasi diganti mie.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 4</div>
+        <div class="pertanyaan">Urutan kebutuhan berdasarkan tingkat kepentingan disebut...</div>
+        <div class="pilihan">A. Biaya peluang<br>B. Motif ekonomi<br>C. Skala prioritas<br>D. Prinsip ekonomi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Skala prioritas adalah daftar urutan kebutuhan berdasarkan tingkat kepentingan.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 5</div>
+        <div class="pertanyaan">Dorongan yang mendorong seseorang melakukan tindakan ekonomi disebut...</div>
+        <div class="pilihan">A. Prinsip ekonomi<br>B. Motif ekonomi<br>C. Biaya peluang<br>D. Skala prioritas</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Motif ekonomi adalah alasan/dorongan seseorang melakukan tindakan ekonomi.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 6</div>
+        <div class="pertanyaan">Berusaha dengan pengorbanan sekecil mungkin untuk hasil maksimal adalah pengertian dari...</div>
+        <div class="pilihan">A. Motif ekonomi<br>B. Prinsip ekonomi<br>C. Biaya peluang<br>D. Tindakan ekonomi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Prinsip ekonomi adalah pedoman berusaha dengan pengorbanan sekecil mungkin untuk memperoleh hasil maksimal.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 7</div>
+        <div class="pertanyaan">Nilai barang yang dikorbankan karena memilih alternatif lain disebut...</div>
+        <div class="pilihan">A. Biaya produksi<br>B. Biaya peluang<br>C. Biaya konsumsi<br>D. Biaya distribusi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Biaya peluang adalah nilai barang/manfaat yang dikorbankan karena memilih tindakan/barang lain.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 8</div>
+        <div class="pertanyaan">Kegiatan menghasilkan barang atau jasa disebut...</div>
+        <div class="pilihan">A. Konsumsi<br>B. Distribusi<br>C. Produksi<br>D. Investasi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Produksi adalah kegiatan menghasilkan barang/jasa.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 9</div>
+        <div class="pertanyaan">Balas jasa atas faktor produksi modal adalah...</div>
+        <div class="pilihan">A. Sewa<br>B. Upah<br>C. Bunga<br>D. Laba</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Faktor produksi modal mendapat balas jasa berupa bunga.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 10</div>
+        <div class="pertanyaan">Pelaku ekonomi yang melakukan ekspor dan impor adalah...</div>
+        <div class="pilihan">A. Rumah tangga konsumen<br>B. Rumah tangga produsen<br>C. Pemerintah<br>D. Masyarakat luar negeri</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: D.</strong> Masyarakat luar negeri berperan dalam ekspor-impor.</div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 17: PROYEK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 17 dari 17</div>
+      <h2 class="page-title">Proyek / <span>Aktivitas Siswa</span></h2>
+      <p class="page-subtitle">Kerjakan salah satu proyek berikut untuk memperdalam pemahaman</p>
+
+      <div class="proyek">
+        <ol>
+          <li><strong>Amati lingkungan sekitarmu</strong> (rumah, sekolah, atau pasar). Catat <strong>3 contoh produksi, 3 distribusi, dan 3 konsumsi</strong>. Tulis dalam tabel.</li>
+          <li><strong>Buat skala prioritas</strong> kebutuhan pribadimu selama 1 minggu dengan uang saku yang tersedia.</li>
+          <li><strong>Wawancarai</strong> seorang pedagang di sekitarmu tentang motif & prinsip ekonominya.</li>
+          <li><strong>Gambar circular flow diagram</strong> perekonomian 2, 3, dan 4 sektor di buku catatanmu.</li>
+        </ol>
+      </div>
+
+      <div class="highlight" style="text-align:center; margin-top:30px;">
+        🎉 <strong>Selamat!</strong> Kamu telah menyelesaikan seluruh materi Bab 1.
+        Sekarang saatnya uji pemahamanmu dengan kuis!
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER NAV -->
+<div class="footer-nav">
+  <button class="nav-prev" id="prevBtn" onclick="prev()">← Sebelumnya</button>
+  <span class="page-counter"><span id="currentNum">1</span> / 17</span>
+  <button class="nav-next" id="nextBtn" onclick="next()">Selanjutnya →</button>
+</div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navItems = document.querySelectorAll('.nav-item');
+const progressFill = document.getElementById('progressFill');
+const currentNum = document.getElementById('currentNum');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const mainArea = document.getElementById('main');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+let currentPage = 0;
+const totalPages = pages.length;
+
+function goTo(index) {
+  if (index < 0 || index >= totalPages) return;
+
+  pages[currentPage].classList.remove('active');
+  navItems[currentPage].classList.remove('active');
+  navItems[currentPage].classList.add('done');
+
+  currentPage = index;
+
+  pages[currentPage].classList.add('active');
+  navItems[currentPage].classList.add('active');
+
+  // Update progress
+  progressFill.style.width = ((currentPage + 1) / totalPages * 100) + '%';
+  currentNum.textContent = currentPage + 1;
+
+  // Update buttons
+  prevBtn.disabled = currentPage === 0;
+  if (currentPage === totalPages - 1) {
+    nextBtn.textContent = '🎮 Mulai Kuis';
+  } else {
+    nextBtn.textContent = 'Selanjutnya →';
+  }
+
+  // Scroll to top + tutup sidebar di mobile
+  mainArea.scrollTop = 0;
+  if (window.innerWidth <= 800) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  }
+}
+
+function next() {
+  if (currentPage === totalPages - 1) {
+    // ke halaman kuis
+    window.location.href = 'ekonomi-bab1-kuis.html';
+    return;
+  }
+  goTo(currentPage + 1);
+}
+
+function prev() {
+  goTo(currentPage - 1);
+}
+
+function toggleSidebar() {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
+function toggleJawaban(btn) {
+  const jawaban = btn.nextElementSibling;
+  if (jawaban.classList.contains('show')) {
+    jawaban.classList.remove('show');
+    btn.textContent = 'Lihat Jawaban';
+  } else {
+    jawaban.classList.add('show');
+    btn.textContent = 'Sembunyikan';
+  }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
+// Init
+goTo(0);
+</script>
 
 </body>
 </html>
