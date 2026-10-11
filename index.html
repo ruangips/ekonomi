@@ -463,6 +463,38 @@
             transform: translateX(0);
         }
 
+        /* Badge "New Tab" di kartu */
+        .card-external {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translate(-6px, -6px);
+            transition: all 0.35s ease;
+            z-index: 2;
+        }
+
+        .card-external svg {
+            width: 13px;
+            height: 13px;
+            stroke: var(--accent-2);
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .card:hover .card-external {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
         /* ========== CTA SECTION ========== */
         .cta-wrap {
             max-width: 1120px;
@@ -681,69 +713,105 @@
         <div class="grid">
 
             <!-- Bab 1 -->
-            <a href="https://ruangips.github.io/ekonomi/bab1kegiatanekonomi.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab1kegiatanekonomi.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">🏭</div>
                     <span class="card-num">BAB 01</span>
                 </div>
                 <h3 class="card-title">Kegiatan Ekonomi</h3>
                 <p class="card-desc">Produksi, distribusi, dan konsumsi dalam kehidupan sehari-hari.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
             <!-- Bab 2 -->
-            <a href="https://ruangips.github.io/ekonomi/bab2pelakuekonomi.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab2pelakuekonomi.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">👥</div>
                     <span class="card-num">BAB 02</span>
                 </div>
                 <h3 class="card-title">Pelaku Ekonomi</h3>
                 <p class="card-desc">Rumah tangga, perusahaan, pemerintah, dan masyarakat luar negeri.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
             <!-- Bab 3 -->
-            <a href="https://ruangips.github.io/ekonomi/bab3hargadanpasar.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab3hargadanpasar.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">⚖️</div>
                     <span class="card-num">BAB 03</span>
                 </div>
                 <h3 class="card-title">Harga & Pasar</h3>
                 <p class="card-desc">Permintaan, penawaran, harga keseimbangan, dan jenis pasar.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
             <!-- Bab 4 -->
-            <a href="https://ruangips.github.io/ekonomi/bab4lembagakeuangan.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab4lembagakeuangan.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">💰</div>
                     <span class="card-num">BAB 04</span>
                 </div>
                 <h3 class="card-title">Uang & Lembaga Keuangan</h3>
                 <p class="card-desc">Sejarah uang, bank, koperasi, dan lembaga keuangan non-bank.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
             <!-- Bab 5 -->
-            <a href="https://ruangips.github.io/ekonomi/bab5perdaganganinternasional.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab5perdaganganinternasional.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">🌐</div>
                     <span class="card-num">BAB 05</span>
                 </div>
                 <h3 class="card-title">Perdagangan Internasional</h3>
                 <p class="card-desc">Ekspor, impor, kerja sama ekonomi antarnegara, dan devisa.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
             <!-- Bab 6 -->
-            <a href="https://ruangips.github.io/ekonomi/bab6ekonomidigital.html" class="card">
+            <a href="https://ruangips.github.io/ekonomi/bab6ekonomidigital.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="card">
+                <div class="card-external">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
                 <div class="card-header">
                     <div class="card-icon">💳</div>
                     <span class="card-num">BAB 06</span>
                 </div>
                 <h3 class="card-title">Ekonomi Digital</h3>
                 <p class="card-desc">Literasi finansial, uang digital, dan ekonomi berbasis teknologi.</p>
-                <div class="card-footer">Mulai belajar <span>→</span></div>
+                <div class="card-footer">Buka di tab baru <span>→</span></div>
             </a>
 
         </div>
@@ -755,7 +823,10 @@
             <div class="cta-content">
                 <h3>🎯 Siap Uji Pemahamanmu?</h3>
                 <p>Setiap bab dilengkapi soal latihan interaktif dan proyek siswa yang seru.</p>
-                <a href="https://ruangips.github.io/ekonomi/bab1kegiatanekonomi.html" class="btn-primary">
+                <a href="https://ruangips.github.io/ekonomi/bab1kegiatanekonomi.html"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-primary">
                     🚀 Mulai dari Bab 1
                 </a>
             </div>
