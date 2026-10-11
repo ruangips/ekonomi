@@ -12,6 +12,232 @@
     display:flex; flex-direction:column;
   }
 
+  /* ========== LOADING SCREEN ========== */
+  #loader {
+    position:fixed; inset:0; z-index:9999;
+    background:#07111f;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:24px;
+    transition: opacity .7s ease, visibility .7s ease;
+  }
+  #loader.hide { opacity:0; visibility:hidden; pointer-events:none; }
+
+  #loader::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    animation:gridMove 12s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes gridMove {
+    from { background-position:0 0; }
+    to { background-position:44px 44px; }
+  }
+
+  #loader::after {
+    content:''; position:absolute;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, rgba(14,165,233,0.35), transparent 65%);
+    filter:blur(90px);
+    animation:orbPulse 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes orbPulse {
+    0%,100% { transform:scale(1); opacity:.6; }
+    50% { transform:scale(1.15); opacity:1; }
+  }
+
+  /* ========== LOGO MGE 3D ========== */
+  .mge-logo-wrap {
+    position:relative; z-index:1;
+    width:150px; height:150px;
+    display:flex; align-items:center; justify-content:center;
+    animation:logoFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-8px); }
+  }
+
+  .mge-ring-outer {
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:#38bdf8;
+    border-right-color:#818cf8;
+    border-bottom-color:transparent;
+    border-left-color:#a78bfa;
+    animation:spinRing 1.6s linear infinite;
+    filter:drop-shadow(0 0 8px rgba(56,189,248,0.9));
+  }
+
+  .mge-ring-inner {
+    position:absolute;
+    inset:12px;
+    border-radius:50%;
+    border:1.5px dashed rgba(56,189,248,0.5);
+    animation:spinRingReverse 4s linear infinite;
+  }
+
+  @keyframes spinRing {
+    to { transform:rotate(360deg); }
+  }
+  @keyframes spinRingReverse {
+    to { transform:rotate(-360deg); }
+  }
+
+  .mge-circle {
+    position:absolute;
+    inset:20px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 25%, #1e3a5f 0%, #0b1b30 55%, #050d18 100%);
+    box-shadow:
+      0 0 0 1px rgba(56,189,248,0.35) inset,
+      0 0 24px rgba(14,165,233,0.55),
+      0 0 60px rgba(56,189,248,0.35),
+      inset 0 -8px 20px rgba(0,0,0,0.6);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+
+  .mge-circle::before {
+    content:'';
+    position:absolute;
+    top:-50%; left:-50%;
+    width:200%; height:200%;
+    background:conic-gradient(from 0deg, transparent 0%, rgba(56,189,248,0.25) 20%, transparent 40%);
+    animation:shimmer 3s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer {
+    to { transform:rotate(360deg); }
+  }
+
+  .mge-text {
+    position:relative;
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+    background:linear-gradient(180deg, #e0f2fe 0%, #38bdf8 45%, #6366f1 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+      0 1px 0 rgba(56,189,248,0.4),
+      0 2px 0 rgba(56,189,248,0.3),
+      0 3px 0 rgba(99,102,241,0.3),
+      0 4px 8px rgba(0,0,0,0.6),
+      0 0 22px rgba(56,189,248,0.85);
+    filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+    animation:textPulse 2.4s ease-in-out infinite;
+    z-index:2;
+    transform:perspective(500px) rotateX(6deg);
+  }
+
+  @keyframes textPulse {
+    0%, 100% {
+      filter:drop-shadow(0 0 12px rgba(56,189,248,0.9));
+      transform:perspective(500px) rotateX(6deg) scale(1);
+    }
+    50% {
+      filter:drop-shadow(0 0 22px rgba(56,189,248,1));
+      transform:perspective(500px) rotateX(6deg) scale(1.05);
+    }
+  }
+
+  .mge-text::after {
+    content:'MGE';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,0.85) 0%, transparent 55%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    pointer-events:none;
+    z-index:3;
+  }
+
+  /* ========== BRAND TEXT "MAEDA GAMES EDU" ========== */
+  .brand-text {
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    gap:10px;
+    margin-top:4px;
+    animation:fadeInUp .9s ease .2s both;
+  }
+
+  .brand-text .brand-line {
+    width:26px; height:1px;
+    background:linear-gradient(90deg, transparent, #38bdf8, transparent);
+  }
+
+  .brand-text .brand-label {
+    font-family:'Space Grotesk', Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    background:linear-gradient(90deg, #38bdf8 0%, #a78bfa 50%, #38bdf8 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:brandShine 3.5s linear infinite;
+    white-space:nowrap;
+  }
+
+  @keyframes brandShine {
+    0% { background-position:0% 50%; }
+    100% { background-position:200% 50%; }
+  }
+
+  /* ========== JUDUL BAWAH ========== */
+  .loader-title {
+    position:relative; z-index:1;
+    font-size:15px; font-weight:bold;
+    letter-spacing:4px; text-transform:uppercase;
+    color:#cbd5e1;
+    animation:fadeInUp .8s ease .3s both;
+  }
+  .loader-sub {
+    position:relative; z-index:1;
+    color:#64748b; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase;
+    animation:fadeInUp .8s ease .4s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(10px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .loader-bar {
+    position:relative; z-index:1;
+    width:240px; height:4px;
+    background:#132941; border-radius:4px;
+    overflow:hidden;
+    margin-top:4px;
+    animation:fadeInUp .8s ease .5s both;
+  }
+  .loader-bar-fill {
+    height:100%; width:0%;
+    background:linear-gradient(90deg,#0ea5e9,#38bdf8,#818cf8);
+    border-radius:4px;
+    box-shadow:0 0 12px rgba(56,189,248,0.7);
+    animation:loadFill 1.8s cubic-bezier(.65,.05,.36,1) forwards;
+  }
+  @keyframes loadFill {
+    0% { width:0%; }
+    40% { width:45%; }
+    70% { width:75%; }
+    100% { width:100%; }
+  }
+
   /* ========== HEADER ========== */
   header {
     padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
@@ -277,10 +503,42 @@
     .page-title { font-size:22px; }
     .grid-2 { grid-template-columns:1fr; }
     .logo span.fulllogo { display:none; }
+    .loader-title { font-size:13px; letter-spacing:3px; }
+    .loader-bar { width:200px; }
+    .mge-logo-wrap { width:120px; height:120px; }
+    .mge-text { font-size:34px; }
+    .brand-text .brand-label { font-size:11px; letter-spacing:4px; }
+    .brand-text .brand-line { width:18px; }
   }
 </style>
 </head>
 <body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loader">
+  <div class="mge-logo-wrap">
+    <div class="mge-ring-outer"></div>
+    <div class="mge-ring-inner"></div>
+    <div class="mge-circle">
+      <div class="mge-text">MGE</div>
+    </div>
+  </div>
+
+  <!-- Brand text di bawah lingkaran -->
+  <div class="brand-text">
+    <span class="brand-line"></span>
+    <span class="brand-label">MAEDA GAMES EDU</span>
+    <span class="brand-line"></span>
+  </div>
+
+  <div class="loader-title">Memuat Materi</div>
+
+  <div class="loader-bar">
+    <div class="loader-bar-fill"></div>
+  </div>
+
+  <div class="loader-sub">Bab 5 · Peran Pelaku Ekonomi</div>
+</div>
 
 <header>
   <div class="logo">
@@ -352,11 +610,11 @@
       <h2 class="page-title">Pengertian <span>Pelaku Ekonomi</span></h2>
       <p class="page-subtitle">Memahami siapa saja yang terlibat dalam kegiatan ekonomi</p>
 
-      <p>Dalam kehidupan sehari-hari, manusia selalu berusaha memenuhi kebutuhannya. Manusia disebut sebagai <strong style="color:#38bdf8">makhluk ekonomi</strong>, yaitu manusia yang selalu berusaha memenuhi kebutuhannya dengan cara yang rasional. Kegiatan manusia untuk memenuhi kebutuhan hidupnya meliputi tiga kegiatan pokok, yaitu <strong>produksi</strong>, <strong>distribusi</strong>, dan <strong>konsumsi</strong>. Individu atau kelompok yang melakukan kegiatan ekonomi — baik konsumsi, produksi, maupun distribusi — disebut dengan <strong style="color:#38bdf8">pelaku ekonomi</strong>[reference:0].</p>
+      <p>Dalam kehidupan sehari-hari, manusia selalu berusaha memenuhi kebutuhannya. Manusia disebut sebagai <strong style="color:#38bdf8">makhluk ekonomi</strong>, yaitu manusia yang selalu berusaha memenuhi kebutuhannya dengan cara yang rasional. Kegiatan manusia untuk memenuhi kebutuhan hidupnya meliputi tiga kegiatan pokok, yaitu <strong>produksi</strong>, <strong>distribusi</strong>, dan <strong>konsumsi</strong>. Individu atau kelompok yang melakukan kegiatan ekonomi — baik konsumsi, produksi, maupun distribusi — disebut dengan <strong style="color:#38bdf8">pelaku ekonomi</strong>.</p>
 
       <div class="highlight">
         💡 <strong>Definisi:</strong><br>
-        <strong>Pelaku ekonomi</strong> adalah semua pihak — baik perorangan, kelompok, lembaga, maupun organisasi — yang terlibat dalam kegiatan ekonomi (produksi, distribusi, dan konsumsi) untuk memenuhi kebutuhan hidup dan memengaruhi jalannya perekonomian suatu negara. Pelaku ekonomi juga bisa berarti seseorang, perusahaan, atau organisasi yang dapat memengaruhi ekonomi[reference:1].
+        <strong>Pelaku ekonomi</strong> adalah semua pihak — baik perorangan, kelompok, lembaga, maupun organisasi — yang terlibat dalam kegiatan ekonomi (produksi, distribusi, dan konsumsi) untuk memenuhi kebutuhan hidup dan memengaruhi jalannya perekonomian suatu negara. Pelaku ekonomi juga bisa berarti seseorang, perusahaan, atau organisasi yang dapat memengaruhi ekonomi.
       </div>
 
       <h3>Mengapa Pelaku Ekonomi Penting?</h3>
@@ -397,18 +655,18 @@
       <h2 class="page-title">Peran Rumah Tangga <span>Konsumen (RTK)</span></h2>
       <p class="page-subtitle">Pelaku ekonomi paling banyak dalam perekonomian</p>
 
-      <p><strong style="color:#38bdf8">Rumah tangga konsumen</strong> adalah pelaku ekonomi yang paling banyak jumlahnya dalam perekonomian. Rumah tangga konsumen terdiri atas individu atau kelompok masyarakat yang melakukan kegiatan konsumsi atas hasil produksi, baik barang maupun jasa[reference:2].</p>
+      <p><strong style="color:#38bdf8">Rumah tangga konsumen</strong> adalah pelaku ekonomi yang paling banyak jumlahnya dalam perekonomian. Rumah tangga konsumen terdiri atas individu atau kelompok masyarakat yang melakukan kegiatan konsumsi atas hasil produksi, baik barang maupun jasa.</p>
 
-      <p>Rumah tangga konsumen biasanya terdiri atas ayah, ibu, anak, dan anggota keluarga lainnya yang melakukan aktivitas konsumsi barang dan jasa untuk memenuhi kebutuhan harian[reference:3].</p>
+      <p>Rumah tangga konsumen biasanya terdiri atas ayah, ibu, anak, dan anggota keluarga lainnya yang melakukan aktivitas konsumsi barang dan jasa untuk memenuhi kebutuhan harian.</p>
 
       <h3>Peran Rumah Tangga Konsumen</h3>
 
       <h4>a. Sebagai Konsumen (Pengguna Barang dan Jasa)</h4>
-      <p>Rumah tangga konsumen mengonsumsi barang dan jasa yang dihasilkan oleh rumah tangga produsen untuk memenuhi kebutuhan hidupnya. Kegiatan konsumsi adalah tindakan manusia untuk mengurangi atau menghabiskan kegunaan suatu benda secara langsung maupun tidak langsung[reference:4].</p>
+      <p>Rumah tangga konsumen mengonsumsi barang dan jasa yang dihasilkan oleh rumah tangga produsen untuk memenuhi kebutuhan hidupnya. Kegiatan konsumsi adalah tindakan manusia untuk mengurangi atau menghabiskan kegunaan suatu benda secara langsung maupun tidak langsung.</p>
       <p><em>Contoh:</em> membeli makanan, pakaian, sepatu, dan alat elektronik; menggunakan jasa transportasi, pendidikan, dan kesehatan.</p>
 
       <h4>b. Sebagai Pemasok (Penyedia) Faktor Produksi</h4>
-      <p>Rumah tangga konsumen menyediakan faktor-faktor produksi kepada rumah tangga produsen, meliputi[reference:5]:</p>
+      <p>Rumah tangga konsumen menyediakan faktor-faktor produksi kepada rumah tangga produsen, meliputi:</p>
 
       <table>
         <tr><th>Faktor Produksi</th><th>Balas Jasa</th><th>Contoh</th></tr>
@@ -439,7 +697,7 @@
       <h2 class="page-title">Peran Rumah Tangga <span>Produsen (RTP)</span></h2>
       <p class="page-subtitle">Penghasil barang dan jasa bagi masyarakat</p>
 
-      <p><strong style="color:#38bdf8">Rumah tangga produsen</strong> (perusahaan) adalah pelaku ekonomi yang menghasilkan barang dan jasa untuk memenuhi kebutuhan masyarakat. Produsen adalah individu atau pihak yang bertanggung jawab untuk membuat suatu benda demi memenuhi kebutuhan masyarakat[reference:6].</p>
+      <p><strong style="color:#38bdf8">Rumah tangga produsen</strong> (perusahaan) adalah pelaku ekonomi yang menghasilkan barang dan jasa untuk memenuhi kebutuhan masyarakat. Produsen adalah individu atau pihak yang bertanggung jawab untuk membuat suatu benda demi memenuhi kebutuhan masyarakat.</p>
 
       <h3>Jenis Rumah Tangga Produsen</h3>
       <table>
@@ -451,15 +709,15 @@
       <h3>Peran Rumah Tangga Produsen</h3>
 
       <h4>a. Sebagai Produsen (Penghasil Barang dan Jasa)</h4>
-      <p>Rumah tangga produsen memproduksi barang dan jasa yang dibutuhkan masyarakat. Kegiatan ini mencakup pengolahan bahan baku menjadi barang jadi atau setengah jadi, serta penyediaan layanan jasa[reference:7].</p>
+      <p>Rumah tangga produsen memproduksi barang dan jasa yang dibutuhkan masyarakat. Kegiatan ini mencakup pengolahan bahan baku menjadi barang jadi atau setengah jadi, serta penyediaan layanan jasa.</p>
       <p><em>Contoh:</em> pabrik roti memproduksi roti dari tepung; perusahaan ojek online menyediakan jasa transportasi.</p>
 
       <h4>b. Sebagai Distributor (Penyalur Barang dan Jasa)</h4>
-      <p>Rumah tangga produsen tidak hanya memproduksi, tetapi juga menyalurkan barang dan jasa kepada konsumen agar barang sampai dengan tepat waktu dan tepat sasaran[reference:8].</p>
+      <p>Rumah tangga produsen tidak hanya memproduksi, tetapi juga menyalurkan barang dan jasa kepada konsumen agar barang sampai dengan tepat waktu dan tepat sasaran.</p>
       <p><em>Contoh:</em> produsen mie instan menyalurkan produknya ke warung, minimarket, dan supermarket di berbagai daerah.</p>
 
       <h4>c. Sebagai Agen Pembangunan</h4>
-      <p>Rumah tangga produsen berperan sebagai agen pembangunan ekonomi, yaitu dengan membuka lapangan pekerjaan, melakukan penelitian dan pengembangan produk, serta berpartisipasi dalam meningkatkan pertumbuhan ekonomi suatu wilayah atau negara[reference:9].</p>
+      <p>Rumah tangga produsen berperan sebagai agen pembangunan ekonomi, yaitu dengan membuka lapangan pekerjaan, melakukan penelitian dan pengembangan produk, serta berpartisipasi dalam meningkatkan pertumbuhan ekonomi suatu wilayah atau negara.</p>
       <p><em>Contoh:</em> perusahaan startup yang menciptakan lapangan kerja baru di bidang teknologi digital.</p>
 
       <div class="contoh">
@@ -479,19 +737,19 @@
       <h2 class="page-title">Peran Rumah Tangga <span>Pemerintah (RTN)</span></h2>
       <p class="page-subtitle">Pelaku ekonomi dengan peran ganda</p>
 
-      <p><strong style="color:#38bdf8">Rumah tangga pemerintah</strong> adalah pelaku ekonomi yang memiliki peran ganda dalam perekonomian. Pemerintah tidak hanya mengatur dan mengendalikan jalannya roda perekonomian, tetapi juga terlibat langsung sebagai konsumen dan produsen. Secara umum, pemerintah memiliki tiga peran penting: <strong>regulator, konsumen, dan produsen</strong>[reference:10].</p>
+      <p><strong style="color:#38bdf8">Rumah tangga pemerintah</strong> adalah pelaku ekonomi yang memiliki peran ganda dalam perekonomian. Pemerintah tidak hanya mengatur dan mengendalikan jalannya roda perekonomian, tetapi juga terlibat langsung sebagai konsumen dan produsen. Secara umum, pemerintah memiliki tiga peran penting: <strong>regulator, konsumen, dan produsen</strong>.</p>
 
       <h3>Tiga Peran Penting Pemerintah</h3>
 
       <h4>a. Sebagai Regulator (Pengatur dan Pengendali Perekonomian)</h4>
-      <p>Pemerintah berperan sebagai pengatur jalannya perekonomian bangsa melalui penetapan kebijakan ekonomi, seperti kebijakan fiskal (pajak dan belanja negara), kebijakan moneter (suku bunga dan jumlah uang beredar), serta kebijakan perdagangan internasional. Sebagai regulator, pemerintah mengatur perekonomian untuk menyejahterakan masyarakat agar tidak terjadi kesenjangan[reference:11].</p>
+      <p>Pemerintah berperan sebagai pengatur jalannya perekonomian bangsa melalui penetapan kebijakan ekonomi, seperti kebijakan fiskal (pajak dan belanja negara), kebijakan moneter (suku bunga dan jumlah uang beredar), serta kebijakan perdagangan internasional. Sebagai regulator, pemerintah mengatur perekonomian untuk menyejahterakan masyarakat agar tidak terjadi kesenjangan.</p>
       <p><em>Contoh:</em> pemerintah menetapkan tarif pajak, mengatur harga bahan bakar, dan membuat undang-undang ketenagakerjaan.</p>
 
       <h4>b. Sebagai Konsumen</h4>
       <p>Pemerintah membelanjakan anggaran negara untuk membeli barang dan jasa yang diperlukan untuk menjalankan fungsinya. Ini mencakup belanja rutin (gaji pegawai, pembelian alat kantor) dan belanja pembangunan (pembangunan infrastruktur seperti jalan, jembatan, dan sekolah).</p>
 
       <h4>c. Sebagai Produsen</h4>
-      <p>Pemerintah memiliki perusahaan-perusahaan negara (BUMN) yang menyediakan barang dan jasa bagi masyarakat. Sebagai produsen, salah satu kewajiban pemerintah adalah menyediakan barang dan jasa yang tidak dapat dihasilkan secara efisien oleh pihak swasta[reference:12].</p>
+      <p>Pemerintah memiliki perusahaan-perusahaan negara (BUMN) yang menyediakan barang dan jasa bagi masyarakat. Sebagai produsen, salah satu kewajiban pemerintah adalah menyediakan barang dan jasa yang tidak dapat dihasilkan secara efisien oleh pihak swasta.</p>
       <p><em>Contoh:</em> PT Pertamina mengelola minyak bumi dan gas; PT KAI menyediakan jasa transportasi kereta api; PLN menyediakan listrik bagi masyarakat.</p>
 
       <div class="highlight">
@@ -520,7 +778,7 @@
 
       <p><strong style="color:#38bdf8">Masyarakat luar negeri</strong> adalah pelaku ekonomi yang berasal dari negara lain yang terlibat dalam kegiatan perekonomian suatu negara, terutama melalui perdagangan internasional dan kerja sama ekonomi antarnegara.</p>
 
-      <p>Dalam era globalisasi, setiap negara tidak bisa berdiri sendiri — negara-negara saling bekerja sama dalam perdagangan dan investasi. Peranan masyarakat luar negeri meliputi pemberi bantuan, investor, produsen, konsumen, dan tenaga ahli[reference:13].</p>
+      <p>Dalam era globalisasi, setiap negara tidak bisa berdiri sendiri — negara-negara saling bekerja sama dalam perdagangan dan investasi. Peranan masyarakat luar negeri meliputi pemberi bantuan, investor, produsen, konsumen, dan tenaga ahli.</p>
 
       <h3>Lima Peran Masyarakat Luar Negeri</h3>
 
@@ -529,7 +787,7 @@
       <p><em>Contoh:</em> negara Jepang membeli kopi, karet, dan minyak kelapa sawit dari Indonesia; wisatawan mancanegara berbelanja produk kerajinan Indonesia.</p>
 
       <h4>b. Sebagai Produsen (Penjual Barang Impor)</h4>
-      <p>Masyarakat luar negeri memproduksi dan menjual barang serta jasa ke Indonesia melalui kegiatan impor. Misalnya, masyarakat luar negeri mengekspor plastik, mesin, peralatan elektronik, hingga kendaraan untuk memenuhi kebutuhan masyarakat Indonesia[reference:14].</p>
+      <p>Masyarakat luar negeri memproduksi dan menjual barang serta jasa ke Indonesia melalui kegiatan impor. Misalnya, masyarakat luar negeri mengekspor plastik, mesin, peralatan elektronik, hingga kendaraan untuk memenuhi kebutuhan masyarakat Indonesia.</p>
       <p><em>Contoh:</em> Indonesia mengimpor mesin, peralatan elektronik, dan kendaraan dari Jepang, Korea Selatan, dan Tiongkok.</p>
 
       <h4>c. Sebagai Investor (Penanam Modal)</h4>
@@ -560,7 +818,7 @@
       <h2 class="page-title">Peran <span>Koperasi</span> dalam Perekonomian</h2>
       <p class="page-subtitle">Sokoguru perekonomian rakyat Indonesia</p>
 
-      <p>Selain empat pelaku ekonomi utama, <strong style="color:#38bdf8">koperasi</strong> merupakan pelaku ekonomi penting yang berazaskan kekeluargaan dan gotong royong. Koperasi memiliki fungsi strategis dalam beberapa aspek ekonomi, antara lain meningkatkan kesejahteraan anggota, menyediakan lapangan kerja, mendukung pemerataan ekonomi, memperkuat usaha kecil dan menengah (UKM), serta berkontribusi dalam pengembangan produk domestik bruto (PDB) Indonesia[reference:15].</p>
+      <p>Selain empat pelaku ekonomi utama, <strong style="color:#38bdf8">koperasi</strong> merupakan pelaku ekonomi penting yang berazaskan kekeluargaan dan gotong royong. Koperasi memiliki fungsi strategis dalam beberapa aspek ekonomi, antara lain meningkatkan kesejahteraan anggota, menyediakan lapangan kerja, mendukung pemerataan ekonomi, memperkuat usaha kecil dan menengah (UKM), serta berkontribusi dalam pengembangan produk domestik bruto (PDB) Indonesia.</p>
 
       <div class="highlight">
         💡 <strong>Definisi:</strong><br>
@@ -732,7 +990,7 @@
       </ul>
 
       <h3>Peran Koperasi di Era Digital</h3>
-      <p>Koperasi juga bertransformasi mengikuti perkembangan zaman. Koperasi dapat menjadi institusi yang mengonsolidasikan kekuatan ekonomi rakyat agar usaha kecil tidak berjalan sendiri-sendiri. Melalui koperasi, pelaku usaha dapat memperoleh efisiensi melalui pembelian bersama, akses pasar yang lebih luas, pembiayaan yang lebih terjangkau, hingga pengembangan produk berbasis kebutuhan pasar[reference:16]. Koperasi Desa Merah Putih merupakan contoh revitalisasi koperasi desa dengan memadukan nilai-nilai asli koperasi dengan mekanisme tata kelola modern dan dukungan teknologi keuangan[reference:17].</p>
+      <p>Koperasi juga bertransformasi mengikuti perkembangan zaman. Koperasi dapat menjadi institusi yang mengonsolidasikan kekuatan ekonomi rakyat agar usaha kecil tidak berjalan sendiri-sendiri. Melalui koperasi, pelaku usaha dapat memperoleh efisiensi melalui pembelian bersama, akses pasar yang lebih luas, pembiayaan yang lebih terjangkau, hingga pengembangan produk berbasis kebutuhan pasar. Koperasi Desa Merah Putih merupakan contoh revitalisasi koperasi desa dengan memadukan nilai-nilai asli koperasi dengan mekanisme tata kelola modern dan dukungan teknologi keuangan.</p>
 
       <div class="contoh">
         🌰 <strong>Contoh:</strong> Seorang siswa SMP membuka usaha kue secara online melalui Instagram dan menerima pembayaran via QRIS. Ia telah menjadi <em>rumah tangga produsen digital</em> yang terhubung dengan konsumen, bank digital, dan pemerintah (pajak) sekaligus.
@@ -1055,6 +1313,24 @@ document.addEventListener('keydown', (e) => {
 
 // Init
 goTo(0);
+
+/* ========== LOADING SCREEN ========== */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }, 2200);
+});
+
+// Fallback
+setTimeout(() => {
+  const loader = document.getElementById('loader');
+  if (loader && !loader.classList.contains('hide')) {
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 800);
+  }
+}, 4500);
 </script>
 
 </body>
