@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 3 — Pasar & Terbentuknya Harga | Ruang IPS</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+  html, body { height:100%; }
+  body {
+    background:#07111f; color:white; overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
+    background:#0b1b30; border-bottom:2px solid #0ea5e9;
+    flex-shrink:0; z-index:50;
+  }
+  .logo { font-size:16px; font-weight:bold; color:#38bdf8; display:flex; align-items:center; gap:8px; }
+  .back-btn {
+    color:white; text-decoration:none; background:#0ea5e9; padding:8px 18px;
+    border-radius:8px; font-weight:bold; font-size:13px; transition:.3s;
+  }
+  .back-btn:hover { background:#0284c7; }
+
+  /* ========== PROGRESS BAR ========== */
+  .progress-wrap {
+    height:4px; background:#132941; position:relative; flex-shrink:0;
+  }
+  .progress-fill {
+    height:100%; background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+    width:0%; transition:width .5s ease;
+  }
+
+  /* ========== LAYOUT ========== */
+  .layout {
+    flex:1; display:flex; overflow:hidden;
+  }
+
+  /* ========== SIDEBAR ========== */
+  .sidebar {
+    width:290px; background:#0b1b30; border-right:1px solid #1b3b5d;
+    overflow-y:auto; flex-shrink:0; padding:20px 0;
+  }
+  .sidebar::-webkit-scrollbar { width:6px; }
+  .sidebar::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:3px; }
+
+  .sidebar-title {
+    padding:0 20px 15px; font-size:12px; font-weight:bold;
+    color:#64748b; letter-spacing:1.5px; text-transform:uppercase;
+  }
+
+  .nav-item {
+    display:flex; align-items:center; gap:12px;
+    padding:12px 20px; cursor:pointer;
+    border-left:4px solid transparent;
+    transition:.25s; font-size:14px; color:#cbd5e1;
+  }
+  .nav-item:hover { background:#132941; color:#38bdf8; }
+  .nav-item.active {
+    background:#132941; color:#38bdf8;
+    border-left-color:#38bdf8; font-weight:bold;
+  }
+  .nav-item .num {
+    width:26px; height:26px; border-radius:50%;
+    background:#1b3b5d; color:#94a3b8;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:bold; flex-shrink:0;
+    transition:.25s;
+  }
+  .nav-item.active .num { background:#0ea5e9; color:white; }
+  .nav-item.done .num { background:#065f46; color:#10b981; }
+
+  /* ========== MAIN CONTENT ========== */
+  .main {
+    flex:1; overflow-y:auto; position:relative; scroll-behavior:smooth;
+  }
+  .main::-webkit-scrollbar { width:8px; }
+  .main::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:4px; }
+
+  .page {
+    display:none;
+    padding:40px 6% 120px;
+    max-width:900px; margin:0 auto;
+    animation: slideIn .4s ease;
+  }
+  .page.active { display:block; }
+  @keyframes slideIn {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .page-badge {
+    display:inline-block; padding:5px 14px;
+    background:#132941; color:#38bdf8;
+    border-radius:20px; font-size:12px;
+    font-weight:bold; margin-bottom:12px;
+    border:1px solid #2a4a6a;
+  }
+  .page-title {
+    font-size:30px; margin-bottom:8px; line-height:1.3;
+  }
+  .page-title span { color:#38bdf8; }
+  .page-subtitle {
+    color:#94a3b8; font-size:14px; margin-bottom:30px;
+    padding-bottom:20px; border-bottom:2px solid #1b3b5d;
+  }
+
+  .page h3 {
+    color:#7dd3fc; font-size:17px; margin:22px 0 10px;
+  }
+  .page h4 {
+    color:#a5b4fc; font-size:15px; margin:18px 0 8px;
+  }
+  .page p { color:#cbd5e1; margin-bottom:12px; text-align:justify; line-height:1.75; }
+  .page ul, .page ol { color:#cbd5e1; margin:10px 0 15px 25px; }
+  .page ul li, .page ol li { margin-bottom:8px; line-height:1.7; }
+
+  .highlight {
+    background:linear-gradient(135deg,#132941,#0f2337);
+    border-left:4px solid #38bdf8;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#e0f2fe; font-size:14px; line-height:1.7;
+  }
+  .highlight strong { color:#38bdf8; }
+
+  .contoh {
+    background:linear-gradient(135deg,#0f2a1a,#0a1f12);
+    border-left:4px solid #10b981;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#d1fae5; font-size:14px; line-height:1.7;
+  }
+  .contoh strong { color:#34d399; }
+
+  .warning {
+    background:linear-gradient(135deg,#2a1a0f,#1f1308);
+    border-left:4px solid #f59e0b;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#fef3c7; font-size:14px; line-height:1.7;
+  }
+  .warning strong { color:#fbbf24; }
+
+  table {
+    width:100%; border-collapse:collapse; margin:16px 0;
+    background:#132941; border-radius:10px; overflow:hidden; font-size:13px;
+  }
+  table th {
+    background:#0ea5e9; color:white; padding:12px;
+    text-align:left; font-size:13px;
+  }
+  table td {
+    padding:12px; color:#cbd5e1;
+    border-bottom:1px solid #1b3b5d;
+    vertical-align:top; line-height:1.6;
+  }
+  table tr:last-child td { border-bottom:none; }
+  table tr:nth-child(even) td { background:#0f2337; }
+
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:15px 0; }
+  .mini-card {
+    background:#132941; border-radius:10px; padding:18px;
+    border:1px solid #2a4a6a; transition:.3s;
+  }
+  .mini-card:hover { border-color:#38bdf8; transform:translateY(-3px); }
+  .mini-card .icon { font-size:30px; margin-bottom:8px; }
+  .mini-card h4 { color:#38bdf8; font-size:15px; margin-bottom:6px; }
+  .mini-card p { font-size:13px; color:#94a3b8; margin:0; text-align:left; }
+
+  .peta-konsep {
+    background:#132941; border-radius:15px; padding:25px;
+    text-align:center; border:2px dashed #38bdf8; margin:15px 0;
+  }
+  .peta-konsep .node {
+    display:inline-block; padding:10px 20px; border-radius:10px;
+    font-weight:bold; font-size:13px; margin:5px;
+  }
+  .peta-konsep .node.utama { background:#0ea5e9; color:white; font-size:15px; padding:14px 28px; }
+  .peta-konsep .node.sub { background:#1b3b5d; color:#7dd3fc; }
+  .peta-konsep .node.detail { background:#132941; color:#94a3b8; border:1px solid #2a4a6a; }
+  .peta-konsep .arrow { color:#38bdf8; font-size:22px; display:block; margin:4px 0; }
+
+  .glosarium-item {
+    background:#132941; border-radius:10px; padding:14px 18px;
+    margin-bottom:10px; border-left:4px solid #a855f7;
+    transition:.3s;
+  }
+  .glosarium-item:hover { transform:translateX(5px); }
+  .glosarium-item strong { color:#c084fc; font-size:14px; }
+  .glosarium-item span { color:#cbd5e1; font-size:13px; }
+
+  .soal-item {
+    background:#132941; border-radius:10px; padding:18px 22px;
+    margin-bottom:15px; border-left:4px solid #f59e0b;
+  }
+  .soal-item .nomor { color:#fbbf24; font-weight:bold; font-size:13px; }
+  .soal-item .pertanyaan { color:#e0f2fe; font-size:14px; margin:8px 0; line-height:1.6; }
+  .soal-item .pilihan { color:#94a3b8; font-size:13px; margin-left:15px; line-height:1.8; }
+  .soal-item .jawaban {
+    margin-top:10px; padding:12px 15px; background:#0f2a1a;
+    border-radius:8px; color:#d1fae5; font-size:13px; display:none; line-height:1.6;
+  }
+  .soal-item .jawaban.show { display:block; animation:slideIn .3s ease; }
+  .toggle-btn {
+    margin-top:8px; padding:6px 14px; background:#1b3b5d; border:1px solid #2a4a6a;
+    border-radius:6px; color:#7dd3fc; font-size:12px; cursor:pointer;
+    transition:.2s;
+  }
+  .toggle-btn:hover { background:#2a4a6a; }
+
+  .proyek {
+    background:linear-gradient(135deg,#1a0f2a,#2a1a3a);
+    border-radius:15px; padding:25px; border:2px solid #a855f7;
+  }
+  .proyek ol { color:#e9d5ff; margin-left:20px; }
+  .proyek ol li { margin-bottom:10px; line-height:1.7; }
+
+  .grafik-box {
+    background:#0f2337; border-radius:12px; padding:15px;
+    border:1px solid #2a4a6a; margin:16px 0;
+  }
+  .grafik-box .caption {
+    text-align:center; color:#94a3b8; font-size:12px; margin-top:6px;
+  }
+
+  /* ========== FOOTER NAV ========== */
+  .footer-nav {
+    position:fixed; bottom:0; left:290px; right:0;
+    background:#0b1b30; border-top:1px solid #1b3b5d;
+    padding:14px 6%; display:flex; justify-content:space-between;
+    align-items:center; z-index:40;
+  }
+  .footer-nav button {
+    padding:12px 24px; border:none; border-radius:10px;
+    font-weight:bold; font-size:14px; cursor:pointer;
+    transition:.3s; display:flex; align-items:center; gap:8px;
+  }
+  .nav-prev {
+    background:#1b3b5d; color:#94a3b8;
+  }
+  .nav-prev:hover:not(:disabled) { background:#2a4a6a; color:white; }
+  .nav-prev:disabled { opacity:.3; cursor:not-allowed; }
+  .nav-next {
+    background:linear-gradient(135deg,#0ea5e9,#0284c7); color:white;
+    box-shadow:0 4px 15px rgba(14,165,233,0.3);
+  }
+  .nav-next:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(14,165,233,0.5); }
+  .nav-next:disabled { opacity:.3; cursor:not-allowed; }
+
+  .page-counter {
+    color:#64748b; font-size:13px; font-weight:bold;
+  }
+
+  /* ========== MOBILE ========== */
+  .menu-toggle {
+    display:none; background:#0ea5e9; border:none; color:white;
+    padding:8px 12px; border-radius:8px; font-size:18px; cursor:pointer;
+  }
+
+  @media (max-width: 800px) {
+    .sidebar {
+      position:fixed; top:0; left:0; bottom:0; z-index:100;
+      transform:translateX(-100%); transition:.3s;
+      box-shadow:4px 0 20px rgba(0,0,0,0.5);
+    }
+    .sidebar.open { transform:translateX(0); }
+    .sidebar-overlay {
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+      z-index:99;
+    }
+    .sidebar-overlay.show { display:block; }
+    .menu-toggle { display:block; }
+    .footer-nav { left:0; padding:12px 4%; }
+    .footer-nav button { padding:10px 16px; font-size:12px; }
+    .page { padding:25px 5% 100px; }
+    .page-title { font-size:22px; }
+    .grid-2 { grid-template-columns:1fr; }
+    .logo span.fulllogo { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    🏪 <span class="fulllogo">EKONOMI — BAB 3</span>
+  </div>
+  <a href="ekonomi.html" class="back-btn">← Menu Bab</a>
+</header>
+
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">📑 Daftar Materi</div>
+    <div class="nav-item active" onclick="goTo(0)">
+      <span class="num">1</span> Pengertian Pasar
+    </div>
+    <div class="nav-item" onclick="goTo(1)">
+      <span class="num">2</span> Fungsi & Peran Pasar
+    </div>
+    <div class="nav-item" onclick="goTo(2)">
+      <span class="num">3</span> Jenis Pasar: Wujud & Waktu
+    </div>
+    <div class="nav-item" onclick="goTo(3)">
+      <span class="num">4</span> Struktur Persaingan Pasar
+    </div>
+    <div class="nav-item" onclick="goTo(4)">
+      <span class="num">5</span> Permintaan (Demand)
+    </div>
+    <div class="nav-item" onclick="goTo(5)">
+      <span class="num">6</span> Hukum & Kurva Permintaan
+    </div>
+    <div class="nav-item" onclick="goTo(6)">
+      <span class="num">7</span> Penawaran (Supply)
+    </div>
+    <div class="nav-item" onclick="goTo(7)">
+      <span class="num">8</span> Hukum & Kurva Penawaran
+    </div>
+    <div class="nav-item" onclick="goTo(8)">
+      <span class="num">9</span> Harga Keseimbangan
+    </div>
+    <div class="nav-item" onclick="goTo(9)">
+      <span class="num">10</span> Elastisitas
+    </div>
+    <div class="nav-item" onclick="goTo(10)">
+      <span class="num">11</span> Pasar Era Digital
+    </div>
+    <div class="nav-item" onclick="goTo(11)">
+      <span class="num">12</span> Ringkasan
+    </div>
+    <div class="nav-item" onclick="goTo(12)">
+      <span class="num">13</span> Glosarium
+    </div>
+    <div class="nav-item" onclick="goTo(13)">
+      <span class="num">14</span> Soal Latihan
+    </div>
+    <div class="nav-item" onclick="goTo(14)">
+      <span class="num">15</span> Proyek Siswa
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+
+    <!-- ===== PAGE 1: PENGERTIAN PASAR ===== -->
+    <section class="page active">
+      <div class="page-badge">📖 MATERI 1 dari 15</div>
+      <h2 class="page-title">Pengertian <span>Pasar</span></h2>
+      <p class="page-subtitle">Memahami pasar sebagai tempat dan sebagai proses ekonomi</p>
+
+      <p>Setiap hari kamu pasti melakukan kegiatan jual beli — di warung, minimarket, pasar tradisional, atau bahkan lewat aplikasi di ponselmu. Semua itu terjadi di <strong style="color:#38bdf8">pasar</strong>. Kata "pasar" sering dipahami sebagai sebuah tempat. Namun dalam ilmu ekonomi, pengertian pasar jauh lebih luas daripada sekadar bangunan atau lokasi.</p>
+
+      <h3>Dua Pengertian Pasar</h3>
+      <div class="grid-2">
+        <div class="mini-card">
+          <div class="icon">🏬</div>
+          <h4>Pasar dalam Arti Sempit</h4>
+          <p>Tempat fisik bertemunya penjual dan pembeli untuk melakukan transaksi jual beli barang atau jasa.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🌐</div>
+          <h4>Pasar dalam Arti Luas</h4>
+          <p>Proses interaksi antara permintaan (pembeli) dan penawaran (penjual) yang akhirnya membentuk harga.</p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Definisi:</strong><br>
+        <strong>Pasar</strong> adalah tempat atau proses bertemunya permintaan dan penawaran terhadap suatu barang atau jasa, yang pada akhirnya membentuk suatu kesepakatan harga antara penjual dan pembeli.
+      </div>
+
+      <h3>Unsur-Unsur Pasar</h3>
+      <p>Sebuah pasar dapat terbentuk apabila memenuhi beberapa unsur berikut:</p>
+
+      <table>
+        <tr><th>Unsur</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Penjual</strong></td><td>Pihak yang menawarkan barang atau jasa</td><td>Pedagang sayur, pemilik toko online</td></tr>
+        <tr><td><strong>Pembeli</strong></td><td>Pihak yang membutuhkan dan meminta barang/jasa</td><td>Ibu rumah tangga, pelajar, perusahaan</td></tr>
+        <tr><td><strong>Barang/Jasa</strong></td><td>Objek yang diperjualbelikan</td><td>Beras, sepatu, jasa potong rambut</td></tr>
+        <tr><td><strong>Kesepakatan Harga</strong></td><td>Terjadi tawar-menawar hingga harga disetujui</td><td>Harga cabai Rp30.000/kg</td></tr>
+      </table>
+
+      <h3>Syarat Terjadinya Pasar</h3>
+      <p>Menurut ilmu ekonomi, pasar terjadi apabila memenuhi tiga syarat utama: <strong>ada permintaan</strong>, <strong>ada penawaran</strong>, dan <strong>ada harga</strong> yang disepakati. Dalam kehidupan sehari-hari, syarat pasar juga mencakup adanya barang yang diperjualbelikan, penjual dan pembeli yang saling membutuhkan, serta tempat untuk bertemu.</p>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li><strong>Pasar tradisional</strong> — pasar pagi yang menjual sembako dan sayuran segar.</li>
+          <li><strong>Pasar modern</strong> — minimarket dan supermarket dengan harga yang sudah pasti.</li>
+          <li><strong>Pasar abstrak</strong> — marketplace online, di mana penjual dan pembeli tidak bertemu langsung.</li>
+          <li><strong>Pasar saham</strong> — transaksi terjadi lewat sistem komputer tanpa lokasi fisik yang nyata.</li>
+        </ul>
+      </div>
+
+      <div class="warning">
+        ⚠️ <strong>Perhatikan!</strong> Pasar tidak selalu berupa tempat. Selama ada penjual, pembeli, barang/jasa, dan kesepakatan harga — di situlah pasar berada, meskipun hanya di layar ponsel.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 2: FUNGSI & PERAN PASAR ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 2 dari 15</div>
+      <h2 class="page-title">Fungsi & <span>Peran Pasar</span></h2>
+      <p class="page-subtitle">Peran penting pasar dalam perekonomian masyarakat</p>
+
+      <p>Pasar bukan hanya tempat jual beli. Keberadaan pasar memiliki fungsi yang sangat penting bagi kelancaran roda perekonomian suatu negara.</p>
+
+      <h3>Empat Fungsi Utama Pasar</h3>
+
+      <h4>a. Fungsi Distribusi (Penyaluran)</h4>
+      <p>Pasar menjadi sarana menyalurkan barang dan jasa dari produsen kepada konsumen. Tanpa pasar, barang yang diproduksi pabrik tidak akan sampai ke tangan masyarakat yang membutuhkannya. Melalui pasar, konsumen bisa secara langsung mendapatkan barang yang dibutuhkan dengan cepat.</p>
+      <p><em>Contoh:</em> petani di desa menjual hasil panennya ke pasar, lalu pedagang menyalurkannya ke kota.</p>
+
+      <h4>b. Fungsi Pembentukan Harga</h4>
+      <p>Di pasar, harga suatu barang terbentuk melalui interaksi antara permintaan pembeli dan penawaran penjual. Proses tawar-menawar terjadi sebelum penjual dan pembeli melakukan kesepakatan harga. Pembeli menawar berdasarkan perhitungan manfaat barang, sedangkan penjual menghitung berdasarkan keuntungan yang akan didapat.</p>
+      <p><em>Contoh:</em> harga cabai melonjak saat permintaan tinggi menjelang hari raya.</p>
+
+      <h4>c. Fungsi Promosi</h4>
+      <p>Pasar menjadi tempat produsen memperkenalkan dan menawarkan produknya kepada calon pembeli. Semakin banyak orang yang melihat, semakin besar peluang produk terjual.</p>
+      <p><em>Contoh:</em> pameran produk UMKM, bazar sekolah, iklan di marketplace.</p>
+
+      <h4>d. Fungsi Penyediaan Kesempatan Kerja</h4>
+      <p>Keberadaan pasar menciptakan lapangan pekerjaan bagi banyak orang, mulai dari pedagang, kuli angkut, sopir, hingga pekerja digital yang mengelola toko online. Pasar juga membantu meningkatkan pendapatan masyarakat.</p>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Empat fungsi pasar ini saling berkaitan. Ketika pasar berfungsi dengan baik, kegiatan ekonomi masyarakat akan lancar dan harga barang menjadi lebih stabil.
+      </div>
+
+      <table>
+        <tr><th>Fungsi Pasar</th><th>Inti Kegiatan</th><th>Contoh</th></tr>
+        <tr><td><strong>Distribusi</strong></td><td>Menyalurkan barang/jasa ke konsumen</td><td>Distributor mengantar sembako ke warung</td></tr>
+        <tr><td><strong>Pembentukan Harga</strong></td><td>Menyepakati harga lewat tawar-menawar</td><td>Harga tomat naik saat panen gagal</td></tr>
+        <tr><td><strong>Promosi</strong></td><td>Memperkenalkan produk kepada pembeli</td><td>Diskon besar-besaran di supermarket</td></tr>
+        <tr><td><strong>Kesempatan Kerja</strong></td><td>Menciptakan lapangan pekerjaan</td><td>Pedagang, kasir, kurir pengiriman</td></tr>
+      </table>
+
+      <h3>Peran Pasar bagi Pelaku Ekonomi</h3>
+      <ul>
+        <li><strong>Bagi produsen:</strong> tempat memperkenalkan hasil produksi, tempat pemasaran hasil produksi, tempat memperoleh faktor produksi, dan sumber informasi untuk mengembangkan hasil produksi.</li>
+        <li><strong>Bagi konsumen:</strong> tempat mengenal berbagai macam hasil produksi dan tempat memperoleh alat pemenuhan kebutuhan.</li>
+        <li><strong>Bagi pembangunan:</strong> tempat memperoleh bahan-bahan kebutuhan pembangunan dan pemacu pengembangan IPTEK.</li>
+        <li><strong>Bagi sumber daya manusia:</strong> membantu menciptakan lapangan kerja dan meningkatkan pendapatan masyarakat.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Pasar induk yang menjadi pusat penyaluran sayur dari petani ke pengecer.</li>
+          <li>Harga minyak goreng yang berubah-ubah mengikuti permintaan menjelang Lebaran.</li>
+          <li>Bazar UMKM yang membantu pelaku usaha kecil memperkenalkan produknya.</li>
+          <li>Kehadiran pasar membuat banyak orang membuka usaha dan membuka lapangan kerja.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 3: JENIS PASAR: WUJUD & WAKTU ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 3 dari 15</div>
+      <h2 class="page-title">Jenis Pasar Berdasarkan <span>Wujud, Waktu & Wilayah</span></h2>
+      <p class="page-subtitle">Klasifikasi pasar dari berbagai sudut pandang</p>
+
+      <p>Pasar dapat dikelompokkan dengan berbagai cara. Berikut adalah pengelompokan pasar berdasarkan wujudnya, waktu penyelenggaraan, luas wilayah kegiatan, dan jenis barang yang diperjualbelikan.</p>
+
+      <h3>A. Jenis Pasar Menurut Wujudnya</h3>
+      <table>
+        <tr><th>Jenis Pasar</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Pasar Konkret (Nyata)</strong></td><td>Tempat bertemunya penjual dan pembeli secara langsung, barang yang dijual tersedia di pasar</td><td>Pasar tradisional, supermarket, mal, warung</td></tr>
+        <tr><td><strong>Pasar Abstrak (Tidak Nyata)</strong></td><td>Penjual dan pembeli tidak bertemu secara langsung, transaksi melalui internet/telepon, barang hanya berupa contoh/gambar</td><td>Shopee, Tokopedia, Zalora, pasar saham</td></tr>
+      </table>
+
+      <h3>B. Jenis Pasar Menurut Waktu</h3>
+      <table>
+        <tr><th>Jenis Pasar</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Pasar Harian</strong></td><td>Terjadi setiap hari dan menjual kebutuhan sehari-hari</td><td>Pasar pagi, warung, minimarket</td></tr>
+        <tr><td><strong>Pasar Mingguan</strong></td><td>Hanya buka satu kali dalam seminggu</td><td>Pasar kaget, pasar hewan</td></tr>
+        <tr><td><strong>Pasar Bulanan</strong></td><td>Diselenggarakan setiap bulan pada waktu tertentu</td><td>Pasar murah bulanan, bazar bulanan</td></tr>
+        <tr><td><strong>Pasar Tahunan</strong></td><td>Hanya ada sekali dalam setahun</td><td>Pasar malam menjelang tahun baru</td></tr>
+      </table>
+
+      <h3>C. Jenis Pasar Menurut Luas Wilayah</h3>
+      <div class="grid-2">
+        <div class="mini-card">
+          <div class="icon">🏘️</div>
+          <h4>Pasar Lokal / Setempat</h4>
+          <p>Penjual dan pembelinya hanya dari penduduk setempat. Contoh: pasar ikan, pasar sayur di desa.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🚚</div>
+          <h4>Pasar Daerah / Regional</h4>
+          <p>Melayani beberapa daerah dalam satu kawasan. Contoh: pasar induk yang memasok beberapa kota.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🇮🇩</div>
+          <h4>Pasar Nasional</h4>
+          <p>Melayani kebutuhan seluruh wilayah negara. Contoh: pasar saham, pasar uang nasional.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🌏</div>
+          <h4>Pasar Internasional</h4>
+          <p>Melibatkan banyak negara. Contoh: pasar minyak dunia, ekspor-impor antarnegara.</p>
+        </div>
+      </div>
+
+      <h3>D. Jenis Pasar Menurut Jenis Barang</h3>
+      <table>
+        <tr><th>Jenis Pasar</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Pasar Konsumsi</strong></td><td>Menjual barang-barang konsumsi untuk memenuhi kebutuhan manusia</td><td>Pasar tradisional, supermarket</td></tr>
+        <tr><td><strong>Pasar Produksi</strong></td><td>Memperjualbelikan faktor-faktor produksi seperti tenaga kerja, bahan baku, dan mesin</td><td>Pasar bahan baku, bursa kerja, pasar modal</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Pasar pagi di dekat sekolahmu termasuk <em>pasar harian</em>, <em>pasar konkret</em>, dan <em>pasar lokal</em>.</li>
+          <li>Pasar saham Indonesia termasuk <em>pasar abstrak</em> dan <em>pasar nasional</em> yang transaksinya dilakukan secara digital.</li>
+          <li>Harga minyak dunia termasuk contoh <em>pasar internasional</em> yang memengaruhi harga BBM di Indonesia.</li>
+          <li>Pasar malam tahun baru termasuk contoh <em>pasar tahunan</em>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 4: STRUKTUR PERSAINGAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 4 dari 15</div>
+      <h2 class="page-title">Jenis Pasar Berdasarkan <span>Struktur Persaingan</span></h2>
+      <p class="page-subtitle">Bagaimana penjual bersaing di dalam pasar</p>
+
+      <p>Selain berdasarkan wujud, waktu, dan wilayah, pasar juga dapat dibedakan berdasarkan <strong>jumlah penjual, jenis barang, dan tingkat persaingan</strong> di dalamnya. Secara umum, struktur pasar dibagi menjadi dua kelompok besar: <strong>persaingan sempurna</strong> dan <strong>persaingan tidak sempurna</strong>.</p>
+
+      <h3>Dua Kelompok Besar Struktur Pasar</h3>
+      <table>
+        <tr><th>Kelompok</th><th>Jenis</th><th>Ciri Utama</th><th>Contoh</th></tr>
+        <tr>
+          <td rowspan="1"><strong>Persaingan Sempurna</strong></td>
+          <td>Pasar Persaingan Sempurna</td>
+          <td>Banyak penjual & pembeli, barang sejenis (homogen), harga ditentukan pasar</td>
+          <td>Pasar beras, pasar sayur, pasar ikan</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>Persaingan Tidak Sempurna</strong></td>
+          <td>Pasar Monopoli</td>
+          <td>Hanya satu penjual, tidak ada barang pengganti</td>
+          <td>PLN (listrik), PT KAI (kereta api)</td>
+        </tr>
+        <tr>
+          <td>Pasar Oligopoli</td>
+          <td>Beberapa penjual menguasai pasar</td>
+          <td>Operator seluler, industri otomotif</td>
+        </tr>
+        <tr>
+          <td>Pasar Monopolistik</td>
+          <td>Banyak penjual dengan produk yang berbeda merek</td>
+          <td>Restoran, salon, merek pakaian</td>
+        </tr>
+      </table>
+
+      <h3>Penjelasan Rinci Setiap Jenis</h3>
+
+      <h4>a. Pasar Persaingan Sempurna</h4>
+      <p>Terjadi ketika jumlah penjual dan pembeli sangat banyak, barang yang dijual sejenis, dan tidak ada satu pihak pun yang dapat memengaruhi harga. Harga terbentuk murni dari interaksi permintaan dan penawaran. Ciri-cirinya:</p>
+      <ul>
+        <li>Jumlah penjual dan pembeli sangat banyak.</li>
+        <li>Barang yang diperjualbelikan bersifat homogen (sejenis).</li>
+        <li>Tidak ada hambatan untuk masuk dan keluar pasar.</li>
+        <li>Penjual dan pembeli memiliki informasi yang sempurna tentang pasar.</li>
+      </ul>
+
+      <h4>b. Pasar Monopoli</h4>
+      <p>Terjadi ketika hanya ada <strong>satu penjual</strong> yang menguasai seluruh pasar dan tidak ada barang pengganti yang dekat. Penjual memiliki kekuatan besar untuk menentukan harga. Di Indonesia, monopoli sering dilakukan oleh pemerintah melalui BUMN untuk kepentingan rakyat.</p>
+
+      <h4>c. Pasar Oligopoli</h4>
+      <p>Terjadi ketika pasar dikuasai oleh <strong>beberapa penjual besar</strong>. Kebijakan harga satu perusahaan akan memengaruhi perusahaan lainnya, sehingga mereka cenderung saling mengikuti. Persaingan terjadi melalui iklan, kualitas produk, dan layanan.</p>
+
+      <h4>d. Pasar Monopolistik</h4>
+      <p>Terjadi ketika ada <strong>banyak penjual</strong> yang menjual barang sejenis, tetapi masing-masing memiliki ciri khas atau merek yang berbeda, sehingga konsumen bisa memilih berdasarkan selera. Persaingan terjadi melalui diferensiasi produk dan promosi.</p>
+
+      <div class="warning">
+        ⚠️ <strong>Perhatikan!</strong> Pasar monopoli murni jarang terjadi pada barang kebutuhan sehari-hari. Jika ada, biasanya dikuasai pemerintah agar harga tetap terjangkau dan adil bagi masyarakat.
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Pasar beras dan sayur di pasar induk → <em>persaingan sempurna</em>.</li>
+          <li>PLN sebagai satu-satunya penyedia listrik rumah tangga → <em>monopoli</em>.</li>
+          <li>Beberapa operator seluler yang bersaing paket data → <em>oligopoli</em>.</li>
+          <li>Banyak warung kopi dengan merek dan cita rasa berbeda → <em>monopolistik</em>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 5: PERMINTAAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 5 dari 15</div>
+      <h2 class="page-title">Permintaan <span>(Demand)</span></h2>
+      <p class="page-subtitle">Keinginan pembeli terhadap suatu barang atau jasa</p>
+
+      <p><strong style="color:#38bdf8">Permintaan</strong> adalah keinginan konsumen untuk membeli suatu barang atau jasa pada berbagai tingkat harga dan dalam periode tertentu. Permintaan baru dianggap efektif apabila konsumen memiliki keinginan <em>dan</em> kemampuan untuk membayar.</p>
+
+      <div class="highlight">
+        💡 <strong>Definisi:</strong><br>
+        <strong>Permintaan</strong> adalah jumlah barang atau jasa yang ingin dan mampu dibeli konsumen pada tingkat harga tertentu, dalam waktu tertentu.
+      </div>
+
+      <h3>Jenis-Jenis Permintaan</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Permintaan Efektif</strong></td><td>Keinginan membeli yang didukung kemampuan membayar</td><td>Membeli sepeda sesuai tabungan</td></tr>
+        <tr><td><strong>Permintaan Potensial</strong></td><td>Keinginan membeli yang belum dilaksanakan meskipun mampu</td><td>Ingin membeli HP, uang ada, tapi ditunda karena kebutuhan lain</td></tr>
+        <tr><td><strong>Permintaan Absolut</strong></td><td>Keinginan membeli tanpa didukung kemampuan membayar</td><td>Ingin membeli mobil mewah tetapi uang tidak cukup</td></tr>
+        <tr><td><strong>Permintaan Individu</strong></td><td>Permintaan dari satu orang konsumen</td><td>Kamu membeli 2 buku tulis</td></tr>
+        <tr><td><strong>Permintaan Pasar</strong></td><td>Jumlah seluruh permintaan konsumen di pasar</td><td>Seluruh siswa membeli buku tulis</td></tr>
+      </table>
+
+      <h3>Faktor yang Mempengaruhi Permintaan</h3>
+      <ol>
+        <li><strong>Harga barang itu sendiri</strong> — naiknya harga cenderung menurunkan jumlah permintaan.</li>
+        <li><strong>Pendapatan konsumen</strong> — pendapatan naik, permintaan biasanya ikut naik.</li>
+        <li><strong>Selera konsumen</strong> — barang yang sedang tren akan lebih banyak diminta.</li>
+        <li><strong>Harga barang substitusi</strong> — harga barang pengganti naik membuat permintaan barang lain meningkat.</li>
+        <li><strong>Harga barang komplementer</strong> — harga barang pelengkap naik menurunkan permintaan barang utama.</li>
+        <li><strong>Jumlah penduduk</strong> — semakin banyak penduduk, semakin besar permintaan.</li>
+        <li><strong>Perkiraan harga masa depan</strong> — jika harga diperkirakan naik, orang cenderung membeli sekarang.</li>
+        <li><strong>Intensitas kebutuhan</strong> — semakin mendesak kebutuhan, semakin tinggi permintaan.</li>
+      </ol>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Harga gula naik → masyarakat mengurangi pembelian gula.</li>
+          <li>Harga tiket pesawat naik → permintaan tiket kereta api meningkat (<em>barang substitusi</em>).</li>
+          <li>Harga bensin naik → permintaan kendaraan bermotor menurun (<em>barang komplementer</em>).</li>
+          <li>Menjelang hari raya, permintaan pakaian dan kue meningkat tajam.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 6: HUKUM & KURVA PERMINTAAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 6 dari 15</div>
+      <h2 class="page-title">Hukum & <span>Kurva Permintaan</span></h2>
+      <p class="page-subtitle">Hubungan antara harga dan jumlah barang yang diminta</p>
+
+      <h3>Hukum Permintaan</h3>
+      <div class="highlight">
+        💡 <strong>Hukum Permintaan:</strong><br>
+        "Apabila harga suatu barang <strong>naik</strong>, maka jumlah barang yang diminta akan <strong>turun</strong>. Sebaliknya, apabila harga <strong>turun</strong>, maka jumlah barang yang diminta akan <strong>naik</strong> — dengan asumsi faktor lain tetap (ceteris paribus)."
+      </div>
+
+      <p>Artinya, antara harga dan jumlah permintaan memiliki hubungan yang <strong>berbanding terbalik</strong> (negatif).</p>
+
+      <h3>Mengapa Berbanding Terbalik?</h3>
+      <ul>
+        <li><strong>Efek pendapatan</strong> — ketika harga turun, daya beli konsumen seolah meningkat sehingga mereka bisa membeli lebih banyak.</li>
+        <li><strong>Efek substitusi</strong> — ketika harga suatu barang naik, konsumen beralih ke barang pengganti yang lebih murah.</li>
+        <li><strong>Efek harapan</strong> — konsumen menunda pembelian saat harga sedang tinggi.</li>
+      </ul>
+
+      <h3>Kurva Permintaan</h3>
+      <div class="grafik-box">
+        <svg viewBox="0 0 340 220" style="width:100%;max-width:400px;height:auto;display:block;margin:0 auto;">
+          <line x1="45" y1="15" x2="45" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <line x1="45" y1="180" x2="310" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <polygon points="45,8 40,18 50,18" fill="#38bdf8"/>
+          <polygon points="316,180 306,175 306,185" fill="#38bdf8"/>
+          <line x1="62" y1="35" x2="272" y2="163" stroke="#f472b6" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="62" cy="35" r="4" fill="#f472b6"/>
+          <circle cx="272" cy="163" r="4" fill="#f472b6"/>
+          <text x="282" y="160" fill="#f472b6" font-size="14" font-family="Arial" font-weight="bold">D</text>
+          <text x="180" y="207" fill="#94a3b8" font-size="12" font-family="Arial" text-anchor="middle">Jumlah (Q)</text>
+          <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="Arial" text-anchor="middle" transform="rotate(-90 20 100)">Harga (P)</text>
+        </svg>
+        <div class="caption">Gambar 1. Kurva permintaan (D) miring dari kiri atas ke kanan bawah</div>
+      </div>
+
+      <p>Kurva permintaan selalu miring dari <strong>kiri atas ke kanan bawah</strong>. Ini menunjukkan bahwa pada harga tinggi, jumlah barang yang diminta sedikit; dan pada harga rendah, jumlah barang yang diminta banyak.</p>
+
+      <h3>Pergerakan vs Pergeseran Kurva Permintaan</h3>
+      <ul>
+        <li><strong>Pergerakan sepanjang kurva</strong> terjadi karena perubahan <em>harga barang itu sendiri</em>. Jika harga turun, jumlah yang diminta naik — bergerak ke kanan bawah sepanjang kurva.</li>
+        <li><strong>Pergeseran kurva</strong> terjadi karena perubahan <em>faktor selain harga</em> (pendapatan, selera, dll). Jika pendapatan naik, kurva permintaan bergeser <strong>ke kanan</strong> (permintaan naik). Jika pendapatan turun, kurva bergeser <strong>ke kiri</strong> (permintaan turun).</li>
+      </ul>
+
+      <h3>Pengecualian Hukum Permintaan</h3>
+      <table>
+        <tr><th>Jenis Barang</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Barang Prestise</strong></td><td>Harga naik justru menaikkan permintaan karena gengsi</td><td>Mobil mewah, tas branded</td></tr>
+        <tr><td><strong>Barang Spekulasi</strong></td><td>Harga naik membuat orang memburu barang</td><td>Emas, tanah, saham</td></tr>
+        <tr><td><strong>Barang Inferior</strong></td><td>Harga turun justru menurunkan permintaan karena mutu dianggap rendah</td><td>Beras kualitas rendah</td></tr>
+      </table>
+
+      <div class="warning">
+        ⚠️ <strong>Catatan:</strong> Pengecualian ini jarang terjadi dan hanya berlaku pada kondisi tertentu. Hukum permintaan tetap berlaku umum untuk sebagian besar barang dan jasa.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 7: PENAWARAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 7 dari 15</div>
+      <h2 class="page-title">Penawaran <span>(Supply)</span></h2>
+      <p class="page-subtitle">Kesediaan penjual menawarkan barang atau jasa</p>
+
+      <p><strong style="color:#38bdf8">Penawaran</strong> adalah jumlah barang atau jasa yang bersedia dan mampu dijual oleh produsen kepada konsumen pada berbagai tingkat harga dan dalam periode tertentu.</p>
+
+      <div class="highlight">
+        💡 <strong>Definisi:</strong><br>
+        <strong>Penawaran</strong> adalah kesediaan penjual untuk menawarkan barang atau jasa di pasar pada tingkat harga tertentu, dalam waktu tertentu.
+      </div>
+
+      <h3>Jenis Penawaran</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Penawaran Individu</strong></td><td>Penawaran dari satu produsen</td><td>Seorang petani menawarkan 100 kg cabai</td></tr>
+        <tr><td><strong>Penawaran Pasar</strong></td><td>Total penawaran seluruh produsen</td><td>Seluruh petani menawarkan 5 ton cabai</td></tr>
+      </table>
+
+      <h3>Faktor yang Mempengaruhi Penawaran</h3>
+      <ol>
+        <li><strong>Harga barang itu sendiri</strong> — harga naik mendorong produsen menambah produksi.</li>
+        <li><strong>Biaya produksi</strong> — bahan baku mahal membuat penawaran berkurang.</li>
+        <li><strong>Teknologi</strong> — teknologi maju meningkatkan efisiensi dan jumlah produksi.</li>
+        <li><strong>Pajak dan subsidi</strong> — pajak tinggi menekan penawaran, subsidi mendorong penawaran.</li>
+        <li><strong>Jumlah penjual</strong> — semakin banyak produsen, semakin besar penawaran pasar.</li>
+        <li><strong>Perkiraan harga masa depan</strong> — jika harga diperkirakan naik, penjual menahan barang dahulu.</li>
+        <li><strong>Kondisi cuaca dan alam</strong> — sangat berpengaruh pada hasil pertanian dan perikanan.</li>
+      </ol>
+
+      <h3>Hubungan Penawaran dengan Harga</h3>
+      <p>Penawaran berbeda dengan <em>jumlah barang yang tersedia</em>. Penawaran selalu dikaitkan dengan <strong>harga</strong> — berapa banyak yang mau dijual penjual pada harga tertentu. Semakin tinggi harga yang ditawarkan, semakin banyak jumlah barang yang bersedia dijual produsen.</p>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Harga cabai naik → petani menanam lebih banyak cabai musim berikutnya.</li>
+          <li>Harga pupuk naik → biaya produksi meningkat → penawaran hasil tani menurun.</li>
+          <li>Adanya subsidi pemerintah → produsen lebih bersemangat menambah produksi.</li>
+          <li>Gagal panen akibat banjir → penawaran beras di pasar menurun drastis.</li>
+        </ul>
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Produsen selalu menghitung untung-rugi. Jika harga jual tinggi dan biaya produksi rendah, mereka akan menambah produksi. Sebaliknya, jika biaya produksi tinggi dan harga jual rendah, mereka akan mengurangi produksi.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 8: HUKUM & KURVA PENAWARAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 8 dari 15</div>
+      <h2 class="page-title">Hukum & <span>Kurva Penawaran</span></h2>
+      <p class="page-subtitle">Hubungan antara harga dan jumlah barang yang ditawarkan</p>
+
+      <h3>Hukum Penawaran</h3>
+      <div class="highlight">
+        💡 <strong>Hukum Penawaran:</strong><br>
+        "Apabila harga suatu barang <strong>naik</strong>, maka jumlah barang yang ditawarkan akan <strong>naik</strong>. Sebaliknya, apabila harga <strong>turun</strong>, maka jumlah barang yang ditawarkan akan <strong>turun</strong> — dengan asumsi faktor lain tetap (ceteris paribus)."
+      </div>
+
+      <p>Berbeda dengan permintaan, hubungan antara harga dan penawaran bersifat <strong>berbanding lurus</strong> (positif).</p>
+
+      <h3>Mengapa Berbanding Lurus?</h3>
+      <ul>
+        <li>Harga tinggi memberi keuntungan lebih besar bagi produsen, sehingga mereka terdorong memproduksi lebih banyak.</li>
+        <li>Produsen baru akan masuk ke pasar ketika harga dianggap menguntungkan.</li>
+        <li>Produsen yang sudah ada akan menambah kapasitas produksinya.</li>
+      </ul>
+
+      <h3>Kurva Penawaran</h3>
+      <div class="grafik-box">
+        <svg viewBox="0 0 340 220" style="width:100%;max-width:400px;height:auto;display:block;margin:0 auto;">
+          <line x1="45" y1="15" x2="45" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <line x1="45" y1="180" x2="310" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <polygon points="45,8 40,18 50,18" fill="#38bdf8"/>
+          <polygon points="316,180 306,175 306,185" fill="#38bdf8"/>
+          <line x1="62" y1="163" x2="272" y2="35" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="62" cy="163" r="4" fill="#34d399"/>
+          <circle cx="272" cy="35" r="4" fill="#34d399"/>
+          <text x="282" y="40" fill="#34d399" font-size="14" font-family="Arial" font-weight="bold">S</text>
+          <text x="180" y="207" fill="#94a3b8" font-size="12" font-family="Arial" text-anchor="middle">Jumlah (Q)</text>
+          <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="Arial" text-anchor="middle" transform="rotate(-90 20 100)">Harga (P)</text>
+        </svg>
+        <div class="caption">Gambar 2. Kurva penawaran (S) miring dari kiri bawah ke kanan atas</div>
+      </div>
+
+      <p>Kurva penawaran selalu miring dari <strong>kiri bawah ke kanan atas</strong>. Ini menunjukkan bahwa pada harga tinggi, penjual menawarkan lebih banyak barang; dan pada harga rendah, penjual menawarkan lebih sedikit barang.</p>
+
+      <h3>Pergerakan vs Pergeseran Kurva Penawaran</h3>
+      <ul>
+        <li><strong>Pergerakan sepanjang kurva</strong> terjadi karena perubahan <em>harga barang itu sendiri</em>. Jika harga naik, jumlah yang ditawarkan naik — bergerak ke kanan atas sepanjang kurva.</li>
+        <li><strong>Pergeseran kurva</strong> terjadi karena perubahan <em>faktor selain harga</em> (biaya produksi, teknologi, dll). Jika biaya produksi turun, kurva penawaran bergeser <strong>ke kanan</strong> (penawaran naik). Jika biaya produksi naik, kurva bergeser <strong>ke kiri</strong> (penawaran turun).</li>
+      </ul>
+
+      <h3>Pengecualian Hukum Penawaran</h3>
+      <table>
+        <tr><th>Kasus</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Barang Antik / Langka</strong></td><td>Harga naik justru membuat pemilik enggan menjual</td><td>Lukisan klasik, benda pusaka</td></tr>
+        <tr><td><strong>Penawaran Tenaga Kerja</strong></td><td>Upah tinggi membuat pekerja mengurangi jam kerja karena sudah cukup penghasilan</td><td>Pekerja profesional</td></tr>
+        <tr><td><strong>Kapasitas Produksi Terbatas</strong></td><td>Harga naik, tetapi produksi tidak bisa ditambah</td><td>Hasil panen musiman</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Harga daging sapi naik menjelang Lebaran → pedagang menambah pasokan.</li>
+          <li>Harga sayur turun drastis saat panen raya → petani mengurangi penawaran.</li>
+          <li>Harga handphone naik → produsen menambah jumlah produksi untuk untung lebih besar.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 9: HARGA KESEIMBANGAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 9 dari 15</div>
+      <h2 class="page-title">Harga <span>Keseimbangan Pasar</span></h2>
+      <p class="page-subtitle">Titik temu antara permintaan dan penawaran</p>
+
+      <p><strong style="color:#38bdf8">Harga keseimbangan</strong> (harga pasar) adalah harga yang terjadi ketika jumlah barang yang diminta <strong>sama dengan</strong> jumlah barang yang ditawarkan. Titik ini disebut juga <em>titik equilibrium</em>.</p>
+
+      <div class="highlight">
+        💡 <strong>Rumus:</strong><br>
+        <strong>Q<sub>d</sub> = Q<sub>s</sub></strong><br>
+        Q<sub>d</sub> = jumlah yang diminta (demand) &nbsp;|&nbsp; Q<sub>s</sub> = jumlah yang ditawarkan (supply)
+      </div>
+
+      <h3>Proses Terbentuknya Harga Keseimbangan</h3>
+      <p>Terbentuknya harga keseimbangan pasar dikarenakan adanya proses tawar-menawar antara penjual dan pembeli. Berikut prosesnya:</p>
+      <ol>
+        <li><strong>Jika harga terlalu tinggi</strong> → jumlah barang yang ditawarkan lebih banyak daripada yang diminta → terjadi <em>kelebihan penawaran (surplus)</em> → penjual menurunkan harga agar barangnya terjual.</li>
+        <li><strong>Jika harga terlalu rendah</strong> → jumlah barang yang diminta lebih banyak daripada yang ditawarkan → terjadi <em>kelebihan permintaan (shortage)</em> → pembeli menaikkan tawaran harga agar mendapatkan barang.</li>
+        <li><strong>Jika harga tepat</strong> → jumlah permintaan sama dengan jumlah penawaran → terbentuk <em>harga keseimbangan</em>. Pada tingkat harga ini, produsen bersedia melepas barangnya dan konsumen bersedia membayarnya.</li>
+      </ol>
+
+      <p>Harga keseimbangan pasar juga bisa dilihat dalam bentuk kurva. Jika kurva penawaran berpotongan dengan kurva permintaan, maka pasar dalam kondisi equilibrium atau seimbang.</p>
+
+      <h3>Kurva Harga Keseimbangan</h3>
+      <div class="grafik-box">
+        <svg viewBox="0 0 340 220" style="width:100%;max-width:400px;height:auto;display:block;margin:0 auto;">
+          <line x1="45" y1="15" x2="45" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <line x1="45" y1="180" x2="310" y2="180" stroke="#38bdf8" stroke-width="2"/>
+          <polygon points="45,8 40,18 50,18" fill="#38bdf8"/>
+          <polygon points="316,180 306,175 306,185" fill="#38bdf8"/>
+
+          <!-- Demand -->
+          <line x1="62" y1="35" x2="272" y2="163" stroke="#f472b6" stroke-width="3" stroke-linecap="round"/>
+          <text x="282" y="160" fill="#f472b6" font-size="13" font-family="Arial" font-weight="bold">D</text>
+
+          <!-- Supply -->
+          <line x1="62" y1="163" x2="272" y2="35" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+          <text x="282" y="40" fill="#34d399" font-size="13" font-family="Arial" font-weight="bold">S</text>
+
+          <!-- Equilibrium point -->
+          <line x1="45" y1="99" x2="168" y2="99" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="168" y1="99" x2="168" y2="180" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <circle cx="168" cy="99" r="5" fill="#fbbf24"/>
+          <text x="176" y="94" fill="#fbbf24" font-size="12" font-family="Arial" font-weight="bold">E</text>
+
+          <text x="38" y="103" fill="#94a3b8" font-size="11" font-family="Arial" text-anchor="end">P*</text>
+          <text x="168" y="196" fill="#94a3b8" font-size="11" font-family="Arial" text-anchor="middle">Q*</text>
+
+          <text x="180" y="212" fill="#94a3b8" font-size="11" font-family="Arial" text-anchor="middle">Jumlah (Q)</text>
+          <text x="20" y="100" fill="#94a3b8" font-size="11" font-family="Arial" text-anchor="middle" transform="rotate(-90 20 100)">Harga (P)</text>
+        </svg>
+        <div class="caption">Gambar 3. Titik E adalah harga keseimbangan (P*) pada jumlah (Q*)</div>
+      </div>
+
+      <h3>Contoh Perhitungan Sederhana</h3>
+      <table>
+        <tr><th>Harga (Rp)</th><th>Jumlah Diminta (Q<sub>d</sub>)</th><th>Jumlah Ditawarkan (Q<sub>s</sub>)</th><th>Keadaan Pasar</th></tr>
+        <tr><td>5.000</td><td>100</td><td>20</td><td>Kelebihan permintaan</td></tr>
+        <tr><td>7.000</td><td>80</td><td>40</td><td>Kelebihan permintaan</td></tr>
+        <tr><td style="color:#fbbf24;font-weight:bold;">9.000</td><td style="color:#fbbf24;font-weight:bold;">60</td><td style="color:#fbbf24;font-weight:bold;">60</td><td style="color:#fbbf24;font-weight:bold;">Seimbang (Q<sub>d</sub> = Q<sub>s</sub>)</td></tr>
+        <tr><td>11.000</td><td>40</td><td>80</td><td>Kelebihan penawaran</td></tr>
+        <tr><td>13.000</td><td>20</td><td>100</td><td>Kelebihan penawaran</td></tr>
+      </table>
+
+      <p>Dari tabel di atas, harga keseimbangan terjadi pada tingkat harga <strong style="color:#fbbf24">Rp9.000</strong>, karena pada harga tersebut jumlah yang diminta sama dengan jumlah yang ditawarkan, yaitu 60 unit.</p>
+
+      <h3>Pergeseran Titik Keseimbangan</h3>
+      <ul>
+        <li>Jika <strong>permintaan bertambah</strong> (kurva D bergeser ke kanan) sedangkan penawaran tetap → harga keseimbangan <strong>naik</strong>.</li>
+        <li>Jika <strong>permintaan berkurang</strong> (kurva D bergeser ke kiri) → harga keseimbangan <strong>turun</strong>.</li>
+        <li>Jika <strong>penawaran bertambah</strong> (kurva S bergeser ke kanan) → harga keseimbangan <strong>turun</strong>.</li>
+        <li>Jika <strong>penawaran berkurang</strong> (kurva S bergeser ke kiri) → harga keseimbangan <strong>naik</strong>.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Harga cabai di pasar terbentuk dari tawar-menawar antara petani (penjual) dan pembeli.</li>
+          <li>Saat permintaan masker melonjak, harga naik; ketika pasokan melimpah, harga kembali turun.</li>
+          <li>Harga tiket pesawat naik saat musim liburan karena permintaan meningkat tajam.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 10: ELASTISITAS ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 10 dari 15</div>
+      <h2 class="page-title">Elastisitas <span>Permintaan & Penawaran</span></h2>
+      <p class="page-subtitle">Seberapa peka permintaan dan penawaran terhadap perubahan harga</p>
+
+      <p><strong style="color:#38bdf8">Elastisitas</strong> adalah konsep penting dalam ekonomi yang mengukur sejauh mana perubahan harga memengaruhi jumlah barang atau jasa yang diminta atau ditawarkan. Secara sederhana, elastisitas menggambarkan <strong>sensitivitas</strong> permintaan atau penawaran terhadap perubahan harga.</p>
+
+      <h3>Elastisitas Harga Permintaan</h3>
+      <p>Elastisitas harga permintaan mengukur seberapa besar perubahan jumlah barang yang diminta ketika harga barang tersebut berubah.</p>
+
+      <div class="highlight">
+        💡 <strong>Rumus:</strong><br>
+        E<sub>d</sub> = <strong>% perubahan jumlah yang diminta</strong> ÷ <strong>% perubahan harga</strong>
+      </div>
+
+      <p>Berdasarkan nilai elastisitasnya, permintaan dapat diklasifikasikan menjadi:</p>
+
+      <table>
+        <tr><th>Kategori</th><th>Nilai</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Elastis</strong></td><td>E<sub>d</sub> > 1</td><td>Permintaan sangat responsif terhadap perubahan harga. Sedikit perubahan harga menyebabkan perubahan besar pada jumlah yang diminta.</td><td>Barang mewah (mobil, perhiasan)</td></tr>
+        <tr><td><strong>Inelastis</strong></td><td>E<sub>d</sub> < 1</td><td>Permintaan tidak terlalu responsif. Perubahan harga besar hanya menghasilkan perubahan kecil pada jumlah yang diminta.</td><td>Kebutuhan pokok (beras, gula, obat)</td></tr>
+        <tr><td><strong>Unit Elastis</strong></td><td>E<sub>d</sub> = 1</td><td>Perubahan harga mengakibatkan perubahan persentase yang sama pada jumlah yang diminta.</td><td>Kasus khusus</td></tr>
+        <tr><td><strong>Elastis Sempurna</strong></td><td>E<sub>d</sub> = ∞</td><td>Sedikit perubahan harga menyebabkan permintaan berubah tanpa batas. Kurva berbentuk horizontal.</td><td>Teoretis</td></tr>
+        <tr><td><strong>Inelastis Sempurna</strong></td><td>E<sub>d</sub> = 0</td><td>Perubahan harga tidak memengaruhi jumlah yang diminta sama sekali. Kurva berbentuk vertikal.</td><td>Obat yang sangat dibutuhkan</td></tr>
+      </table>
+
+      <h3>Faktor yang Mempengaruhi Elastisitas Permintaan</h3>
+      <ol>
+        <li><strong>Ketersediaan barang substitusi</strong> — jika barang pengganti mudah ditemukan, permintaan cenderung lebih elastis karena konsumen dapat beralih ke produk lain.</li>
+        <li><strong>Pentingnya barang</strong> — barang kebutuhan pokok cenderung memiliki permintaan yang inelastis karena konsumen tetap membelinya meskipun harganya naik.</li>
+        <li><strong>Proporsi pengeluaran terhadap pendapatan</strong> — barang yang mengambil proporsi besar dari pendapatan konsumen cenderung lebih elastis karena perubahan harga sangat signifikan bagi anggaran mereka.</li>
+        <li><strong>Jangka waktu</strong> — dalam jangka panjang, permintaan cenderung lebih elastis karena konsumen memiliki lebih banyak waktu untuk menyesuaikan konsumsi atau mencari alternatif.</li>
+      </ol>
+
+      <h3>Elastisitas Harga Penawaran</h3>
+      <p>Elastisitas harga penawaran mengukur seberapa besar perubahan jumlah barang yang ditawarkan ketika harga barang tersebut berubah. Sama seperti permintaan, penawaran juga dapat bersifat elastis atau inelastis.</p>
+      <p>Penawaran cenderung <strong>lebih elastis</strong> dalam jangka panjang karena produsen memiliki lebih banyak waktu untuk menyesuaikan kapasitas produksinya.</p>
+
+      <div class="contoh">
+        🌰 <strong>Contoh perhitungan:</strong><br>
+        Jika harga kopi naik 10% dan sebagai akibatnya permintaan kopi turun sebesar 20%, maka elastisitas harga permintaannya adalah:
+        <br><strong>E<sub>d</sub> = −20% ÷ 10% = −2</strong>
+        <br>Ini menunjukkan bahwa permintaan kopi <strong>elastis</strong> terhadap perubahan harga (E<sub>d</sub> > 1).
+      </div>
+
+      <div class="warning">
+        ⚠️ <strong>Perhatikan!</strong> Nilai elastisitas biasanya negatif untuk permintaan (karena hubungan terbalik), tetapi dalam praktiknya tanda negatif sering diabaikan dan yang dilihat adalah besarnya angka.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 11: PASAR ERA DIGITAL ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 11 dari 15</div>
+      <h2 class="page-title">Pasar di <span>Era Digital</span></h2>
+      <p class="page-subtitle">Transformasi pasar tradisional menjadi pasar digital</p>
+
+      <p>Perkembangan teknologi digital telah mengubah cara pasar beroperasi. Kini transaksi bisa dilakukan tanpa tatap muka, bahkan lintas negara dalam hitungan detik. Pasar tidak lagi memiliki batasan wilayah — semua wilayah bahkan negara dapat saling terhubung untuk menawarkan dan mencari kebutuhan.</p>
+
+      <h3>Bentuk Pasar Digital</h3>
+      <div class="grid-2">
+        <div class="mini-card">
+          <div class="icon">🛒</div>
+          <h4>E-Commerce</h4>
+          <p>Aktivitas jual beli barang dan jasa yang dilakukan secara online melalui internet. Contoh: Shopee, Tokopedia, Bukalapak.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">📱</div>
+          <h4>Marketplace</h4>
+          <p>Platform digital yang mempertemukan penjual dan pembeli. Penjual membuka lapak gratis, pembeli mencari produk tanpa harus datang ke toko.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">💳</div>
+          <h4>Dompet Digital</h4>
+          <p>Alat pembayaran digital yang menggantikan uang tunai. Contoh: GoPay, OVO, Dana, QRIS.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">📢</div>
+          <h4>Media Sosial</h4>
+          <p>Digunakan sebagai sarana promosi dan jual beli. Contoh: Instagram Shop, Facebook Marketplace, TikTok Shop.</p>
+        </div>
+      </div>
+
+      <h3>Perubahan Perilaku Konsumen dan Produsen</h3>
+      <table>
+        <tr><th>Aspek</th><th>Dulu (Sebelum Digital)</th><th>Sekarang (Era Digital)</th></tr>
+        <tr><td>Belanja</td><td>Datang ke pasar/toko fisik</td><td>Belanja online via aplikasi, bisa dari rumah</td></tr>
+        <tr><td>Pembayaran</td><td>Tunai</td><td>Transfer bank, dompet digital, QRIS</td></tr>
+        <tr><td>Promosi</td><td>Spanduk, brosur, mulut ke mulut</td><td>Iklan digital, media sosial, influencer</td></tr>
+        <tr><td>Jangkauan Pasar</td><td>Lokal / regional</td><td>Nasional bahkan internasional</td></tr>
+        <tr><td>Jam Operasional</td><td>Terbatas (jam buka toko)</td><td>24 jam, bisa diakses kapan saja</td></tr>
+      </table>
+
+      <h3>Dampak Pasar Digital</h3>
+      <h4>Dampak Positif:</h4>
+      <ul>
+        <li>Mempermudah konsumen mendapatkan barang tanpa harus keluar rumah.</li>
+        <li>Membuka peluang usaha bagi UMKM untuk menjangkau pasar lebih luas.</li>
+        <li>Menciptakan lapangan kerja baru di bidang teknologi dan logistik.</li>
+        <li>Meningkatkan efisiensi transaksi dan mempercepat pertumbuhan ekonomi.</li>
+      </ul>
+
+      <h4>Dampak Negatif:</h4>
+      <ul>
+        <li>Pasar tradisional mengalami penurunan jumlah pembeli dan omzet pedagang.</li>
+        <li>Persaingan usaha menjadi lebih tidak seimbang antara pedagang besar dan kecil.</li>
+        <li>Muncul tantangan keamanan data dan penipuan online.</li>
+        <li>Kesenjangan digital bagi pedagang yang memiliki keterbatasan akses dan literasi teknologi.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Seorang siswa SMP membuka usaha kue secara online melalui Instagram dan menerima pembayaran via QRIS.</li>
+          <li>Pedagang pasar tradisional mulai berjualan melalui marketplace untuk memperluas jangkauan pembeli.</li>
+          <li>Pemerintah memfasilitasi digitalisasi pasar rakyat agar pedagang dapat bersaing di era digital.</li>
+        </ul>
+      </div>
+
+      <div class="warning">
+        ⚠️ <strong>Tantangan:</strong> Era digital membawa peluang besar, tetapi juga tantangan seperti keamanan data, penipuan online, dan kesenjangan digital. Pelaku ekonomi harus bijak dan literat secara digital.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 12: RINGKASAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 12 dari 15</div>
+      <h2 class="page-title">Ringkasan <span>Bab 3</span></h2>
+      <p class="page-subtitle">Poin-poin penting yang harus diingat</p>
+
+      <ul>
+        <li><strong>Pasar</strong> adalah tempat atau proses bertemunya permintaan dan penawaran yang membentuk kesepakatan harga.</li>
+        <li>Unsur pasar meliputi <strong>penjual, pembeli, barang/jasa, dan kesepakatan harga</strong>. Syarat pasar dalam ilmu ekonomi: ada permintaan, ada penawaran, dan ada harga.</li>
+        <li>Pasar memiliki empat fungsi utama: <strong>distribusi, pembentukan harga, promosi, dan penyediaan kesempatan kerja</strong>.</li>
+        <li>Berdasarkan wujudnya, pasar dibedakan menjadi <strong>pasar konkret (nyata)</strong> dan <strong>pasar abstrak (tidak nyata)</strong>.</li>
+        <li>Berdasarkan waktu, pasar dibedakan menjadi pasar <strong>harian, mingguan, bulanan, dan tahunan</strong>.</li>
+        <li>Berdasarkan wilayah, pasar dibedakan menjadi pasar <strong>lokal, daerah, nasional, dan internasional</strong>.</li>
+        <li>Berdasarkan jenis barang, pasar dibedakan menjadi <strong>pasar konsumsi</strong> dan <strong>pasar produksi</strong>.</li>
+        <li>Berdasarkan struktur persaingan, pasar dibedakan menjadi <strong>persaingan sempurna, monopoli, oligopoli, dan monopolistik</strong>.</li>
+        <li><strong>Permintaan</strong> adalah jumlah barang yang ingin dan mampu dibeli konsumen pada tingkat harga tertentu.</li>
+        <li><strong>Hukum permintaan:</strong> harga naik → permintaan turun; harga turun → permintaan naik (berbanding terbalik).</li>
+        <li>Faktor yang mempengaruhi permintaan: harga barang itu sendiri, pendapatan, selera, harga barang substitusi/komplementer, jumlah penduduk, perkiraan harga, dan intensitas kebutuhan.</li>
+        <li><strong>Penawaran</strong> adalah jumlah barang yang bersedia dijual produsen pada tingkat harga tertentu.</li>
+        <li><strong>Hukum penawaran:</strong> harga naik → penawaran naik; harga turun → penawaran turun (berbanding lurus).</li>
+        <li>Faktor yang mempengaruhi penawaran: harga barang, biaya produksi, teknologi, pajak/subsidi, jumlah penjual, perkiraan harga, dan kondisi alam.</li>
+        <li><strong>Elastisitas</strong> mengukur seberapa peka permintaan atau penawaran terhadap perubahan harga.</li>
+        <li><strong>Harga keseimbangan</strong> terbentuk ketika jumlah yang diminta sama dengan jumlah yang ditawarkan (Q<sub>d</sub> = Q<sub>s</sub>).</li>
+        <li>Di <strong>era digital</strong>, pasar bertransformasi melalui e-commerce, marketplace, dompet digital, dan media sosial.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Kata kunci:</strong> pasar, permintaan (demand), penawaran (supply), hukum permintaan, hukum penawaran, kurva, harga keseimbangan, surplus, shortage, elastisitas, monopoli, oligopoli, monopolistik, persaingan sempurna, e-commerce, marketplace.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 13: GLOSARIUM ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 13 dari 15</div>
+      <h2 class="page-title">Glosarium <span>Istilah Penting</span></h2>
+      <p class="page-subtitle">Kumpulan istilah kunci dalam bab ini</p>
+
+      <div class="glosarium-item"><strong>Pasar</strong><br><span>Tempat atau proses bertemunya permintaan dan penawaran yang membentuk harga.</span></div>
+      <div class="glosarium-item"><strong>Pasar Konkret</strong><br><span>Pasar nyata di mana penjual dan pembeli bertemu langsung dan barang tersedia.</span></div>
+      <div class="glosarium-item"><strong>Pasar Abstrak</strong><br><span>Pasar tidak nyata di mana penjual dan pembeli tidak bertemu langsung, transaksi melalui internet/telepon.</span></div>
+      <div class="glosarium-item"><strong>Permintaan (Demand)</strong><br><span>Jumlah barang/jasa yang ingin dan mampu dibeli konsumen pada tingkat harga tertentu.</span></div>
+      <div class="glosarium-item"><strong>Penawaran (Supply)</strong><br><span>Jumlah barang/jasa yang bersedia dan mampu dijual produsen pada tingkat harga tertentu.</span></div>
+      <div class="glosarium-item"><strong>Hukum Permintaan</strong><br><span>Harga naik maka jumlah yang diminta turun, dan sebaliknya.</span></div>
+      <div class="glosarium-item"><strong>Hukum Penawaran</strong><br><span>Harga naik maka jumlah yang ditawarkan naik, dan sebaliknya.</span></div>
+      <div class="glosarium-item"><strong>Kurva Permintaan</strong><br><span>Grafik yang menunjukkan hubungan harga dan jumlah barang yang diminta, miring dari kiri atas ke kanan bawah.</span></div>
+      <div class="glosarium-item"><strong>Kurva Penawaran</strong><br><span>Grafik yang menunjukkan hubungan harga dan jumlah barang yang ditawarkan, miring dari kiri bawah ke kanan atas.</span></div>
+      <div class="glosarium-item"><strong>Harga Keseimbangan</strong><br><span>Harga yang terjadi ketika jumlah yang diminta sama dengan jumlah yang ditawarkan (Q<sub>d</sub> = Q<sub>s</sub>).</span></div>
+      <div class="glosarium-item"><strong>Surplus (Kelebihan Penawaran)</strong><br><span>Keadaan ketika jumlah barang yang ditawarkan lebih banyak daripada yang diminta.</span></div>
+      <div class="glosarium-item"><strong>Shortage (Kelebihan Permintaan)</strong><br><span>Keadaan ketika jumlah barang yang diminta lebih banyak daripada yang ditawarkan.</span></div>
+      <div class="glosarium-item"><strong>Ceteris Paribus</strong><br><span>Asumsi bahwa faktor-faktor lain dianggap tetap atau tidak berubah.</span></div>
+      <div class="glosarium-item"><strong>Elastisitas</strong><br><span>Ukuran seberapa peka permintaan atau penawaran terhadap perubahan harga.</span></div>
+      <div class="glosarium-item"><strong>Barang Substitusi</strong><br><span>Barang pengganti yang dapat menggantikan fungsi barang lain. Contoh: teh dan kopi.</span></div>
+      <div class="glosarium-item"><strong>Barang Komplementer</strong><br><span>Barang pelengkap yang penggunaannya saling melengkapi. Contoh: motor dan bensin.</span></div>
+      <div class="glosarium-item"><strong>Pasar Monopoli</strong><br><span>Pasar yang dikuasai oleh satu penjual tunggal tanpa barang pengganti.</span></div>
+      <div class="glosarium-item"><strong>Pasar Oligopoli</strong><br><span>Pasar yang dikuasai oleh beberapa penjual besar.</span></div>
+      <div class="glosarium-item"><strong>Pasar Monopolistik</strong><br><span>Pasar dengan banyak penjual yang menjual produk sejenis namun berbeda merek.</span></div>
+      <div class="glosarium-item"><strong>Pasar Persaingan Sempurna</strong><br><span>Pasar dengan banyak penjual dan pembeli, barang sejenis, dan harga ditentukan pasar.</span></div>
+      <div class="glosarium-item"><strong>E-Commerce</strong><br><span>Aktivitas jual beli barang dan jasa yang dilakukan secara online melalui internet.</span></div>
+      <div class="glosarium-item"><strong>Marketplace</strong><br><span>Platform digital yang mempertemukan penjual dan pembeli secara online.</span></div>
+    </section>
+
+    <!-- ===== PAGE 14: SOAL ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 14 dari 15</div>
+      <h2 class="page-title">Soal Latihan + <span>Pembahasan</span></h2>
+      <p class="page-subtitle">Klik tombol untuk memeriksa jawabanmu</p>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 1</div>
+        <div class="pertanyaan">Pengertian pasar dalam arti luas adalah...</div>
+        <div class="pilihan">A. Bangunan tempat penjual dan pembeli bertemu<br>B. Proses interaksi antara permintaan dan penawaran yang membentuk harga<br>C. Tempat berjualan yang dikelola pemerintah<br>D. Kumpulan toko yang menjual barang kebutuhan</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Dalam ilmu ekonomi, pasar adalah proses interaksi antara permintaan dan penawaran yang pada akhirnya membentuk harga — tidak selalu berupa tempat fisik.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 2</div>
+        <div class="pertanyaan">Fungsi pasar yang berkaitan dengan kegiatan menyalurkan barang dari produsen ke konsumen adalah...</div>
+        <div class="pilihan">A. Fungsi promosi<br>B. Fungsi distribusi<br>C. Fungsi pembentukan harga<br>D. Fungsi konsumsi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Fungsi distribusi adalah fungsi pasar dalam menyalurkan barang/jasa dari produsen kepada konsumen.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 3</div>
+        <div class="pertanyaan">Pasar di mana penjual dan pembeli tidak bertemu secara langsung dan transaksi dilakukan melalui internet disebut pasar...</div>
+        <div class="pilihan">A. Konkret<br>B. Abstrak<br>C. Harian<br>D. Regional</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Pasar abstrak adalah pasar di mana penjual dan pembeli tidak bertemu secara langsung, transaksi dilakukan melalui internet/telepon, dan barang hanya berupa contoh/gambar.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 4</div>
+        <div class="pertanyaan">Berikut yang merupakan ciri pasar persaingan sempurna adalah...</div>
+        <div class="pilihan">A. Hanya ada satu penjual<br>B. Barang yang dijual sejenis dan jumlah penjual banyak<br>C. Produk memiliki merek yang berbeda-beda<br>D. Harga ditentukan oleh satu perusahaan besar</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Ciri pasar persaingan sempurna antara lain jumlah penjual dan pembeli banyak, barang yang dijual sejenis (homogen), dan harga ditentukan oleh pasar.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 5</div>
+        <div class="pertanyaan">Pasar yang dikuasai oleh beberapa penjual besar sehingga kebijakan harga satu perusahaan memengaruhi yang lain disebut pasar...</div>
+        <div class="pilihan">A. Monopoli<br>B. Oligopoli<br>C. Monopolistik<br>D. Persaingan sempurna</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Pasar oligopoli adalah pasar yang dikuasai oleh beberapa penjual besar, contohnya industri operator seluler dan otomotif.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 6</div>
+        <div class="pertanyaan">Hukum permintaan menyatakan bahwa...</div>
+        <div class="pilihan">A. Harga naik, jumlah yang diminta naik<br>B. Harga turun, jumlah yang diminta turun<br>C. Harga naik, jumlah yang diminta turun<br>D. Harga dan jumlah yang diminta tidak berhubungan</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Hukum permintaan menyatakan hubungan berbanding terbalik: jika harga naik, jumlah yang diminta turun; jika harga turun, jumlah yang diminta naik.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 7</div>
+        <div class="pertanyaan">Berikut yang <strong>bukan</strong> faktor yang mempengaruhi permintaan adalah...</div>
+        <div class="pilihan">A. Pendapatan konsumen<br>B. Selera konsumen<br>C. Harga barang itu sendiri<br>D. Jumlah barang yang diproduksi pabrik</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: D.</strong> Jumlah barang yang diproduksi berkaitan dengan penawaran, bukan permintaan. Permintaan dipengaruhi pendapatan, selera, harga barang, harga barang substitusi/komplementer, jumlah penduduk, dan perkiraan harga.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 8</div>
+        <div class="pertanyaan">Hukum penawaran menunjukkan hubungan antara harga dan jumlah barang yang ditawarkan yang bersifat...</div>
+        <div class="pilihan">A. Berbanding terbalik<br>B. Berbanding lurus<br>C. Tidak berhubungan<br>D. Acak dan tidak teratur</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Hukum penawaran bersifat berbanding lurus: harga naik maka jumlah yang ditawarkan naik, dan sebaliknya.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 9</div>
+        <div class="pertanyaan">Harga keseimbangan pasar terjadi apabila...</div>
+        <div class="pilihan">A. Jumlah yang diminta lebih besar daripada yang ditawarkan<br>B. Jumlah yang ditawarkan lebih besar daripada yang diminta<br>C. Jumlah yang diminta sama dengan jumlah yang ditawarkan<br>D. Harga ditentukan sepenuhnya oleh pemerintah</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Harga keseimbangan terbentuk ketika Q<sub>d</sub> = Q<sub>s</sub>, yaitu jumlah barang yang diminta sama dengan jumlah barang yang ditawarkan.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 10</div>
+        <div class="pertanyaan">Ketika harga cabai naik, petani terdorong menanam lebih banyak cabai pada musim berikutnya. Peristiwa ini mencerminkan...</div>
+        <div class="pilihan">A. Hukum permintaan<br>B. Hukum penawaran<br>C. Hukum keseimbangan<br>D. Hukum konsumsi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Kenaikan harga mendorong produsen menambah jumlah yang ditawarkan. Ini sesuai dengan hukum penawaran yang berbanding lurus antara harga dan jumlah penawaran.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 11</div>
+        <div class="pertanyaan">Jika harga kopi naik 10% dan permintaan kopi turun 20%, maka elastisitas permintaannya adalah...</div>
+        <div class="pilihan">A. 0,5 (inelastis)<br>B. 2 (elastis)<br>C. 1 (unit elastis)<br>D. 0 (inelastis sempurna)</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> E<sub>d</sub> = 20% ÷ 10% = 2. Karena E<sub>d</sub> > 1, permintaan kopi bersifat elastis terhadap perubahan harga.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 12</div>
+        <div class="pertanyaan">Platform seperti Shopee, Tokopedia, dan Grab dapat dikategorikan sebagai...</div>
+        <div class="pilihan">A. Pasar konkret<br>B. Pasar abstrak / pasar digital<br>C. Pasar tradisional<br>D. Pasar monopoli</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Platform tersebut adalah pasar abstrak atau pasar digital karena mempertemukan penjual dan pembeli secara online tanpa tatap muka langsung.</div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 15: PROYEK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 15 dari 15</div>
+      <h2 class="page-title">Proyek / <span>Aktivitas Siswa</span></h2>
+      <p class="page-subtitle">Kerjakan salah satu proyek berikut untuk memperdalam pemahaman</p>
+
+      <div class="proyek">
+        <ol>
+          <li><strong>Observasi pasar.</strong> Kunjungi pasar tradisional atau minimarket di sekitarmu. Catat <strong>5 jenis barang</strong> beserta harganya. Bandingkan harga di dua tempat berbeda, lalu jelaskan mengapa harganya bisa berbeda.</li>
+          <li><strong>Buat kurva permintaan dan penawaran.</strong> Gambar kurva D dan S di buku catatanmu, lengkap dengan keterangan sumbu harga (P) dan jumlah (Q). Tandai titik keseimbangannya. Jelaskan mengapa kurva permintaan miring ke bawah dan kurva penawaran miring ke atas.</li>
+          <li><strong>Wawancara pedagang.</strong> Tanyakan kepada seorang pedagang: barang apa yang paling banyak dicari, bagaimana ia menentukan harga, dan apa yang ia lakukan ketika barangnya tidak laku. Catat hasilnya dan kaitkan dengan konsep hukum permintaan dan penawaran.</li>
+          <li><strong>Studi kasus harga.</strong> Pilih satu barang (misalnya cabai, telur, atau tiket bus). Cari informasi harga barang tersebut selama satu bulan terakhir, lalu analisis faktor apa yang membuat harganya naik atau turun. Gunakan konsep permintaan, penawaran, dan elastisitas.</li>
+          <li><strong>Diskusi kelompok.</strong> Pilih salah satu topik — dampak belanja online terhadap pasar tradisional, peran pemerintah dalam menstabilkan harga sembako, atau pengaruh pandemi terhadap permintaan dan penawaran. Presentasikan hasilnya di depan kelas.</li>
+          <li><strong>Studi kasus digital.</strong> Amati satu toko online atau akun jualan di media sosial. Identifikasi siapa saja pelaku ekonomi yang terlibat (penjual, pembeli, jasa kirim, bank/e-wallet, pemerintah) dan jelaskan perannya masing-masing. Apakah termasuk pasar konkret atau abstrak? Jelaskan alasannya.</li>
+        </ol>
+      </div>
+
+      <div class="highlight" style="text-align:center; margin-top:30px;">
+        🎉 <strong>Selamat!</strong> Kamu telah menyelesaikan seluruh materi Bab 3 — Pasar & Terbentuknya Harga.<br>
+        Sekarang saatnya uji pemahamanmu dengan kuis!
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER NAV -->
+<div class="footer-nav">
+  <button class="nav-prev" id="prevBtn" onclick="prev()">← Sebelumnya</button>
+  <span class="page-counter"><span id="currentNum">1</span> / 15</span>
+  <button class="nav-next" id="nextBtn" onclick="next()">Selanjutnya →</button>
+</div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navItems = document.querySelectorAll('.nav-item');
+const progressFill = document.getElementById('progressFill');
+const currentNum = document.getElementById('currentNum');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const mainArea = document.getElementById('main');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+let currentPage = 0;
+const totalPages = pages.length;
+
+function goTo(index) {
+  if (index < 0 || index >= totalPages) return;
+
+  pages[currentPage].classList.remove('active');
+  navItems[currentPage].classList.remove('active');
+  navItems[currentPage].classList.add('done');
+
+  currentPage = index;
+
+  pages[currentPage].classList.add('active');
+  navItems[currentPage].classList.add('active');
+
+  // Update progress
+  progressFill.style.width = ((currentPage + 1) / totalPages * 100) + '%';
+  currentNum.textContent = currentPage + 1;
+
+  // Update buttons
+  prevBtn.disabled = currentPage === 0;
+  if (currentPage === totalPages - 1) {
+    nextBtn.textContent = '🎮 Mulai Kuis';
+  } else {
+    nextBtn.textContent = 'Selanjutnya →';
+  }
+
+  // Scroll to top + tutup sidebar di mobile
+  mainArea.scrollTop = 0;
+  if (window.innerWidth <= 800) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  }
+}
+
+function next() {
+  if (currentPage === totalPages - 1) {
+    // ke halaman kuis
+    window.location.href = 'ekonomi-bab3-kuis.html';
+    return;
+  }
+  goTo(currentPage + 1);
+}
+
+function prev() {
+  goTo(currentPage - 1);
+}
+
+function toggleSidebar() {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
+function toggleJawaban(btn) {
+  const jawaban = btn.nextElementSibling;
+  if (jawaban.classList.contains('show')) {
+    jawaban.classList.remove('show');
+    btn.textContent = 'Lihat Jawaban';
+  } else {
+    jawaban.classList.add('show');
+    btn.textContent = 'Sembunyikan';
+  }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
+// Init
+goTo(0);
+</script>
+
+</body>
+</html>
