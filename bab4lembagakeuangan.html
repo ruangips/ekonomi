@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 4 — Uang & Lembaga Keuangan | Ruang IPS</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+  html, body { height:100%; }
+  body {
+    background:#07111f; color:white; overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    padding:14px 5%; display:flex; justify-content:space-between; align-items:center;
+    background:#0b1b30; border-bottom:2px solid #0ea5e9;
+    flex-shrink:0; z-index:50;
+  }
+  .logo { font-size:16px; font-weight:bold; color:#38bdf8; display:flex; align-items:center; gap:8px; }
+  .back-btn {
+    color:white; text-decoration:none; background:#0ea5e9; padding:8px 18px;
+    border-radius:8px; font-weight:bold; font-size:13px; transition:.3s;
+  }
+  .back-btn:hover { background:#0284c7; }
+
+  /* ========== PROGRESS BAR ========== */
+  .progress-wrap {
+    height:4px; background:#132941; position:relative; flex-shrink:0;
+  }
+  .progress-fill {
+    height:100%; background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+    width:0%; transition:width .5s ease;
+  }
+
+  /* ========== LAYOUT ========== */
+  .layout {
+    flex:1; display:flex; overflow:hidden;
+  }
+
+  /* ========== SIDEBAR ========== */
+  .sidebar {
+    width:290px; background:#0b1b30; border-right:1px solid #1b3b5d;
+    overflow-y:auto; flex-shrink:0; padding:20px 0;
+  }
+  .sidebar::-webkit-scrollbar { width:6px; }
+  .sidebar::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:3px; }
+
+  .sidebar-title {
+    padding:0 20px 15px; font-size:12px; font-weight:bold;
+    color:#64748b; letter-spacing:1.5px; text-transform:uppercase;
+  }
+
+  .nav-item {
+    display:flex; align-items:center; gap:12px;
+    padding:12px 20px; cursor:pointer;
+    border-left:4px solid transparent;
+    transition:.25s; font-size:14px; color:#cbd5e1;
+  }
+  .nav-item:hover { background:#132941; color:#38bdf8; }
+  .nav-item.active {
+    background:#132941; color:#38bdf8;
+    border-left-color:#38bdf8; font-weight:bold;
+  }
+  .nav-item .num {
+    width:26px; height:26px; border-radius:50%;
+    background:#1b3b5d; color:#94a3b8;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:bold; flex-shrink:0;
+    transition:.25s;
+  }
+  .nav-item.active .num { background:#0ea5e9; color:white; }
+  .nav-item.done .num { background:#065f46; color:#10b981; }
+
+  /* ========== MAIN CONTENT ========== */
+  .main {
+    flex:1; overflow-y:auto; position:relative; scroll-behavior:smooth;
+  }
+  .main::-webkit-scrollbar { width:8px; }
+  .main::-webkit-scrollbar-thumb { background:#1b3b5d; border-radius:4px; }
+
+  .page {
+    display:none;
+    padding:40px 6% 120px;
+    max-width:900px; margin:0 auto;
+    animation: slideIn .4s ease;
+  }
+  .page.active { display:block; }
+  @keyframes slideIn {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .page-badge {
+    display:inline-block; padding:5px 14px;
+    background:#132941; color:#38bdf8;
+    border-radius:20px; font-size:12px;
+    font-weight:bold; margin-bottom:12px;
+    border:1px solid #2a4a6a;
+  }
+  .page-title {
+    font-size:30px; margin-bottom:8px; line-height:1.3;
+  }
+  .page-title span { color:#38bdf8; }
+  .page-subtitle {
+    color:#94a3b8; font-size:14px; margin-bottom:30px;
+    padding-bottom:20px; border-bottom:2px solid #1b3b5d;
+  }
+
+  .page h3 {
+    color:#7dd3fc; font-size:17px; margin:22px 0 10px;
+  }
+  .page h4 {
+    color:#a5b4fc; font-size:15px; margin:18px 0 8px;
+  }
+  .page p { color:#cbd5e1; margin-bottom:12px; text-align:justify; line-height:1.75; }
+  .page ul, .page ol { color:#cbd5e1; margin:10px 0 15px 25px; }
+  .page ul li, .page ol li { margin-bottom:8px; line-height:1.7; }
+
+  .highlight {
+    background:linear-gradient(135deg,#132941,#0f2337);
+    border-left:4px solid #38bdf8;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#e0f2fe; font-size:14px; line-height:1.7;
+  }
+  .highlight strong { color:#38bdf8; }
+
+  .contoh {
+    background:linear-gradient(135deg,#0f2a1a,#0a1f12);
+    border-left:4px solid #10b981;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#d1fae5; font-size:14px; line-height:1.7;
+  }
+  .contoh strong { color:#34d399; }
+
+  .warning {
+    background:linear-gradient(135deg,#2a1a0f,#1f1308);
+    border-left:4px solid #f59e0b;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#fef3c7; font-size:14px; line-height:1.7;
+  }
+  .warning strong { color:#fbbf24; }
+
+  table {
+    width:100%; border-collapse:collapse; margin:16px 0;
+    background:#132941; border-radius:10px; overflow:hidden; font-size:13px;
+  }
+  table th {
+    background:#0ea5e9; color:white; padding:12px;
+    text-align:left; font-size:13px;
+  }
+  table td {
+    padding:12px; color:#cbd5e1;
+    border-bottom:1px solid #1b3b5d;
+    vertical-align:top; line-height:1.6;
+  }
+  table tr:last-child td { border-bottom:none; }
+  table tr:nth-child(even) td { background:#0f2337; }
+
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:15px 0; }
+  .mini-card {
+    background:#132941; border-radius:10px; padding:18px;
+    border:1px solid #2a4a6a; transition:.3s;
+  }
+  .mini-card:hover { border-color:#38bdf8; transform:translateY(-3px); }
+  .mini-card .icon { font-size:30px; margin-bottom:8px; }
+  .mini-card h4 { color:#38bdf8; font-size:15px; margin-bottom:6px; }
+  .mini-card p { font-size:13px; color:#94a3b8; margin:0; text-align:left; }
+
+  .peta-konsep {
+    background:#132941; border-radius:15px; padding:25px;
+    text-align:center; border:2px dashed #38bdf8; margin:15px 0;
+  }
+  .peta-konsep .node {
+    display:inline-block; padding:10px 20px; border-radius:10px;
+    font-weight:bold; font-size:13px; margin:5px;
+  }
+  .peta-konsep .node.utama { background:#0ea5e9; color:white; font-size:15px; padding:14px 28px; }
+  .peta-konsep .node.sub { background:#1b3b5d; color:#7dd3fc; }
+  .peta-konsep .node.detail { background:#132941; color:#94a3b8; border:1px solid #2a4a6a; }
+  .peta-konsep .arrow { color:#38bdf8; font-size:22px; display:block; margin:4px 0; }
+
+  .glosarium-item {
+    background:#132941; border-radius:10px; padding:14px 18px;
+    margin-bottom:10px; border-left:4px solid #a855f7;
+    transition:.3s;
+  }
+  .glosarium-item:hover { transform:translateX(5px); }
+  .glosarium-item strong { color:#c084fc; font-size:14px; }
+  .glosarium-item span { color:#cbd5e1; font-size:13px; }
+
+  .soal-item {
+    background:#132941; border-radius:10px; padding:18px 22px;
+    margin-bottom:15px; border-left:4px solid #f59e0b;
+  }
+  .soal-item .nomor { color:#fbbf24; font-weight:bold; font-size:13px; }
+  .soal-item .pertanyaan { color:#e0f2fe; font-size:14px; margin:8px 0; line-height:1.6; }
+  .soal-item .pilihan { color:#94a3b8; font-size:13px; margin-left:15px; line-height:1.8; }
+  .soal-item .jawaban {
+    margin-top:10px; padding:12px 15px; background:#0f2a1a;
+    border-radius:8px; color:#d1fae5; font-size:13px; display:none; line-height:1.6;
+  }
+  .soal-item .jawaban.show { display:block; animation:slideIn .3s ease; }
+  .toggle-btn {
+    margin-top:8px; padding:6px 14px; background:#1b3b5d; border:1px solid #2a4a6a;
+    border-radius:6px; color:#7dd3fc; font-size:12px; cursor:pointer;
+    transition:.2s;
+  }
+  .toggle-btn:hover { background:#2a4a6a; }
+
+  .proyek {
+    background:linear-gradient(135deg,#1a0f2a,#2a1a3a);
+    border-radius:15px; padding:25px; border:2px solid #a855f7;
+  }
+  .proyek ol { color:#e9d5ff; margin-left:20px; }
+  .proyek ol li { margin-bottom:10px; line-height:1.7; }
+
+  .grafik-box {
+    background:#0f2337; border-radius:12px; padding:15px;
+    border:1px solid #2a4a6a; margin:16px 0;
+  }
+  .grafik-box .caption {
+    text-align:center; color:#94a3b8; font-size:12px; margin-top:6px;
+  }
+
+  /* ========== FOOTER NAV ========== */
+  .footer-nav {
+    position:fixed; bottom:0; left:290px; right:0;
+    background:#0b1b30; border-top:1px solid #1b3b5d;
+    padding:14px 6%; display:flex; justify-content:space-between;
+    align-items:center; z-index:40;
+  }
+  .footer-nav button {
+    padding:12px 24px; border:none; border-radius:10px;
+    font-weight:bold; font-size:14px; cursor:pointer;
+    transition:.3s; display:flex; align-items:center; gap:8px;
+  }
+  .nav-prev {
+    background:#1b3b5d; color:#94a3b8;
+  }
+  .nav-prev:hover:not(:disabled) { background:#2a4a6a; color:white; }
+  .nav-prev:disabled { opacity:.3; cursor:not-allowed; }
+  .nav-next {
+    background:linear-gradient(135deg,#0ea5e9,#0284c7); color:white;
+    box-shadow:0 4px 15px rgba(14,165,233,0.3);
+  }
+  .nav-next:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(14,165,233,0.5); }
+  .nav-next:disabled { opacity:.3; cursor:not-allowed; }
+
+  .page-counter {
+    color:#64748b; font-size:13px; font-weight:bold;
+  }
+
+  /* ========== MOBILE ========== */
+  .menu-toggle {
+    display:none; background:#0ea5e9; border:none; color:white;
+    padding:8px 12px; border-radius:8px; font-size:18px; cursor:pointer;
+  }
+
+  @media (max-width: 800px) {
+    .sidebar {
+      position:fixed; top:0; left:0; bottom:0; z-index:100;
+      transform:translateX(-100%); transition:.3s;
+      box-shadow:4px 0 20px rgba(0,0,0,0.5);
+    }
+    .sidebar.open { transform:translateX(0); }
+    .sidebar-overlay {
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+      z-index:99;
+    }
+    .sidebar-overlay.show { display:block; }
+    .menu-toggle { display:block; }
+    .footer-nav { left:0; padding:12px 4%; }
+    .footer-nav button { padding:10px 16px; font-size:12px; }
+    .page { padding:25px 5% 100px; }
+    .page-title { font-size:22px; }
+    .grid-2 { grid-template-columns:1fr; }
+    .logo span.fulllogo { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    💰 <span class="fulllogo">EKONOMI — BAB 4</span>
+  </div>
+  <a href="ekonomi.html" class="back-btn">← Menu Bab</a>
+</header>
+
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">📑 Daftar Materi</div>
+    <div class="nav-item active" onclick="goTo(0)">
+      <span class="num">1</span> Sejarah & Pengertian Uang
+    </div>
+    <div class="nav-item" onclick="goTo(1)">
+      <span class="num">2</span> Syarat & Fungsi Uang
+    </div>
+    <div class="nav-item" onclick="goTo(2)">
+      <span class="num">3</span> Jenis-Jenis Uang
+    </div>
+    <div class="nav-item" onclick="goTo(3)">
+      <span class="num">4</span> Nilai Mata Uang
+    </div>
+    <div class="nav-item" onclick="goTo(4)">
+      <span class="num">5</span> Kurs & Valuta Asing
+    </div>
+    <div class="nav-item" onclick="goTo(5)">
+      <span class="num">6</span> Pengertian & Sejarah Bank
+    </div>
+    <div class="nav-item" onclick="goTo(6)">
+      <span class="num">7</span> Jenis-Jenis Bank
+    </div>
+    <div class="nav-item" onclick="goTo(7)">
+      <span class="num">8</span> Produk & Jasa Bank
+    </div>
+    <div class="nav-item" onclick="goTo(8)">
+      <span class="num">9</span> Lembaga Keuangan Non-Bank
+    </div>
+    <div class="nav-item" onclick="goTo(9)">
+      <span class="num">10</span> Alat Pembayaran Non-Tunai
+    </div>
+    <div class="nav-item" onclick="goTo(10)">
+      <span class="num">11</span> Manfaat Lembaga Keuangan
+    </div>
+    <div class="nav-item" onclick="goTo(11)">
+      <span class="num">12</span> Ringkasan
+    </div>
+    <div class="nav-item" onclick="goTo(12)">
+      <span class="num">13</span> Glosarium
+    </div>
+    <div class="nav-item" onclick="goTo(13)">
+      <span class="num">14</span> Soal Latihan
+    </div>
+    <div class="nav-item" onclick="goTo(14)">
+      <span class="num">15</span> Proyek Siswa
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+
+    <!-- ===== PAGE 1: SEJARAH & PENGERTIAN UANG ===== -->
+    <section class="page active">
+      <div class="page-badge">📖 MATERI 1 dari 15</div>
+      <h2 class="page-title">Sejarah & <span>Pengertian Uang</span></h2>
+      <p class="page-subtitle">Dari barter hingga uang digital — perjalanan alat tukar manusia</p>
+
+      <p>Bayangkan kamu ingin membeli bakso, tetapi kamu tidak punya uang. Kamu hanya punya buku tulis. Apakah penjual bakso mau menerima buku tulis sebagai ganti semangkuk bakso? Mungkin tidak. Di sinilah pentingnya <strong style="color:#38bdf8">uang</strong> sebagai alat tukar yang diterima semua orang.</p>
+
+      <h3>Sejarah Terjadinya Uang</h3>
+      <p>Sebelum uang ditemukan, manusia memenuhi kebutuhan dengan cara <strong>tukar-menukar barang</strong> yang disebut <strong style="color:#38bdf8">barter</strong>. Sistem ini memiliki banyak kelemahan, sehingga manusia mulai mencari alat tukar yang lebih praktis.</p>
+
+      <table>
+        <tr><th>Tahap</th><th>Sistem / Alat Tukar</th><th>Kelemahan / Kelebihan</th></tr>
+        <tr><td><strong>1. Barter</strong></td><td>Menukar barang dengan barang</td><td>Sulit menemukan orang yang mau menukar, sulit menentukan nilai, tidak bisa dibagi</td></tr>
+        <tr><td><strong>2. Uang Barang</strong></td><td>Kerang, garam, tembakau, binatang</td><td>Mulai diterima umum, tetapi berat dibawa dan tidak tahan lama</td></tr>
+        <tr><td><strong>3. Uang Logam</strong></td><td>Emas, perak, tembaga</td><td>Nilainya stabil dan diterima umum, tetapi jumlahnya terbatas dan berat</td></tr>
+        <tr><td><strong>4. Uang Kertas</strong></td><td>Surat bukti kepemilikan emas</td><td>Ringan dan mudah dibawa, tetapi mudah dipalsukan</td></tr>
+        <tr><td><strong>5. Uang Digital</strong></td><td>Saldo di rekening, e-money, QRIS</td><td>Praktis, cepat, aman, tetapi tergantung teknologi</td></tr>
+      </table>
+
+      <h3>Kelemahan Sistem Barter</h3>
+      <ul>
+        <li><strong>Sulit menemukan orang yang mau menukar</strong> — disebut <em>double coincidence of wants</em>, yaitu kedua pihak harus sama-sama membutuhkan barang yang dimiliki.</li>
+        <li><strong>Sulit menentukan nilai barang</strong> — berapa ekor ayam untuk satu karung beras?</li>
+        <li><strong>Barang tidak bisa dibagi</strong> — seekor sapi tidak bisa dibagi menjadi beberapa bagian kecil.</li>
+        <li><strong>Barang tidak tahan lama</strong> — sayur dan buah cepat busuk sebelum sempat ditukar.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Definisi:</strong><br>
+        <strong>Uang</strong> adalah segala sesuatu yang diterima secara umum oleh masyarakat sebagai alat pembayaran untuk pembelian barang dan jasa, serta untuk melunasi utang. Menurut <strong>Edward Shapiro</strong>, uang adalah benda yang secara umum diterima untuk membayar pembelian barang, jasa, aset berharga, serta melunasi utang.[reference:0]
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu membeli jajan di kantin menggunakan uang kertas Rp5.000 — uang berfungsi sebagai alat tukar.</li>
+          <li>Orang tua menabung di bank untuk biaya sekolah — uang berfungsi sebagai penyimpan kekayaan.</li>
+          <li>Harga barang di toko ditulis dalam Rupiah — uang berfungsi sebagai satuan hitung.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 2: SYARAT & FUNGSI UANG ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 2 dari 15</div>
+      <h2 class="page-title">Syarat & <span>Fungsi Uang</span></h2>
+      <p class="page-subtitle">Apa saja syarat uang dan fungsi-fungsinya dalam perekonomian</p>
+
+      <h3>Syarat-Syarat Uang</h3>
+      <p>Agar suatu benda dapat dijadikan uang dan berfungsi dengan baik, benda tersebut harus memenuhi syarat-syarat berikut[reference:1]:</p>
+
+      <table>
+        <tr><th>Syarat</th><th>Penjelasan</th></tr>
+        <tr><td><strong>Mudah dibawa (Portability)</strong></td><td>Uang harus ringan dan praktis dibawa ke mana-mana.</td></tr>
+        <tr><td><strong>Tahan lama (Durability)</strong></td><td>Uang tidak mudah rusak, sobek, atau lapuk.</td></tr>
+        <tr><td><strong>Dapat dibagi (Divisibility)</strong></td><td>Uang dapat dibagi menjadi satuan yang lebih kecil.</td></tr>
+        <tr><td><strong>Nilai stabil (Stability)</strong></td><td>Nilai uang tidak berubah-ubah secara drastis.</td></tr>
+        <tr><td><strong>Diterima umum (Acceptability)</strong></td><td>Semua orang menerima uang sebagai alat pembayaran.</td></tr>
+        <tr><td><strong>Jumlahnya mencukupi</strong></td><td>Tidak terlalu banyak (menyebabkan inflasi) dan tidak terlalu sedikit (menyebabkan kelangkaan).</td></tr>
+        <tr><td><strong>Tidak mudah dipalsukan</strong></td><td>Uang harus memiliki ciri keaslian yang sulit ditiru.</td></tr>
+        <tr><td><strong>Mudah disimpan</strong></td><td>Uang dapat disimpan dengan aman dan praktis.</td></tr>
+      </table>
+
+      <h3>Fungsi Uang</h3>
+      <p>Fungsi uang dibedakan menjadi dua kategori: <strong>fungsi asli</strong> dan <strong>fungsi turunan</strong>[reference:2].</p>
+
+      <h4>A. Fungsi Asli (Fungsi Utama)</h4>
+      <p>Fungsi asli uang adalah fungsi yang muncul sejak uang pertama kali diciptakan:</p>
+      <ol>
+        <li><strong>Sebagai alat tukar (Medium of Exchange)</strong> — uang digunakan untuk membeli barang dan jasa. Contoh: membeli buku dengan uang Rp50.000.</li>
+        <li><strong>Sebagai satuan hitung (Unit of Account)</strong> — uang digunakan untuk mengukur dan menyatakan nilai suatu barang. Contoh: harga sepatu Rp200.000.</li>
+      </ol>
+
+      <h4>B. Fungsi Turunan</h4>
+      <p>Fungsi turunan adalah fungsi tambahan yang berkembang seiring kebutuhan masyarakat:</p>
+      <ol start="3">
+        <li><strong>Sebagai alat pembayaran yang sah</strong> — uang digunakan untuk melunasi utang dan kewajiban. Contoh: membayar pajak, membayar tagihan listrik.</li>
+        <li><strong>Sebagai standar pembayaran yang ditunda</strong> — uang digunakan untuk menyatakan pembayaran di masa depan. Contoh: utang yang akan dibayar bulan depan.</li>
+        <li><strong>Sebagai alat penyimpan kekayaan (Store of Value)</strong> — uang dapat disimpan untuk digunakan di masa depan. Contoh: menabung di bank, menyimpan uang di rumah.</li>
+        <li><strong>Sebagai alat pengalih nilai / kekayaan</strong> — uang dapat dipindahkan dari satu orang ke orang lain. Contoh: transfer bank, kiriman uang dari orang tua.</li>
+      </ol>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Fungsi asli uang hanya dua (alat tukar dan satuan hitung), sedangkan fungsi turunannya lebih banyak dan berkembang sesuai kebutuhan zaman.
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li><strong>Alat tukar:</strong> membayar bakso dengan uang Rp15.000.</li>
+          <li><strong>Satuan hitung:</strong> harga tas sekolah Rp150.000.</li>
+          <li><strong>Pembayaran sah:</strong> membayar pajak bumi dan bangunan.</li>
+          <li><strong>Penyimpan kekayaan:</strong> menabung di bank untuk biaya kuliah.</li>
+          <li><strong>Pengalih nilai:</strong> orang tua mengirim uang lewat transfer bank.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 3: JENIS-JENIS UANG ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 3 dari 15</div>
+      <h2 class="page-title">Jenis-Jenis <span>Uang</span></h2>
+      <p class="page-subtitle">Klasifikasi uang berdasarkan berbagai sudut pandang</p>
+
+      <p>Uang dapat dikelompokkan berdasarkan beberapa sudut pandang[reference:3]:</p>
+
+      <h3>A. Berdasarkan Pihak yang Mengeluarkan</h3>
+      <table>
+        <tr><th>Jenis Uang</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Uang Kartal</strong></td><td>Uang yang dikeluarkan oleh Bank Indonesia (bank sentral) dan berlaku sebagai alat pembayaran yang sah. Terdiri dari uang kertas dan uang logam.</td><td>Uang kertas Rp10.000, uang logam Rp500</td></tr>
+        <tr><td><strong>Uang Giral</strong></td><td>Uang yang dikeluarkan oleh bank umum berupa surat-surat berharga yang dapat digunakan sewaktu-waktu sebagai alat pembayaran.</td><td>Cek, giro, kartu debit, transfer bank</td></tr>
+      </table>
+
+      <div class="highlight">
+        💡 <strong>Perbedaan utama:</strong> Uang kartal dikeluarkan oleh <strong>Bank Indonesia</strong> (bank sentral) dan berlaku untuk semua orang. Uang giral dikeluarkan oleh <strong>bank umum</strong> dan hanya berlaku bagi nasabah bank yang bersangkutan.
+      </div>
+
+      <h3>B. Berdasarkan Bahan Pembuatannya</h3>
+      <table>
+        <tr><th>Jenis Uang</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Uang Logam</strong></td><td>Uang yang terbuat dari logam, biasanya emas, perak, atau tembaga.</td><td>Uang logam Rp100, Rp200, Rp500, Rp1.000</td></tr>
+        <tr><td><strong>Uang Kertas</strong></td><td>Uang yang terbuat dari kertas dengan ciri khusus dan pengamanan tertentu.</td><td>Uang kertas Rp1.000 hingga Rp100.000</td></tr>
+      </table>
+
+      <h3>C. Berdasarkan Negara yang Mengeluarkan</h3>
+      <table>
+        <tr><th>Negara</th><th>Mata Uang</th><th>Simbol</th></tr>
+        <tr><td>Indonesia</td><td>Rupiah</td><td>Rp</td></tr>
+        <tr><td>Amerika Serikat</td><td>Dolar Amerika Serikat</td><td>USD ($)</td></tr>
+        <tr><td>Jepang</td><td>Yen</td><td>JPY (¥)</td></tr>
+        <tr><td>Inggris</td><td>Pound Sterling</td><td>GBP (£)</td></tr>
+        <tr><td>Malaysia</td><td>Ringgit</td><td>MYR (RM)</td></tr>
+        <tr><td>Singapura</td><td>Dolar Singapura</td><td>SGD (S$)</td></tr>
+      </table>
+
+      <h3>D. Berdasarkan Nilainya</h3>
+      <table>
+        <tr><th>Jenis Uang</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Uang Nilai Penuh</strong></td><td>Nilai bahan uang sama dengan nilai nominalnya.</td><td>Uang logam emas yang nilainya setara dengan emasnya</td></tr>
+        <tr><td><strong>Uang Tidak Bernilai Penuh</strong></td><td>Nilai bahan lebih kecil daripada nilai nominalnya.</td><td>Uang kertas Rp100.000 yang bahannya hanya beberapa ratus rupiah</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu membayar jajan dengan uang kertas Rp5.000 — itu <strong>uang kartal</strong>.</li>
+          <li>Orang tua membayar SPP sekolah dengan transfer bank — itu <strong>uang giral</strong>.</li>
+          <li>Uang logam Rp500 terbuat dari logam — itu <strong>uang logam</strong>.</li>
+          <li>Uang kertas Rp50.000 memiliki pengamanan berupa tanda air — itu <strong>uang kertas</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 4: NILAI MATA UANG ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 4 dari 15</div>
+      <h2 class="page-title">Nilai <span>Mata Uang</span></h2>
+      <p class="page-subtitle">Berbagai jenis nilai yang melekat pada uang</p>
+
+      <p>Uang memiliki beberapa jenis nilai yang perlu dipahami[reference:4]:</p>
+
+      <h3>Jenis-Jenis Nilai Uang</h3>
+      <table>
+        <tr><th>Jenis Nilai</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Nilai Intrinsik</strong></td><td>Nilai bahan pembuat uang itu sendiri.</td><td>Nilai logam emas pada uang logam emas.</td></tr>
+        <tr><td><strong>Nilai Nominal</strong></td><td>Nilai yang tertulis atau tercetak pada uang.</td><td>Uang kertas bertuliskan Rp100.000 memiliki nilai nominal Rp100.000.</td></tr>
+        <tr><td><strong>Nilai Internal</strong></td><td>Kemampuan uang untuk membeli barang/jasa di dalam negeri. Juga disebut <em>nilai riil</em>.</td><td>Rp10.000 bisa membeli 2 butir telur di pasar.</td></tr>
+        <tr><td><strong>Nilai Eksternal</strong></td><td>Nilai uang suatu negara jika ditukar dengan mata uang negara lain. Juga disebut <em>nilai kurs</em>.</td><td>1 USD = Rp15.500.</td></tr>
+      </table>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Nilai nominal uang kertas biasanya lebih besar daripada nilai intrinsiknya. Uang kertas Rp100.000 tidak berarti bahannya bernilai Rp100.000 — bahannya mungkin hanya beberapa ratus rupiah. Inilah yang disebut <strong>uang tidak bernilai penuh</strong>.
+      </div>
+
+      <h3>Faktor yang Mempengaruhi Nilai Uang</h3>
+      <ul>
+        <li><strong>Jumlah uang yang beredar</strong> — jika jumlah uang beredar terlalu banyak, nilai uang turun (inflasi).</li>
+        <li><strong>Permintaan dan penawaran uang</strong> — jika permintaan uang tinggi, nilai uang naik.</li>
+        <li><strong>Kondisi ekonomi negara</strong> — stabilitas ekonomi mempengaruhi kepercayaan terhadap nilai uang.</li>
+        <li><strong>Kebijakan pemerintah</strong> — kebijakan moneter dan fiskal mempengaruhi nilai uang.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Uang kertas Rp100.000 memiliki <strong>nilai nominal</strong> Rp100.000, tetapi <strong>nilai intrinsik</strong>-nya (biaya cetak) hanya sekitar Rp2.000-3.000.</li>
+          <li>Jika harga beras naik dari Rp12.000/kg menjadi Rp14.000/kg, maka <strong>nilai internal</strong> uang Rp100.000 menurun — dulu bisa membeli 8,3 kg, sekarang hanya 7,1 kg.</li>
+          <li>Jika kurs USD naik dari Rp14.000 menjadi Rp15.500, maka <strong>nilai eksternal</strong> Rupiah melemah terhadap Dolar.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 5: KURS & VALUTA ASING ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 5 dari 15</div>
+      <h2 class="page-title">Kurs & <span>Valuta Asing</span></h2>
+      <p class="page-subtitle">Nilai tukar mata uang asing terhadap Rupiah</p>
+
+      <p><strong style="color:#38bdf8">Valuta asing</strong> (valas) adalah mata uang asing yang digunakan dalam transaksi internasional. <strong style="color:#38bdf8">Kurs</strong> adalah harga sebuah mata uang suatu negara yang diukur atau dinyatakan dalam mata uang negara lain[reference:5].</p>
+
+      <h3>Jenis-Jenis Kurs</h3>
+      <table>
+        <tr><th>Jenis Kurs</th><th>Penjelasan</th><th>Contoh Penggunaan</th></tr>
+        <tr><td><strong>Kurs Beli</strong></td><td>Kurs yang digunakan bank atau money changer ketika <strong>membeli</strong> valuta asing dari kita.</td><td>Kamu menukar USD 100 ke Rupiah — bank menggunakan kurs beli.</td></tr>
+        <tr><td><strong>Kurs Jual</strong></td><td>Kurs yang digunakan bank atau money changer ketika <strong>menjual</strong> valuta asing kepada kita.</td><td>Kamu ingin membeli USD 100 dengan Rupiah — bank menggunakan kurs jual.</td></tr>
+        <tr><td><strong>Kurs Tengah</strong></td><td>Nilai tengah antara kurs beli dan kurs jual. Biasa digunakan Bank Indonesia.</td><td>Rata-rata dari kurs beli dan kurs jual.</td></tr>
+      </table>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Kurs jual selalu <strong>lebih tinggi</strong> daripada kurs beli. Selisihnya disebut <em>spread</em> — ini adalah keuntungan bank atau money changer.[reference:6]
+      </div>
+
+      <h3>Contoh Perhitungan Kurs</h3>
+      <p>Diketahui kurs di sebuah bank:</p>
+      <ul>
+        <li>Kurs beli USD 1 = Rp15.400</li>
+        <li>Kurs jual USD 1 = Rp15.600</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh 1 — Menukar USD ke Rupiah:</strong><br>
+        Ayah memiliki USD 200 dan ingin menukarnya ke Rupiah. Karena bank <em>membeli</em> USD dari ayah, maka yang berlaku adalah <strong>kurs beli</strong>.<br>
+        <strong>USD 200 × Rp15.400 = Rp3.080.000</strong>
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh 2 — Menukar Rupiah ke USD:</strong><br>
+        Ibu ingin membeli USD 100 untuk keperluan liburan. Karena bank <em>menjual</em> USD kepada ibu, maka yang berlaku adalah <strong>kurs jual</strong>.<br>
+        <strong>USD 100 × Rp15.600 = Rp1.560.000</strong>
+      </div>
+
+      <h3>Faktor yang Mempengaruhi Kurs</h3>
+      <ul>
+        <li><strong>Permintaan dan penawaran valuta asing</strong> — jika banyak orang ingin membeli USD, harga USD naik.</li>
+        <li><strong>Kondisi ekonomi negara</strong> — negara dengan ekonomi stabil cenderung memiliki mata uang yang kuat.</li>
+        <li><strong>Tingkat suku bunga</strong> — suku bunga tinggi menarik investor menanam modal, mata uang menguat.</li>
+        <li><strong>Inflasi</strong> — inflasi tinggi melemahkan nilai mata uang.</li>
+        <li><strong>Neraca perdagangan</strong> — ekspor tinggi membuat permintaan mata uang negara tersebut naik.</li>
+      </ul>
+
+      <div class="warning">
+        ⚠️ <strong>Pengaruh Kurs terhadap Dunia Usaha:</strong> Jika Rupiah melemah (kurs USD naik), harga barang impor menjadi lebih mahal. Sebaliknya, eksportir justru diuntungkan karena barang Indonesia lebih murah di pasar internasional.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 6: PENGERTIAN & SEJARAH BANK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 6 dari 15</div>
+      <h2 class="page-title">Pengertian & <span>Sejarah Bank</span></h2>
+      <p class="page-subtitle">Lembaga keuangan yang paling dikenal masyarakat</p>
+
+      <p><strong style="color:#38bdf8">Bank</strong> adalah lembaga keuangan yang kegiatan utamanya menghimpun dana dari masyarakat dan menyalurkannya kembali kepada masyarakat dalam bentuk kredit atau pembiayaan lainnya[reference:7].</p>
+
+      <div class="highlight">
+        💡 <strong>Definisi:</strong><br>
+        <strong>Bank</strong> adalah badan usaha yang menghimpun dana dari masyarakat dalam bentuk simpanan dan menyalurkannya kepada masyarakat dalam bentuk kredit dan/atau bentuk lainnya dalam rangka meningkatkan taraf hidup rakyat banyak (UU No. 10 Tahun 1998).
+      </div>
+
+      <h3>Sejarah Singkat Bank</h3>
+      <ul>
+        <li><strong>Zaman Babilonia (2000 SM)</strong> — sudah ada kegiatan penyimpanan barang berharga dan pemberian pinjaman.</li>
+        <li><strong>Zaman Yunani dan Romawi</strong> — muncul lembaga yang menerima simpanan dan memberikan pinjaman dengan bunga.</li>
+        <li><strong>Abad Pertengahan Eropa</strong> — pedagang Italia mulai mengembangkan sistem perbankan modern.</li>
+        <li><strong>Zaman Kolonial Belanda</strong> — didirikan <em>De Javasche Bank</em> (1828) yang kemudian menjadi Bank Indonesia.</li>
+        <li><strong>Era Kemerdekaan</strong> — pemerintah mendirikan berbagai bank nasional seperti BNI, BRI, dan Bank Mandiri.</li>
+      </ul>
+
+      <h3>Azas, Prinsip, dan Tujuan Perbankan Indonesia</h3>
+      <p>Berdasarkan UU Perbankan, perbankan Indonesia memiliki azas dan prinsip berikut:</p>
+      <ul>
+        <li><strong>Azas demokrasi ekonomi</strong> — perbankan berfungsi untuk menunjang pelaksanaan pembangunan nasional.</li>
+        <li><strong>Prinsip kehati-hatian (prudential banking)</strong> — bank harus mengelola risiko dengan hati-hati agar dana masyarakat aman.</li>
+        <li><strong>Tujuan perbankan</strong> — menunjang pelaksanaan pembangunan nasional dalam rangka meningkatkan pemerataan, pertumbuhan ekonomi, dan stabilitas nasional.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu menabung uang jajan di bank BRI — bank menghimpun dana dari masyarakat.</li>
+          <li>Orang tua meminjam uang di bank untuk modal usaha — bank menyalurkan dana ke masyarakat.</li>
+          <li>Bank Indonesia mengatur jumlah uang beredar di Indonesia — bank sentral mengatur perekonomian.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 7: JENIS-JENIS BANK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 7 dari 15</div>
+      <h2 class="page-title">Jenis-Jenis <span>Bank</span></h2>
+      <p class="page-subtitle">Tiga jenis bank di Indonesia berdasarkan fungsinya</p>
+
+      <p>Di Indonesia, bank dibedakan menjadi tiga jenis berdasarkan fungsinya[reference:8]:</p>
+
+      <h3>A. Bank Sentral (Bank Indonesia)</h3>
+      <p><strong>Bank Indonesia (BI)</strong> adalah bank sentral yang bertanggung jawab menjaga stabilitas nilai Rupiah. BI bukan bank komersial — BI tidak melayani masyarakat umum secara langsung.</p>
+
+      <h4>Tugas Bank Indonesia:</h4>
+      <ul>
+        <li><strong>Menetapkan dan melaksanakan kebijakan moneter</strong> — mengatur jumlah uang beredar, suku bunga, dan nilai tukar.</li>
+        <li><strong>Mengatur dan menjaga kelancaran sistem pembayaran</strong> — mengawasi sistem pembayaran nasional.</li>
+        <li><strong>Mengatur dan mengawasi bank</strong> — mengawasi bank umum dan BPR.</li>
+        <li><strong>Menerbitkan uang Rupiah</strong> — sebagai satu-satunya bank yang berhak mencetak uang.</li>
+        <li><strong>Menjaga stabilitas sistem keuangan</strong> — mencegah krisis keuangan.</li>
+      </ul>
+
+      <h3>B. Bank Umum</h3>
+      <p><strong>Bank umum</strong> adalah bank yang melaksanakan kegiatan usaha secara konvensional dan/atau berdasarkan prinsip syariah. Bank umum melayani masyarakat umum secara langsung.</p>
+
+      <h4>Kegiatan Bank Umum:</h4>
+      <ul>
+        <li>Menghimpun dana dari masyarakat (tabungan, deposito, giro).</li>
+        <li>Menyalurkan dana kepada masyarakat (kredit, pinjaman).</li>
+        <li>Melayani jasa perbankan lainnya (transfer, kliring, valas, safe deposit box).</li>
+        <li>Menjual produk investasi (reksadana, obligasi).</li>
+      </ul>
+
+      <p><em>Contoh bank umum:</em> Bank Mandiri, BNI, BRI, BCA, Bank Syariah Indonesia.</p>
+
+      <h3>C. Bank Perkreditan Rakyat (BPR)</h3>
+      <p><strong>BPR</strong> adalah bank yang melaksanakan kegiatan usaha secara konvensional atau berdasarkan prinsip syariah yang dalam kegiatannya tidak memberikan jasa lalu lintas pembayaran[reference:9].</p>
+
+      <h4>Kegiatan BPR:</h4>
+      <ul>
+        <li>Menghimpun dana dalam bentuk tabungan dan deposito berjangka.</li>
+        <li>Menyalurkan dana dalam bentuk kredit kepada masyarakat kecil.</li>
+        <li><strong>Tidak</strong> melayani giro, transfer, atau valuta asing.</li>
+      </ul>
+
+      <p><em>Contoh BPR:</em> BPR di daerah-daerah yang melayani pedagang kecil dan petani.</p>
+
+      <h3>Perbandingan Tiga Jenis Bank</h3>
+      <table>
+        <tr><th>Aspek</th><th>Bank Sentral</th><th>Bank Umum</th><th>BPR</th></tr>
+        <tr><td>Fungsi utama</td><td>Menjaga stabilitas moneter</td><td>Menghimpun & menyalurkan dana</td><td>Melayani kredit masyarakat kecil</td></tr>
+        <tr><td>Melayani masyarakat</td><td>Tidak langsung</td><td>Ya</td><td>Ya, terbatas</td></tr>
+        <tr><td>Menerbitkan uang</td><td>Ya</td><td>Tidak</td><td>Tidak</td></tr>
+        <tr><td>Transfer/kliring</td><td>Tidak</td><td>Ya</td><td>Tidak</td></tr>
+        <tr><td>Valuta asing</td><td>Tidak</td><td>Ya (bank devisa)</td><td>Tidak</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu menabung di bank BCA → <strong>bank umum</strong>.</li>
+          <li>Pedagang kecil meminjam modal di BPR → <strong>BPR</strong>.</li>
+          <li>Bank Indonesia mengumumkan suku bunga acuan → <strong>bank sentral</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 8: PRODUK & JASA BANK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 8 dari 15</div>
+      <h2 class="page-title">Produk & <span>Jasa Bank</span></h2>
+      <p class="page-subtitle">Layanan yang disediakan bank untuk masyarakat</p>
+
+      <h3>A. Produk Penghimpunan Dana</h3>
+      <table>
+        <tr><th>Produk</th><th>Penjelasan</th><th>Keunggulan</th></tr>
+        <tr><td><strong>Tabungan</strong></td><td>Simpanan yang dapat diambil kapan saja.</td><td>Fleksibel, dapat diambil sewaktu-waktu.</td></tr>
+        <tr><td><strong>Deposito Berjangka</strong></td><td>Simpanan yang hanya dapat diambil dalam jangka waktu tertentu (1, 3, 6, 12 bulan).</td><td>Bunga lebih tinggi daripada tabungan.</td></tr>
+        <tr><td><strong>Giro</strong></td><td>Simpanan yang dapat digunakan sebagai alat pembayaran dengan cek atau bilyet giro.</td><td>Cocok untuk perusahaan/badan usaha.</td></tr>
+      </table>
+
+      <h3>B. Produk Penyaluran Dana (Kredit)</h3>
+      <table>
+        <tr><th>Jenis Kredit</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Kredit Investasi</strong></td><td>Kredit untuk membeli barang modal jangka panjang.</td><td>Kredit pembelian mesin pabrik.</td></tr>
+        <tr><td><strong>Kredit Modal Kerja</strong></td><td>Kredit untuk membiayai kegiatan usaha sehari-hari.</td><td>Kredit pembelian bahan baku.</td></tr>
+        <tr><td><strong>Kredit Konsumsi</strong></td><td>Kredit untuk memenuhi kebutuhan konsumsi.</td><td>Kredit rumah (KPR), kredit motor.</td></tr>
+      </table>
+
+      <h3>C. Jasa Perbankan Lainnya</h3>
+      <ul>
+        <li><strong>Transfer</strong> — mengirim uang ke rekening lain.</li>
+        <li><strong>Kliring</strong> — pertukaran cek/giro antar bank.</li>
+        <li><strong>Safe Deposit Box</strong> — kotak penyimpanan barang berharga.</li>
+        <li><strong>Jual beli valuta asing</strong> — menukar mata uang asing.</li>
+        <li><strong>Pembayaran tagihan</strong> — listrik, air, telepon.</li>
+        <li><strong>ATM dan mobile banking</strong> — layanan transaksi mandiri.</li>
+      </ul>
+
+      <h3>D. Simpanan vs Pinjaman</h3>
+      <table>
+        <tr><th>Aspek</th><th>Simpanan</th><th>Pinjaman (Kredit)</th></tr>
+        <tr><td>Pihak yang menyimpan</td><td>Masyarakat (nasabah)</td><td>Bank (pemberi pinjaman)</td></tr>
+        <tr><td>Imbalan</td><td>Bunga tabungan (diterima nasabah)</td><td>Bunga pinjaman (dibayar nasabah)</td></tr>
+        <tr><td>Tujuan</td><td>Menyimpan uang dengan aman</td><td>Mendapat modal usaha / konsumsi</td></tr>
+      </table>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Bunga tabungan biasanya lebih kecil daripada bunga pinjaman. Selisih ini disebut <em>spread</em> — merupakan salah satu sumber pendapatan bank.
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu menabung uang jajan di bank → <strong>tabungan</strong>.</li>
+          <li>Orang tua membeli rumah dengan KPR → <strong>kredit konsumsi</strong>.</li>
+          <li>Pedagang meminjam modal usaha di bank → <strong>kredit modal kerja</strong>.</li>
+          <li>Kamu transfer uang ke teman lewat mobile banking → <strong>jasa transfer</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 9: LEMBAGA KEUANGAN NON-BANK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 9 dari 15</div>
+      <h2 class="page-title">Lembaga <span>Keuangan Non-Bank</span></h2>
+      <p class="page-subtitle">Lembaga keuangan selain bank yang melayani masyarakat</p>
+
+      <p><strong style="color:#38bdf8">Lembaga Keuangan Bukan Bank (LKBB)</strong> adalah semua badan yang melakukan kegiatan di bidang keuangan, secara langsung ataupun tidak langsung menghimpun dana dari masyarakat dan menyalurkannya untuk membiayai perusahaan atau kegiatan tertentu[reference:10].</p>
+
+      <h3>Perbedaan Bank vs LKBB</h3>
+      <table>
+        <tr><th>Aspek</th><th>Bank</th><th>Lembaga Keuangan Non-Bank</th></tr>
+        <tr><td>Menghimpun dana</td><td>Ya, dari masyarakat umum</td><td>Ya, tetapi tidak dari simpanan umum</td></tr>
+        <tr><td>Menyalurkan dana</td><td>Ya, dalam bentuk kredit</td><td>Ya, dalam bentuk pembiayaan / pinjaman</td></tr>
+        <tr><td>Jasa lalu lintas pembayaran</td><td>Ya (transfer, kliring)</td><td>Tidak</td></tr>
+        <tr><td>Contoh</td><td>Bank Mandiri, BCA, BRI</td><td>Asuransi, pegadaian, leasing, koperasi</td></tr>
+      </table>
+
+      <h3>Jenis-Jenis Lembaga Keuangan Non-Bank</h3>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <div class="icon">🏦</div>
+          <h4>Koperasi Simpan Pinjam</h4>
+          <p>Lembaga keuangan berbasis anggota yang menghimpun dan meminjamkan dana kepada anggotanya. Berazaskan kekeluargaan dan gotong royong.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🛡️</div>
+          <h4>Asuransi</h4>
+          <p>Lembaga yang memberikan jaminan perlindungan atas risiko kerugian. Nasabah membayar premi, perusahaan mengganti kerugian jika terjadi musibah.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">💎</div>
+          <h4>Pegadaian</h4>
+          <p>Lembaga yang memberikan pinjaman uang dengan jaminan barang berharga. Barang yang digadaikan bisa ditebus kembali setelah pinjaman dilunasi.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🚗</div>
+          <h4>Leasing</h4>
+          <p>Lembaga yang menyewakan barang modal seperti kendaraan atau mesin. Konsumen bisa memakai barang dengan sistem sewa atau kredit.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">📈</div>
+          <h4>Pasar Modal</h4>
+          <p>Lembaga yang memperjualbelikan saham, obligasi, dan surat berharga lainnya. Berbeda dengan pasar uang yang jangka pendek.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">💰</div>
+          <h4>Dana Pensiun</h4>
+          <p>Lembaga yang mengelola dana pensiun karyawan. Peserta mendapat manfaat setelah memasuki masa pensiun.</p>
+        </div>
+      </div>
+
+      <h3>Fungsi Koperasi Sekolah</h3>
+      <p>Koperasi sekolah adalah koperasi yang didirikan di lingkungan sekolah. Fungsi koperasi sekolah antara lain[reference:11]:</p>
+      <ul>
+        <li>Menunjang program pembangunan pemerintah di sektor perkoperasian melalui program pendidikan sekolah.</li>
+        <li>Menumbuhkan kesadaran berkoperasi di kalangan peserta didik.</li>
+        <li>Melatih siswa memperdalam pengetahuan berkoperasi.</li>
+        <li>Membina keterampilan siswa dalam mengembangkan usaha.</li>
+        <li>Memenuhi kebutuhan siswa dan guru.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Orang tua membeli asuransi kesehatan → <strong>asuransi</strong>.</li>
+          <li>Kamu menggadaikan HP untuk mendapatkan uang darurat → <strong>pegadaian</strong>.</li>
+          <li>Kamu membeli buku di koperasi sekolah → <strong>koperasi sekolah</strong>.</li>
+          <li>Orang tua berinvestasi saham → <strong>pasar modal</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 10: ALAT PEMBAYARAN NON-TUNAI ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 10 dari 15</div>
+      <h2 class="page-title">Alat Pembayaran <span>Non-Tunai</span></h2>
+      <p class="page-subtitle">Transformasi sistem pembayaran di era digital</p>
+
+      <p><strong style="color:#38bdf8">Alat pembayaran non-tunai</strong> adalah metode pembayaran atas barang dan jasa yang tidak melibatkan pertukaran uang tunai[reference:12]. Alat pembayaran non-tunai memerlukan penggunaan satu atau lebih bank untuk menyelesaikan transaksi.</p>
+
+      <h3>Jenis Alat Pembayaran Non-Tunai</h3>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Kartu Debit</strong></td><td>Kartu yang dananya langsung dipotong dari rekening tabungan saat transaksi.</td><td>Kartu ATM berlogo GPN, Visa, Mastercard</td></tr>
+        <tr><td><strong>Kartu Kredit</strong></td><td>Kartu yang memungkinkan pembayaran ditunda dengan sistem tagihan bulanan.</td><td>Kartu kredit bank, kartu charge</td></tr>
+        <tr><td><strong>Uang Elektronik (E-Money)</strong></td><td>Uang yang disimpan dalam bentuk digital, biasanya dalam chip kartu atau aplikasi.</td><td>GoPay, OVO, Dana, ShopeePay</td></tr>
+        <tr><td><strong>QRIS</strong></td><td>Kode QR standar nasional untuk pembayaran digital.</td><td>Scan QRIS di kantin, toko, atau pasar</td></tr>
+        <tr><td><strong>Transfer Bank</strong></td><td>Pemindahan dana dari satu rekening ke rekening lain.</td><td>Transfer via ATM, mobile banking, internet banking</td></tr>
+        <tr><td><strong>Internet Banking</strong></td><td>Layanan transaksi bank melalui situs web.</td><td>KlikBCA, Mandiri Online</td></tr>
+        <tr><td><strong>Mobile Banking</strong></td><td>Layanan transaksi bank melalui aplikasi ponsel.</td><td>BRImo, Livin', BCA Mobile</td></tr>
+      </table>
+
+      <h3>Keunggulan Alat Pembayaran Non-Tunai</h3>
+      <ul>
+        <li><strong>Praktis dan cepat</strong> — tidak perlu membawa uang tunai dalam jumlah besar.</li>
+        <li><strong>Aman</strong> — dilindungi oleh PIN, sidik jari, atau wajah.</li>
+        <li><strong>Tercatat</strong> — setiap transaksi terekam dan bisa dilacak.</li>
+        <li><strong>Hemat waktu</strong> — tidak perlu antre lama di kasir atau bank.</li>
+        <li><strong>Mendukung inklusi keuangan</strong> — memudahkan masyarakat mengakses layanan keuangan.</li>
+      </ul>
+
+      <h3>Literasi Keuangan Digital</h3>
+      <div class="warning">
+        ⚠️ <strong>Hati-hati!</strong> Di era digital, kita harus bijak dalam bertransaksi online. Berikut tips keamanan:
+        <ul style="margin-top:8px;">
+          <li>Jangan pernah membagikan PIN, OTP, atau password kepada siapa pun.</li>
+          <li>Jangan mengklik tautan mencurigakan dari sumber tidak dikenal.</li>
+          <li>Pastikan aplikasi diunduh dari sumber resmi (PlayStore/AppStore).</li>
+          <li>Periksa ulang nama penerima dan nominal sebelum transfer.</li>
+          <li>Gunakan autentikasi ganda (two-factor authentication) jika tersedia.</li>
+        </ul>
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu membeli jajan di kantin dengan scan QRIS → <strong>pembayaran digital</strong>.</li>
+          <li>Orang tua membayar listrik lewat mobile banking → <strong>internet banking</strong>.</li>
+          <li>Kamu menggunakan GoPay untuk membeli pulsa → <strong>e-money</strong>.</li>
+          <li>Sekolah menerapkan kartu siswa sebagai alat pembayaran kantin → <strong>e-money sekolah</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 11: MANFAAT LEMBAGA KEUANGAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 11 dari 15</div>
+      <h2 class="page-title">Manfaat <span>Lembaga Keuangan</span></h2>
+      <p class="page-subtitle">Peran penting lembaga keuangan bagi masyarakat dan perekonomian</p>
+
+      <p>Keberadaan lembaga keuangan memberikan banyak manfaat bagi masyarakat dan perekonomian[reference:13]:</p>
+
+      <h3>Manfaat Lembaga Keuangan</h3>
+      <table>
+        <tr><th>Manfaat</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Menyediakan layanan penyimpanan uang</strong></td><td>Masyarakat dapat menyimpan uang dengan aman di bank atau koperasi tanpa risiko kehilangan.</td><td>Menabung di bank, menyimpan uang di koperasi.</td></tr>
+        <tr><td><strong>Mempermudah akses modal usaha</strong></td><td>Pelaku usaha dapat memperoleh pinjaman untuk mengembangkan usahanya.</td><td>UMKM meminjam modal di bank.</td></tr>
+        <tr><td><strong>Mendukung investasi dan perencanaan keuangan</strong></td><td>Melalui produk seperti deposito, reksadana, dan saham, masyarakat dapat merencanakan keuangan masa depan.</td><td>Investasi emas, saham, deposito.</td></tr>
+        <tr><td><strong>Memperlancar transaksi pembayaran</strong></td><td>Transfer, pembayaran tagihan, dan transaksi lainnya menjadi lebih mudah dan cepat.</td><td>Transfer bank, mobile banking.</td></tr>
+        <tr><td><strong>Memberikan perlindungan risiko</strong></td><td>Asuransi melindungi dari kerugian akibat musibah.</td><td>Asuransi kesehatan, asuransi pendidikan.</td></tr>
+        <tr><td><strong>Menghimpun dana untuk pembangunan</strong></td><td>Dana masyarakat yang terkumpul digunakan untuk membiayai pembangunan nasional.</td><td>Investasi infrastruktur, pembangunan jalan.</td></tr>
+        <tr><td><strong>Meningkatkan literasi keuangan</strong></td><td>Masyarakat semakin memahami cara mengelola keuangan dengan baik.</td><td>Edukasi keuangan di sekolah, kampanye OJK.</td></tr>
+      </table>
+
+      <h3>Peran Lembaga Keuangan dalam Perekonomian</h3>
+      <ul>
+        <li><strong>Sebagai perantara keuangan (financial intermediary)</strong> — menghubungkan pihak yang kelebihan dana (penabung) dengan pihak yang membutuhkan dana (peminjam).</li>
+        <li><strong>Sebagai penggerak pertumbuhan ekonomi</strong> — menyediakan modal untuk sektor produktif.</li>
+        <li><strong>Sebagai penstabil sistem keuangan</strong> — menjaga stabilitas nilai uang dan sistem pembayaran.</li>
+        <li><strong>Sebagai pendukung inklusi keuangan</strong> — memastikan semua lapisan masyarakat dapat mengakses layanan keuangan.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Lembaga keuangan bukan hanya untuk orang dewasa. Pelajar pun bisa memanfaatkannya — misalnya dengan menabung di bank, menggunakan kartu siswa untuk pembayaran kantin, atau belajar mengelola uang sejak dini.
+      </div>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata di sekitar kita:</strong>
+        <ul style="margin-top:8px;">
+          <li>Kamu menabung uang jajan di bank untuk membeli sepeda → <strong>manfaat penyimpanan</strong>.</li>
+          <li>Orang tua meminjam modal usaha di bank → <strong>manfaat akses modal</strong>.</li>
+          <li>Keluarga membayar premi asuransi kesehatan → <strong>manfaat perlindungan risiko</strong>.</li>
+          <li>Sekolah bekerja sama dengan bank untuk edukasi keuangan → <strong>manfaat literasi keuangan</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 12: RINGKASAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 12 dari 15</div>
+      <h2 class="page-title">Ringkasan <span>Bab 4</span></h2>
+      <p class="page-subtitle">Poin-poin penting yang harus diingat</p>
+
+      <ul>
+        <li><strong>Uang</strong> adalah segala sesuatu yang diterima secara umum sebagai alat pembayaran untuk pembelian barang dan jasa serta melunasi utang.</li>
+        <li>Sebelum uang, manusia menggunakan sistem <strong>barter</strong> yang memiliki banyak kelemahan seperti sulitnya menemukan orang yang mau menukar dan sulit menentukan nilai.</li>
+        <li>Syarat uang: mudah dibawa, tahan lama, dapat dibagi, nilai stabil, diterima umum, jumlahnya mencukupi, tidak mudah dipalsukan, dan mudah disimpan.[reference:14]</li>
+        <li><strong>Fungsi asli uang:</strong> alat tukar dan satuan hitung. <strong>Fungsi turunan uang:</strong> alat pembayaran sah, standar pembayaran yang ditunda, penyimpan kekayaan, dan pengalih nilai.[reference:15]</li>
+        <li><strong>Uang kartal</strong> dikeluarkan oleh Bank Indonesia (bank sentral), sedangkan <strong>uang giral</strong> dikeluarkan oleh bank umum.</li>
+        <li><strong>Nilai uang</strong> meliputi nilai intrinsik, nilai nominal, nilai internal, dan nilai eksternal.</li>
+        <li><strong>Kurs</strong> adalah harga mata uang suatu negara yang dinyatakan dalam mata uang negara lain. Terdapat kurs beli, kurs jual, dan kurs tengah.[reference:16]</li>
+        <li><strong>Bank</strong> adalah lembaga keuangan yang menghimpun dan menyalurkan dana masyarakat. Terdapat tiga jenis bank: Bank Sentral (BI), Bank Umum, dan BPR.[reference:17]</li>
+        <li><strong>Bank Indonesia</strong> bertugas menjaga stabilitas moneter, mengatur sistem pembayaran, dan menerbitkan uang Rupiah.</li>
+        <li><strong>Bank Umum</strong> melayani masyarakat umum dengan produk tabungan, deposito, giro, dan kredit.</li>
+        <li><strong>BPR</strong> melayani kredit masyarakat kecil dan tidak melayani transfer atau valuta asing.</li>
+        <li><strong>Lembaga Keuangan Non-Bank</strong> meliputi koperasi, asuransi, pegadaian, leasing, pasar modal, dan dana pensiun.</li>
+        <li><strong>Alat pembayaran non-tunai</strong> meliputi kartu debit, kartu kredit, e-money, QRIS, transfer bank, dan mobile banking.</li>
+        <li>Lembaga keuangan memberikan manfaat: penyimpanan uang, akses modal, investasi, transaksi, perlindungan risiko, dan literasi keuangan.</li>
+        <li>Di era digital, kita harus bijak dan aman dalam bertransaksi online — jangan bagikan PIN/OTP dan waspadai penipuan.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Kata kunci:</strong> uang, barter, uang kartal, uang giral, fungsi uang, nilai intrinsik, nilai nominal, kurs, valuta asing, bank sentral, bank umum, BPR, koperasi, asuransi, pegadaian, pasar modal, e-money, QRIS, literasi keuangan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 13: GLOSARIUM ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 13 dari 15</div>
+      <h2 class="page-title">Glosarium <span>Istilah Penting</span></h2>
+      <p class="page-subtitle">Kumpulan istilah kunci dalam bab ini</p>
+
+      <div class="glosarium-item"><strong>Uang</strong><br><span>Segala sesuatu yang diterima secara umum sebagai alat pembayaran barang, jasa, dan pelunasan utang.</span></div>
+      <div class="glosarium-item"><strong>Barter</strong><br><span>Sistem tukar-menukar barang dengan barang tanpa menggunakan uang.</span></div>
+      <div class="glosarium-item"><strong>Uang Kartal</strong><br><span>Uang yang dikeluarkan Bank Indonesia berupa uang kertas dan uang logam, berlaku sebagai alat pembayaran sah.</span></div>
+      <div class="glosarium-item"><strong>Uang Giral</strong><br><span>Uang yang dikeluarkan bank umum berupa surat berharga yang dapat digunakan sebagai alat pembayaran.</span></div>
+      <div class="glosarium-item"><strong>Fungsi Asli Uang</strong><br><span>Fungsi dasar uang sebagai alat tukar dan satuan hitung.</span></div>
+      <div class="glosarium-item"><strong>Fungsi Turunan Uang</strong><br><span>Fungsi tambahan uang seperti alat pembayaran, penyimpan kekayaan, dan pengalih nilai.</span></div>
+      <div class="glosarium-item"><strong>Nilai Intrinsik</strong><br><span>Nilai bahan pembuat uang itu sendiri.</span></div>
+      <div class="glosarium-item"><strong>Nilai Nominal</strong><br><span>Nilai yang tertulis atau tercetak pada uang.</span></div>
+      <div class="glosarium-item"><strong>Nilai Internal</strong><br><span>Kemampuan uang membeli barang/jasa di dalam negeri.</span></div>
+      <div class="glosarium-item"><strong>Nilai Eksternal</strong><br><span>Nilai uang suatu negara jika ditukar dengan mata uang negara lain (kurs).</span></div>
+      <div class="glosarium-item"><strong>Kurs</strong><br><span>Harga mata uang suatu negara yang dinyatakan dalam mata uang negara lain.</span></div>
+      <div class="glosarium-item"><strong>Kurs Beli</strong><br><span>Kurs yang digunakan bank ketika membeli valuta asing dari kita.</span></div>
+      <div class="glosarium-item"><strong>Kurs Jual</strong><br><span>Kurs yang digunakan bank ketika menjual valuta asing kepada kita.</span></div>
+      <div class="glosarium-item"><strong>Valuta Asing</strong><br><span>Mata uang asing yang digunakan dalam transaksi internasional.</span></div>
+      <div class="glosarium-item"><strong>Bank Sentral</strong><br><span>Bank yang bertugas menjaga stabilitas moneter dan menerbitkan uang (Bank Indonesia).</span></div>
+      <div class="glosarium-item"><strong>Bank Umum</strong><br><span>Bank yang menghimpun dan menyalurkan dana masyarakat serta melayani jasa pembayaran.</span></div>
+      <div class="glosarium-item"><strong>BPR</strong><br><span>Bank Perkreditan Rakyat, bank yang melayani kredit masyarakat kecil tanpa jasa lalu lintas pembayaran.</span></div>
+      <div class="glosarium-item"><strong>Koperasi</strong><br><span>Lembaga keuangan berbasis anggota yang berazaskan kekeluargaan dan gotong royong.</span></div>
+      <div class="glosarium-item"><strong>Asuransi</strong><br><span>Lembaga yang memberikan perlindungan atas risiko kerugian dengan sistem premi.</span></div>
+      <div class="glosarium-item"><strong>Pegadaian</strong><br><span>Lembaga yang memberikan pinjaman uang dengan jaminan barang berharga.</span></div>
+      <div class="glosarium-item"><strong>Pasar Modal</strong><br><span>Tempat memperjualbelikan saham, obligasi, dan surat berharga jangka panjang.</span></div>
+      <div class="glosarium-item"><strong>E-Money</strong><br><span>Uang elektronik yang disimpan dalam bentuk digital untuk transaksi pembayaran.</span></div>
+      <div class="glosarium-item"><strong>QRIS</strong><br><span>Kode QR standar nasional untuk pembayaran digital di Indonesia.</span></div>
+      <div class="glosarium-item"><strong>Inklusi Keuangan</strong><br><span>Upaya memastikan semua lapisan masyarakat dapat mengakses layanan keuangan.</span></div>
+    </section>
+
+    <!-- ===== PAGE 14: SOAL ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 14 dari 15</div>
+      <h2 class="page-title">Soal Latihan + <span>Pembahasan</span></h2>
+      <p class="page-subtitle">Klik tombol untuk memeriksa jawabanmu</p>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 1</div>
+        <div class="pertanyaan">Kelemahan utama sistem barter adalah...</div>
+        <div class="pilihan">A. Barang mudah dibawa<br>B. Sulit menemukan orang yang mau menukar barang yang dibutuhkan<br>C. Nilai barang mudah ditentukan<br>D. Barang tahan lama</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Kelemahan utama barter adalah sulitnya menemukan orang yang mau menukar barang (double coincidence of wants), sulit menentukan nilai, barang tidak bisa dibagi, dan barang tidak tahan lama.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 2</div>
+        <div class="pertanyaan">Fungsi asli uang adalah...</div>
+        <div class="pilihan">A. Alat pembayaran dan penyimpan kekayaan<br>B. Alat tukar dan satuan hitung<br>C. Alat pengalih nilai dan standar pembayaran<br>D. Alat investasi dan spekulasi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Fungsi asli uang hanya dua, yaitu sebagai alat tukar (medium of exchange) dan satuan hitung (unit of account). Fungsi lainnya termasuk fungsi turunan.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 3</div>
+        <div class="pertanyaan">Uang yang dikeluarkan oleh Bank Indonesia dan berlaku sebagai alat pembayaran sah disebut uang...</div>
+        <div class="pilihan">A. Giral<br>B. Kartal<br>C. Elektronik<br>D. Logam mulia</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Uang kartal adalah uang yang dikeluarkan oleh Bank Indonesia (bank sentral) berupa uang kertas dan uang logam, dan berlaku sebagai alat pembayaran yang sah.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 4</div>
+        <div class="pertanyaan">Nilai yang tertulis pada uang kertas Rp100.000 disebut nilai...</div>
+        <div class="pilihan">A. Intrinsik<br>B. Internal<br>C. Nominal<br>D. Eksternal</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Nilai nominal adalah nilai yang tertulis atau tercetak pada uang. Nilai intrinsik adalah nilai bahan pembuatnya, sedangkan nilai internal dan eksternal berkaitan dengan daya beli.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 5</div>
+        <div class="pertanyaan">Jika kurs beli USD 1 = Rp15.400 dan kurs jual USD 1 = Rp15.600, maka ketika kamu menukar USD 100 ke Rupiah, kamu akan menerima...</div>
+        <div class="pilihan">A. Rp1.540.000<br>B. Rp1.560.000<br>C. Rp1.550.000<br>D. Rp1.530.000</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: A.</strong> Karena kamu menukar USD ke Rupiah, bank <em>membeli</em> USD darimu menggunakan <strong>kurs beli</strong>. USD 100 × Rp15.400 = Rp1.540.000.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 6</div>
+        <div class="pertanyaan">Bank yang bertugas menjaga stabilitas nilai Rupiah dan menerbitkan uang adalah...</div>
+        <div class="pilihan">A. Bank Umum<br>B. BPR<br>C. Bank Indonesia<br>D. Bank Syariah</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Bank Indonesia adalah bank sentral yang bertugas menjaga stabilitas moneter, mengatur sistem pembayaran, dan menerbitkan uang Rupiah.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 7</div>
+        <div class="pertanyaan">Lembaga keuangan yang memberikan pinjaman dengan jaminan barang berharga disebut...</div>
+        <div class="pilihan">A. Asuransi<br>B. Pegadaian<br>C. Koperasi<br>D. Leasing</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Pegadaian adalah lembaga keuangan non-bank yang memberikan pinjaman uang dengan jaminan barang berharga yang bisa ditebus kembali.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 8</div>
+        <div class="pertanyaan">Berikut yang <strong>bukan</strong> termasuk lembaga keuangan non-bank adalah...</div>
+        <div class="pilihan">A. Asuransi<br>B. Pegadaian<br>C. Bank Umum<br>D. Koperasi Simpan Pinjam</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Bank umum termasuk lembaga keuangan <em>bank</em>, bukan non-bank. Lembaga keuangan non-bank meliputi asuransi, pegadaian, leasing, koperasi, pasar modal, dan dana pensiun.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 9</div>
+        <div class="pertanyaan">Alat pembayaran non-tunai berupa kode QR standar nasional di Indonesia disebut...</div>
+        <div class="pilihan">A. E-Money<br>B. QRIS<br>C. Kartu Debit<br>D. Mobile Banking</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> QRIS (Quick Response Code Indonesian Standard) adalah kode QR standar nasional untuk pembayaran digital yang dikembangkan oleh Bank Indonesia.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 10</div>
+        <div class="pertanyaan">Berikut yang merupakan manfaat lembaga keuangan bagi masyarakat adalah...</div>
+        <div class="pilihan">A. Meningkatkan harga barang<br>B. Menyediakan layanan penyimpanan uang yang aman<br>C. Menghilangkan kebutuhan menabung<br>D. Menurunkan nilai mata uang</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Lembaga keuangan menyediakan layanan penyimpanan uang yang aman, mempermudah akses modal, mendukung investasi, dan memperlancar transaksi pembayaran.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 11</div>
+        <div class="pertanyaan">Ketika seseorang menerima email yang meminta mengklik tautan dengan iming-iming hadiah besar, tindakan yang paling bijaksana adalah...</div>
+        <div class="pilihan">A. Langsung mengklik tautan tersebut<br>B. Menghapus email tanpa membuka tautan<br>C. Membagikan tautan ke teman<br>D. Membalas email dengan data pribadi</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Email semacam itu adalah modus penipuan (phishing). Tindakan paling bijaksana adalah menghapus email tanpa membuka tautan dan tidak membagikan data pribadi.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 12</div>
+        <div class="pertanyaan">Perbedaan utama antara bank umum dan BPR adalah...</div>
+        <div class="pilihan">A. Bank umum tidak melayani kredit, BPR melayani kredit<br>B. Bank umum melayani transfer dan valuta asing, BPR tidak<br>C. Bank umum hanya melayani perusahaan, BPR melayani individu<br>D. Bank umum tidak menghimpun dana, BPR menghimpun dana</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Bank umum melayani jasa lalu lintas pembayaran seperti transfer, kliring, dan valuta asing, sedangkan BPR tidak melayani jasa tersebut. Keduanya sama-sama menghimpun dan menyalurkan dana.</div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 15: PROYEK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 15 dari 15</div>
+      <h2 class="page-title">Proyek / <span>Aktivitas Siswa</span></h2>
+      <p class="page-subtitle">Kerjakan salah satu proyek berikut untuk memperdalam pemahaman</p>
+
+      <div class="proyek">
+        <ol>
+          <li><strong>Observasi uang.</strong> Kumpulkan minimal 5 jenis uang kertas dan uang logam yang berbeda. Catat: nilai nominal, tahun emisi, gambar yang tercetak, dan ciri keasliannya. Jelaskan mengapa uang kertas memiliki nilai nominal yang lebih besar daripada nilai intrinsiknya.</li>
+          <li><strong>Simulasi kurs.</strong> Cari informasi kurs USD, SGD, dan MYR terhadap Rupiah di bank atau money changer terdekat (bisa juga dari internet). Hitung berapa Rupiah yang dibutuhkan untuk membeli USD 50, SGD 100, dan MYR 200. Jelaskan perbedaan kurs beli dan kurs jual.</li>
+          <li><strong>Wawancara nasabah bank.</strong> Tanyakan kepada orang tua atau tetangga: apa jenis tabungan yang dimiliki, mengapa memilih bank tersebut, dan apa manfaat menabung di bank. Catat hasilnya dan kaitkan dengan konsep fungsi uang dan lembaga keuangan.</li>
+          <li><strong>Studi kasus lembaga keuangan.</strong> Pilih satu lembaga keuangan (bank, koperasi, asuransi, atau pegadaian). Cari informasi tentang: sejarah singkat, produk yang ditawarkan, dan manfaatnya bagi masyarakat. Presentasikan hasilnya di depan kelas.</li>
+          <li><strong>Diskusi kelompok.</strong> Pilih salah satu topik — dampak uang digital terhadap kebiasaan menabung, peran bank sentral dalam menjaga stabilitas ekonomi, atau pentingnya literasi keuangan bagi pelajar. Presentasikan hasilnya di depan kelas.</li>
+          <li><strong>Studi kasus digital.</strong> Amati satu aplikasi dompet digital (GoPay, OVO, Dana, atau ShopeePay). Identifikasi: fitur apa saja yang tersedia, bagaimana cara menggunakannya, dan apa risiko keamanan yang harus diwaspadai. Jelaskan mengapa literasi keuangan digital penting bagi pelajar.</li>
+        </ol>
+      </div>
+
+      <div class="highlight" style="text-align:center; margin-top:30px;">
+        🎉 <strong>Selamat!</strong> Kamu telah menyelesaikan seluruh materi Bab 4 — Uang & Lembaga Keuangan.<br>
+        Sekarang saatnya uji pemahamanmu dengan kuis!
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER NAV -->
+<div class="footer-nav">
+  <button class="nav-prev" id="prevBtn" onclick="prev()">← Sebelumnya</button>
+  <span class="page-counter"><span id="currentNum">1</span> / 15</span>
+  <button class="nav-next" id="nextBtn" onclick="next()">Selanjutnya →</button>
+</div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navItems = document.querySelectorAll('.nav-item');
+const progressFill = document.getElementById('progressFill');
+const currentNum = document.getElementById('currentNum');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const mainArea = document.getElementById('main');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+let currentPage = 0;
+const totalPages = pages.length;
+
+function goTo(index) {
+  if (index < 0 || index >= totalPages) return;
+
+  pages[currentPage].classList.remove('active');
+  navItems[currentPage].classList.remove('active');
+  navItems[currentPage].classList.add('done');
+
+  currentPage = index;
+
+  pages[currentPage].classList.add('active');
+  navItems[currentPage].classList.add('active');
+
+  // Update progress
+  progressFill.style.width = ((currentPage + 1) / totalPages * 100) + '%';
+  currentNum.textContent = currentPage + 1;
+
+  // Update buttons
+  prevBtn.disabled = currentPage === 0;
+  if (currentPage === totalPages - 1) {
+    nextBtn.textContent = '🎮 Mulai Kuis';
+  } else {
+    nextBtn.textContent = 'Selanjutnya →';
+  }
+
+  // Scroll to top + tutup sidebar di mobile
+  mainArea.scrollTop = 0;
+  if (window.innerWidth <= 800) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  }
+}
+
+function next() {
+  if (currentPage === totalPages - 1) {
+    // ke halaman kuis
+    window.location.href = 'ekonomi-bab4-kuis.html';
+    return;
+  }
+  goTo(currentPage + 1);
+}
+
+function prev() {
+  goTo(currentPage - 1);
+}
+
+function toggleSidebar() {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
+function toggleJawaban(btn) {
+  const jawaban = btn.nextElementSibling;
+  if (jawaban.classList.contains('show')) {
+    jawaban.classList.remove('show');
+    btn.textContent = 'Lihat Jawaban';
+  } else {
+    jawaban.classList.add('show');
+    btn.textContent = 'Sembunyikan';
+  }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
+// Init
+goTo(0);
+</script>
+
+</body>
+</html>
