@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bab 5 — Peran Pelaku Ekonomi | Ruang IPS</title>
+<title>Bab 4 — Perdagangan Internasional | Ruang IPS</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
   html, body { height:100%; }
@@ -164,7 +164,6 @@
     z-index:3;
   }
 
-  /* ========== BRAND TEXT "MAEDA GAMES EDU" ========== */
   .brand-text {
     position:relative; z-index:1;
     display:flex; align-items:center; justify-content:center;
@@ -197,7 +196,6 @@
     100% { background-position:200% 50%; }
   }
 
-  /* ========== JUDUL BAWAH ========== */
   .loader-title {
     position:relative; z-index:1;
     font-size:15px; font-weight:bold;
@@ -251,7 +249,6 @@
   }
   .back-btn:hover { background:#0284c7; }
 
-  /* ========== PROGRESS BAR ========== */
   .progress-wrap {
     height:4px; background:#132941; position:relative; flex-shrink:0;
   }
@@ -260,12 +257,10 @@
     width:0%; transition:width .5s ease;
   }
 
-  /* ========== LAYOUT ========== */
   .layout {
     flex:1; display:flex; overflow:hidden;
   }
 
-  /* ========== SIDEBAR ========== */
   .sidebar {
     width:290px; background:#0b1b30; border-right:1px solid #1b3b5d;
     overflow-y:auto; flex-shrink:0; padding:20px 0;
@@ -299,7 +294,6 @@
   .nav-item.active .num { background:#0ea5e9; color:white; }
   .nav-item.done .num { background:#065f46; color:#10b981; }
 
-  /* ========== MAIN CONTENT ========== */
   .main {
     flex:1; overflow-y:auto; position:relative; scroll-behavior:smooth;
   }
@@ -367,6 +361,22 @@
     color:#fef3c7; font-size:14px; line-height:1.7;
   }
   .warning strong { color:#fbbf24; }
+
+  .pancasila {
+    background:linear-gradient(135deg,#2a0f1a,#1f0813);
+    border-left:4px solid #f43f5e;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#fecdd3; font-size:14px; line-height:1.7;
+  }
+  .pancasila strong { color:#fb7185; }
+
+  .refleksi {
+    background:linear-gradient(135deg,#1a0f2a,#0f081f);
+    border-left:4px solid #a855f7;
+    padding:16px 20px; border-radius:10px; margin:18px 0;
+    color:#e9d5ff; font-size:14px; line-height:1.7;
+  }
+  .refleksi strong { color:#c084fc; }
 
   table {
     width:100%; border-collapse:collapse; margin:16px 0;
@@ -442,15 +452,6 @@
   .proyek ol { color:#e9d5ff; margin-left:20px; }
   .proyek ol li { margin-bottom:10px; line-height:1.7; }
 
-  .grafik-box {
-    background:#0f2337; border-radius:12px; padding:15px;
-    border:1px solid #2a4a6a; margin:16px 0;
-  }
-  .grafik-box .caption {
-    text-align:center; color:#94a3b8; font-size:12px; margin-top:6px;
-  }
-
-  /* ========== FOOTER NAV ========== */
   .footer-nav {
     position:fixed; bottom:0; left:290px; right:0;
     background:#0b1b30; border-top:1px solid #1b3b5d;
@@ -478,11 +479,29 @@
     color:#64748b; font-size:13px; font-weight:bold;
   }
 
-  /* ========== MOBILE ========== */
   .menu-toggle {
     display:none; background:#0ea5e9; border:none; color:white;
     padding:8px 12px; border-radius:8px; font-size:18px; cursor:pointer;
   }
+
+  .step-box {
+    background:#0f2337; border:1px solid #2a4a6a; border-radius:10px;
+    padding:15px 18px; margin:12px 0;
+  }
+  .step-box .step-num {
+    display:inline-block; width:28px; height:28px; border-radius:50%;
+    background:#0ea5e9; color:white; font-weight:bold; font-size:13px;
+    text-align:center; line-height:28px; margin-right:10px;
+  }
+  .step-box .step-title { color:#7dd3fc; font-weight:bold; font-size:14px; }
+  .step-box p { font-size:13px; color:#cbd5e1; margin-top:8px; text-align:left; }
+
+  .kalkulasi {
+    background:#0f2337; border:2px dashed #38bdf8; border-radius:10px;
+    padding:16px 20px; margin:15px 0; font-family:'Courier New', monospace;
+    color:#7dd3fc; font-size:13px; line-height:1.9;
+  }
+  .kalkulasi .hasil { color:#34d399; font-weight:bold; }
 
   @media (max-width: 800px) {
     .sidebar {
@@ -524,7 +543,6 @@
     </div>
   </div>
 
-  <!-- Brand text di bawah lingkaran -->
   <div class="brand-text">
     <span class="brand-line"></span>
     <span class="brand-label">MAEDA GAMES EDU</span>
@@ -537,15 +555,15 @@
     <div class="loader-bar-fill"></div>
   </div>
 
-  <div class="loader-sub">Bab 5 · Peran Pelaku Ekonomi</div>
+  <div class="loader-sub">Bab 4 · Perdagangan Internasional</div>
 </div>
 
 <header>
   <div class="logo">
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-    👥 <span class="fulllogo">EKONOMI — BAB 5</span>
+    🌍 <span class="fulllogo">IPS — BAB 4</span>
   </div>
-  <a href="ekonomi.html" class="back-btn">← Menu Bab</a>
+  <a href="ips.html" class="back-btn">← Menu Bab</a>
 </header>
 
 <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
@@ -558,664 +576,1521 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-title">📑 Daftar Materi</div>
     <div class="nav-item active" onclick="goTo(0)">
-      <span class="num">1</span> Pengertian Pelaku Ekonomi
+      <span class="num">1</span> Pengertian Perdagangan Internasional
     </div>
     <div class="nav-item" onclick="goTo(1)">
-      <span class="num">2</span> Peran Rumah Tangga Konsumen
+      <span class="num">2</span> Faktor Pendorong
     </div>
     <div class="nav-item" onclick="goTo(2)">
-      <span class="num">3</span> Peran Rumah Tangga Produsen
+      <span class="num">3</span> Teori Perdagangan Internasional
     </div>
     <div class="nav-item" onclick="goTo(3)">
-      <span class="num">4</span> Peran Rumah Tangga Pemerintah
+      <span class="num">4</span> Manfaat Perdagangan
     </div>
     <div class="nav-item" onclick="goTo(4)">
-      <span class="num">5</span> Peran Masyarakat Luar Negeri
+      <span class="num">5</span> Ekspor dan Impor
     </div>
     <div class="nav-item" onclick="goTo(5)">
-      <span class="num">6</span> Peran Koperasi
+      <span class="num">6</span> Alat & Cara Pembayaran
     </div>
     <div class="nav-item" onclick="goTo(6)">
-      <span class="num">7</span> Hubungan Antar Pelaku Ekonomi
+      <span class="num">7</span> Neraca Perdagangan & Pembayaran
     </div>
     <div class="nav-item" onclick="goTo(7)">
-      <span class="num">8</span> Circular Flow Diagram
+      <span class="num">8</span> Devisa & Kurs Valuta Asing
     </div>
     <div class="nav-item" onclick="goTo(8)">
-      <span class="num">9</span> Pelaku Ekonomi Era Digital
+      <span class="num">9</span> Kebijakan Perdagangan
     </div>
     <div class="nav-item" onclick="goTo(9)">
-      <span class="num">10</span> Peta Konsep
+      <span class="num">10</span> Hambatan Perdagangan
     </div>
     <div class="nav-item" onclick="goTo(10)">
-      <span class="num">11</span> Ringkasan
+      <span class="num">11</span> Dampak Perdagangan
     </div>
     <div class="nav-item" onclick="goTo(11)">
-      <span class="num">12</span> Glosarium
+      <span class="num">12</span> Peran Indonesia
     </div>
     <div class="nav-item" onclick="goTo(12)">
-      <span class="num">13</span> Soal Latihan
+      <span class="num">13</span> Kerja Sama Ekonomi
     </div>
     <div class="nav-item" onclick="goTo(13)">
-      <span class="num">14</span> Proyek Siswa
+      <span class="num">14</span> Organisasi Internasional
+    </div>
+    <div class="nav-item" onclick="goTo(14)">
+      <span class="num">15</span> Peta Konsep
+    </div>
+    <div class="nav-item" onclick="goTo(15)">
+      <span class="num">16</span> Ringkasan & Glosarium
+    </div>
+    <div class="nav-item" onclick="goTo(16)">
+      <span class="num">17</span> Refleksi & Profil Pancasila
+    </div>
+    <div class="nav-item" onclick="goTo(17)">
+      <span class="num">18</span> Soal & Proyek
     </div>
   </aside>
 
   <!-- MAIN CONTENT -->
   <main class="main" id="main">
 
-    <!-- ===== PAGE 1: PENGERTIAN PELAKU EKONOMI ===== -->
+    <!-- ===== PAGE 1: PENGERTIAN ===== -->
     <section class="page active">
-      <div class="page-badge">📖 MATERI 1 dari 14</div>
-      <h2 class="page-title">Pengertian <span>Pelaku Ekonomi</span></h2>
-      <p class="page-subtitle">Memahami siapa saja yang terlibat dalam kegiatan ekonomi</p>
+      <div class="page-badge">📖 MATERI 1 dari 18</div>
+      <h2 class="page-title">Pengertian <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Memahami kegiatan jual beli antarnegara</p>
 
-      <p>Dalam kehidupan sehari-hari, manusia selalu berusaha memenuhi kebutuhannya. Manusia disebut sebagai <strong style="color:#38bdf8">makhluk ekonomi</strong>, yaitu manusia yang selalu berusaha memenuhi kebutuhannya dengan cara yang rasional. Kegiatan manusia untuk memenuhi kebutuhan hidupnya meliputi tiga kegiatan pokok, yaitu <strong>produksi</strong>, <strong>distribusi</strong>, dan <strong>konsumsi</strong>. Individu atau kelompok yang melakukan kegiatan ekonomi — baik konsumsi, produksi, maupun distribusi — disebut dengan <strong style="color:#38bdf8">pelaku ekonomi</strong>.</p>
+      <p>Coba lihat <em>smartphone</em>-mu. Mereknya mungkin Samsung (Korea), Apple (Amerika), atau Xiaomi (Tiongkok). Coba lihat sepatumu — mungkin buatan Vietnam atau Tiongkok. Coba lihat buah di kulkas — apel dari Amerika, jeruk dari Australia. Semua barang itu sampai ke tanganmu karena adanya <strong style="color:#38bdf8">perdagangan internasional</strong>.</p>
 
-      <div class="highlight">
-        💡 <strong>Definisi:</strong><br>
-        <strong>Pelaku ekonomi</strong> adalah semua pihak — baik perorangan, kelompok, lembaga, maupun organisasi — yang terlibat dalam kegiatan ekonomi (produksi, distribusi, dan konsumsi) untuk memenuhi kebutuhan hidup dan memengaruhi jalannya perekonomian suatu negara. Pelaku ekonomi juga bisa berarti seseorang, perusahaan, atau organisasi yang dapat memengaruhi ekonomi.
-      </div>
-
-      <h3>Mengapa Pelaku Ekonomi Penting?</h3>
-      <p>Kegiatan ekonomi tidak akan berjalan dengan baik tanpa adanya pelaku ekonomi. Setiap pelaku memiliki peran yang saling berkaitan dan saling melengkapi. Tanpa salah satu pelaku, roda perekonomian tidak akan berputar dengan seimbang.</p>
-
-      <h3>Empat Pelaku Ekonomi Utama</h3>
-      <div class="grid-2">
-        <div class="mini-card">
-          <div class="icon">🏠</div>
-          <h4>Rumah Tangga Konsumen</h4>
-          <p>Mengonsumsi barang/jasa dan menyediakan faktor produksi.</p>
-        </div>
-        <div class="mini-card">
-          <div class="icon">🏭</div>
-          <h4>Rumah Tangga Produsen</h4>
-          <p>Menghasilkan dan menyalurkan barang/jasa.</p>
-        </div>
-        <div class="mini-card">
-          <div class="icon">🏛️</div>
-          <h4>Rumah Tangga Pemerintah</h4>
-          <p>Regulator, konsumen, dan produsen.</p>
-        </div>
-        <div class="mini-card">
-          <div class="icon">🌐</div>
-          <h4>Masyarakat Luar Negeri</h4>
-          <p>Ekspor-impor, investor, dan sumber tenaga ahli.</p>
-        </div>
-      </div>
-
-      <div class="contoh">
-        🌰 <strong>Contoh sederhana:</strong> Saat kamu membeli bakso di warung, kamu berperan sebagai <em>rumah tangga konsumen</em>, penjual bakso sebagai <em>rumah tangga produsen</em>, dan pemerintah hadir lewat pajak serta fasilitas jalan yang memungkinkan transaksi terjadi.
-      </div>
-    </section>
-
-    <!-- ===== PAGE 2: PERAN RUMAH TANGGA KONSUMEN ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 2 dari 14</div>
-      <h2 class="page-title">Peran Rumah Tangga <span>Konsumen (RTK)</span></h2>
-      <p class="page-subtitle">Pelaku ekonomi paling banyak dalam perekonomian</p>
-
-      <p><strong style="color:#38bdf8">Rumah tangga konsumen</strong> adalah pelaku ekonomi yang paling banyak jumlahnya dalam perekonomian. Rumah tangga konsumen terdiri atas individu atau kelompok masyarakat yang melakukan kegiatan konsumsi atas hasil produksi, baik barang maupun jasa.</p>
-
-      <p>Rumah tangga konsumen biasanya terdiri atas ayah, ibu, anak, dan anggota keluarga lainnya yang melakukan aktivitas konsumsi barang dan jasa untuk memenuhi kebutuhan harian.</p>
-
-      <h3>Peran Rumah Tangga Konsumen</h3>
-
-      <h4>a. Sebagai Konsumen (Pengguna Barang dan Jasa)</h4>
-      <p>Rumah tangga konsumen mengonsumsi barang dan jasa yang dihasilkan oleh rumah tangga produsen untuk memenuhi kebutuhan hidupnya. Kegiatan konsumsi adalah tindakan manusia untuk mengurangi atau menghabiskan kegunaan suatu benda secara langsung maupun tidak langsung.</p>
-      <p><em>Contoh:</em> membeli makanan, pakaian, sepatu, dan alat elektronik; menggunakan jasa transportasi, pendidikan, dan kesehatan.</p>
-
-      <h4>b. Sebagai Pemasok (Penyedia) Faktor Produksi</h4>
-      <p>Rumah tangga konsumen menyediakan faktor-faktor produksi kepada rumah tangga produsen, meliputi:</p>
-
-      <table>
-        <tr><th>Faktor Produksi</th><th>Balas Jasa</th><th>Contoh</th></tr>
-        <tr><td>Tenaga Kerja (Labor)</td><td>Upah/Gaji</td><td>Bekerja sebagai karyawan pabrik</td></tr>
-        <tr><td>Tanah (Land)</td><td>Sewa</td><td>Menyewakan lahan untuk perkebunan</td></tr>
-        <tr><td>Modal (Capital)</td><td>Bunga</td><td>Menabung di bank, investasi saham</td></tr>
-        <tr><td>Keahlian (Skill)</td><td>Laba/Profit</td><td>Membuka usaha sendiri</td></tr>
-      </table>
-
-      <div class="highlight">
-        💡 <strong>Ingat!</strong> Rumah tangga konsumen menerima pendapatan berupa <strong>upah, sewa, bunga, dan laba</strong> — yang kemudian digunakan untuk membeli barang dan jasa yang dibutuhkan.
-      </div>
-
-      <div class="contoh">
-        🌰 <strong>Contoh nyata di sekitar kita:</strong>
-        <ul style="margin-top:8px;">
-          <li>Keluarga yang membeli kebutuhan sehari-hari di pasar atau warung.</li>
-          <li>Seorang ayah yang bekerja di kantor dan menerima gaji setiap bulan.</li>
-          <li>Sebuah keluarga yang menyewakan kamar kos kepada mahasiswa.</li>
-          <li>Ibu yang membayar listrik dan air setiap bulan kepada perusahaan penyedia jasa.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 3: PERAN RUMAH TANGGA PRODUSEN ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 3 dari 14</div>
-      <h2 class="page-title">Peran Rumah Tangga <span>Produsen (RTP)</span></h2>
-      <p class="page-subtitle">Penghasil barang dan jasa bagi masyarakat</p>
-
-      <p><strong style="color:#38bdf8">Rumah tangga produsen</strong> (perusahaan) adalah pelaku ekonomi yang menghasilkan barang dan jasa untuk memenuhi kebutuhan masyarakat. Produsen adalah individu atau pihak yang bertanggung jawab untuk membuat suatu benda demi memenuhi kebutuhan masyarakat.</p>
-
-      <h3>Jenis Rumah Tangga Produsen</h3>
-      <table>
-        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
-        <tr><td><strong>Milik Negara (BUMN)</strong></td><td>Dimiliki dan dikelola pemerintah</td><td>PT Pertamina, PT KAI, PLN</td></tr>
-        <tr><td><strong>Milik Swasta</strong></td><td>Dimiliki perorangan atau perusahaan swasta</td><td>Pabrik tekstil, perusahaan teknologi, UMKM</td></tr>
-      </table>
-
-      <h3>Peran Rumah Tangga Produsen</h3>
-
-      <h4>a. Sebagai Produsen (Penghasil Barang dan Jasa)</h4>
-      <p>Rumah tangga produsen memproduksi barang dan jasa yang dibutuhkan masyarakat. Kegiatan ini mencakup pengolahan bahan baku menjadi barang jadi atau setengah jadi, serta penyediaan layanan jasa.</p>
-      <p><em>Contoh:</em> pabrik roti memproduksi roti dari tepung; perusahaan ojek online menyediakan jasa transportasi.</p>
-
-      <h4>b. Sebagai Distributor (Penyalur Barang dan Jasa)</h4>
-      <p>Rumah tangga produsen tidak hanya memproduksi, tetapi juga menyalurkan barang dan jasa kepada konsumen agar barang sampai dengan tepat waktu dan tepat sasaran.</p>
-      <p><em>Contoh:</em> produsen mie instan menyalurkan produknya ke warung, minimarket, dan supermarket di berbagai daerah.</p>
-
-      <h4>c. Sebagai Agen Pembangunan</h4>
-      <p>Rumah tangga produsen berperan sebagai agen pembangunan ekonomi, yaitu dengan membuka lapangan pekerjaan, melakukan penelitian dan pengembangan produk, serta berpartisipasi dalam meningkatkan pertumbuhan ekonomi suatu wilayah atau negara.</p>
-      <p><em>Contoh:</em> perusahaan startup yang menciptakan lapangan kerja baru di bidang teknologi digital.</p>
-
-      <div class="contoh">
-        🌰 <strong>Contoh nyata di sekitar kita:</strong>
-        <ul style="margin-top:8px;">
-          <li>Petani yang menanam padi dan menjual hasil panennya ke pasar.</li>
-          <li>Pabrik sepatu yang memproduksi dan mendistribusikan sepatu ke toko-toko.</li>
-          <li>Warung makan yang menyediakan makanan bagi warga sekitar.</li>
-          <li>Perusahaan teknologi yang menciptakan aplikasi dan layanan digital.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 4: PERAN RUMAH TANGGA PEMERINTAH ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 4 dari 14</div>
-      <h2 class="page-title">Peran Rumah Tangga <span>Pemerintah (RTN)</span></h2>
-      <p class="page-subtitle">Pelaku ekonomi dengan peran ganda</p>
-
-      <p><strong style="color:#38bdf8">Rumah tangga pemerintah</strong> adalah pelaku ekonomi yang memiliki peran ganda dalam perekonomian. Pemerintah tidak hanya mengatur dan mengendalikan jalannya roda perekonomian, tetapi juga terlibat langsung sebagai konsumen dan produsen. Secara umum, pemerintah memiliki tiga peran penting: <strong>regulator, konsumen, dan produsen</strong>.</p>
-
-      <h3>Tiga Peran Penting Pemerintah</h3>
-
-      <h4>a. Sebagai Regulator (Pengatur dan Pengendali Perekonomian)</h4>
-      <p>Pemerintah berperan sebagai pengatur jalannya perekonomian bangsa melalui penetapan kebijakan ekonomi, seperti kebijakan fiskal (pajak dan belanja negara), kebijakan moneter (suku bunga dan jumlah uang beredar), serta kebijakan perdagangan internasional. Sebagai regulator, pemerintah mengatur perekonomian untuk menyejahterakan masyarakat agar tidak terjadi kesenjangan.</p>
-      <p><em>Contoh:</em> pemerintah menetapkan tarif pajak, mengatur harga bahan bakar, dan membuat undang-undang ketenagakerjaan.</p>
-
-      <h4>b. Sebagai Konsumen</h4>
-      <p>Pemerintah membelanjakan anggaran negara untuk membeli barang dan jasa yang diperlukan untuk menjalankan fungsinya. Ini mencakup belanja rutin (gaji pegawai, pembelian alat kantor) dan belanja pembangunan (pembangunan infrastruktur seperti jalan, jembatan, dan sekolah).</p>
-
-      <h4>c. Sebagai Produsen</h4>
-      <p>Pemerintah memiliki perusahaan-perusahaan negara (BUMN) yang menyediakan barang dan jasa bagi masyarakat. Sebagai produsen, salah satu kewajiban pemerintah adalah menyediakan barang dan jasa yang tidak dapat dihasilkan secara efisien oleh pihak swasta.</p>
-      <p><em>Contoh:</em> PT Pertamina mengelola minyak bumi dan gas; PT KAI menyediakan jasa transportasi kereta api; PLN menyediakan listrik bagi masyarakat.</p>
-
-      <div class="highlight">
-        💡 <strong>Peran Ganda Pemerintah:</strong><br>
-        🎛️ <strong>Regulator</strong> — mengatur kebijakan ekonomi<br>
-        🛒 <strong>Konsumen</strong> — membelanjakan anggaran negara<br>
-        🏭 <strong>Produsen</strong> — menyediakan barang/jasa melalui BUMN
-      </div>
-
-      <div class="contoh">
-        🌰 <strong>Contoh nyata di sekitar kita:</strong>
-        <ul style="margin-top:8px;">
-          <li>Pemerintah membangun jalan dan jembatan untuk meningkatkan keterhubungan antardaerah.</li>
-          <li>Pemerintah memberikan bantuan sosial kepada masyarakat yang membutuhkan.</li>
-          <li>PT Pertamina menyediakan bahan bakar minyak bagi seluruh masyarakat Indonesia.</li>
-          <li>Pemerintah menetapkan kebijakan pajak untuk menjaga keseimbangan ekonomi.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 5: PERAN MASYARAKAT LUAR NEGERI ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 5 dari 14</div>
-      <h2 class="page-title">Peran Masyarakat <span>Luar Negeri (RTMLN)</span></h2>
-      <p class="page-subtitle">Pelaku ekonomi dari negara lain dalam perekonomian global</p>
-
-      <p><strong style="color:#38bdf8">Masyarakat luar negeri</strong> adalah pelaku ekonomi yang berasal dari negara lain yang terlibat dalam kegiatan perekonomian suatu negara, terutama melalui perdagangan internasional dan kerja sama ekonomi antarnegara.</p>
-
-      <p>Dalam era globalisasi, setiap negara tidak bisa berdiri sendiri — negara-negara saling bekerja sama dalam perdagangan dan investasi. Peranan masyarakat luar negeri meliputi pemberi bantuan, investor, produsen, konsumen, dan tenaga ahli.</p>
-
-      <h3>Lima Peran Masyarakat Luar Negeri</h3>
-
-      <h4>a. Sebagai Konsumen (Pembeli Barang Ekspor)</h4>
-      <p>Masyarakat luar negeri membeli produk-produk Indonesia melalui kegiatan ekspor.</p>
-      <p><em>Contoh:</em> negara Jepang membeli kopi, karet, dan minyak kelapa sawit dari Indonesia; wisatawan mancanegara berbelanja produk kerajinan Indonesia.</p>
-
-      <h4>b. Sebagai Produsen (Penjual Barang Impor)</h4>
-      <p>Masyarakat luar negeri memproduksi dan menjual barang serta jasa ke Indonesia melalui kegiatan impor. Misalnya, masyarakat luar negeri mengekspor plastik, mesin, peralatan elektronik, hingga kendaraan untuk memenuhi kebutuhan masyarakat Indonesia.</p>
-      <p><em>Contoh:</em> Indonesia mengimpor mesin, peralatan elektronik, dan kendaraan dari Jepang, Korea Selatan, dan Tiongkok.</p>
-
-      <h4>c. Sebagai Investor (Penanam Modal)</h4>
-      <p>Masyarakat luar negeri menanamkan modalnya di Indonesia melalui investasi langsung (foreign direct investment) maupun investasi portofolio.</p>
-      <p><em>Contoh:</em> perusahaan asing membangun pabrik di Indonesia dan menciptakan lapangan kerja.</p>
-
-      <h4>d. Sebagai Sumber Tenaga Ahli</h4>
-      <p>Masyarakat luar negeri menyediakan tenaga-tenaga ahli yang membantu meningkatkan kualitas produksi dan alih teknologi di Indonesia.</p>
-      <p><em>Contoh:</em> insinyur dan konsultan dari luar negeri yang bekerja di proyek-proyek infrastruktur.</p>
-
-      <h4>e. Sebagai Sumber Devisa Negara</h4>
-      <p>Melalui kegiatan ekspor dan kerja sama ekonomi, masyarakat luar negeri menjadi sumber devisa bagi Indonesia yang digunakan untuk membiayai pembangunan nasional.</p>
-
-      <div class="contoh">
-        🌰 <strong>Contoh nyata di sekitar kita:</strong>
-        <ul style="margin-top:8px;">
-          <li>Produk elektronik merek Korea dan Jepang yang dijual di toko-toko Indonesia.</li>
-          <li>Wisatawan asing yang berlibur ke Bali dan membeli suvenir lokal.</li>
-          <li>Perusahaan asing yang membuka cabang di Indonesia dan mempekerjakan tenaga kerja lokal.</li>
-          <li>Barang-barang impor seperti buah-buahan dari Thailand dan Australia di supermarket.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 6: PERAN KOPERASI ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 6 dari 14</div>
-      <h2 class="page-title">Peran <span>Koperasi</span> dalam Perekonomian</h2>
-      <p class="page-subtitle">Sokoguru perekonomian rakyat Indonesia</p>
-
-      <p>Selain empat pelaku ekonomi utama, <strong style="color:#38bdf8">koperasi</strong> merupakan pelaku ekonomi penting yang berazaskan kekeluargaan dan gotong royong. Koperasi memiliki fungsi strategis dalam beberapa aspek ekonomi, antara lain meningkatkan kesejahteraan anggota, menyediakan lapangan kerja, mendukung pemerataan ekonomi, memperkuat usaha kecil dan menengah (UKM), serta berkontribusi dalam pengembangan produk domestik bruto (PDB) Indonesia.</p>
+      <p>Pada dasarnya, tidak ada satu negara pun di dunia ini yang dapat memenuhi seluruh kebutuhannya sendiri. Indonesia punya banyak kelapa sawit, tetapi tidak bisa menanam gandum karena iklimnya tropis. Jepang punya teknologi canggih, tetapi tidak punya minyak bumi. Arab Saudi punya minyak melimpah, tetapi tidak bisa menanam padi. Dari keterbatasan inilah muncul kebutuhan untuk saling bekerja sama.</p>
 
       <div class="highlight">
         💡 <strong>Definisi:</strong><br>
-        <strong>Koperasi</strong> adalah badan usaha yang beranggotakan orang-seorang atau badan hukum koperasi dengan melandaskan kegiatannya berdasarkan prinsip koperasi sekaligus sebagai gerakan ekonomi rakyat yang berdasar atas azas kekeluargaan.
+        <strong>Perdagangan internasional</strong> adalah kegiatan transaksi jual beli barang dan jasa antara satu negara dengan negara lain, yang mencakup kegiatan <strong>ekspor</strong> (menjual ke luar negeri) dan <strong>impor</strong> (membeli dari luar negeri). Perdagangan internasional terjadi karena adanya perbedaan sumber daya dan kebutuhan antarnegara.
       </div>
 
-      <h3>Peran Koperasi dalam Perekonomian</h3>
+      <h3>Perbedaan Perdagangan Dalam Negeri vs Internasional</h3>
+      <p>Mungkin kamu bertanya, apa bedanya jual beli di pasar dengan jual beli antarnegara? Ternyata ada beberapa perbedaan penting:</p>
+
       <table>
-        <tr><th>Peran</th><th>Penjelasan</th><th>Contoh</th></tr>
-        <tr><td><strong>Meningkatkan kesejahteraan anggota</strong></td><td>Koperasi membantu anggota memperoleh kebutuhan dengan harga lebih murah dan memberikan layanan simpan pinjam.</td><td>Koperasi simpan pinjam di lingkungan sekolah atau desa.</td></tr>
-        <tr><td><strong>Menyediakan lapangan kerja</strong></td><td>Koperasi menciptakan lapangan kerja bagi pengurus, karyawan, dan anggotanya.</td><td>Koperasi karyawan di perusahaan.</td></tr>
-        <tr><td><strong>Mendukung pemerataan ekonomi</strong></td><td>Koperasi membantu agar hasil pembangunan dapat dinikmati secara lebih merata.</td><td>Koperasi unit desa (KUD) di pedesaan.</td></tr>
-        <tr><td><strong>Memperkuat UKM</strong></td><td>Koperasi membantu usaha kecil mendapatkan akses pasar, modal, dan pembiayaan.</td><td>Koperasi yang menaungi pedagang pasar.</td></tr>
-        <tr><td><strong>Kontribusi terhadap PDB</strong></td><td>Koperasi dan UMKM berkontribusi besar terhadap produk domestik bruto Indonesia.</td><td>Koperasi dan UMKM menyumbang sekitar 61% PDB nasional.</td></tr>
+        <tr><th>Aspek</th><th>Perdagangan Dalam Negeri</th><th>Perdagangan Internasional</th></tr>
+        <tr><td>Mata Uang</td><td>Sama (Rupiah)</td><td>Berbeda (harus ditukar via kurs)</td></tr>
+        <tr><td>Pajak</td><td>Hanya pajak dalam negeri</td><td>Ada bea masuk, cukai, tarif</td></tr>
+        <tr><td>Dokumen</td><td>Sederhana (nota, kwitansi)</td><td>Kompleks (faktur, PIB, PE, L/C)</td></tr>
+        <tr><td>Jarak</td><td>Dekat, cepat</td><td>Jauh, butuh transportasi khusus</td></tr>
+        <tr><td>Hukum</td><td>Satu hukum nasional</td><td>Hukum internasional + kesepakatan</td></tr>
       </table>
 
-      <h3>Prinsip Koperasi</h3>
-      <ul>
-        <li>Keanggotaan bersifat sukarela dan terbuka.</li>
-        <li>Pengelolaan dilakukan secara demokratis.</li>
-        <li>Pembagian sisa hasil usaha (SHU) dilakukan secara adil sebanding dengan jasa usaha masing-masing anggota.</li>
-        <li>Pemberian balas jasa yang terbatas terhadap modal.</li>
-        <li>Kemandirian.</li>
-      </ul>
+      <h3>Mengapa Negara Melakukan Perdagangan Internasional?</h3>
+      <p>Setiap negara punya kondisi yang berbeda-beda. Perbedaan inilah yang mendorong terjadinya pertukaran barang dan jasa yang saling menguntungkan.</p>
 
-      <h3>Jenis Koperasi di Indonesia</h3>
-      <table>
-        <tr><th>Jenis Koperasi</th><th>Penjelasan</th><th>Contoh</th></tr>
-        <tr><td><strong>Koperasi Konsumsi</strong></td><td>Menyediakan barang kebutuhan sehari-hari bagi anggota.</td><td>Koperasi sekolah, koperasi karyawan.</td></tr>
-        <tr><td><strong>Koperasi Simpan Pinjam</strong></td><td>Menghimpun dan meminjamkan dana kepada anggota.</td><td>Kospin di desa.</td></tr>
-        <tr><td><strong>Koperasi Produksi</strong></td><td>Membantu anggota dalam kegiatan produksi dan pemasaran.</td><td>Koperasi petani, koperasi nelayan.</td></tr>
-        <tr><td><strong>Koperasi Jasa</strong></td><td>Menyediakan layanan jasa bagi anggota.</td><td>Koperasi angkutan, koperasi asuransi.</td></tr>
-      </table>
-
-      <div class="contoh">
-        🌰 <strong>Contoh nyata di sekitar kita:</strong>
-        <ul style="margin-top:8px;">
-          <li>Kamu membeli buku dan alat tulis di koperasi sekolah dengan harga lebih murah.</li>
-          <li>Petani di desa bergabung dalam KUD untuk menjual hasil panen bersama-sama.</li>
-          <li>Karyawan pabrik meminjam modal usaha melalui koperasi karyawan.</li>
-          <li>Koperasi Desa Merah Putih sebagai upaya revitalisasi koperasi desa di era modern.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 7: HUBUNGAN ANTAR PELAKU EKONOMI ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 7 dari 14</div>
-      <h2 class="page-title">Hubungan <span>Antar Pelaku Ekonomi</span></h2>
-      <p class="page-subtitle">Saling membutuhkan dan saling melengkapi</p>
-
-      <p>Para pelaku ekonomi tidak bisa bekerja sendiri-sendiri. Mereka saling berhubungan dan saling membutuhkan. Hubungan ini dapat digambarkan melalui <strong style="color:#38bdf8">arus lingkar kegiatan ekonomi</strong> (<em>circular flow diagram</em>).</p>
-
-      <h3>Bentuk Hubungan Antar Pelaku</h3>
-      <table>
-        <tr><th>Dari</th><th>Ke</th><th>Bentuk Hubungan</th></tr>
-        <tr><td>RTK</td><td>RTP</td><td>Menyediakan faktor produksi (tenaga kerja, tanah, modal)</td></tr>
-        <tr><td>RTP</td><td>RTK</td><td>Membayar balas jasa (upah, sewa, bunga, laba) & menjual barang/jasa</td></tr>
-        <tr><td>RTK & RTP</td><td>Pemerintah</td><td>Membayar pajak</td></tr>
-        <tr><td>Pemerintah</td><td>RTK & RTP</td><td>Memberi subsidi, transfer payment, fasilitas publik</td></tr>
-        <tr><td>RTP</td><td>Luar Negeri</td><td>Ekspor barang/jasa</td></tr>
-        <tr><td>Luar Negeri</td><td>RTP</td><td>Impor barang/jasa & investasi</td></tr>
-      </table>
-
-      <h3>Dua Pasar Utama</h3>
       <div class="grid-2">
         <div class="mini-card">
-          <div class="icon">🛒</div>
-          <h4>Pasar Faktor Produksi</h4>
-          <p>Tempat RTK menawarkan faktor produksi (tenaga kerja, tanah, modal, keahlian) kepada RTP.</p>
+          <div class="icon">🌏</div>
+          <h4>Perbedaan Sumber Daya Alam</h4>
+          <p>Indonesia kaya minyak sawit, Arab Saudi kaya minyak bumi, Brasil kaya kopi.</p>
         </div>
         <div class="mini-card">
-          <div class="icon">🏬</div>
-          <h4>Pasar Barang & Jasa</h4>
-          <p>Tempat RTP menawarkan hasil produksinya kepada RTK, pemerintah, dan masyarakat luar negeri.</p>
+          <div class="icon">🌤️</div>
+          <h4>Perbedaan Iklim</h4>
+          <p>Indonesia tropis menghasilkan kopi; Jepang subtropis menghasilkan apel.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">⚙️</div>
+          <h4>Perbedaan Teknologi</h4>
+          <p>Jepang unggul elektronik; Indonesia unggul tekstil dan kerajinan.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">👥</div>
+          <h4>Perbedaan Tenaga Kerja</h4>
+          <p>Tiongkok punya tenaga kerja melimpah untuk produksi massal.</p>
         </div>
       </div>
 
-      <div class="highlight">
-        💡 <strong>Intinya:</strong> Semakin baik hubungan antar pelaku ekonomi, semakin lancar roda perekonomian suatu negara. Jika salah satu pelaku terganggu, pelaku lain pun akan terkena dampaknya.
-      </div>
-    </section>
-
-    <!-- ===== PAGE 8: CIRCULAR FLOW DIAGRAM ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 8 dari 14</div>
-      <h2 class="page-title">Circular Flow <span>Diagram</span></h2>
-      <p class="page-subtitle">Arus barang, jasa, dan uang antar pelaku ekonomi</p>
-
-      <p><strong style="color:#38bdf8">Circular flow diagram</strong> adalah diagram yang menggambarkan arus uang dan barang antar pelaku ekonomi. Diagram ini menunjukkan interaksi antara pasar input (pasar faktor produksi) dan pasar output (pasar hasil produksi).</p>
-
-      <h3>A. Perekonomian 2 Sektor (Sederhana)</h3>
-      <p>Melibatkan <strong>Rumah Tangga Konsumen (RTK)</strong> dan <strong>Rumah Tangga Produsen (RTP)</strong>.</p>
-
-      <div class="peta-konsep" style="text-align:left; padding:20px;">
-        <p style="color:#7dd3fc; margin-bottom:8px;"><strong>Arus Barang & Jasa:</strong></p>
-        <p style="color:#cbd5e1; font-size:13px;">RTK menyediakan faktor produksi → RTP memproduksi barang/jasa → RTP menjual ke RTK → RTK mengonsumsi.</p>
-        <p style="color:#7dd3fc; margin:15px 0 8px;"><strong>Arus Uang:</strong></p>
-        <p style="color:#cbd5e1; font-size:13px;">RTP membayar sewa, upah, bunga, laba ke RTK → RTK membeli barang/jasa dari RTP.</p>
-      </div>
-
-      <h3>B. Perekonomian 3 Sektor</h3>
-      <p>Ditambah <strong>Pemerintah</strong>. Pemerintah menarik pajak dari RTK & RTP, lalu menyediakan fasilitas publik dan memberikan subsidi.</p>
-
-      <div class="peta-konsep" style="text-align:left; padding:20px;">
-        <p style="color:#cbd5e1; font-size:13px;">
-          RTK & RTP → <strong style="color:#fbbf24">pajak</strong> → Pemerintah<br>
-          Pemerintah → <strong style="color:#34d399">subsidi & fasilitas publik</strong> → RTK & RTP<br>
-          Pemerintah → <strong style="color:#38bdf8">membeli barang/jasa</strong> → RTP
-        </p>
-      </div>
-
-      <h3>C. Perekonomian 4 Sektor (Terbuka)</h3>
-      <p>Ditambah <strong>Masyarakat Luar Negeri</strong>. Terjadi ekspor, impor, investasi asing, dan pertukaran tenaga ahli.</p>
-
-      <div class="peta-konsep" style="text-align:left; padding:20px;">
-        <p style="color:#cbd5e1; font-size:13px;">
-          RTP → <strong style="color:#34d399">ekspor</strong> → Luar Negeri<br>
-          Luar Negeri → <strong style="color:#fbbf24">impor & investasi</strong> → RTP<br>
-          Luar Negeri → <strong style="color:#38bdf8">tenaga ahli & devisa</strong> → Indonesia
-        </p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu punya kebun mangga yang sangat banyak di rumah. Tetangga sebelahmu punya pohon rambutan yang sangat banyak. Daripada mangga kamu busuk dan kamu tidak punya rambutan, kamu menukar 5 kg mangga dengan 3 kg rambutan. Itulah <em>intinya</em> perdagangan — dua pihak saling menukar apa yang mereka punya dan butuhkan. Dalam skala negara, proses ini sama saja, hanya saja lebih besar dan menggunakan mata uang.
       </div>
 
       <div class="highlight">
-        💡 <strong>Intinya:</strong> Semakin banyak sektor, semakin kompleks arus uang & barangnya, tetapi prinsipnya tetap saling menguntungkan.
+        💡 <strong>Analogi sederhana:</strong><br>
+        Perdagangan internasional seperti kamu dan temanmu bertukar kartu koleksi. Kamu punya banyak kartu api, temanmu punya banyak kartu air. Dengan bertukar, kalian berdua mendapat kartu yang lebih lengkap. Tidak ada yang rugi — semua untung!
       </div>
     </section>
 
-    <!-- ===== PAGE 9: PELAKU EKONOMI ERA DIGITAL ===== -->
+    <!-- ===== PAGE 2: FAKTOR PENDORONG ===== -->
     <section class="page">
-      <div class="page-badge">📖 MATERI 9 dari 14</div>
-      <h2 class="page-title">Pelaku Ekonomi di <span>Era Digital</span></h2>
-      <p class="page-subtitle">Transformasi peran pelaku ekonomi di zaman teknologi</p>
+      <div class="page-badge">📖 MATERI 2 dari 18</div>
+      <h2 class="page-title">Faktor Pendorong <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Alasan-alasan mengapa negara saling berdagang</p>
 
-      <p>Perkembangan teknologi digital telah mengubah cara pelaku ekonomi berinteraksi. Kini transaksi bisa dilakukan tanpa tatap muka, bahkan lintas negara dalam hitungan detik.</p>
+      <p>Mengapa suatu negara memutuskan untuk berdagang dengan negara lain? Ada banyak faktor yang mendorongnya, baik dari dalam negeri maupun dari luar negeri. Memahami faktor-faktor ini penting agar kita mengerti akar dari aktivitas ekonomi global.</p>
 
-      <h3>Perubahan Peran di Era Digital</h3>
+      <h3>Enam Faktor Utama Pendorong Perdagangan Internasional</h3>
+
+      <h4>1. Perbedaan Sumber Daya Alam</h4>
+      <p>Setiap negara memiliki kekayaan alam yang berbeda. Ada negara yang kaya minyak bumi, ada yang kaya hasil pertanian, ada yang kaya mineral. Perbedaan inilah yang membuat negara saling membutuhkan.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Indonesia memiliki lahan luas di Kalimantan dan Sumatra untuk kelapa sawit. Setiap tahun, Indonesia mengekspor sekitar 30 juta ton minyak sawit ke India, Tiongkok, dan Uni Eropa. Sebaliknya, Indonesia tidak memiliki ladang gandum yang luas, sehingga mengimpor gandum dari Australia dan Ukraina.
+      </div>
+
+      <h4>2. Perbedaan Iklim dan Kondisi Geografis</h4>
+      <p>Iklim sangat memengaruhi jenis tanaman yang dapat tumbuh. Negara tropis (Indonesia, Brasil) dapat menanam kopi, karet, dan kelapa. Negara subtropis (Jepang, Amerika) menanam gandum, apel, dan anggur.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Kopi Arabika hanya bisa tumbuh di dataran tinggi tropis. Karena itulah kopi Gayo dari Aceh dan kopi Toraja dari Sulawesi sangat terkenal di dunia. Sebaliknya, apel Fuji hanya tumbuh baik di daerah dingin seperti Jepang dan Amerika.
+      </div>
+
+      <h4>3. Perbedaan Teknologi dan Keahlian</h4>
+      <p>Negara maju seperti Jepang, Jerman, dan Korea Selatan memiliki teknologi canggih. Negara berkembang seperti Indonesia punya tenaga kerja melimpah dan sumber daya alam. Keduanya saling melengkapi.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Indonesia mengimpor mesin pabrik dari Jerman (teknologi canggih) dan mengekspor tekstil ke Jerman (tenaga kerja melimpah). Jerman untung karena mendapat tekstil murah; Indonesia untung karena mendapat mesin untuk produksi.
+      </div>
+
+      <h4>4. Perbedaan Selera Masyarakat</h4>
+      <p>Masyarakat di suatu negara mungkin menyukai produk dari negara lain, meskipun produk serupa diproduksi di dalam negeri.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Banyak orang Indonesia menyukai <em>smartphone</em> merek Samsung (Korea) atau iPhone (Amerika) meskipun ada merek lokal. Sebaliknya, orang Korea dan Jepang menyukai kopi Indonesia karena rasanya yang khas.
+      </div>
+
+      <h4>5. Keinginan Memperoleh Keuntungan dan Memperluas Pasar</h4>
+      <p>Produsen ingin menjual produknya ke lebih banyak konsumen. Semakin luas pasar, semakin besar keuntungan yang bisa diperoleh.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Mie instan Indomie awalnya hanya dijual di Indonesia. Sekarang, Indomie dijual di lebih dari 100 negara dan menjadi favorit di Nigeria, Arab Saudi, dan Australia. Pasar yang luas membuat keuntungan perusahaan naik drastis.
+      </div>
+
+      <h4>6. Adanya Kelebihan Produksi</h4>
+      <p>Ketika suatu negara memproduksi barang melebihi kebutuhan dalam negeri, kelebihan itu dapat dijual ke luar negeri.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Indonesia setiap tahun memproduksi lebih dari 7 juta ton kopi, sementara konsumsi dalam negeri hanya sekitar 5 juta ton. Kelebihan 2 juta ton ini diekspor ke berbagai negara.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Perdagangan internasional terjadi bukan karena satu faktor saja, melainkan kombinasi dari beberapa faktor di atas. Semakin banyak faktor yang mendorong, semakin besar peluang terjadinya perdagangan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 3: TEORI PERDAGANGAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 3 dari 18</div>
+      <h2 class="page-title">Teori <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Dasar pemikiran para ahli ekonomi tentang perdagangan antarnegara</p>
+
+      <p>Mengapa negara saling berdagang? Ada dua teori klasik yang menjelaskan hal ini, yaitu teori <strong style="color:#38bdf8">Keunggulan Mutlak</strong> dari Adam Smith dan teori <strong style="color:#38bdf8">Keunggulan Komparatif</strong> dari David Ricardo. Keduanya masih menjadi dasar pemikiran ekonomi hingga saat ini.</p>
+
+      <h3>A. Teori Keunggulan Mutlak (Absolute Advantage) — Adam Smith</h3>
+      <p>Teori ini dikemukakan oleh <strong>Adam Smith</strong> (1723–1790), bapak ekonomi modern, dalam bukunya <em>"The Wealth of Nations"</em> (1776). Inti teorinya sederhana:</p>
+
+      <div class="highlight">
+        💡 <strong>Inti Teori Keunggulan Mutlak:</strong><br>
+        Setiap negara sebaiknya <strong>berspesialisasi</strong> pada produksi barang yang dapat dihasilkan <strong>lebih efisien</strong> (lebih murah/lebih banyak) dibandingkan negara lain. Barang yang tidak efisien diproduksi sendiri sebaiknya diimpor dari negara yang lebih efisien.
+      </div>
+
+      <h4>Contoh Sederhana Keunggulan Mutlak</h4>
+      <p>Misalkan ada dua negara: Indonesia dan Jepang. Keduanya memproduksi <strong>kain</strong> dan <strong>elektronik</strong>. Dalam satu hari kerja:</p>
+
       <table>
-        <tr><th>Pelaku</th><th>Dulu</th><th>Sekarang (Era Digital)</th></tr>
+        <tr><th>Negara</th><th>Kain (meter/hari)</th><th>Elektronik (unit/hari)</th></tr>
+        <tr><td><strong>Indonesia</strong></td><td>100 meter</td><td>20 unit</td></tr>
+        <tr><td><strong>Jepang</strong></td><td>50 meter</td><td>80 unit</td></tr>
+      </table>
+
+      <p><strong>Analisis:</strong></p>
+      <ul>
+        <li>Indonesia lebih efisien membuat kain (100 vs 50) → <strong>keunggulan mutlak di kain</strong>.</li>
+        <li>Jepang lebih efisien membuat elektronik (80 vs 20) → <strong>keunggulan mutlak di elektronik</strong>.</li>
+        <li>Solusi: Indonesia fokus produksi kain dan mengekspornya ke Jepang; Jepang fokus produksi elektronik dan mengekspornya ke Indonesia.</li>
+        <li>Hasil: Kedua negara mendapatkan lebih banyak barang dengan total produksi yang sama.</li>
+      </ul>
+
+      <h3>B. Teori Keunggulan Komparatif (Comparative Advantage) — David Ricardo</h3>
+      <p>Teori ini dikemukakan oleh <strong>David Ricardo</strong> (1772–1823). Ricardo menyempurnakan teori Smith dengan pertanyaan: <em>Bagaimana jika satu negara lebih unggul di semua bidang?</em></p>
+
+      <div class="highlight">
+        💡 <strong>Inti Teori Keunggulan Komparatif:</strong><br>
+        Meskipun suatu negara lebih unggul di <strong>semua</strong> bidang, negara itu tetap bisa untung berdagang, asalkan ia <strong>berspesialisasi</strong> pada barang yang <strong>biaya peluangnya paling rendah</strong> (relative lebih efisien).
+      </div>
+
+      <h4>Contoh Sederhana Keunggulan Komparatif</h4>
+      <p>Misalkan Jepang lebih unggul di kain <em>dan</em> elektronik, tetapi keunggulannya di elektronik jauh lebih besar. Dalam satu hari kerja:</p>
+
+      <table>
+        <tr><th>Negara</th><th>Kain (meter/hari)</th><th>Elektronik (unit/hari)</th></tr>
+        <tr><td><strong>Indonesia</strong></td><td>100 meter</td><td>20 unit</td></tr>
+        <tr><td><strong>Jepang</strong></td><td>120 meter</td><td>100 unit</td></tr>
+      </table>
+
+      <p><strong>Analisis:</strong></p>
+      <ul>
+        <li>Jepang unggul di keduanya (kain 120 vs 100; elektronik 100 vs 20).</li>
+        <li>Tetapi, keunggulan Jepang di elektronik <strong>jauh lebih besar</strong> (5x lipat) dibandingkan di kain (1,2x lipat).</li>
+        <li>Jika Jepang fokus ke elektronik dan Indonesia fokus ke kain, total produksi dunia akan lebih besar.</li>
+        <li>Jepang dan Indonesia tetap sama-sama untung karena bisa mendapatkan lebih banyak barang.</li>
+      </ul>
+
+      <h3>Perbandingan Kedua Teori</h3>
+      <table>
+        <tr><th>Aspek</th><th>Keunggulan Mutlak</th><th>Keunggulan Komparatif</th></tr>
+        <tr><td>Pencetus</td><td>Adam Smith</td><td>David Ricardo</td></tr>
+        <tr><td>Tahun</td><td>1776</td><td>1817</td></tr>
+        <tr><td>Dasar</td><td>Efisiensi absolut</td><td>Biaya peluang relatif</td></tr>
+        <tr><td>Kapan berlaku</td><td>Jika tiap negara unggul di 1 bidang</td><td>Berlaku bahkan jika 1 negara unggul di semua bidang</td></tr>
+        <tr><td>Kesimpulan</td><td>Spesialisasi di bidang unggul</td><td>Spesialisasi di bidang paling efisien relatif</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu jago matematika <em>dan</em> jago bahasa Inggris. Temanmu hanya jago bahasa Inggris. Menurut teori keunggulan mutlak, kamu lebih baik mengerjakan PR matematika sendiri. Tetapi menurut teori komparatif: kamu sebaiknya fokus ke matematika (karena kamu jauh lebih unggul di sana), dan menyuruh temanmu mengerjakan bagian bahasa Inggris. Kalian berdua untung!
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Kesimpulan:</strong> Kedua teori ini menjelaskan bahwa perdagangan internasional <strong>bukan permainan menang-kalah</strong>, melainkan <strong>saling menguntungkan</strong> jika setiap negara berspesialisasi sesuai keunggulannya.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>Profil Pelajar Pancasila — Bernalar Kritis:</strong><br>
+        Setelah memahami kedua teori ini, coba pikirkan: Menurutmu, apakah Indonesia sudah berspesialisasi pada bidang yang tepat? Mengapa?
+      </div>
+    </section>
+
+    <!-- ===== PAGE 4: MANFAAT ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 4 dari 18</div>
+      <h2 class="page-title">Manfaat <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Keuntungan yang diperoleh dari kegiatan jual beli antarnegara</p>
+
+      <p>Perdagangan internasional memberikan banyak manfaat bagi negara-negara yang terlibat. Manfaat ini tidak hanya dirasakan oleh pemerintah, tetapi juga oleh produsen dan konsumen. Mari kita bahas satu per satu dengan contoh nyata.</p>
+
+      <h3>Manfaat bagi Pemerintah</h3>
+      <table>
+        <tr><th>Manfaat</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
         <tr>
-          <td>🏠 RTK</td>
-          <td>Membeli di pasar tradisional</td>
-          <td>Belanja online via e-commerce, dompet digital</td>
+          <td><strong>Memperoleh Devisa</strong></td>
+          <td>Ekspor menghasilkan devisa yang digunakan untuk membiayai pembangunan dan impor barang modal.</td>
+          <td>Ekspor CPO Indonesia tahun 2022 mencapai USD 30 miliar, menjadi salah satu sumber devisa terbesar.</td>
         </tr>
         <tr>
-          <td>🏭 RTP</td>
-          <td>Menjual lewat toko fisik</td>
-          <td>Berjualan di marketplace, media sosial, & website</td>
+          <td><strong>Meningkatkan Pendapatan Negara</strong></td>
+          <td>Pajak dan bea masuk dari kegiatan ekspor-impor menambah penerimaan negara.</td>
+          <td>Bea masuk impor elektronik menyumbang puluhan triliun rupiah ke kas negara setiap tahun.</td>
         </tr>
         <tr>
-          <td>🏛️ Pemerintah</td>
-          <td>Layanan manual & tatap muka</td>
-          <td>E-government, pajak online, bansos digital</td>
+          <td><strong>Mempererat Hubungan Antarnegara</strong></td>
+          <td>Kerja sama dagang mempererat hubungan diplomatik dan politik.</td>
+          <td>Hubungan Indonesia-Tiongkok semakin erat setelah keduanya menjadi mitra dagang utama.</td>
         </tr>
         <tr>
-          <td>🌐 Luar Negeri</td>
-          <td>Perdagangan lewat pelabuhan</td>
-          <td>E-commerce lintas negara, transfer digital</td>
+          <td><strong>Meningkatkan Pertumbuhan Ekonomi</strong></td>
+          <td>Ekspor mendorong produksi dan menciptakan lapangan kerja.</td>
+          <td>Industri tekstil Indonesia menyerap lebih dari 3 juta tenaga kerja, sebagian besar untuk ekspor.</td>
         </tr>
       </table>
 
-      <h3>Fenomena Baru dalam Ekonomi Digital</h3>
+      <h3>Manfaat bagi Produsen</h3>
       <ul>
-        <li><strong>Marketplace & e-commerce</strong> — menghubungkan produsen dan konsumen tanpa perantara fisik.</li>
-        <li><strong>Dompet digital (e-wallet)</strong> — menggantikan uang tunai dalam transaksi.</li>
-        <li><strong>UMKM Go Digital</strong> — UMKM dapat menjangkau pasar lebih luas.</li>
-        <li><strong>Fintech & pinjaman online</strong> — layanan keuangan berbasis teknologi.</li>
-        <li><strong>Ekonomi kreator</strong> — content creator menjadi pelaku ekonomi baru.</li>
+        <li><strong>Memperluas Pasar</strong> — produk dapat dijual ke lebih banyak negara, sehingga keuntungan meningkat. <em>Contoh: Indomie kini dijual di 100+ negara.</em></li>
+        <li><strong>Meningkatkan Produksi</strong> — permintaan yang tinggi mendorong produsen menambah kapasitas produksi. <em>Contoh: pabrik tekstil di Bandung menambah mesin karena permintaan ekspor naik.</em></li>
+        <li><strong>Transfer Teknologi</strong> — kerja sama dengan negara maju memungkinkan produsen lokal belajar teknologi baru. <em>Contoh: pabrik mobil Indonesia belajar teknologi hybrid dari Jepang.</em></li>
+        <li><strong>Meningkatkan Kualitas Produk</strong> — persaingan global mendorong produsen terus berinovasi. <em>Contoh: produk kerajinan rotan Indonesia kini lebih rapi karena bersaing di pasar Eropa.</em></li>
+        <li><strong>Mendapatkan Bahan Baku Lebih Murah</strong> — impor bahan baku dari negara yang lebih efisien. <em>Contoh: produsen tekstil mengimpor kapas dari Amerika dengan harga lebih murah.</em></li>
       </ul>
 
-      <h3>Peran Koperasi di Era Digital</h3>
-      <p>Koperasi juga bertransformasi mengikuti perkembangan zaman. Koperasi dapat menjadi institusi yang mengonsolidasikan kekuatan ekonomi rakyat agar usaha kecil tidak berjalan sendiri-sendiri. Melalui koperasi, pelaku usaha dapat memperoleh efisiensi melalui pembelian bersama, akses pasar yang lebih luas, pembiayaan yang lebih terjangkau, hingga pengembangan produk berbasis kebutuhan pasar. Koperasi Desa Merah Putih merupakan contoh revitalisasi koperasi desa dengan memadukan nilai-nilai asli koperasi dengan mekanisme tata kelola modern dan dukungan teknologi keuangan.</p>
+      <h3>Manfaat bagi Konsumen</h3>
+      <ul>
+        <li><strong>Memperoleh Barang yang Tidak Diproduksi di Dalam Negeri</strong> — konsumen dapat menikmati produk dari seluruh dunia. <em>Contoh: kita bisa makan apel Fuji dari Jepang, keju dari Belanda, atau kurma dari Arab Saudi.</em></li>
+        <li><strong>Harga Lebih Murah</strong> — persaingan antarnegara menekan harga. <em>Contoh: harga smartphone sekarang jauh lebih murah dibandingkan 10 tahun lalu karena persaingan global.</em></li>
+        <li><strong>Pilihan Lebih Beragam</strong> — konsumen punya banyak pilihan produk dengan kualitas dan harga berbeda. <em>Contoh: di supermarket, ada beras lokal, beras Thailand, dan beras Vietnam.</em></li>
+        <li><strong>Kualitas Lebih Baik</strong> — persaingan mendorong produsen meningkatkan mutu. <em>Contoh: produk lokal Indonesia kini sering menembus pasar ekspor karena kualitasnya.</em></li>
+      </ul>
 
       <div class="contoh">
-        🌰 <strong>Contoh:</strong> Seorang siswa SMP membuka usaha kue secara online melalui Instagram dan menerima pembayaran via QRIS. Ia telah menjadi <em>rumah tangga produsen digital</em> yang terhubung dengan konsumen, bank digital, dan pemerintah (pajak) sekaligus.
+        🌰 <strong>Contoh nyata dan sederhana dalam kehidupan sehari-hari:</strong><br>
+        Bayangkan kamu ingin membeli laptop untuk sekolah. Tanpa perdagangan internasional, kamu hanya bisa membeli laptop buatan Indonesia yang mungkin belum canggih. Dengan adanya perdagangan internasional, kamu bisa memilih laptop dari berbagai merek (Asus dari Taiwan, Lenovo dari Tiongkok, HP dari Amerika), dengan harga bersaing dan kualitas yang terbukti. Itulah manfaat nyata bagi konsumen!
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Kesimpulan:</strong> Perdagangan internasional menciptakan <em>win-win solution</em> — semua pihak yang terlibat mendapatkan keuntungan, selama dilakukan secara adil dan seimbang.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 5: EKSPOR DAN IMPOR ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 5 dari 18</div>
+      <h2 class="page-title">Ekspor dan <span>Impor</span></h2>
+      <p class="page-subtitle">Dua kegiatan utama dalam perdagangan internasional</p>
+
+      <p>Perdagangan internasional tidak bisa dilepaskan dari dua kegiatan utama, yaitu <strong style="color:#38bdf8">ekspor</strong> dan <strong style="color:#38bdf8">impor</strong>. Keduanya merupakan jantung dari aktivitas ekonomi antarnegara. Mari kita bahas secara lengkap dengan contoh nyata.</p>
+
+      <h3>A. Ekspor</h3>
+      <p><strong>Ekspor</strong> adalah kegiatan menjual barang atau jasa dari dalam negeri ke luar negeri. Pelaku yang melakukan ekspor disebut <strong>eksportir</strong>. Tujuan utama ekspor adalah memperoleh devisa dan memperluas pasar produk dalam negeri.</p>
+
+      <h4>Jenis-Jenis Ekspor</h4>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Ekspor Langsung</strong></td>
+          <td>Produsen menjual langsung ke pembeli di luar negeri tanpa perantara.</td>
+          <td>PT Pertamina menjual minyak mentah langsung ke perusahaan Jepang.</td>
+        </tr>
+        <tr>
+          <td><strong>Ekspor Tidak Langsung</strong></td>
+          <td>Produsen menjual melalui perantara (eksportir) di dalam negeri.</td>
+          <td>Petani kopi Gayo menjual hasil panen ke eksportir di Medan, yang kemudian mengirimnya ke Eropa.</td>
+        </tr>
+      </table>
+
+      <h4>Komoditas Ekspor Unggulan Indonesia</h4>
+      <table>
+        <tr><th>Komoditas</th><th>Negara Tujuan Utama</th><th>Nilai Ekspor (perkiraan)</th></tr>
+        <tr><td>Minyak Kelapa Sawit (CPO)</td><td>India, Tiongkok, Uni Eropa</td><td>USD 30 miliar/tahun</td></tr>
+        <tr><td>Batu Bara</td><td>Tiongkok, India, Jepang</td><td>USD 25 miliar/tahun</td></tr>
+        <tr><td>Tekstil & Produk Tekstil</td><td>Amerika, Jepang, Uni Eropa</td><td>USD 13 miliar/tahun</td></tr>
+        <tr><td>Karet & Produk Karet</td><td>Amerika, Tiongkok, Jepang</td><td>USD 5 miliar/tahun</td></tr>
+        <tr><td>Kopi</td><td>Amerika, Jepang, Jerman</td><td>USD 1,2 miliar/tahun</td></tr>
+      </table>
+
+      <h3>B. Impor</h3>
+      <p><strong>Impor</strong> adalah kegiatan membeli barang atau jasa dari luar negeri. Pelaku yang melakukan impor disebut <strong>importir</strong>. Impor dilakukan untuk memenuhi kebutuhan dalam negeri yang tidak dapat diproduksi sendiri atau untuk memperoleh barang dengan harga lebih murah.</p>
+
+      <h4>Jenis-Jenis Impor</h4>
+      <table>
+        <tr><th>Jenis</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Impor Barang Konsumsi</strong></td>
+          <td>Barang yang langsung digunakan konsumen.</td>
+          <td>Buah apel dari Amerika, daging sapi dari Australia, smartphone dari Korea.</td>
+        </tr>
+        <tr>
+          <td><strong>Impor Barang Modal</strong></td>
+          <td>Barang yang digunakan untuk produksi (mesin, alat berat).</td>
+          <td>Mesin pabrik dari Jerman, alat berat dari Jepang, pesawat dari Amerika.</td>
+        </tr>
+        <tr>
+          <td><strong>Impor Bahan Baku</strong></td>
+          <td>Bahan yang diolah menjadi barang jadi.</td>
+          <td>Kapas dari Amerika untuk tekstil, gandum dari Australia untuk tepung.</td>
+        </tr>
+      </table>
+
+      <h4>Komoditas Impor Utama Indonesia</h4>
+      <table>
+        <tr><th>Komoditas</th><th>Negara Asal</th><th>Alasan Impor</th></tr>
+        <tr><td>Gandum</td><td>Australia, Ukraina, Kanada</td><td>Tidak bisa tumbuh optimal di iklim tropis</td></tr>
+        <tr><td>Mesin & Peralatan</td><td>Jerman, Jepang, Tiongkok</td><td>Teknologi dalam negeri belum cukup canggih</td></tr>
+        <tr><td>Bahan Bakar Minyak</td><td>Arab Saudi, Nigeria</td><td>Konsumsi BBM dalam negeri melebihi produksi</td></tr>
+        <tr><td>Kedelai</td><td>Amerika, Brasil</td><td>Produksi dalam negeri belum mencukupi</td></tr>
+        <tr><td>Elektronik</td><td>Tiongkok, Korea, Jepang</td><td>Harga lebih murah & teknologi lebih maju</td></tr>
+      </table>
+
+      <h3>Perbedaan Ekspor dan Impor</h3>
+      <table>
+        <tr><th>Aspek</th><th>Ekspor</th><th>Impor</th></tr>
+        <tr><td>Arah Barang</td><td>Keluar dari Indonesia</td><td>Masuk ke Indonesia</td></tr>
+        <tr><td>Pelaku</td><td>Eksportir</td><td>Importir</td></tr>
+        <tr><td>Dampak Devisa</td><td>Menambah devisa</td><td>Mengurangi devisa</td></tr>
+        <tr><td>Dampak Produksi</td><td>Mendorong produksi dalam negeri</td><td>Bisa mengancam industri lokal</td></tr>
+        <tr><td>Tujuan</td><td>Memperoleh devisa & pasar</td><td>Memenuhi kebutuhan dalam negeri</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Kamu punya pohon mangga di rumah yang berbuah sangat banyak. Karena tidak habis dimakan sendiri, kamu menjual 20 kg mangga ke tetangga kompleks sebelah. Itu <strong>ekspor</strong> versi sederhana.<br><br>
+        Di sisi lain, kamu tidak punya pohon rambutan, padahal kamu ingin makan rambutan. Maka kamu membeli rambutan dari tetangga yang punya pohon rambutan. Itu <strong>impor</strong> versi sederhana.<br><br>
+        Dalam skala negara, prosesnya sama — hanya saja menggunakan mata uang asing, dokumen resmi, dan pengiriman jarak jauh.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Fakta menarik:</strong> Indonesia adalah salah satu negara pengekspor minyak kelapa sawit terbesar di dunia. Komoditas ekspor utama Indonesia antara lain: minyak kelapa sawit, batu bara, tekstil, karet, dan kopi. Sementara impor utama Indonesia adalah gandum, mesin, BBM, kedelai, dan elektronik.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 6: ALAT & CARA PEMBAYARAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 6 dari 18</div>
+      <h2 class="page-title">Alat & Cara <span>Pembayaran Internasional</span></h2>
+      <p class="page-subtitle">Bagaimana transaksi antarnegara diselesaikan?</p>
+
+      <p>Ketika Indonesia mengekspor kopi ke Jepang, bagaimana cara Jepang membayarnya? Tidak mungkin menggunakan uang tunai dalam jumlah besar. Ada sistem dan alat pembayaran khusus yang digunakan dalam perdagangan internasional. Memahami ini penting agar kita mengerti mekanisme di balik transaksi ekspor-impor.</p>
+
+      <h3>Alat Pembayaran Internasional</h3>
+
+      <h4>1. Valuta Asing (Foreign Exchange)</h4>
+      <p>Valuta asing atau <em>forex</em> adalah mata uang asing yang digunakan untuk pembayaran internasional. Contoh: dolar AS (USD), yen Jepang (JPY), euro (EUR), yuan Tiongkok (CNY).</p>
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Eksportir Indonesia menerima pembayaran dalam USD. Uang itu kemudian ditukar ke rupiah di bank dengan kurs yang berlaku.
+      </div>
+
+      <h4>2. Wesel (Bill of Exchange / Draft)</h4>
+      <p>Wesel adalah surat perintah membayar sejumlah uang kepada pihak tertentu pada waktu tertentu. Wesel digunakan sebagai alat pembayaran yang sah dan dapat diperjualbelikan.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Eksportir Indonesia mengirim wesel ke importir Jepang. Wesel berisi perintah agar importir membayar USD 100.000 dalam 30 hari.
+      </div>
+
+      <h4>3. Letter of Credit (L/C)</h4>
+      <p>L/C adalah surat jaminan dari bank importir yang menjamin pembayaran kepada eksportir. L/C adalah alat pembayaran yang paling aman dan paling umum dalam perdagangan internasional.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Importir Jepang membuka L/C di banknya untuk eksportir Indonesia. Bank Jepang menjamin bahwa jika eksportir mengirim barang sesuai kontrak, bank akan membayar. Eksportir merasa aman, importir juga aman.
+      </div>
+
+      <h4>4. Cek dan Bilyet Giro</h4>
+      <p>Cek adalah surat perintah pembayaran kepada bank untuk membayar sejumlah uang. Bilyet giro adalah surat perintah pemindahbukuan sejumlah uang dari rekening.</p>
+
+      <h4>5. Uang Elektronik / Transfer Bank</h4>
+      <p>Di era digital, pembayaran internasional juga dilakukan melalui transfer bank (SWIFT) atau uang elektronik.</p>
+      <div class="contoh">
+        🌰 <strong>Contoh:</strong> Perusahaan Indonesia mentransfer USD 50.000 ke perusahaan Tiongkok melalui sistem SWIFT. Uang sampai dalam hitungan jam.
+      </div>
+
+      <h3>Cara Pembayaran Internasional</h3>
+
+      <table>
+        <tr><th>Cara Pembayaran</th><th>Penjelasan</th><th>Risiko</th></tr>
+        <tr>
+          <td><strong>Advance Payment</strong></td>
+          <td>Importir membayar dulu, baru barang dikirim.</td>
+          <td>Aman untuk eksportir, berisiko untuk importir.</td>
+        </tr>
+        <tr>
+          <td><strong>Open Account</strong></td>
+          <td>Barang dikirim dulu, pembayaran kemudian (30-90 hari).</td>
+          <td>Aman untuk importir, berisiko untuk eksportir.</td>
+        </tr>
+        <tr>
+          <td><strong>Letter of Credit (L/C)</strong></td>
+          <td>Bank menjamin pembayaran jika syarat terpenuhi.</td>
+          <td>Aman untuk kedua pihak.</td>
+        </tr>
+        <tr>
+          <td><strong>Collection (Wesel Inkaso)</strong></td>
+          <td>Bank menagih pembayaran atas nama eksportir.</td>
+          <td>Risiko sedang.</td>
+        </tr>
+        <tr>
+          <td><strong>Consignment</strong></td>
+          <td>Barang dikirim, dibayar setelah terjual.</td>
+          <td>Risiko tinggi untuk eksportir.</td>
+        </tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu menjual kue ke teman sekelasmu.<br>
+        <ul style="margin-top:8px;">
+          <li><strong>Advance Payment:</strong> Temanmu bayar dulu, baru kamu kasih kue.</li>
+          <li><strong>Open Account:</strong> Kamu kasih kue dulu, temanmu bayar besok.</li>
+          <li><strong>L/C:</strong> Kamu minta guru menjadi penjamin. Jika temanmu tidak bayar, guru yang bayar.</li>
+        </ul>
+        Itulah gambaran sederhana cara pembayaran internasional!
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Dalam perdagangan internasional, <strong>L/C</strong> adalah cara pembayaran yang paling aman dan paling banyak digunakan karena melindungi kepentingan eksportir dan importir sekaligus.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 7: NERACA PERDAGANGAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 7 dari 18</div>
+      <h2 class="page-title">Neraca Perdagangan <span>& Pembayaran</span></h2>
+      <p class="page-subtitle">Mengukur kesehatan ekonomi antarnegara</p>
+
+      <p>Ketika suatu negara melakukan ekspor dan impor, kita perlu mengetahui apakah negara tersebut untung atau rugi. Alat untuk mengukurnya adalah <strong style="color:#38bdf8">neraca perdagangan</strong> dan <strong style="color:#38bdf8">neraca pembayaran</strong>. Mari kita bahas dengan perhitungan sederhana.</p>
+
+      <h3>A. Neraca Perdagangan (Trade Balance)</h3>
+      <p><strong>Neraca perdagangan</strong> adalah selisih antara total nilai ekspor dan total nilai impor suatu negara dalam periode tertentu. Neraca perdagangan disebut juga <em>ekspor neto</em>.</p>
+
+      <div class="highlight">
+        💡 <strong>Rumus:</strong><br>
+        <strong>Neraca Perdagangan = Total Ekspor − Total Impor</strong>
+      </div>
+
+      <h4>Tiga Kondisi Neraca Perdagangan</h4>
+      <table>
+        <tr><th>Kondisi</th><th>Penjelasan</th><th>Artinya</th></tr>
+        <tr>
+          <td><strong style="color:#34d399;">Surplus</strong></td>
+          <td>Ekspor > Impor</td>
+          <td>Negara menerima lebih banyak devisa. Ekonomi sehat.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fbbf24;">Defisit</strong></td>
+          <td>Ekspor < Impor</td>
+          <td>Negara mengeluarkan lebih banyak devisa. Perlu perhatian.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#38bdf8;">Seimbang</strong></td>
+          <td>Ekspor = Impor</td>
+          <td>Nilai ekspor dan impor sama. Jarang terjadi.</td>
+        </tr>
+      </table>
+
+      <h4>Contoh Perhitungan Neraca Perdagangan</h4>
+      <div class="kalkulasi">
+        <strong>Data Perdagangan Indonesia Tahun 2023 (ilustrasi):</strong><br>
+        Total Ekspor = Rp 2.500 triliun<br>
+        Total Impor = Rp 2.300 triliun<br><br>
+        <strong>Neraca Perdagangan = Ekspor − Impor</strong><br>
+        = Rp 2.500 triliun − Rp 2.300 triliun<br>
+        = <span class="hasil">Rp 200 triliun (SURPLUS)</span><br><br>
+        <em>Artinya: Indonesia menerima devisa lebih banyak Rp 200 triliun daripada yang dikeluarkan. Surplus ini menambah cadangan devisa negara.</em>
+      </div>
+
+      <h4>Contoh Perhitungan Defisit</h4>
+      <div class="kalkulasi">
+        <strong>Data Perdagangan Negara X (ilustrasi):</strong><br>
+        Total Ekspor = Rp 1.800 triliun<br>
+        Total Impor = Rp 2.100 triliun<br><br>
+        <strong>Neraca Perdagangan = Ekspor − Impor</strong><br>
+        = Rp 1.800 triliun − Rp 2.100 triliun<br>
+        = <span class="hasil" style="color:#fbbf24;">−Rp 300 triliun (DEFISIT)</span><br><br>
+        <em>Artinya: Negara X mengeluarkan devisa lebih banyak Rp 300 triliun daripada yang diterima.</em>
+      </div>
+
+      <h3>B. Neraca Pembayaran (Balance of Payments)</h3>
+      <p><strong>Neraca pembayaran</strong> adalah catatan sistematis yang mencatat semua transaksi ekonomi antara penduduk suatu negara dengan penduduk negara lain dalam periode tertentu. Neraca pembayaran lebih luas daripada neraca perdagangan karena mencakup tidak hanya barang dan jasa, tetapi juga investasi, pinjaman, dan transfer.</p>
+
+      <h4>Komponen Neraca Pembayaran</h4>
+      <ul>
+        <li><strong>Transaksi Berjalan (Current Account)</strong> — mencakup ekspor-impor barang dan jasa, pendapatan investasi, dan transfer.</li>
+        <li><strong>Transaksi Modal (Capital Account)</strong> — mencakup investasi langsung, investasi portofolio, dan pinjaman jangka panjang.</li>
+        <li><strong>Transaksi Moneter (Financial Account)</strong> — mencakup perubahan cadangan devisa dan aliran modal jangka pendek.</li>
+      </ul>
+
+      <h3>Perbedaan Neraca Perdagangan vs Neraca Pembayaran</h3>
+      <table>
+        <tr><th>Aspek</th><th>Neraca Perdagangan</th><th>Neraca Pembayaran</th></tr>
+        <tr><td>Cakupan</td><td>Hanya barang dan jasa</td><td>Barang, jasa, investasi, pinjaman, transfer</td></tr>
+        <tr><td>Kelengkapan</td><td>Sebagian</td><td>Menyeluruh</td></tr>
+        <tr><td>Pengguna</td><td>Indikator sederhana</td><td>Indikator utama ekonomi</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu punya catatan pengeluaran dan pemasukan pribadi.<br>
+        <ul style="margin-top:8px;">
+          <li><strong>Neraca perdagangan</strong> seperti catatan: uang jajanmu vs uang yang kamu belanjakan untuk makanan.</li>
+          <li><strong>Neraca pembayaran</strong> seperti catatan: seluruh pengeluaran dan pemasukanmu — termasuk tabungan, utang ke teman, dan uang hadiah dari keluarga.</li>
+        </ul>
+        Neraca pembayaran lebih lengkap karena mencakup semua aspek keuangan.
       </div>
 
       <div class="warning">
-        ⚠️ <strong>Tantangan:</strong> Selain peluang, era digital juga membawa tantangan seperti keamanan data, penipuan online, dan kesenjangan digital. Pelaku ekonomi harus bijak dan literat secara digital.
+        ⚠️ <strong>Penting:</strong> Defisit neraca perdagangan yang berkepanjangan dapat melemahkan nilai tukar rupiah dan mengurangi cadangan devisa. Oleh karena itu, pemerintah berupaya meningkatkan ekspor dan mengendalikan impor.
       </div>
     </section>
 
-    <!-- ===== PAGE 10: PETA KONSEP ===== -->
+    <!-- ===== PAGE 8: DEVIS A & KURS ===== -->
     <section class="page">
-      <div class="page-badge">📖 MATERI 10 dari 14</div>
+      <div class="page-badge">📖 MATERI 8 dari 18</div>
+      <h2 class="page-title">Devisa & <span>Kurs Valuta Asing</span></h2>
+      <p class="page-subtitle">Alat pembayaran dan nilai tukar mata uang antarnegara</p>
+
+      <h3>A. Devisa</h3>
+      <p><strong>Devisa</strong> adalah alat pembayaran luar negeri yang sah dan dapat diterima secara internasional, biasanya berupa mata uang asing seperti dolar Amerika Serikat (USD), euro (EUR), atau yen Jepang (JPY). Devisa sangat penting bagi suatu negara karena digunakan untuk membiayai impor, membayar utang luar negeri, dan menjaga stabilitas ekonomi.</p>
+
+      <h4>Sumber-Sumber Devisa</h4>
+      <table>
+        <tr><th>Sumber</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Ekspor Barang dan Jasa</strong></td>
+          <td>Sumber devisa terbesar bagi Indonesia.</td>
+          <td>Ekspor CPO, batu bara, tekstil menghasilkan puluhan miliar USD per tahun.</td>
+        </tr>
+        <tr>
+          <td><strong>Pariwisata</strong></td>
+          <td>Wisatawan asing yang berlibur ke Indonesia membawa devisa.</td>
+          <td>Bali menerima lebih dari 5 juta wisatawan asing per tahun, menyumbang devisa miliaran USD.</td>
+        </tr>
+        <tr>
+          <td><strong>Investasi Asing</strong></td>
+          <td>Perusahaan asing yang menanamkan modal di Indonesia.</td>
+          <td>Pabrik mobil Jepang, perusahaan tambang Amerika, startup Tiongkok.</td>
+        </tr>
+        <tr>
+          <td><strong>Pinjaman Luar Negeri</strong></td>
+          <td>Utang atau kredit dari negara lain atau lembaga internasional.</td>
+          <td>Pinjaman dari IMF, Bank Dunia, atau negara sahabat.</td>
+        </tr>
+        <tr>
+          <td><strong>Kiriman TKI</strong></td>
+          <td>Uang yang dikirim pekerja migran ke keluarga di Indonesia.</td>
+          <td>Tenaga kerja Indonesia di Malaysia, Arab Saudi, dan Hong Kong mengirim devisa miliaran USD.</td>
+        </tr>
+      </table>
+
+      <h3>B. Kurs Valuta Asing</h3>
+      <p><strong>Kurs valuta asing</strong> adalah perbandingan nilai mata uang suatu negara dengan mata uang negara lain. Kurs ini menunjukkan berapa banyak rupiah yang diperlukan untuk membeli satu dolar AS, misalnya.</p>
+
+      <h4>Jenis-Jenis Kurs</h4>
+      <table>
+        <tr><th>Jenis Kurs</th><th>Penjelasan</th><th>Contoh</th></tr>
+        <tr><td><strong>Kurs Jual</strong></td><td>Kurs yang ditetapkan bank ketika bank menjual mata uang asing kepada nasabah.</td><td>Bank menjual 1 USD = Rp 15.500</td></tr>
+        <tr><td><strong>Kurs Beli</strong></td><td>Kurs yang ditetapkan bank ketika bank membeli mata uang asing dari nasabah.</td><td>Bank membeli 1 USD = Rp 15.300</td></tr>
+        <tr><td><strong>Kurs Tengah</strong></td><td>Kurs rata-rata antara kurs jual dan kurs beli.</td><td>(15.500 + 15.300) ÷ 2 = Rp 15.400</td></tr>
+      </table>
+
+      <h4>Sistem Kurs</h4>
+      <ul>
+        <li><strong>Kurs Tetap</strong> — nilai tukar ditetapkan oleh pemerintah dan tidak berubah dalam periode tertentu.</li>
+        <li><strong>Kurs Bebas (Mengambang)</strong> — nilai tukar ditentukan oleh permintaan dan penawaran di pasar valuta asing.</li>
+        <li><strong>Kurs Mengambang Terkendali</strong> — pemerintah ikut campur untuk menjaga stabilitas nilai tukar.</li>
+      </ul>
+
+      <h4>Contoh Perhitungan Kurs</h4>
+      <div class="kalkulasi">
+        <strong>Kasus 1: Menukar Rupiah ke Dolar AS</strong><br>
+        Kurs jual 1 USD = Rp 15.500<br>
+        Kamu punya Rp 1.550.000, ingin tukar ke USD.<br>
+        USD yang didapat = Rp 1.550.000 ÷ 15.500<br>
+        = <span class="hasil">100 USD</span><br><br>
+
+        <strong>Kasus 2: Menukar Dolar AS ke Rupiah</strong><br>
+        Kurs beli 1 USD = Rp 15.300<br>
+        Kamu punya 100 USD, ingin tukar ke rupiah.<br>
+        Rupiah yang didapat = 100 × 15.300<br>
+        = <span class="hasil">Rp 1.530.000</span>
+      </div>
+
+      <h4>Faktor yang Mempengaruhi Kurs</h4>
+      <ul>
+        <li><strong>Permintaan dan Penawaran Valuta Asing</strong> — jika banyak orang butuh USD, harga USD naik.</li>
+        <li><strong>Inflasi</strong> — inflasi tinggi melemahkan nilai mata uang.</li>
+        <li><strong>Suku Bunga</strong> — suku bunga tinggi menarik investor, mata uang menguat.</li>
+        <li><strong>Neraca Perdagangan</strong> — surplus memperkuat mata uang, defisit melemahkan.</li>
+        <li><strong>Stabilitas Politik</strong> — negara stabil cenderung memiliki mata uang kuat.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu pergi ke money changer untuk menukar uang. Jika kamu ingin membeli dolar AS, kamu akan dikenakan <strong>kurs jual</strong> (lebih mahal). Sebaliknya, jika kamu ingin menukar dolar AS ke rupiah, kamu akan dikenakan <strong>kurs beli</strong> (lebih murah). Selisih ini adalah keuntungan bank atau money changer.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Jika permintaan terhadap dolar AS meningkat, maka kurs dolar AS akan naik (rupiah melemah). Sebaliknya, jika penawaran dolar AS meningkat, kurs dolar AS akan turun (rupiah menguat).
+      </div>
+    </section>
+
+    <!-- ===== PAGE 9: KEBIJAKAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 9 dari 18</div>
+      <h2 class="page-title">Kebijakan <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Cara pemerintah mengatur dan melindungi perekonomian</p>
+
+      <p>Perdagangan internasional tidak selalu berjalan mulus. Pemerintah perlu mengambil kebijakan untuk melindungi industri dalam negeri dan menjaga keseimbangan ekonomi. Ada dua pendekatan utama: <strong style="color:#38bdf8">proteksi</strong> (melindungi) dan <strong style="color:#38bdf8">liberalisasi</strong> (membuka pasar).</p>
+
+      <h3>A. Kebijakan Proteksi</h3>
+      <p><strong>Kebijakan proteksi</strong> adalah kebijakan pemerintah untuk melindungi industri dalam negeri dari persaingan barang impor. Tujuannya adalah agar produsen lokal tidak kalah bersaing.</p>
+
+      <table>
+        <tr><th>Instrumen</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Tarif (Bea Masuk)</strong></td>
+          <td>Pajak yang dikenakan pada barang impor.</td>
+          <td>Pemerintah mengenakan tarif 10% untuk sepatu impor agar sepatu lokal bisa bersaing.</td>
+        </tr>
+        <tr>
+          <td><strong>Kuota Impor</strong></td>
+          <td>Pembatasan jumlah barang impor yang boleh masuk.</td>
+          <td>Pemerintah membatasi impor beras maksimal 1 juta ton per tahun.</td>
+        </tr>
+        <tr>
+          <td><strong>Subsidi</strong></td>
+          <td>Bantuan pemerintah kepada produsen lokal agar harga jual lebih murah.</td>
+          <td>Subsidi pupuk untuk petani agar produksi padi meningkat dan harga beras terjangkau.</td>
+        </tr>
+        <tr>
+          <td><strong>Dumping</strong></td>
+          <td>Menjual barang di luar negeri dengan harga lebih murah daripada di dalam negeri.</td>
+          <td>Perusahaan asing menjual baja dengan harga sangat murah di Indonesia untuk mematikan pesaing lokal.</td>
+        </tr>
+        <tr>
+          <td><strong>Diskriminasi Harga</strong></td>
+          <td>Menetapkan harga berbeda untuk pasar yang berbeda.</td>
+          <td>Obat dijual lebih mahal di negara maju, lebih murah di negara berkembang.</td>
+        </tr>
+        <tr>
+          <td><strong>Larangan Impor</strong></td>
+          <td>Pemerintah melarang impor barang tertentu.</td>
+          <td>Indonesia melarang impor pakaian bekas untuk melindungi industri tekstil lokal.</td>
+        </tr>
+      </table>
+
+      <h3>B. Kebijakan Liberalisasi</h3>
+      <p><strong>Kebijakan liberalisasi</strong> adalah kebijakan yang membuka pasar seluas-luasnya bagi barang dan jasa dari luar negeri. Tujuannya adalah meningkatkan efisiensi dan persaingan.</p>
+      <ul>
+        <li><strong>Penurunan Tarif</strong> — mengurangi atau menghapus bea masuk.</li>
+        <li><strong>Perjanjian Perdagangan Bebas</strong> — seperti AFTA (ASEAN Free Trade Area) dan MEA (Masyarakat Ekonomi ASEAN).</li>
+        <li><strong>Penyederhanaan Prosedur Impor</strong> — mempermudah proses masuknya barang.</li>
+      </ul>
+
+      <h3>Perbandingan Proteksi vs Liberalisasi</h3>
+      <table>
+        <tr><th>Aspek</th><th>Proteksi</th><th>Liberalisasi</th></tr>
+        <tr><td>Tujuan</td><td>Melindungi industri lokal</td><td>Meningkatkan efisiensi & persaingan</td></tr>
+        <tr><td>Harga Barang</td><td>Lebih mahal</td><td>Lebih murah</td></tr>
+        <tr><td>Industri Lokal</td><td>Terlindungi</td><td>Harus bersaing</td></tr>
+        <tr><td>Konsumen</td><td>Pilihan terbatas</td><td>Pilihan beragam</td></tr>
+        <tr><td>Contoh</td><td>Tarif, kuota, subsidi</td><td>AFTA, MEA, penurunan tarif</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu punya warung kopi di sekolah. Tiba-tiba ada penjual kopi dari sekolah lain yang menjual kopi lebih murah. Kamu punya dua pilihan:<br><br>
+        <strong>Proteksi:</strong> Kamu minta guru melarang penjual luar masuk ke sekolah agar kamu tetap punya pelanggan. Ini melindungi usahamu, tetapi siswa lain tidak bisa menikmati kopi murah.<br><br>
+        <strong>Liberalisasi:</strong> Kamu biarkan penjual luar masuk, tetapi kamu berusaha meningkatkan kualitas dan pelayananmu agar tetap unggul. Ini lebih sehat, tetapi kamu harus berusaha lebih keras.<br><br>
+        Pemerintah menghadapi dilema yang sama dalam skala negara.
+      </div>
+
+      <div class="warning">
+        ⚠️ <strong>Perdebatan:</strong> Kebijakan proteksi melindungi industri lokal tetapi membuat harga barang lebih mahal. Kebijakan liberalisasi membuat harga lebih murah tetapi bisa mengancam industri lokal. Pemerintah harus mencari keseimbangan yang tepat.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 10: HAMBATAN ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 10 dari 18</div>
+      <h2 class="page-title">Hambatan <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Tantangan yang dihadapi dalam perdagangan antarnegara</p>
+
+      <p>Meskipun perdagangan internasional memberikan banyak manfaat, ada berbagai hambatan yang dapat mengurangi kelancaran kegiatan ini. Hambatan-hambatan tersebut dapat berasal dari kebijakan pemerintah maupun kondisi alam dan teknologi.</p>
+
+      <h3>Jenis-Jenis Hambatan</h3>
+      <table>
+        <tr><th>Hambatan</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Tarif Tinggi</strong></td>
+          <td>Pajak impor yang terlalu tinggi membuat harga barang impor mahal.</td>
+          <td>Tarif impor mobil mewah 50% membuat harga mobil impor sangat mahal di Indonesia.</td>
+        </tr>
+        <tr>
+          <td><strong>Kuota Impor</strong></td>
+          <td>Pembatasan jumlah barang yang boleh masuk.</td>
+          <td>Kuota impor gula membuat jumlah gula impor dibatasi, sehingga produsen lokal terlindungi.</td>
+        </tr>
+        <tr>
+          <td><strong>Larangan Impor</strong></td>
+          <td>Pemerintah melarang impor barang tertentu.</td>
+          <td>Indonesia melarang impor pakaian bekas untuk melindungi industri tekstil.</td>
+        </tr>
+        <tr>
+          <td><strong>Standar Kualitas</strong></td>
+          <td>Barang impor harus memenuhi standar tertentu (SNI, ISO).</td>
+          <td>Produk elektronik impor harus memiliki sertifikasi SNI agar bisa dijual di Indonesia.</td>
+        </tr>
+        <tr>
+          <td><strong>Biaya Transportasi</strong></td>
+          <td>Jarak yang jauh dan biaya pengiriman mahal.</td>
+          <td>Mengirim barang dari Indonesia ke Eropa membutuhkan biaya kapal dan asuransi yang mahal.</td>
+        </tr>
+        <tr>
+          <td><strong>Perbedaan Bahasa dan Budaya</strong></td>
+          <td>Komunikasi dan negosiasi menjadi lebih sulit.</td>
+          <td>Negosiasi eksportir Indonesia dengan importir Jepang harus melalui penerjemah.</td>
+        </tr>
+        <tr>
+          <td><strong>Nilai Tukar yang Tidak Stabil</strong></td>
+          <td>Fluktuasi kurs membuat harga tidak pasti.</td>
+          <td>Jika rupiah melemah, importir harus membayar lebih banyak untuk barang yang sama.</td>
+        </tr>
+        <tr>
+          <td><strong>Kebijakan Politik</strong></td>
+          <td>Ketegangan politik antarnegara menghambat perdagangan.</td>
+          <td>Perang dagang Amerika-Tiongkok membuat tarif barang naik drastis.</td>
+        </tr>
+      </table>
+
+      <h3>Dampak Hambatan bagi Pelaku Ekonomi</h3>
+      <table>
+        <tr><th>Pelaku</th><th>Dampak</th></tr>
+        <tr><td>Eksportir</td><td>Pendapatan menurun karena pasar menyempit atau biaya naik.</td></tr>
+        <tr><td>Importir</td><td>Biaya impor naik, harga jual ke konsumen meningkat.</td></tr>
+        <tr><td>Konsumen</td><td>Harga barang mahal, pilihan terbatas.</td></tr>
+        <tr><td>Pemerintah</td><td>Penerimaan negara dari bea masuk naik, tetapi hubungan dagang bisa memburuk.</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu ingin membeli mainan impor dari luar negeri. Tiba-tiba pemerintah menaikkan tarif impor mainan menjadi 40%. Harga mainan yang tadinya Rp 100.000 menjadi Rp 140.000. Sebagai konsumen, kamu jadi berpikir dua kali untuk membeli. Itulah dampak hambatan tarif bagi konsumen.<br><br>
+        Bagi produsen mainan lokal, kebijakan ini menguntungkan karena mereka bisa bersaing dengan harga lebih murah. Jadi, hambatan bisa menguntungkan satu pihak dan merugikan pihak lain.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Intinya:</strong> Hambatan perdagangan bisa bersifat <em>tarif</em> (berupa pajak) maupun <em>non-tarif</em> (berupa kuota, larangan, standar). Setiap hambatan memiliki dampak bagi produsen, konsumen, dan pemerintah.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 11: DAMPAK ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 11 dari 18</div>
+      <h2 class="page-title">Dampak <span>Perdagangan Internasional</span></h2>
+      <p class="page-subtitle">Sisi positif dan negatif dari perdagangan antarnegara</p>
+
+      <p>Perdagangan internasional membawa dampak yang besar bagi perekonomian suatu negara. Dampak ini bisa bersifat positif maupun negatif, tergantung bagaimana negara tersebut mengelolanya.</p>
+
+      <h3>Dampak Positif</h3>
+      <table>
+        <tr><th>Dampak</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Memperoleh Barang yang Tidak Diproduksi di Dalam Negeri</strong></td>
+          <td>Konsumen dapat menikmati produk dari seluruh dunia.</td>
+          <td>Orang Indonesia bisa makan apel Fuji dari Jepang, kurma dari Arab Saudi.</td>
+        </tr>
+        <tr>
+          <td><strong>Meningkatkan Devisa Negara</strong></td>
+          <td>Ekspor menghasilkan devisa untuk pembangunan.</td>
+          <td>Ekspor CPO tahun 2022 menyumbang USD 30 miliar devisa.</td>
+        </tr>
+        <tr>
+          <td><strong>Memperluas Lapangan Kerja</strong></td>
+          <td>Industri ekspor membutuhkan lebih banyak tenaga kerja.</td>
+          <td>Industri tekstil menyerap 3 juta tenaga kerja Indonesia.</td>
+        </tr>
+        <tr>
+          <td><strong>Mendorong Kemajuan Teknologi</strong></td>
+          <td>Transfer teknologi dari negara maju ke negara berkembang.</td>
+          <td>Pabrik mobil Indonesia belajar teknologi hybrid dari Jepang.</td>
+        </tr>
+        <tr>
+          <td><strong>Meningkatkan Kualitas Produk</strong></td>
+          <td>Persaingan global mendorong produsen berinovasi.</td>
+          <td>Produk kerajinan rotan Indonesia kini lebih rapi karena bersaing di pasar Eropa.</td>
+        </tr>
+        <tr>
+          <td><strong>Mempererat Hubungan Antarnegara</strong></td>
+          <td>Kerja sama ekonomi mempererat hubungan diplomatik.</td>
+          <td>Hubungan Indonesia-Tiongkok semakin erat setelah menjadi mitra dagang utama.</td>
+        </tr>
+        <tr>
+          <td><strong>Harga Barang Lebih Murah</strong></td>
+          <td>Persaingan antarnegara menekan harga.</td>
+          <td>Harga smartphone turun drastis dalam 10 tahun terakhir.</td>
+        </tr>
+      </table>
+
+      <h3>Dampak Negatif</h3>
+      <table>
+        <tr><th>Dampak</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Industri Lokal Terancam</strong></td>
+          <td>Barang impor yang lebih murah dapat mematikan produsen lokal.</td>
+          <td>Banyak pengrajin sepatu lokal kalah bersaing dengan sepatu impor murah dari Tiongkok.</td>
+        </tr>
+        <tr>
+          <td><strong>Ketergantungan pada Negara Lain</strong></td>
+          <td>Negara menjadi terlalu bergantung pada impor.</td>
+          <td>Indonesia masih mengimpor beras dan kedelai meskipun punya lahan pertanian.</td>
+        </tr>
+        <tr>
+          <td><strong>Kesenjangan Sosial</strong></td>
+          <td>Keuntungan perdagangan tidak selalu merata.</td>
+          <td>Keuntungan ekspor tambang dinikmati segelintir orang, masyarakat sekitar tetap miskin.</td>
+        </tr>
+        <tr>
+          <td><strong>Kerusakan Lingkungan</strong></td>
+          <td>Eksploitasi sumber daya alam berlebihan untuk memenuhi permintaan ekspor.</td>
+          <td>Pembukaan lahan sawit yang menyebabkan deforestasi di Kalimantan dan Sumatra.</td>
+        </tr>
+        <tr>
+          <td><strong>Budaya Konsumtif</strong></td>
+          <td>Masyarakat cenderung membeli barang impor secara berlebihan.</td>
+          <td>Banyak orang membeli gadget baru setiap tahun meski masih berfungsi.</td>
+        </tr>
+        <tr>
+          <td><strong>Deindustrialisasi</strong></td>
+          <td>Industri dalam negeri tutup karena kalah bersaing.</td>
+          <td>Beberapa pabrik tekstil di Indonesia tutup karena kalah dengan produk impor.</td>
+        </tr>
+      </table>
+
+      <h3>Cara Mengatasi Dampak Negatif</h3>
+      <ul>
+        <li><strong>Meningkatkan Daya Saing</strong> — produsen lokal harus berinovasi dan meningkatkan kualitas.</li>
+        <li><strong>Kebijakan Proteksi Selektif</strong> — melindungi industri strategis yang belum siap bersaing.</li>
+        <li><strong>Peningkatan SDM</strong> — pendidikan dan pelatihan untuk meningkatkan keterampilan tenaga kerja.</li>
+        <li><strong>Diversifikasi Pasar</strong> — tidak bergantung pada satu negara tujuan ekspor.</li>
+        <li><strong>Penguatan UMKM</strong> — mendukung usaha kecil dan menengah agar mampu bersaing.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan pasar di dekat rumahmu. Dulu ada 5 pedagang sepatu lokal. Sekarang, karena banyak sepatu impor murah masuk, hanya 2 pedagang yang bertahan. Ini adalah <strong>dampak negatif</strong> perdagangan internasional.<br><br>
+        Tetapi, di sisi lain, kamu sebagai pembeli bisa membeli sepatu berkualitas dengan harga lebih murah. Ini adalah <strong>dampak positif</strong>-nya.<br><br>
+        Kuncinya: bagaimana pemerintah mengelola agar keduanya seimbang.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Kesimpulan:</strong> Perdagangan internasional adalah pisau bermata dua. Di satu sisi membawa kemajuan, di sisi lain membawa tantangan. Kuncinya adalah <strong>pengelolaan yang bijak</strong> — melindungi industri strategis, meningkatkan daya saing, dan memastikan manfaatnya dirasakan oleh seluruh lapisan masyarakat.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 12: PERAN INDONESIA ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 12 dari 18</div>
+      <h2 class="page-title">Peran <span>Indonesia</span> dalam Perdagangan Internasional</h2>
+      <p class="page-subtitle">Posisi dan kontribusi Indonesia di kancah ekonomi global</p>
+
+      <p>Indonesia bukan sekadar penonton dalam perdagangan internasional. Indonesia adalah salah satu negara dengan perekonomian terbesar di Asia Tenggara dan aktif terlibat dalam berbagai kerja sama ekonomi dunia. Mari kita bahas peran Indonesia secara lebih mendalam.</p>
+
+      <h3>A. Indonesia sebagai Eksportir Utama</h3>
+      <p>Indonesia dikenal di dunia sebagai pemasok berbagai komoditas penting. Beberapa di antaranya bahkan membuat Indonesia menjadi pemimpin pasar dunia.</p>
+
+      <table>
+        <tr><th>Komoditas</th><th>Posisi Indonesia di Dunia</th><th>Negara Tujuan Utama</th></tr>
+        <tr>
+          <td><strong>Minyak Kelapa Sawit (CPO)</strong></td>
+          <td>Eksportir terbesar dunia (sekitar 55% pasar dunia)</td>
+          <td>India, Tiongkok, Uni Eropa, Pakistan</td>
+        </tr>
+        <tr>
+          <td><strong>Batu Bara</strong></td>
+          <td>Eksportir terbesar dunia (bersama Australia)</td>
+          <td>Tiongkok, India, Jepang, Korea</td>
+        </tr>
+        <tr>
+          <td><strong>Karet Alam</strong></td>
+          <td>Produsen terbesar kedua dunia setelah Thailand</td>
+          <td>Amerika, Jepang, Tiongkok, Eropa</td>
+        </tr>
+        <tr>
+          <td><strong>Kopi</strong></td>
+          <td>Produsen terbesar keempat dunia</td>
+          <td>Amerika, Jepang, Jerman, Italia</td>
+        </tr>
+        <tr>
+          <td><strong>Tekstil & Produk Tekstil</strong></td>
+          <td>10 besar eksportir dunia</td>
+          <td>Amerika, Jepang, Uni Eropa</td>
+        </tr>
+        <tr>
+          <td><strong>Bijih Nikel</strong></td>
+          <td>Produsen terbesar dunia</td>
+          <td>Tiongkok, Jepang, Korea</td>
+        </tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata:</strong> Minyak kelapa sawit Indonesia digunakan di hampir semua produk yang kita pakai sehari-hari — mulai dari sabun, sampo, margarin, cokelat, sampai biodiesel. Artinya, hampir semua orang di dunia pernah menggunakan produk yang mengandung CPO Indonesia.
+      </div>
+
+      <h3>B. Indonesia sebagai Anggota Organisasi Internasional</h3>
+      <p>Indonesia aktif dalam berbagai organisasi ekonomi internasional untuk memperjuangkan kepentingan nasional dan kawasan.</p>
+      <ul>
+        <li><strong>ASEAN</strong> — Indonesia adalah salah satu pendiri ASEAN (1967). Berperan besar dalam integrasi ekonomi kawasan.</li>
+        <li><strong>WTO</strong> — Indonesia menjadi anggota sejak 1995 dan aktif dalam perundingan perdagangan global.</li>
+        <li><strong>G20</strong> — Indonesia adalah anggota G20, forum ekonomi 20 negara terbesar dunia. Indonesia pernah menjadi tuan rumah KTT G20 di Bali tahun 2022.</li>
+        <li><strong>APEC</strong> — Indonesia aktif dalam kerja sama ekonomi Asia Pasifik.</li>
+        <li><strong>MEA</strong> — Indonesia menjadi bagian dari Masyarakat Ekonomi ASEAN yang memungkinkan arus bebas barang, jasa, dan tenaga kerja.</li>
+      </ul>
+
+      <h3>C. Peran Indonesia dalam MEA (Masyarakat Ekonomi ASEAN)</h3>
+      <p>MEA adalah integrasi ekonomi ASEAN yang memungkinkan:</p>
+      <ul>
+        <li><strong>Arus bebas barang</strong> — barang dari Indonesia bisa dijual ke negara ASEAN dengan tarif 0%.</li>
+        <li><strong>Arus bebas jasa</strong> — tenaga ahli Indonesia bisa bekerja di negara ASEAN lain.</li>
+        <li><strong>Arus bebas investasi</strong> — investor ASEAN bisa menanam modal di Indonesia dan sebaliknya.</li>
+        <li><strong>Arus bebas tenaga kerja terampil</strong> — dokter, insinyur, akuntan Indonesia bisa bekerja di seluruh ASEAN.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Seorang perawat Indonesia sekarang bisa bekerja di Malaysia atau Singapura dengan lebih mudah karena adanya MEA. Sebaliknya, tenaga ahli dari Thailand atau Vietnam juga bisa bekerja di Indonesia. Ini adalah peluang sekaligus tantangan — peluang untuk bekerja di luar negeri, tantangan untuk bersaing dengan tenaga kerja asing.
+      </div>
+
+      <h3>D. Tantangan Indonesia dalam Perdagangan Internasional</h3>
+      <ul>
+        <li><strong>Ketergantungan pada Komoditas Mentah</strong> — Indonesia masih banyak mengekspor bahan mentah, bukan barang jadi. Padahal barang jadi nilainya jauh lebih tinggi.</li>
+        <li><strong>Kualitas SDM</strong> — masih perlu peningkatan keterampilan tenaga kerja agar mampu bersaing di pasar global.</li>
+        <li><strong>Infrastruktur</strong> — biaya logistik di Indonesia masih tinggi dibandingkan negara tetangga.</li>
+        <li><strong>Regulasi</strong> — prosedur ekspor-impor yang rumit bisa menghambat pelaku usaha kecil.</li>
+        <li><strong>Persaingan Global</strong> — produk Indonesia harus bersaing dengan produk dari seluruh dunia.</li>
+      </ul>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Indonesia punya potensi besar dalam perdagangan internasional. Kunci keberhasilan adalah <strong>hilirisasi</strong> — mengolah bahan mentah menjadi barang jadi agar nilai tambah dinikmati di dalam negeri. Contoh: daripada mengekspor bijih nikel mentah, Indonesia mengolahnya menjadi baterai listrik.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>Profil Pelajar Pancasila — Berkebhinekaan Global:</strong><br>
+        Sebagai pelajar Indonesia, kamu adalah bagian dari warga dunia. Bagaimana caramu bisa berkontribusi pada perekonomian Indonesia di era global ini? Misalnya dengan berprestasi, menguasai bahasa asing, atau berwirausaha.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 13: KERJA SAMA ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 13 dari 18</div>
+      <h2 class="page-title">Kerja Sama <span>Ekonomi Internasional</span></h2>
+      <p class="page-subtitle">Bentuk-bentuk kerja sama antarnegara di bidang ekonomi</p>
+
+      <p>Negara-negara di dunia tidak dapat hidup sendiri. Mereka saling bekerja sama dalam berbagai bidang, termasuk ekonomi. Kerja sama ekonomi internasional adalah bentuk hubungan kerja sama antarnegara di bidang ekonomi untuk mencapai tujuan bersama.</p>
+
+      <h3>Bentuk Kerja Sama Ekonomi Internasional</h3>
+      <table>
+        <tr><th>Bentuk</th><th>Penjelasan</th><th>Contoh Nyata</th></tr>
+        <tr>
+          <td><strong>Bilateral</strong></td>
+          <td>Kerja sama antara dua negara.</td>
+          <td>Indonesia — Jepang (kerja sama ekonomi dan investasi). Indonesia — Korea Selatan (kerja sama industri kreatif).</td>
+        </tr>
+        <tr>
+          <td><strong>Regional</strong></td>
+          <td>Kerja sama antarnegara di kawasan tertentu.</td>
+          <td>ASEAN, AFTA, MEA (Asia Tenggara).</td>
+        </tr>
+        <tr>
+          <td><strong>Multilateral</strong></td>
+          <td>Kerja sama yang melibatkan banyak negara di dunia.</td>
+          <td>WTO, IMF, Bank Dunia.</td>
+        </tr>
+        <tr>
+          <td><strong>Antarregional</strong></td>
+          <td>Kerja sama antarnegara dari kawasan berbeda.</td>
+          <td>APEC (Asia Pasifik), ASEM (Asia-Eropa).</td>
+        </tr>
+      </table>
+
+      <h3>Tujuan Kerja Sama Ekonomi Internasional</h3>
+      <ul>
+        <li>Meningkatkan pertumbuhan ekonomi bersama.</li>
+        <li>Memenuhi kebutuhan barang dan jasa yang tidak dapat diproduksi sendiri.</li>
+        <li>Meningkatkan kesejahteraan masyarakat di negara-negara anggota.</li>
+        <li>Mempererat hubungan persahabatan antarnegara.</li>
+        <li>Mengatasi masalah ekonomi global seperti krisis keuangan dan kemiskinan.</li>
+        <li>Meningkatkan stabilitas politik dan keamanan kawasan.</li>
+      </ul>
+
+      <h3>Manfaat Kerja Sama Ekonomi bagi Indonesia</h3>
+      <table>
+        <tr><th>Bidang</th><th>Manfaat</th></tr>
+        <tr><td>Perdagangan</td><td>Akses pasar lebih luas, tarif lebih rendah, ekspor meningkat.</td></tr>
+        <tr><td>Investasi</td><td>Modal asing masuk, lapangan kerja tercipta, teknologi transfer.</td></tr>
+        <tr><td>Teknologi</td><td>Alh teknologi dari negara maju, peningkatan kualitas produk.</td></tr>
+        <tr><td>SDM</td><td>Pertukaran pelajar, pelatihan tenaga kerja, peningkatan keterampilan.</td></tr>
+        <tr><td>Infrastruktur</td><td>Bantuan pembangunan jalan, pelabuhan, dan jembatan.</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata dan sederhana:</strong><br>
+        Bayangkan kamu dan teman-temanmu ingin membuat proyek kelas. Kamu jago desain, temanmu jago menulis, yang lain jago presentasi. Kalian bekerja sama untuk menghasilkan proyek terbaik.<br><br>
+        Itulah inti kerja sama ekonomi internasional — setiap negara punya kelebihan dan kekurangan. Dengan bekerja sama, hasilnya jauh lebih baik daripada bekerja sendiri-sendiri.<br><br>
+        Contoh nyata: Indonesia mengikuti AFTA yang bertujuan menciptakan kawasan perdagangan bebas di Asia Tenggara. Melalui AFTA, tarif barang antarnegara ASEAN diturunkan hingga 0%, sehingga barang dari Indonesia dapat dijual lebih murah ke Malaysia, Thailand, dan Singapura.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Kerja sama ekonomi internasional bukan hanya tentang perdagangan barang, tetapi juga mencakup investasi, tenaga kerja, teknologi, dan bantuan keuangan.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 14: ORGANISASI ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 14 dari 18</div>
+      <h2 class="page-title">Organisasi <span>Ekonomi Internasional</span></h2>
+      <p class="page-subtitle">Lembaga-lembaga yang mengatur dan memfasilitasi kerja sama ekonomi</p>
+
+      <p>Untuk memfasilitasi kerja sama ekonomi antarnegara, dibentuklah berbagai organisasi internasional. Organisasi-organisasi ini memiliki peran penting dalam mengatur perdagangan, menjaga stabilitas keuangan, dan membantu negara-negara berkembang.</p>
+
+      <h3>Organisasi Ekonomi Internasional Utama</h3>
+
+      <table>
+        <tr><th>Organisasi</th><th>Kepanjangan & Tahun</th><th>Tujuan & Peran</th></tr>
+        <tr>
+          <td><strong>WTO</strong></td>
+          <td>World Trade Organization (1995)</td>
+          <td>Mengatur perdagangan internasional, menyelesaikan sengketa dagang, dan mempromosikan perdagangan bebas.</td>
+        </tr>
+        <tr>
+          <td><strong>IMF</strong></td>
+          <td>International Monetary Fund (1945)</td>
+          <td>Menjaga stabilitas keuangan global, memberikan pinjaman kepada negara yang mengalami kesulitan neraca pembayaran.</td>
+        </tr>
+        <tr>
+          <td><strong>Bank Dunia</strong></td>
+          <td>World Bank (1945)</td>
+          <td>Memberikan bantuan keuangan dan teknis untuk pembangunan negara berkembang.</td>
+        </tr>
+        <tr>
+          <td><strong>ASEAN</strong></td>
+          <td>Association of Southeast Asian Nations (1967)</td>
+          <td>Kerja sama ekonomi, sosial, dan budaya di Asia Tenggara. Indonesia adalah salah satu pendiri.</td>
+        </tr>
+        <tr>
+          <td><strong>AFTA</strong></td>
+          <td>ASEAN Free Trade Area (1992)</td>
+          <td>Kawasan perdagangan bebas ASEAN dengan tarif rendah antarnegara anggota.</td>
+        </tr>
+        <tr>
+          <td><strong>MEA</strong></td>
+          <td>Masyarakat Ekonomi ASEAN (2015)</td>
+          <td>Integrasi ekonomi ASEAN yang memungkinkan arus bebas barang, jasa, investasi, dan tenaga kerja.</td>
+        </tr>
+        <tr>
+          <td><strong>APEC</strong></td>
+          <td>Asia-Pacific Economic Cooperation (1989)</td>
+          <td>Kerja sama ekonomi negara-negara di kawasan Asia Pasifik.</td>
+        </tr>
+        <tr>
+          <td><strong>GATT</strong></td>
+          <td>General Agreement on Tariffs and Trade (1947)</td>
+          <td>Perjanjian multilateral untuk mengurangi tarif dan hambatan perdagangan (pendahulu WTO).</td>
+        </tr>
+        <tr>
+          <td><strong>G20</strong></td>
+          <td>Group of Twenty (1999)</td>
+          <td>Forum kerja sama ekonomi 20 negara terbesar dunia. Indonesia adalah anggotanya.</td>
+        </tr>
+        <tr>
+          <td><strong>OPEC</strong></td>
+          <td>Organization of the Petroleum Exporting Countries (1960)</td>
+          <td>Organisasi negara-negara pengekspor minyak bumi untuk mengatur produksi dan harga minyak dunia.</td>
+        </tr>
+      </table>
+
+      <h3>Peran Indonesia di Organisasi Internasional</h3>
+      <table>
+        <tr><th>Organisasi</th><th>Peran Indonesia</th></tr>
+        <tr><td>ASEAN</td><td>Pendiri dan pemimpin de facto ASEAN. Sekretariat ASEAN berada di Jakarta.</td></tr>
+        <tr><td>G20</td><td>Tuan rumah KTT G20 Bali 2022. Aktif memperjuangkan kepentingan negara berkembang.</td></tr>
+        <tr><td>WTO</td><td>Anggota aktif, sering menggunakan mekanisme WTO untuk menyelesaikan sengketa dagang.</td></tr>
+        <tr><td>APEC</td><td>Anggota aktif, menjadi tuan rumah KTT APEC 2013 di Bali.</td></tr>
+        <tr><td>OPEC</td><td>Pernah menjadi anggota (1962–2016), sekarang menjadi importir minyak.</td></tr>
+      </table>
+
+      <div class="contoh">
+        🌰 <strong>Contoh nyata peran WTO:</strong> Ketika Indonesia merasa dirugikan oleh kebijakan tarif tinggi dari negara lain (misalnya Uni Eropa membatasi impor CPO Indonesia), Indonesia dapat mengajukan sengketa ke WTO. WTO akan memediasi dan memutuskan apakah kebijakan tersebut melanggar aturan perdagangan internasional. Jika menang, Indonesia bisa meminta kompensasi atau meminta negara tersebut mencabut kebijakannya.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Ingat!</strong> Indonesia adalah anggota aktif dari berbagai organisasi ekonomi internasional. Keikutsertaan Indonesia bertujuan untuk memperjuangkan kepentingan ekonomi nasional dan meningkatkan kesejahteraan rakyat.
+      </div>
+    </section>
+
+    <!-- ===== PAGE 15: PETA KONSEP ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 15 dari 18</div>
       <h2 class="page-title">Peta <span>Konsep</span></h2>
       <p class="page-subtitle">Ringkasan visual hubungan antar konsep</p>
 
       <div class="peta-konsep">
-        <div class="node utama">PELAKU EKONOMI</div>
+        <div class="node utama">PERDAGANGAN INTERNASIONAL</div>
         <span class="arrow">↓</span>
         <div>
-          <span class="node sub">Rumah Tangga Konsumen</span>
-          <span class="node sub">Rumah Tangga Produsen</span>
-        </div>
-        <div>
-          <span class="node sub">Rumah Tangga Pemerintah</span>
-          <span class="node sub">Masyarakat Luar Negeri</span>
-        </div>
-        <div>
-          <span class="node sub">Koperasi</span>
+          <span class="node sub">Pengertian</span>
+          <span class="node sub">Faktor Pendorong</span>
+          <span class="node sub">Teori</span>
         </div>
         <span class="arrow">↓</span>
         <div>
-          <span class="node detail">Konsumsi</span>
-          <span class="node detail">Produksi</span>
-          <span class="node detail">Distribusi</span>
+          <span class="node detail">Keunggulan Mutlak</span>
+          <span class="node detail">Keunggulan Komparatif</span>
         </div>
         <span class="arrow">↓</span>
         <div>
-          <span class="node detail">Faktor Produksi</span>
-          <span class="node detail">Balas Jasa</span>
-          <span class="node detail">Pajak & Subsidi</span>
+          <span class="node sub">Ekspor</span>
+          <span class="node sub">Impor</span>
+          <span class="node sub">Devisa</span>
+          <span class="node sub">Kurs</span>
         </div>
-        <span class="arrow">↓</span>
-        <div class="node utama" style="font-size:13px; padding:10px 22px;">CIRCULAR FLOW DIAGRAM</div>
         <span class="arrow">↓</span>
         <div>
-          <span class="node sub">2 Sektor</span>
-          <span class="node sub">3 Sektor</span>
-          <span class="node sub">4 Sektor</span>
+          <span class="node sub">Alat Pembayaran</span>
+          <span class="node sub">Neraca Perdagangan</span>
+          <span class="node sub">Neraca Pembayaran</span>
         </div>
         <span class="arrow">↓</span>
-        <div class="node utama" style="font-size:13px; padding:10px 22px;">ERA DIGITAL</div>
+        <div>
+          <span class="node detail">L/C</span>
+          <span class="node detail">Wesel</span>
+          <span class="node detail">Surplus</span>
+          <span class="node detail">Defisit</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node sub">Kebijakan Proteksi</span>
+          <span class="node sub">Kebijakan Liberalisasi</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node detail">Tarif</span>
+          <span class="node detail">Kuota</span>
+          <span class="node detail">Subsidi</span>
+          <span class="node detail">Dumping</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node sub">Kerja Sama Bilateral</span>
+          <span class="node sub">Regional</span>
+          <span class="node sub">Multilateral</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div>
+          <span class="node detail">WTO</span>
+          <span class="node detail">IMF</span>
+          <span class="node detail">ASEAN</span>
+          <span class="node detail">AFTA</span>
+          <span class="node detail">G20</span>
+        </div>
+        <span class="arrow">↓</span>
+        <div class="node utama" style="font-size:13px; padding:10px 22px;">PERAN INDONESIA</div>
+        <span class="arrow">↓</span>
+        <div class="node utama" style="font-size:13px; padding:10px 22px;">DAMPAK: POSITIF & NEGATIF</div>
       </div>
     </section>
 
-    <!-- ===== PAGE 11: RINGKASAN ===== -->
+    <!-- ===== PAGE 16: RINGKASAN & GLOSARIUM ===== -->
     <section class="page">
-      <div class="page-badge">📖 MATERI 11 dari 14</div>
-      <h2 class="page-title">Ringkasan <span>Bab 5</span></h2>
-      <p class="page-subtitle">Poin-poin penting yang harus diingat</p>
+      <div class="page-badge">📖 MATERI 16 dari 18</div>
+      <h2 class="page-title">Ringkasan <span>& Glosarium</span></h2>
+      <p class="page-subtitle">Poin penting dan istilah kunci dalam bab ini</p>
 
+      <h3>Ringkasan Bab 4</h3>
       <ul>
-        <li><strong>Pelaku ekonomi</strong> adalah semua pihak yang terlibat dalam kegiatan produksi, distribusi, dan konsumsi.</li>
-        <li>Terdapat <strong>empat pelaku ekonomi utama</strong>: rumah tangga konsumen, rumah tangga produsen, rumah tangga pemerintah, dan masyarakat luar negeri. Selain itu, terdapat <strong>koperasi</strong> sebagai pelaku ekonomi berbasis kekeluargaan.</li>
-        <li><strong>Rumah tangga konsumen</strong> berperan sebagai pengguna barang/jasa dan penyedia faktor produksi (tenaga kerja, tanah, modal, keahlian).</li>
-        <li><strong>Rumah tangga produsen</strong> berperan sebagai penghasil barang/jasa, distributor, dan agen pembangunan.</li>
-        <li><strong>Rumah tangga pemerintah</strong> berperan sebagai regulator, konsumen, dan produsen (melalui BUMN).</li>
-        <li><strong>Masyarakat luar negeri</strong> berperan sebagai konsumen (ekspor), produsen (impor), investor, sumber tenaga ahli, dan sumber devisa.</li>
-        <li><strong>Koperasi</strong> berperan meningkatkan kesejahteraan anggota, menyediakan lapangan kerja, mendukung pemerataan ekonomi, memperkuat UKM, dan berkontribusi terhadap PDB.</li>
-        <li>Hubungan antar pelaku ekonomi dapat digambarkan dalam <strong>circular flow diagram</strong> yang menunjukkan aliran barang, jasa, dan uang.</li>
-        <li>Dalam <strong>era digital</strong>, peran pelaku ekonomi bertransformasi melalui e-commerce, dompet digital, dan fintech. Koperasi pun bertransformasi dengan dukungan teknologi keuangan.</li>
+        <li><strong>Perdagangan internasional</strong> adalah kegiatan jual beli barang dan jasa antarnegara, meliputi ekspor dan impor.</li>
+        <li>Faktor pendorong: perbedaan sumber daya alam, iklim, teknologi, selera, keinginan memperluas pasar, dan kelebihan produksi.</li>
+        <li><strong>Teori Keunggulan Mutlak (Adam Smith)</strong> — setiap negara berspesialisasi pada barang yang paling efisien diproduksi.</li>
+        <li><strong>Teori Keunggulan Komparatif (David Ricardo)</strong> — spesialisasi pada barang dengan biaya peluang paling rendah, bahkan jika negara unggul di semua bidang.</li>
+        <li><strong>Ekspor</strong> = menjual barang ke luar negeri; <strong>impor</strong> = membeli barang dari luar negeri.</li>
+        <li><strong>Alat pembayaran internasional</strong>: valuta asing, wesel, L/C, cek, bilyet giro, transfer bank. <strong>Cara pembayaran</strong>: advance payment, open account, L/C, collection, consignment.</li>
+        <li><strong>Neraca perdagangan</strong> = selisih ekspor dan impor. Surplus jika ekspor > impor, defisit jika ekspor < impor.</li>
+        <li><strong>Devisa</strong> adalah alat pembayaran luar negeri, bersumber dari ekspor, pariwisata, investasi, pinjaman, dan kiriman TKI.</li>
+        <li><strong>Kurs valuta asing</strong> adalah perbandingan nilai mata uang antarnegara (kurs jual, beli, tengah).</li>
+        <li><strong>Kebijakan proteksi</strong> melindungi industri lokal melalui tarif, kuota, subsidi, dan dumping.</li>
+        <li><strong>Dampak positif</strong> perdagangan internasional: devisa meningkat, lapangan kerja bertambah, teknologi maju. <strong>Dampak negatif</strong>: industri lokal terancam, ketergantungan, konsumtif.</li>
+        <li><strong>Peran Indonesia</strong>: eksportir utama CPO, batu bara, karet, dan kopi; anggota aktif ASEAN, WTO, G20, APEC.</li>
+        <li><strong>Kerja sama ekonomi internasional</strong> dapat berbentuk bilateral, regional, multilateral, dan antarregional.</li>
+        <li><strong>Organisasi ekonomi internasional</strong>: WTO, IMF, Bank Dunia, ASEAN, AFTA, MEA, APEC, GATT, G20, OPEC.</li>
       </ul>
 
       <div class="highlight">
-        💡 <strong>Kata kunci:</strong> RTK, RTP, RTN, RTMLN, koperasi, faktor produksi, circular flow, ekspor, impor, devisa, ekonomi digital, regulator, konsumen, produsen, agen pembangunan.
+        💡 <strong>Kata kunci:</strong> ekspor, impor, devisa, kurs, neraca perdagangan, surplus, defisit, tarif, kuota, subsidi, dumping, L/C, wesel, WTO, IMF, ASEAN, AFTA, MEA, G20, keunggulan mutlak, keunggulan komparatif.
+      </div>
+
+      <h3>Glosarium</h3>
+      <div class="glosarium-item"><strong>Perdagangan Internasional</strong><br><span>Kegiatan jual beli barang dan jasa antarnegara yang meliputi ekspor dan impor.</span></div>
+      <div class="glosarium-item"><strong>Ekspor</strong><br><span>Kegiatan menjual barang atau jasa ke luar negeri.</span></div>
+      <div class="glosarium-item"><strong>Impor</strong><br><span>Kegiatan membeli barang atau jasa dari luar negeri.</span></div>
+      <div class="glosarium-item"><strong>Devisa</strong><br><span>Alat pembayaran luar negeri yang sah dan diterima secara internasional.</span></div>
+      <div class="glosarium-item"><strong>Kurs Valuta Asing</strong><br><span>Perbandingan nilai mata uang suatu negara dengan mata uang negara lain.</span></div>
+      <div class="glosarium-item"><strong>Neraca Perdagangan</strong><br><span>Selisih antara total nilai ekspor dan total nilai impor suatu negara.</span></div>
+      <div class="glosarium-item"><strong>Surplus</strong><br><span>Kondisi ketika nilai ekspor lebih besar daripada nilai impor.</span></div>
+      <div class="glosarium-item"><strong>Defisit</strong><br><span>Kondisi ketika nilai impor lebih besar daripada nilai ekspor.</span></div>
+      <div class="glosarium-item"><strong>Tarif</strong><br><span>Pajak atau bea yang dikenakan pada barang impor.</span></div>
+      <div class="glosarium-item"><strong>Kuota Impor</strong><br><span>Pembatasan jumlah barang impor yang boleh masuk ke suatu negara.</span></div>
+      <div class="glosarium-item"><strong>Subsidi</strong><br><span>Bantuan pemerintah kepada produsen lokal agar harga jual lebih murah.</span></div>
+      <div class="glosarium-item"><strong>Dumping</strong><br><span>Menjual barang di luar negeri dengan harga lebih murah daripada di dalam negeri.</span></div>
+      <div class="glosarium-item"><strong>Letter of Credit (L/C)</strong><br><span>Surat jaminan dari bank importir yang menjamin pembayaran kepada eksportir.</span></div>
+      <div class="glosarium-item"><strong>Wesel</strong><br><span>Surat perintah membayar sejumlah uang kepada pihak tertentu pada waktu tertentu.</span></div>
+      <div class="glosarium-item"><strong>Keunggulan Mutlak</strong><br><span>Teori Adam Smith: negara berspesialisasi pada barang yang paling efisien diproduksi.</span></div>
+      <div class="glosarium-item"><strong>Keunggulan Komparatif</strong><br><span>Teori David Ricardo: spesialisasi pada barang dengan biaya peluang paling rendah.</span></div>
+      <div class="glosarium-item"><strong>WTO</strong><br><span>World Trade Organization — organisasi perdagangan dunia.</span></div>
+      <div class="glosarium-item"><strong>IMF</strong><br><span>International Monetary Fund — lembaga keuangan internasional penjaga stabilitas moneter global.</span></div>
+      <div class="glosarium-item"><strong>AFTA</strong><br><span>ASEAN Free Trade Area — kawasan perdagangan bebas ASEAN.</span></div>
+      <div class="glosarium-item"><strong>MEA</strong><br><span>Masyarakat Ekonomi ASEAN — integrasi ekonomi ASEAN.</span></div>
+      <div class="glosarium-item"><strong>G20</strong><br><span>Group of Twenty — forum kerja sama ekonomi 20 negara terbesar dunia.</span></div>
+      <div class="glosarium-item"><strong>Hilirisasi</strong><br><span>Proses mengolah bahan mentah menjadi barang jadi untuk meningkatkan nilai tambah.</span></div>
+      <div class="glosarium-item"><strong>Transfer Teknologi</strong><br><span>Proses alih pengetahuan dan teknologi dari negara maju ke negara berkembang.</span></div>
+      <div class="glosarium-item"><strong>Biaya Peluang</strong><br><span>Nilai alternatif terbaik yang dikorbankan ketika memilih suatu kegiatan.</span></div>
+    </section>
+
+    <!-- ===== PAGE 17: REFLEKSI & PROFIL PANCASILA ===== -->
+    <section class="page">
+      <div class="page-badge">📖 MATERI 17 dari 18</div>
+      <h2 class="page-title">Refleksi & <span>Profil Pelajar Pancasila</span></h2>
+      <p class="page-subtitle">Merenungkan pembelajaran dan mengembangkan karakter</p>
+
+      <p>Setelah mempelajari seluruh materi Bab 4 tentang Perdagangan Internasional, saatnya kita melakukan refleksi. Refleksi adalah kegiatan merenungkan apa yang sudah dipelajari, bagaimana perasaanmu, dan bagaimana kamu bisa menerapkannya dalam kehidupan sehari-hari.</p>
+
+      <h3>Refleksi Pembelajaran</h3>
+      <p>Jawablah pertanyaan-pertanyaan berikut dalam buku catatanmu:</p>
+
+      <div class="refleksi">
+        🪞 <strong>Pertanyaan Refleksi:</strong>
+        <ol style="margin-top:10px;">
+          <li>Konsep apa yang paling menarik bagimu dari bab ini? Mengapa?</li>
+          <li>Bagian mana yang masih sulit dipahami? Apa rencanamu untuk memahaminya lebih baik?</li>
+          <li>Bagaimana perdagangan internasional memengaruhi kehidupanmu sehari-hari? Berikan 3 contoh nyata!</li>
+          <li>Menurutmu, apakah Indonesia sudah memanfaatkan peluang perdagangan internasional dengan baik? Jelaskan pendapatmu!</li>
+          <li>Jika kamu menjadi Menteri Perdagangan, kebijakan apa yang akan kamu ambil untuk meningkatkan ekspor Indonesia?</li>
+          <li>Bagaimana kamu bisa berkontribusi pada perekonomian Indonesia di era global ini?</li>
+        </ol>
+      </div>
+
+      <h3>Keterkaitan dengan Profil Pelajar Pancasila</h3>
+      <p>Materi ini mengembangkan berbagai dimensi Profil Pelajar Pancasila. Mari kita lihat keterkaitannya:</p>
+
+      <div class="pancasila">
+        🎓 <strong>1. Beriman, Bertakwa kepada Tuhan YME, dan Berakhlak Mulia</strong><br>
+        Menyadari bahwa sumber daya alam adalah anugerah Tuhan yang harus dikelola dengan bijak untuk kemakmuran bersama, bukan dieksploitasi secara berlebihan.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>2. Berkebhinekaan Global</strong><br>
+        Memahami bahwa setiap negara memiliki budaya, keunggulan, dan kebutuhan yang berbeda. Menghargai produk dan budaya asing tanpa melupakan produk lokal. Mampu berkomunikasi dan bekerja sama dengan orang dari berbagai latar belakang.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>3. Bergotong Royong</strong><br>
+        Memahami bahwa kerja sama ekonomi antarnegara adalah bentuk gotong royong dalam skala global. Setiap negara saling membantu dan melengkapi untuk mencapai kemakmuran bersama.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>4. Mandiri</strong><br>
+        Mendorong siswa untuk mandiri dalam belajar dan berwirausaha. Tidak hanya menjadi konsumen, tetapi juga produsen yang berkontribusi pada ekspor nasional.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>5. Bernalar Kritis</strong><br>
+        Mampu menganalisis dampak positif dan negatif perdagangan internasional. Tidak mudah percaya pada informasi, tetapi memeriksa sumber dan mencari bukti.
+      </div>
+
+      <div class="pancasila">
+        🎓 <strong>6. Kreatif</strong><br>
+        Mendorong siswa untuk menciptakan produk inovatif yang bisa bersaing di pasar global. Melihat peluang usaha dari perkembangan perdagangan internasional.
+      </div>
+
+      <h3>Asesmen Formatif</h3>
+      <p>Selain soal pilihan ganda di halaman berikut, guru dapat melakukan asesmen formatif melalui:</p>
+      <ul>
+        <li><strong>Diskusi Kelas</strong> — membahas dampak perdagangan internasional bagi Indonesia.</li>
+        <li><strong>Presentasi Kelompok</strong> — mempresentasikan hasil analisis komoditas ekspor-impor.</li>
+        <li><strong>Portofolio</strong> — kumpulan tugas dan proyek siswa selama mempelajari bab ini.</li>
+        <li><strong>Jurnal Refleksi</strong> — catatan harian siswa tentang pembelajaran.</li>
+        <li><strong>Peta Konsep Buatan Siswa</strong> — siswa membuat peta konsep versi mereka sendiri.</li>
+      </ul>
+
+      <div class="contoh">
+        🌰 <strong>Contoh aktivitas reflektif sederhana:</strong><br>
+        Coba lihat 5 barang di sekitarmu sekarang. Cari tahu asal negaranya! Apakah produk lokal atau impor? Renungkan: bagaimana barang itu bisa sampai ke tanganmu? Berapa banyak orang yang terlibat dalam perjalanan barang itu? Tulislah hasilnya dalam jurnalmu.
+      </div>
+
+      <div class="highlight">
+        💡 <strong>Pesan Penting:</strong> Perdagangan internasional bukan hanya tentang ekonomi, tetapi juga tentang <strong>kehidupan</strong>. Setiap kali kamu membeli produk impor, kamu menjadi bagian dari jaringan ekonomi global yang melibatkan jutaan orang di seluruh dunia. Jadilah konsumen yang cerdas dan produsen yang berkualitas!
       </div>
     </section>
 
-    <!-- ===== PAGE 12: GLOSARIUM ===== -->
+    <!-- ===== PAGE 18: SOAL & PROYEK ===== -->
     <section class="page">
-      <div class="page-badge">📖 MATERI 12 dari 14</div>
-      <h2 class="page-title">Glosarium <span>Istilah Penting</span></h2>
-      <p class="page-subtitle">Kumpulan istilah kunci dalam bab ini</p>
+      <div class="page-badge">📖 MATERI 18 dari 18</div>
+      <h2 class="page-title">Soal Latihan <span>& Proyek</span></h2>
+      <p class="page-subtitle">Uji pemahamanmu dan kerjakan aktivitas berikut</p>
 
-      <div class="glosarium-item"><strong>Pelaku Ekonomi</strong><br><span>Pihak yang terlibat dalam kegiatan produksi, distribusi, dan konsumsi.</span></div>
-      <div class="glosarium-item"><strong>Rumah Tangga Konsumen (RTK)</strong><br><span>Pelaku ekonomi yang mengonsumsi barang/jasa dan menyediakan faktor produksi.</span></div>
-      <div class="glosarium-item"><strong>Rumah Tangga Produsen (RTP)</strong><br><span>Pelaku ekonomi yang menghasilkan barang/jasa untuk memenuhi kebutuhan masyarakat.</span></div>
-      <div class="glosarium-item"><strong>Rumah Tangga Pemerintah (RTN)</strong><br><span>Pelaku ekonomi yang berperan sebagai regulator, konsumen, dan produsen.</span></div>
-      <div class="glosarium-item"><strong>Masyarakat Luar Negeri (RTMLN)</strong><br><span>Pelaku ekonomi dari negara lain yang terlibat dalam perdagangan dan kerja sama ekonomi.</span></div>
-      <div class="glosarium-item"><strong>Koperasi</strong><br><span>Badan usaha berazaskan kekeluargaan yang beranggotakan orang-seorang atau badan hukum koperasi.</span></div>
-      <div class="glosarium-item"><strong>Faktor Produksi</strong><br><span>Sumber daya yang digunakan untuk menghasilkan barang/jasa (alam, tenaga kerja, modal, keahlian).</span></div>
-      <div class="glosarium-item"><strong>Balas Jasa</strong><br><span>Imbalan atas faktor produksi: sewa, upah, bunga, dan laba.</span></div>
-      <div class="glosarium-item"><strong>Circular Flow Diagram</strong><br><span>Diagram yang menggambarkan aliran barang, jasa, dan uang antar pelaku ekonomi.</span></div>
-      <div class="glosarium-item"><strong>Ekspor</strong><br><span>Kegiatan menjual barang/jasa ke luar negeri.</span></div>
-      <div class="glosarium-item"><strong>Impor</strong><br><span>Kegiatan membeli barang/jasa dari luar negeri.</span></div>
-      <div class="glosarium-item"><strong>Devisa</strong><br><span>Alat pembayaran luar negeri yang sah, biasanya berupa mata uang asing.</span></div>
-      <div class="glosarium-item"><strong>BUMN</strong><br><span>Badan Usaha Milik Negara, perusahaan yang dimiliki dan dikelola pemerintah.</span></div>
-      <div class="glosarium-item"><strong>Regulator</strong><br><span>Pihak yang mengatur dan mengendalikan jalannya perekonomian.</span></div>
-      <div class="glosarium-item"><strong>Agen Pembangunan</strong><br><span>Pelaku ekonomi yang berperan membuka lapangan kerja, melakukan inovasi, dan mendorong pertumbuhan ekonomi.</span></div>
-      <div class="glosarium-item"><strong>UMKM</strong><br><span>Usaha Mikro, Kecil, dan Menengah yang menjadi penggerak utama ekonomi rakyat.</span></div>
-      <div class="glosarium-item"><strong>Ekonomi Digital</strong><br><span>Kegiatan ekonomi yang memanfaatkan teknologi digital, internet, dan platform online.</span></div>
-    </section>
-
-    <!-- ===== PAGE 13: SOAL ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 13 dari 14</div>
-      <h2 class="page-title">Soal Latihan + <span>Pembahasan</span></h2>
-      <p class="page-subtitle">Klik tombol untuk memeriksa jawabanmu</p>
+      <h3>Soal Latihan</h3>
 
       <div class="soal-item">
         <div class="nomor">Soal 1</div>
-        <div class="pertanyaan">Pelaku ekonomi yang berperan sebagai pengguna barang dan jasa sekaligus penyedia faktor produksi adalah...</div>
-        <div class="pilihan">A. Rumah tangga produsen<br>B. Rumah tangga konsumen<br>C. Rumah tangga pemerintah<br>D. Masyarakat luar negeri</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: B.</strong> Rumah tangga konsumen mengonsumsi barang/jasa sekaligus menyediakan faktor produksi (tenaga kerja, tanah, modal, keahlian) kepada produsen.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 2</div>
-        <div class="pertanyaan">PT Pertamina adalah contoh peran pemerintah sebagai...</div>
-        <div class="pilihan">A. Regulator<br>B. Konsumen<br>C. Produsen<br>D. Distributor</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> PT Pertamina adalah BUMN yang menyediakan barang/jasa bagi masyarakat, sehingga mencerminkan peran pemerintah sebagai produsen.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 3</div>
-        <div class="pertanyaan">Berikut yang <strong>bukan</strong> termasuk peran masyarakat luar negeri dalam perekonomian Indonesia adalah...</div>
-        <div class="pilihan">A. Sebagai konsumen barang ekspor<br>B. Sebagai produsen barang impor<br>C. Sebagai penentu kebijakan moneter<br>D. Sebagai investor penanam modal</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> Penentu kebijakan moneter adalah Bank Indonesia, bukan masyarakat luar negeri.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 4</div>
-        <div class="pertanyaan">Kegiatan ekonomi yang dilakukan rumah tangga produsen untuk menyalurkan barang kepada konsumen disebut...</div>
-        <div class="pilihan">A. Produksi<br>B. Konsumsi<br>C. Distribusi<br>D. Investasi</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> Distribusi adalah kegiatan menyalurkan barang/jasa dari produsen ke konsumen.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 5</div>
-        <div class="pertanyaan">Dalam circular flow diagram perekonomian dua sektor, aliran yang mengalir dari rumah tangga konsumen ke rumah tangga produsen melalui pasar faktor produksi adalah...</div>
-        <div class="pilihan">A. Barang dan jasa<br>B. Uang pembayaran<br>C. Faktor produksi<br>D. Pajak</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> RTK menyerahkan faktor produksi kepada RTP melalui pasar faktor produksi.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 6</div>
-        <div class="pertanyaan">Balas jasa atas faktor produksi tenaga kerja adalah...</div>
-        <div class="pilihan">A. Sewa<br>B. Upah<br>C. Bunga<br>D. Laba</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: B.</strong> Tenaga kerja mendapat balas jasa berupa upah/gaji.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 7</div>
-        <div class="pertanyaan">Pemerintah menarik pajak dari rumah tangga konsumen dan produsen. Hal ini menunjukkan peran pemerintah sebagai...</div>
-        <div class="pilihan">A. Konsumen<br>B. Produsen<br>C. Regulator<br>D. Distributor</div>
-        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> Menarik pajak dan menetapkan kebijakan ekonomi adalah wujud peran pemerintah sebagai regulator.</div>
-      </div>
-
-      <div class="soal-item">
-        <div class="nomor">Soal 8</div>
-        <div class="pertanyaan">Kegiatan menjual barang/jasa ke luar negeri disebut...</div>
+        <div class="pertanyaan">Kegiatan menjual barang atau jasa dari dalam negeri ke luar negeri disebut...</div>
         <div class="pilihan">A. Impor<br>B. Ekspor<br>C. Distribusi<br>D. Investasi</div>
         <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
         <div class="jawaban"><strong>Jawaban: B.</strong> Ekspor adalah kegiatan menjual barang/jasa ke luar negeri, sedangkan impor sebaliknya.</div>
       </div>
 
       <div class="soal-item">
-        <div class="nomor">Soal 9</div>
-        <div class="pertanyaan">Peran rumah tangga produsen sebagai agen pembangunan ditunjukkan oleh kegiatan...</div>
-        <div class="pilihan">A. Membeli barang dari konsumen<br>B. Membayar pajak kepada pemerintah<br>C. Membuka lapangan pekerjaan dan melakukan inovasi produk<br>D. Mengonsumsi barang dan jasa</div>
+        <div class="nomor">Soal 2</div>
+        <div class="pertanyaan">Jika nilai ekspor suatu negara lebih besar daripada nilai impornya, maka neraca perdagangan negara tersebut mengalami...</div>
+        <div class="pilihan">A. Defisit<br>B. Surplus<br>C. Seimbang<br>D. Bangkrut</div>
         <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> Sebagai agen pembangunan, RTP membuka lapangan kerja, melakukan penelitian & pengembangan, serta mendorong pertumbuhan ekonomi.</div>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Surplus terjadi ketika ekspor > impor. Sebaliknya, defisit terjadi ketika impor > ekspor.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 3</div>
+        <div class="pertanyaan">Teori keunggulan komparatif dikemukakan oleh...</div>
+        <div class="pilihan">A. Adam Smith<br>B. David Ricardo<br>C. John Maynard Keynes<br>D. Karl Marx</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Teori keunggulan komparatif dikemukakan oleh David Ricardo (1817). Adam Smith mengemukakan teori keunggulan mutlak.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 4</div>
+        <div class="pertanyaan">Alat pembayaran luar negeri yang sah dan diterima secara internasional disebut...</div>
+        <div class="pilihan">A. Rupiah<br>B. Devisa<br>C. Obligasi<br>D. Saham</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Devisa adalah alat pembayaran luar negeri, biasanya berupa mata uang asing seperti dolar AS.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 5</div>
+        <div class="pertanyaan">Surat jaminan dari bank importir yang menjamin pembayaran kepada eksportir disebut...</div>
+        <div class="pilihan">A. Wesel<br>B. Cek<br>C. Letter of Credit<br>D. Bilyet Giro</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Letter of Credit (L/C) adalah surat jaminan bank yang paling aman dan umum digunakan dalam perdagangan internasional.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 6</div>
+        <div class="pertanyaan">Pemerintah mengenakan pajak tambahan pada barang impor. Kebijakan ini disebut...</div>
+        <div class="pilihan">A. Kuota<br>B. Subsidi<br>C. Tarif<br>D. Dumping</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Tarif adalah pajak atau bea masuk yang dikenakan pada barang impor.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 7</div>
+        <div class="pertanyaan">Organisasi internasional yang bertugas mengatur perdagangan antarnegara dan menyelesaikan sengketa dagang adalah...</div>
+        <div class="pilihan">A. IMF<br>B. WTO<br>C. ASEAN<br>D. APEC</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> WTO (World Trade Organization) adalah organisasi yang mengatur perdagangan internasional dan menyelesaikan sengketa dagang.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 8</div>
+        <div class="pertanyaan">Berikut yang <strong>bukan</strong> merupakan faktor pendorong perdagangan internasional adalah...</div>
+        <div class="pilihan">A. Perbedaan sumber daya alam<br>B. Perbedaan iklim<br>C. Kesamaan teknologi<br>D. Perbedaan selera</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Justru <strong>perbedaan</strong> teknologi yang mendorong perdagangan internasional, bukan kesamaan.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 9</div>
+        <div class="pertanyaan">Kurs yang ditetapkan bank ketika bank menjual mata uang asing kepada nasabah disebut...</div>
+        <div class="pilihan">A. Kurs beli<br>B. Kurs jual<br>C. Kurs tengah<br>D. Kurs tetap</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Kurs jual adalah kurs yang digunakan bank saat menjual mata uang asing. Kurs beli digunakan saat bank membeli mata uang asing.</div>
       </div>
 
       <div class="soal-item">
         <div class="nomor">Soal 10</div>
-        <div class="pertanyaan">Berikut yang merupakan bentuk transformasi pelaku ekonomi di era digital adalah...</div>
-        <div class="pilihan">A. Membeli di pasar tradisional dengan uang tunai<br>B. Berjualan melalui marketplace dan menerima pembayaran digital<br>C. Menukar barang dengan barang (barter)<br>D. Menyimpan uang di bawah kasur</div>
+        <div class="pertanyaan">Komoditas ekspor unggulan Indonesia yang menjadi yang terbesar di dunia adalah...</div>
+        <div class="pilihan">A. Gandum<br>B. Minyak kelapa sawit (CPO)<br>C. Apel<br>D. Kurma</div>
         <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: B.</strong> Era digital ditandai dengan pemanfaatan marketplace, e-wallet, dan pembayaran digital dalam kegiatan ekonomi.</div>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Indonesia adalah eksportir minyak kelapa sawit (CPO) terbesar di dunia dengan pangsa sekitar 55% pasar dunia.</div>
       </div>
 
       <div class="soal-item">
         <div class="nomor">Soal 11</div>
-        <div class="pertanyaan">Koperasi memiliki peran strategis dalam perekonomian Indonesia karena...</div>
-        <div class="pilihan">A. Hanya melayani anggota tertentu<br>B. Meningkatkan kesejahteraan anggota dan memperkuat UKM<br>C. Menyaingi BUMN dalam semua sektor<br>D. Menghapuskan peran swasta</div>
+        <div class="pertanyaan">Masyarakat Ekonomi ASEAN (MEA) bertujuan untuk...</div>
+        <div class="pilihan">A. Menghapus semua perdagangan internasional<br>B. Mewujudkan integrasi ekonomi ASEAN<br>C. Melarang investasi asing di ASEAN<br>D. Menutup perbatasan antarnegara ASEAN</div>
         <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: B.</strong> Koperasi berperan meningkatkan kesejahteraan anggota, menyediakan lapangan kerja, mendukung pemerataan ekonomi, dan memperkuat UKM.</div>
+        <div class="jawaban"><strong>Jawaban: B.</strong> MEA bertujuan mewujudkan integrasi ekonomi ASEAN dengan arus bebas barang, jasa, investasi, dan tenaga kerja.</div>
       </div>
 
       <div class="soal-item">
         <div class="nomor">Soal 12</div>
-        <div class="pertanyaan">Pemerintah menyediakan listrik melalui PLN. Ini mencerminkan peran pemerintah sebagai...</div>
-        <div class="pilihan">A. Regulator<br>B. Konsumen<br>C. Produsen<br>D. Distributor</div>
+        <div class="pertanyaan">Salah satu dampak negatif perdagangan internasional adalah...</div>
+        <div class="pilihan">A. Memperoleh devisa<br>B. Memperluas lapangan kerja<br>C. Industri lokal terancam<br>D. Meningkatkan kualitas produk</div>
         <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
-        <div class="jawaban"><strong>Jawaban: C.</strong> PLN adalah BUMN yang menyediakan jasa listrik bagi masyarakat, sehingga mencerminkan peran pemerintah sebagai produsen.</div>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Industri lokal dapat terancam karena kalah bersaing dengan barang impor yang lebih murah.</div>
       </div>
-    </section>
 
-    <!-- ===== PAGE 14: PROYEK ===== -->
-    <section class="page">
-      <div class="page-badge">📖 MATERI 14 dari 14</div>
-      <h2 class="page-title">Proyek / <span>Aktivitas Siswa</span></h2>
-      <p class="page-subtitle">Kerjakan salah satu proyek berikut untuk memperdalam pemahaman</p>
+      <div class="soal-item">
+        <div class="nomor">Soal 13</div>
+        <div class="pertanyaan">Kerja sama ekonomi antara Indonesia dengan Jepang merupakan contoh kerja sama...</div>
+        <div class="pilihan">A. Regional<br>B. Multilateral<br>C. Bilateral<br>D. Antarregional</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Bilateral adalah kerja sama antara dua negara, seperti Indonesia dengan Jepang.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 14</div>
+        <div class="pertanyaan">Jika kurs jual 1 USD = Rp 15.500 dan kamu menukar Rp 3.100.000 ke dolar AS, maka kamu akan mendapatkan...</div>
+        <div class="pilihan">A. 100 USD<br>B. 150 USD<br>C. 200 USD<br>D. 250 USD</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: C.</strong> Rp 3.100.000 ÷ Rp 15.500 = 200 USD.</div>
+      </div>
+
+      <div class="soal-item">
+        <div class="nomor">Soal 15</div>
+        <div class="pertanyaan">Peran Indonesia dalam G20 ditunjukkan dengan...</div>
+        <div class="pilihan">A. Menjadi pendiri G20<br>B. Menjadi tuan rumah KTT G20 Bali 2022<br>C. Menolak keanggotaan G20<br>D. Keluar dari G20</div>
+        <button class="toggle-btn" onclick="toggleJawaban(this)">Lihat Jawaban</button>
+        <div class="jawaban"><strong>Jawaban: B.</strong> Indonesia menjadi tuan rumah KTT G20 di Bali tahun 2022, menunjukkan peran aktif Indonesia di forum ekonomi global.</div>
+      </div>
+
+      <h3 style="margin-top:35px;">Proyek / Aktivitas Siswa</h3>
 
       <div class="proyek">
         <ol>
-          <li><strong>Amati lingkungan sekitarmu</strong> (rumah, sekolah, atau pasar). Catat <strong>minimal 10 contoh pelaku ekonomi</strong> yang kamu temukan, lalu isi tabel: nama pelaku, jenis pelaku, kegiatan, dan perannya.</li>
-          <li><strong>Buat diagram circular flow</strong> perekonomian 2, 3, dan 4 sektor di buku catatanmu. Beri keterangan setiap arus (barang/jasa & uang).</li>
-          <li><strong>Wawancarai</strong> seorang pelaku usaha (pedagang, pemilik warung, atau UMKM) di sekitarmu. Tanyakan: apa perannya sebagai produsen, bagaimana ia mendistribusikan produk, dan bagaimana ia memanfaatkan teknologi digital.</li>
-          <li><strong>Diskusi kelompok:</strong> Pilih salah satu topik — peran pemerintah dalam pembangunan infrastruktur, dampak perusahaan asing bagi ekonomi lokal, atau kontribusi UMKM terhadap perekonomian. Presentasikan hasilnya di depan kelas.</li>
-          <li><strong>Studi kasus digital:</strong> Amati satu toko online atau akun jualan di media sosial. Identifikasi siapa saja pelaku ekonomi yang terlibat (penjual, pembeli, jasa kirim, bank/e-wallet, pemerintah) dan jelaskan perannya masing-masing.</li>
-          <li><strong>Studi kasus koperasi:</strong> Kunjungi koperasi sekolah atau koperasi di lingkunganmu. Tanyakan: siapa anggotanya, apa produk yang ditawarkan, dan apa manfaat koperasi bagi anggotanya. Bandingkan dengan bank atau lembaga keuangan lainnya.</li>
+          <li><strong>Amati lingkungan sekitarmu</strong> (rumah, sekolah, atau pasar). Catat <strong>minimal 10 barang</strong> yang kamu gunakan, lalu identifikasi mana yang merupakan produk impor dan mana yang produk lokal. Buat tabelnya lengkap dengan negara asal dan alasan mengapa barang tersebut diimpor/diproduksi lokal.</li>
+          <li><strong>Buatlah diagram</strong> yang menunjukkan alur ekspor dan impor antara Indonesia dengan negara lain. Beri keterangan barang apa yang diekspor dan diimpor, serta nilai perkiraannya.</li>
+          <li><strong>Wawancarai</strong> seorang pedagang atau pelaku usaha di sekitarmu. Tanyakan: apakah mereka pernah menjual produk ke luar negeri (ekspor) atau membeli barang dari luar negeri (impor)? Bagaimana prosesnya? Apa tantangannya?</li>
+          <li><strong>Diskusi kelompok:</strong> Pilih salah satu topik — dampak barang impor bagi produk lokal, peran WTO bagi Indonesia, atau manfaat AFTA bagi negara ASEAN. Presentasikan hasilnya di depan kelas dengan menggunakan media visual.</li>
+          <li><strong>Studi kasus:</strong> Cari tahu 5 komoditas ekspor utama Indonesia dan 5 komoditas impor utama Indonesia. Jelaskan mengapa Indonesia mengekspor dan mengimpor barang tersebut. Sertakan data terbaru dari sumber terpercaya (BPS, Kementerian Perdagangan).</li>
+          <li><strong>Simulasi:</strong> Buatlah <em>role-play</em> di mana kamu berperan sebagai eksportir, importir, dan pemerintah. Diskusikan bagaimana kebijakan tarif memengaruhi keputusan mereka. Buat kesimpulan dari simulasi tersebut.</li>
+          <li><strong>Analisis teori:</strong> Pilih dua negara (misalnya Indonesia dan Jepang). Buat tabel perbandingan keunggulan masing-masing negara berdasarkan teori keunggulan mutlak dan komparatif. Simpulkan kerja sama apa yang paling menguntungkan kedua negara.</li>
+          <li><strong>Proyek kreatif:</strong> Buatlah poster atau infografis tentang "Peran Indonesia dalam Perdagangan Internasional". Kumpulkan minimal 5 fakta menarik dan sajikan dengan visual yang menarik.</li>
+          <li><strong>Refleksi tertulis:</strong> Tulislah esai singkat (300-500 kata) dengan tema "Bagaimana Perdagangan Internasional Memengaruhi Kehidupan Saya Sehari-hari". Sertakan contoh nyata dari pengalamanmu sendiri.</li>
         </ol>
       </div>
 
       <div class="highlight" style="text-align:center; margin-top:30px;">
-        🎉 <strong>Selamat!</strong> Kamu telah menyelesaikan seluruh materi Bab 5 — Peran Pelaku Ekonomi dalam Perekonomian.<br>
+        🎉 <strong>Selamat!</strong> Kamu telah menyelesaikan seluruh materi Bab 4 — Perdagangan Internasional.<br>
         Sekarang saatnya uji pemahamanmu dengan kuis!
       </div>
     </section>
@@ -1226,7 +2101,7 @@
 <!-- FOOTER NAV -->
 <div class="footer-nav">
   <button class="nav-prev" id="prevBtn" onclick="prev()">← Sebelumnya</button>
-  <span class="page-counter"><span id="currentNum">1</span> / 14</span>
+  <span class="page-counter"><span id="currentNum">1</span> / 18</span>
   <button class="nav-next" id="nextBtn" onclick="next()">Selanjutnya →</button>
 </div>
 
@@ -1256,11 +2131,9 @@ function goTo(index) {
   pages[currentPage].classList.add('active');
   navItems[currentPage].classList.add('active');
 
-  // Update progress
   progressFill.style.width = ((currentPage + 1) / totalPages * 100) + '%';
   currentNum.textContent = currentPage + 1;
 
-  // Update buttons
   prevBtn.disabled = currentPage === 0;
   if (currentPage === totalPages - 1) {
     nextBtn.textContent = '🎮 Mulai Kuis';
@@ -1268,7 +2141,6 @@ function goTo(index) {
     nextBtn.textContent = 'Selanjutnya →';
   }
 
-  // Scroll to top + tutup sidebar di mobile
   mainArea.scrollTop = 0;
   if (window.innerWidth <= 800) {
     sidebar.classList.remove('open');
@@ -1278,8 +2150,7 @@ function goTo(index) {
 
 function next() {
   if (currentPage === totalPages - 1) {
-    // ke halaman kuis
-    window.location.href = 'ekonomi-bab5-kuis.html';
+    window.location.href = 'ips-bab4-kuis.html';
     return;
   }
   goTo(currentPage + 1);
@@ -1305,16 +2176,13 @@ function toggleJawaban(btn) {
   }
 }
 
-// Keyboard navigation
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') next();
   if (e.key === 'ArrowLeft') prev();
 });
 
-// Init
 goTo(0);
 
-/* ========== LOADING SCREEN ========== */
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
   setTimeout(() => {
@@ -1323,7 +2191,6 @@ window.addEventListener('load', () => {
   }, 2200);
 });
 
-// Fallback
 setTimeout(() => {
   const loader = document.getElementById('loader');
   if (loader && !loader.classList.contains('hide')) {
